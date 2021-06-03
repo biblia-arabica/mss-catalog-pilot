@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../schemas/mss.rng" 
+schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="../schemas/mss.rng" 
+type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:id="ESum035" xml:lang="en" type="mss">
+      <teiHeader xml:base="https://betamasaheft.eu/">
+            <fileDesc>
+                  <titleStmt>
+                        <title>
+                              <!-- Title of this manuscript catalogue record, e.g., -->
+                              <!--Ya-ʿUrā Masqal dabdābbe, Land-charter of ʿUrā Masqal-->
+                        </title>
+                        <!-- Put initials of editors in @key below -->
+                        <editor role="cataloguer" key=""/>
+                        <editor role="encoder" key=""/>
+                        <editor role="generalEditor" key=""/>
+                  </titleStmt>
+                  <editionStmt>
+                        <p><!-- Information about the text below can go here, e.g. -->
+                              <!--The Edition of King Ṭanṭawǝdǝm’s land charter is part of the project
+                              HornEast <ref target="https://cordis.europa.eu/project/id/726206"
+                                    >https://cordis.europa.eu/project/id/726206</ref> that has
+                              received funding from the European Research Council (ERC) under the
+                              European Union’s Horizon 2020 research and innovation programme (Grant
+                              agreement No. 726206).-->
+                        </p>
+                  </editionStmt>
+                  <publicationStmt>
+                        <authority>
+                              <!-- Responsible person or agency, e.g., -->
+                              <!--Hiob-Ludolf-Zentrum für Äthiopistik-->
+                        </authority>
+                        <pubPlace><!-- Place this record is published. --></pubPlace>
+                        <publisher><!-- Publisher (e.g., project, institution, center) --></publisher>
+                        <availability>
+                              <licence target="http://creativecommons.org/licenses/by-sa/4.0/">
+                                    <p> This file is licensed under the Creative Commons
+                                          Attribution-ShareAlike 4.0. </p>
+                              </licence>
+                        </availability>
+                        <date>2016-06-07T17:47:42.093+02:00</date>
+                  </publicationStmt>
+                  <sourceDesc>
+                        <!-- Description of manuscript begins. -->
+                        <msDesc xml:id="ms">
+                              <!-- Own identifier/URI goes here as well as shelfmarks and 
+                              alternative identifiers like catalog numbers-->
+                              <msIdentifier>
+                                    <repository ref="INS0017UM"/>
+                                    <collection>Ethio-SPaRe</collection>
+                                    <!-- idno is the main identifier. @facs (optional) can be 
+                                    used to link this id to the facsimile. Not sure what @n 
+                                    does here. -->
+                                    <idno facs="UM/035/UM-035" n="14">UM-035</idno>
+                                    <altIdentifier>
+                                          <idno>C3-IV-83</idno>
+                                    </altIdentifier>
+                              </msIdentifier>
+                              <!-- If the manuscript consists of multiple parts (codicological units), 
+                                    each part would get a <msPart> here containing its own 
+                                    description of contents and physical description, etc. 
+                                    If the manuscript is composed of multiple fragments, each fragment
+                                    would be described within its own <msFrag> element. --> 
+                              <msContents>
+                                    <summary>
+                                          <!-- Human-readable, descriptive summary of 
+                                                the manuscript contents, e.g. -->                                          
+                                          <!--I) Ya-ʿUrā Masqal dabdābbe, Land-charter of ʿUrā Masqal
+                                          (fols. 1r-11v)-->
+                                    </summary>
+                                    <msItem xml:id="ms_i1">
+                                          <!-- Insert the folio numbers where the text begins and ends 
+                                                in @from and @to -->
+                                          <locus from="1r" to="11v"/>
+                                          <title>
+                                                <!-- Title of this text item, e.g., -->
+                                                <!--Ya-ʿUrā Masqal dabdābbe, Land-charter of ʿUrā
+                                                Masqal-->
+                                          </title>
+                                          <!-- If there is a text within a text (e.g., Genesis inside 
+                                          Pentateuch, another msItem can be nested inside it like this ... -->
+                                          <!--<msItem xml:id="">
+                                                <locus from="1r" to="11v"/>
+                                                <title></title>
+                                          </msItem>-->
+                                    </msItem>
+                              </msContents>
+                              <physDesc>
+                                    <!-- Object forms can be selected from a list, e.g., "Codex" --> 
+                                    <objectDesc form="Codex">
+                                          <supportDesc>
+                                                <support>
+                                                      <!-- Materials can be selected from a list, e.g., "parchment" -->
+                                                  <material key="parchment"/>
+                                                </support>
+                                                <!-- Extent can be partly prose description but it is 
+                                                      important that measurements be given in a standardized
+                                                      form like so -->
+                                                <extent>Made of <measure unit="leaf">11.0</measure>
+                                                  folios, in <measure unit="quire">2.0</measure>
+                                                  quires . <dimensions type="outer">
+                                                  <height unit="mm">120</height>
+                                                  <width unit="mm">95</width>
+                                                  <depth unit="mm">15</depth>
+                                                  </dimensions>
+                                                </extent>
+                                                <foliation>
+                                                      <!-- Description of the foliation system, e.g., -->
+                                                      <!--Foliated by the Ethio-SPaRe team-->
+                                                </foliation>
+                                                <collation>
+                                                      <!-- Quiring described here, e.g., 2 quires below -->
+                                                  <list>
+                                                      <item xml:id="q1">
+                                                          <dim unit="leaf">7</dim>
+                                                          <locus from="1r" to="7v"/>I(7/fols. 1r-7v; s.l.:
+                                                          1, no stub) <note>The structure of quire I can not
+                                                          be established with certainty due to the condition
+                                                          of the present Ms.</note>
+                                                      </item>
+                                                      <item xml:id="q2">
+                                                          <dim unit="leaf">4</dim>
+                                                          <locus from="8r" to="11v"/> II(4/fols.
+                                                          8r-11v).&#xD; &#xD; 
+                                                      </item>
+                                                  </list>
+                                                </collation>
+                                                <!-- Condition described here in prose. 
+                                                      @key can be selected from a list.  
+                                                      Other elements can be included here, such as links 
+                                                to specific places in the manuscript using <locus> -->
+                                                <condition key="deficient">The boards and the spine
+                                                  cover are missing.&#xD; The sewing is severely
+                                                  damaged.&#xD; The Ms. is slightly worn and loosely
+                                                  held together.&#xD; Text on <locus target="#4r"
+                                                  >4r</locus>, 7r, 8r, 10r, 11v is barely legible
+                                                  due to faded ink, esp. red.</condition>
+                                          </supportDesc>
+                                          <layoutDesc>
+                                                <!-- Number of columns and lines -->
+                                                <layout columns="1" writtenLines="16">
+                                                  <!-- Dimensions of text and margins -->
+                                                  <dimensions unit="mm">
+                                                      <height>87</height>
+                                                      <width>62</width>
+                                                      <dim type="intercolumn"/>
+                                                  </dimensions>
+                                                  <dimensions type="margin">
+                                                      <dim type="top">12</dim>
+                                                      <dim type="bottom">20</dim>
+                                                      <dim type="right">21</dim>
+                                                      <dim type="left">11</dim>
+                                                      <dim type="intercolumn"/>
+                                                  </dimensions>
+                                                  <note>All data for <locus target="#4r"
+                                                  >4r</locus>.</note>
+                                                <!-- Prose descriptions of ruling and pricking -->
+                                                  <ab type="ruling">From 13 to 18.</ab>
+                                                  <ab type="pricking">Ruling and pricking are
+                                                  visible. </ab>
+                                                  <ab type="ruling" subtype="pattern"> Ruling
+                                                  pattern: 1A-1A/0-0/0-0/C.</ab>
+                                                  <ab type="pricking"> Primary pricks are partly
+                                                  visible.</ab>
+                                                  <ab type="pricking"> Ruling pricks are partly
+                                                  visible.</ab>
+                                                  <ab type="ruling"> The upper line is written above
+                                                  the ruling.</ab>
+                                                  <ab type="ruling"> The bottom line is written
+                                                  above the ruling.</ab>
+                                                </layout>
+                                                <layout/>
+                                          </layoutDesc>
+                                    </objectDesc>
+                                    <handDesc>
+                                          <!-- Each <handNote> describes one of the scribal hands 
+                                                in the manuscript. These can be linked elsewhere 
+                                                to the different textual items. 
+                                                The list of scripts in @script needs to be adapted. -->
+                                          <handNote xml:id="h1" script="Ethiopic">
+                                                <!-- Prose descriptions of script, ink, and rubrication. -->
+                                                <seg type="script">mediocre</seg>
+                                                <seg type="ink">Black; red</seg>
+                                                <date>18th century (?)</date>
+                                                <seg type="rubrication">Divine names (Māryām,
+                                                  masqal); the place-name mǝdra Karan on fol. 7r;
+                                                  two lines in the incipit page; incipit of the
+                                                  sections; elements of the punctuation signs and
+                                                  Ethiopic numerals.</seg>
+                                          </handNote>
+                                    </handDesc>
+                                    <additions>
+                                          <list>
+                                                <!-- Each scribal addition can be listed here, 
+                                                      with its <locus> and @type -->
+                                                <item xml:id="e1"><locus target="#6r"
+                                                  >6r</locus><desc type="StampExlibris"
+                                                  ><idno>C3-IV-83</idno></desc></item>
+                                                <item xml:id="e2"><desc>The title ደብዳቤ፡ የመስቀል፡ is
+                                                  written in the lower margin on <locus
+                                                  target="#11v">fol. 11v</locus> with blue
+                                                  paint.</desc></item>
+                                                <!-- I would have thought the item below (e3) would be part
+                                                      of the handDesc? --> 
+                                                <item xml:id="e3"><desc>The scribe used compressed
+                                                  script: fols. 5v, 6r, 8r, 9v, 10r. </desc></item>
+                                                <item xml:id="e4"><desc>Omitted letters inserted
+                                                  interlineally: fols. 7r, 9v. </desc></item>
+                                                <item xml:id="e5"><desc>Corrections written
+                                                  interlineally in red ink: <locus target="#7r">fol.
+                                                  7r</locus>. </desc></item>
+                                                <item xml:id="e6"><desc>Erasures: <locus
+                                                  target="#2r">fol. 2r</locus>.</desc></item>
+                                          </list>
+                                    </additions>
+                                    <bindingDesc>
+                                          <!-- Multiple <binding>s could be listed if relevant. 
+                                                The @types and other aspects of the  binding description below 
+                                                should be adapted. -->
+                                          <binding contemporary="false">
+                                                <decoNote xml:id="b1">One pair of sewing
+                                                  stations.&#xD; Quire I is crudely held together by
+                                                  a modern thread.</decoNote>
+                                                <decoNote xml:id="b2" type="bindingMaterial"/>
+                                                <decoNote xml:id="b3" type="Endbands"/>
+                                                <decoNote xml:id="b4" type="Other">A small hole is
+                                                  visible on the spine fold of quire II, close to
+                                                  the head of the codex.</decoNote>
+                                          </binding>
+                                    </bindingDesc>
+                              </physDesc>
+                              <history>
+                                    <!-- Place and date of origin, preferably using
+                                    machine-readable values/identifiers. -->
+                                    <origin>
+                                          <origPlace>
+                                                <placeName ref="INS0017UM"/>
+                                          </origPlace>
+                                          <origDate notBefore="1700" notAfter="1750"/>
+                                    </origin>
+                              </history>
+                              <additional>
+                                    <!-- Bibliography and custodial information can go here. -->
+                                    <adminInfo>
+                                          <recordHist>
+                                                <source>
+                                                <!-- I'm commenting this out because it produces an error. -->
+                                                  <!--<listBibl type="catalogue">
+                                                  <bibl>
+                                                  <ptr target="bm:EthioSpare"/>
+                                                  </bibl>
+                                                  </listBibl>-->
+                                                </source>
+                                          </recordHist>
+                                          <custodialHist>
+                                                <custEvent type="restorations" subtype="modern"/>
+                                          </custodialHist>
+                                    </adminInfo>
+
+
+                              </additional>
+                        </msDesc>
+                  </sourceDesc>
+            </fileDesc>
+            <encodingDesc>
+                  <projectDesc>
+                        <p>Encoded according to TEI P5 Guidelines.</p>
+                  </projectDesc>
+                  <!-- A link to the documentation -->
+                  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                        href="https://raw.githubusercontent.com/BetaMasaheft/Documentation/master/prefixDef.xml">
+                        <xi:fallback>
+                              <p>Definitions of prefixes used.</p>
+                        </xi:fallback>
+                  </xi:include>
+            </encodingDesc>
+            <profileDesc>
+                  <!-- More metadata, e.g., --> 
+                  <!--<textClass>
+                        <keywords scheme="#ethioauthlist">
+                              <term key="LegalDocument"/>
+                        </keywords>
+                  </textClass>-->
+                  <langUsage>
+                        <language ident="en">English</language>
+                  </langUsage>
+            </profileDesc>
+            <revisionDesc>
+                  <!-- Changelog of who did what in this manuscript description, e.g., -->
+                  <change who="DN" when="2010-04-20">Ethio-SPaRe team photographed the
+                        manuscript</change>
+                  <!--<change who="DN" when="2014-08-27">catalogued</change>
+                  <change who="MV" when="2015-01-14">last edited</change>
+                  <change who="PL" when="2016-05-10">transformed from mycore to TEI P5</change>
+                  <change who="PL" when="2019-04-25">added missing extras from domlib</change>
+                  <change when="2020-12-21" who="ES">adjusted to schema</change>
+                  <change when="2021-05-27" who="PL">added transcription and facsimile from
+                        Transkribus. Layout and segmentation manually carried out by Giada Liuzzo.
+                        Initial HTR transcription using the Ethiopic – Classical Ethiopic scripts
+                        from Ethiopia and Eritrea
+                        (https://readcoop.eu/model/ethiopic-classical-ethiopic-scripts-from-ethiopia-and-eritrea
+                        ).</change>-->
+            </revisionDesc>
+      </teiHeader>
+      <facsimile xml:id="transkribusESum035">
+            <!-- If there is a digital facsimile of the text, metadata about it will go here. -->
+            <surface xmlns="http://www.tei-c.org/ns/1.0" xml:id="facs_1"/>
+      </facsimile>
+
+      <text xml:base="https://betamasaheft.eu/">
+            <body>
+                  <div type="edition" xml:id="Transkribus" subtype="transkribus">
+                        <!-- If there is a transcription of the text it will go here. -->
+                  </div>
+            </body>
+      </text>
+
+</TEI>
