@@ -216,7 +216,6 @@ xml:lang="en">
 
                 <!--          LISTS OF VALUES FOR ATTRIBUTES-->
                 <!--  adds value partly to del/@rend-->
-
                 <elementSpec ident="del" mode="change" module="core">
                     <attList>
                         <attDef ident="rend" mode="replace">
@@ -339,7 +338,11 @@ xml:lang="en">
                 </elementSpec>
 
                 <elementSpec ident="date" mode="change" module="header">
-                    
+                    <!--There are various attributes to make dates-machine-readable. Often two sets of dates are supplied: 
+                        one in the common era and one in the original calendar. For Hebrew, Islamic and other non-ISO calendars 
+                        att.datable.custom is the preferred attribute. (Dates given according to the pericope can be entered 
+                        using from-custom and to-custom
+                    For indexing manuscripts it may be advantageous to enter larger periods of time into the @period attribute-->
                     <content>
                         <alternate minOccurs="0" maxOccurs="unbounded">
                             <textNode/>
@@ -371,6 +374,23 @@ xml:lang="en">
                         </constraint>
                     </constraintSpec>
                     <attList>
+                        <attDef ident="calendar" usage="opt" mode="replace">
+                            <!--Added calendar-attribute. More relevant calendar-values?-->
+                            <valList type="closed">
+                                <valItem ident="hebrew">
+                                    <desc>Hebrew calendar</desc>
+                                </valItem>
+                                <valItem ident="alexander">
+                                    <desc>Era of Alexander of Macedon, year 1 = 319 BC</desc>
+                                </valItem>
+                                <valItem ident="islamic">
+                                    <desc>Islamic Era</desc>
+                                </valItem>
+                                <valItem ident="julian">
+                                    <desc>Julian calendar</desc>
+                                </valItem>
+                            </valList>
+                        </attDef>
                         <attDef ident="type" usage="opt" mode="change">
                             <datatype maxOccurs="3">
                                 <dataRef key="teidata.word"/>
@@ -558,32 +578,14 @@ xml:lang="en">
                     </constraintSpec>
                    </elementSpec>
 
-                <!--          controlled values for language usage-->
+                <!--controlled values for language usage-->
                 <elementSpec ident="language" mode="change" module="header">
                     <attList>
                         <attDef ident="ident" mode="replace" usage="opt">
                             <valList type="closed">
-                                <!--  modified  list of languages coming from myCore-->
-                                <valItem ident="am">
-                                    <desc>Amharic</desc>
-                                </valItem>
-                                <valItem ident="om">
-                                    <desc>Afaan Oromoo</desc>
-                                </valItem>
+                                <!--  modified  list of languages coming from Codicological DB templates MB-Docs-QiLT-->
                                 <valItem ident="ar">
                                     <desc>Arabic</desc>
-                                </valItem>
-                                <valItem ident="hy">
-                                    <desc>Armenian</desc>
-                                </valItem>
-                                <valItem ident="cop">
-                                    <desc>Coptic</desc>
-                                </valItem>
-                                <valItem ident="geo">
-                                    <desc>Georgian</desc>
-                                </valItem>
-                                <valItem ident="la">
-                                    <desc>Latin</desc>
                                 </valItem>
                                 <valItem ident="fr">
                                     <desc>French</desc>
@@ -591,65 +593,21 @@ xml:lang="en">
                                 <valItem ident="grc">
                                     <desc>Greek</desc>
                                 </valItem>
-                                <valItem ident="gez">
-                                    <desc>Gǝʿǝz</desc>
-                                </valItem>
                                 <valItem ident="he">
                                     <desc>Hebrew</desc>
-                                </valItem>
-                                <valItem ident="it">
-                                    <desc>Italian</desc>
                                 </valItem>
                                 <valItem ident="fa">
                                     <desc>Persian</desc>
                                 </valItem>
-                                <valItem ident="syr">
-                                    <desc>Syriac</desc>
-                                </valItem>
-                                <valItem ident="tu">
-                                    <desc>Turkish</desc>
-                                </valItem>
-                                <valItem ident="ti">
-                                    <desc>Tigrinya</desc>
-                                </valItem>
-                                <valItem ident="en">
-                                    <desc>English</desc>
-                                </valItem>
-                                <valItem ident="sv">
-                                    <desc>Swedish</desc>
-                                </valItem>
-                                <valItem ident="ru">
-                                    <desc>Russian</desc>
-                                </valItem>
-                                <valItem ident="de">
-                                    <desc>German</desc>
-                                </valItem>
                                 <valItem ident="es">
                                     <desc>Spanish</desc>
                                 </valItem>
-                                <valItem ident="pal">
-                                    <desc>Pahlavi</desc>
+                                <valItem ident="ji">
+                                    <desc>Yiddish</desc>
                                 </valItem>
-                                <valItem ident="gft">
-                                    <desc>Gāfāt</desc>
+                                <valItem ident="qa">
+                                    <desc>Qaraim</desc>
                                 </valItem>
-                                <valItem ident="awn">
-                                    <desc>Awngi</desc>
-                                </valItem>
-                                <valItem ident="pt">
-                                    <desc>Portuguese</desc>
-                                </valItem>
-                                <valItem ident="pl">
-                                    <desc>Polish</desc>
-                                </valItem>
-                                <valItem ident="cs">
-                                    <desc>Czech</desc>
-                                </valItem>
-                                <valItem ident="el"><desc>Modern Greek</desc></valItem>
-                                <valItem ident="nl"><desc>Dutch</desc></valItem>
-                                <valItem ident="ji"><desc>Yiddish</desc></valItem>
-                                <valItem ident="rmo"><desc>Sinte Romani</desc></valItem>
-                                <valItem ident="cu"><desc>Church Slavic</desc></valItem>
                             </valList>
                         </attDef>
 
@@ -819,7 +777,23 @@ xml:lang="en">
 
                         </attDef>
                         <attDef ident="type" mode="replace" usage="opt">
+                            <!--Added values according to GoogleDoc-file. As it is now, the list may be confusing to editors. Which values can be excised?-->
                             <valList type="closed">
+                                <valItem ident="altMain">
+                                    <desc>Alternative version of main title.</desc>
+                                </valItem>
+                                <valItem ident="secondary">
+                                    <desc>A secondary title.</desc>
+                                </valItem>
+                                <valItem ident="altSecondary">
+                                    <desc>Alternative version of secondary title.</desc>
+                                </valItem>
+                                <valItem ident="tertiary">
+                                    <desc>A tertiary title.</desc>
+                                </valItem>
+                                <valItem ident="altTertiary">
+                                    <desc>Alternative version of tertiary title.</desc>
+                                </valItem>
                                 <valItem ident="complete">
                                     <desc>the work is contained completely in the manuscript</desc>
                                 </valItem>
@@ -1000,11 +974,10 @@ xml:lang="en">
                                 <dataRef key="teidata.word"/>
                             </datatype>
                             <valList type="closed">
-
+                                <!--Slightly modified the values.-->
                                 <valItem ident="Christianity">
                                     <desc>Unspecified Christian</desc>
                                 </valItem>
-
                                 <valItem ident="Anglican">
                                     <desc>Christian Anglican, belonging to the Anglican Church after
                                         the reformation</desc>
@@ -1021,11 +994,6 @@ xml:lang="en">
                                     <desc>Christian Orthodox, belonging to a pre-Chalcedonian Church
                                         or an Orthodox church after 1054</desc>
                                 </valItem>
-
-                                <valItem ident="EOTC">
-                                    <desc>Christian Orthodox, belonging to the Ethiopian Orthodox
-                                        Tewahedo Church</desc>
-                                </valItem>
                                 <valItem ident="Greek">
                                     <desc>Greek Orthodox Christian</desc>
                                 </valItem>
@@ -1041,7 +1009,6 @@ xml:lang="en">
                                 <valItem ident="Syriac">
                                     <desc>Christian Syriac Orthodox ("Jacobite")</desc>
                                 </valItem>
-
                                 <valItem ident="Islam">
                                     <desc>Unspecified Islam</desc>
                                 </valItem>
@@ -1051,25 +1018,14 @@ xml:lang="en">
                                 <valItem ident="Shia">
                                     <desc>Shia Islam</desc>
                                 </valItem>
-
                                 <valItem ident="Judaism">
                                     <desc>Unspecified Judaism</desc>
                                 </valItem>
-
-                                <valItem ident="Oromo">
-                                    <desc>Traditional Oromo belief system</desc>
+                                <valItem ident="Rabbinic">
+                                    <desc>Rabbinic Judaism</desc>
                                 </valItem>
-                                <valItem ident="Gurage">
-                                    <desc>Traditional Gurage belief system</desc>
-                                </valItem>
-                                <valItem ident="Traditional">
-                                    <desc>Traditional non-Christian or Muslim belief system</desc>
-                                </valItem>
-                                <valItem ident="Ethiopian">
-                                    <desc>Traditional Ethiopian belief system</desc>
-                                </valItem>
-                                <valItem ident="Aksumite">
-                                    <desc/>
+                                <valItem ident="Qaraite">
+                                    <desc>Qaraite Judaism</desc>
                                 </valItem>
                                 <valItem ident="notSpecified"/>
                             </valList>
@@ -1287,6 +1243,7 @@ xml:lang="en">
                     <attList>
                         <attDef ident="type" mode="replace" usage="opt">
                             <valList type="closed">
+                                <!--Does this list of values match our purposes?-->
                                 <valItem ident="DonationNote">
                                 </valItem>
                                 <valItem ident="OwnershipNote">
@@ -1455,8 +1412,7 @@ xml:lang="en">
                     <attList>
                         <attDef ident="type" mode="replace" usage="opt">
                             <valList type="open">
-
-                                <!--                          list coming from myCore-->
+                                <!--Unsure about the last four values-->
                                 <valItem ident="history"/>
                                 <valItem ident="description"/>
                                 <valItem ident="appellation"/>
@@ -1980,8 +1936,12 @@ xml:lang="en">
                         </constraint>
                     </constraintSpec>
                     <attList>
+                        <!--ADD attribute "scope" to indicate if this is the main hand or a minor hand in the overall manuscript-->
+                        <!-- Other paleagraphic could also be made machine-readable with bespoke-attributes. e.g. vocalization, letter-pointing-->
                         <attDef ident="xml:id" mode="change" usage="req"/>
-                        <attDef ident="execution" mode="add">
+                        <!--Where possible I'd like to stick to the standard-TEI elements. The same granularity for describing 
+                        script can be achieved with descriptive script attribute values.-->
+                        <!--<attDef ident="execution" mode="add">
                             <desc>Specifies the execution of the script according to a widely-used schema, where applicable. 
                                 The default value is assumed to be libraria. Note: This is a customization which is not
                                 currently part of the TEI P5 standard.</desc>
@@ -1998,91 +1958,34 @@ xml:lang="en">
                                 <valItem ident="currens">
                                     <desc>Execution is informal.</desc>
                                 </valItem>
-                                
                             </valList>
-                        </attDef>
+                        </attDef>-->
                         <attDef ident="script" mode="replace" usage="req">
                             <valList mode="replace" type="semi">
 <!--FIRHIST list-->
-                                <valItem ident="capitalsSquare">
-                                    <desc>The script of the hand is square capitals</desc>
+                                <!--If we adopt Olszowy-Schlangers taxonomy for describing script, 
+                                I suggest that the values clearly reflect each of the features 
+                                she describes in her Check List. The following is only an example 
+                                that can be applied to other geocultural regions. The Syriaca-project 
+                                uses a similar taxonomy.-->
+                                <valItem ident="s-call-Or">
+                                    <desc>square-calligraphic Oriental</desc>
                                 </valItem>
-                                <valItem ident="capitalsRustic">
-                                    <desc>The script of the hand is rustic capitals</desc>
+                                <valItem ident="s-in-Or">
+                                    <desc>square-informal Oriental</desc>
                                 </valItem>
-                                <valItem ident="uncial">
-                                    <desc>The script of the hand is uncial</desc>
+                                <valItem ident="d-call-Or">
+                                    <desc>documentary-calligraphic Oriental</desc>
                                 </valItem>
-                                
-                                <valItem ident="halfUncial">
-                                    <desc>The script of the hand is half uncial</desc>
+                                <valItem ident="d-in-Or">
+                                    <desc>documentary-informal Oriental</desc>
                                 </valItem>
-                                <valItem ident="minusculeInsular">
-                                    <desc>The script of the hand is insular minuscule</desc>
+                                <valItem ident="b-call-Or">
+                                    <desc>bookhand-calligraphic Oriental</desc>
                                 </valItem>
-                                <valItem ident="minusculeVernacular">
-                                    <desc>The script of the hand is English vernacular minuscule ('Anglo-Saxon minuscule')</desc>
+                                <valItem ident="b-in-Or">
+                                    <desc>bookhand-informal Oriental</desc>
                                 </valItem>
-                                <valItem ident="minusculeCaroline">
-                                    <desc>The script of the hand is Caroline minuscule (English and continental variants of the script)</desc>
-                                </valItem>
-                                
-                                <valItem ident="minuscule">
-                                    <desc>The script of the hand is an unspecifiec minuscule (not Caroline, insular, or English vernacular)</desc>
-                                </valItem>
-                                <valItem ident="protogothic">
-                                    <desc>The script of the hand is protogothic (Romanesque, praegothica)</desc>
-                                </valItem>
-                                <valItem ident="textualisNorthern">
-                                    <desc>The script of the hand is Northern textualis</desc>
-                                </valItem>
-                                
-                                <valItem ident="textualisSouthern">
-                                    <desc>The script of the hand is Southern textualis</desc>
-                                </valItem>
-                                <valItem ident="semitextualis">
-                                    <desc>The script of the hand is semi textualis</desc>
-                                </valItem>
-                                <valItem ident="cursivaAntiquior">
-                                    <desc>The script of the hand is cursiva antiquior (anglicana, 'Ältere gotische Kursive')</desc>
-                                </valItem>
-                                <valItem ident="cursiva">
-                                    <desc>The script of the hand is cursiva (‘cancelleresca’, ‘bastarda’, ‘lettre
-                                        batarde’, ‘secretary’, etc.)</desc>
-                                </valItem>
-                                <valItem ident="hybrida">
-                                    <desc>The script of the hand is cursiva (‘semihybrida’, ‘loopless bastarda’,
-                                        ‘fractura’, ‘mercantesca’, etc.)</desc>
-                                </valItem>
-                                <valItem ident="gothicoAntiqua">
-                                    <desc>The script of the hand is gothico-antiqua (‘fere-humanistica’,
-                                        ‘gothico-humanistica’)</desc>
-                                </valItem>
-                                <valItem ident="humanistica">
-                                    <desc>The script of the hand is humanistic (unspecified)</desc>
-                                </valItem>
-                                <valItem ident="humanisticaTextualis">
-                                    <desc>The script of the hand is humanistic textualis (unspecified)</desc>
-                                </valItem>
-                                <valItem ident="humanisticaSemitextualis">
-                                    <desc>The script of the hand is humanistic semitextualis</desc>
-                                </valItem>
-                                <valItem ident="humanisticaCursiva">
-                                    <desc>The script of the hand is humanistic cursive</desc>
-                                </valItem>
-                                
-                                <!--                          list coming from myCore-->
-                                <valItem ident="Arabic"/>
-                                <valItem ident="Cyrillic"/>
-                                <valItem ident="Ethiopic"/>
-                                <valItem ident="Georgian"/>
-                                <valItem ident="Latin"/>
-                                <valItem ident="other"/>
-                                <valItem ident="Syriac"/>
-                                <valItem ident="Coptic"/>
-                                <valItem ident="Greek"/>
-                                <valItem ident="Sabaean"/>
-                                <valItem ident="Sudarabic"/>
                             </valList>
                         </attDef>
                     </attList>
