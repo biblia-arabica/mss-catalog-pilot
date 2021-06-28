@@ -186,6 +186,101 @@ xml:lang="en">
                     except="activity channel constitution derivation domain factuality interaction locale
                                          preparedness purpose setting textDesc"/>
 
+
+<!--The following is handled by the "history" element and its child elements: "origin", "provenance" and "acquisition":
+HISTORY OF THE MANUSCRIPT
+• Date of transcription/copying (→ Dates and dating): indicate if the date
+given in a calendar other than Muslim (→ Chronology and calendars),
+if given in an unconventional way, e.g. in fractions, → chronograms and
+chronosticons, etc.; estimate the date, if not given; use the terminus post
+quem and terminus ante quem to establish the approximate date.
+• Mode of → transcription (indicate the original term(s), e.g. naskh, raqm,
+taḥrīr, etc.).
+• Place of transcription (if given) (→ Towns and localities).
+• Name(s) of scribe(s)/calligrapher(s) (→ Scribes and copyists)/illuminator(s),
+painter(s), etc.: indicate if penned by the author of the work, a famous
+scholar or calligrapher; if the name of the scribe/copyist not given, note
+the anonymous nature of the copy.
+• Destination (for whom copied): give the patron’s name, and indicate the
+locus of the statement, e.g. → title page, → colophon (→ Patronage).
+• Other former owners/users: enumerate and indicate the loci of → ownership
+statements, → seal impressions, → study and reading notes, →
+bequest statements, → book prices, → book loan statements, etc.
+TRANSMISSION OF THE TEXT
+• → Primitive critical apparatus: indicate the existence of → collation statements
+and marks, information on the exemplar/model, marginal → glosses
+and scholia, and glosses on insets, along with the names of collators and
+glossators, if given; note the types of → scribal errors, → signes-de-renvoi
+or correction marks used.
+• → Certificates of transmission: indicate the type, number and locus of the
+certificate(s), name of the person granting the certificate, as well as the
+name of the recipient(s) and the date(s).-->
+
+<!--Inscriptions contained in the manuscript may be tagged with "quote" and the "type" attribute.
+Values: 
+Colophon (free-text box) 
+Patronage (free-text box)
+Certificates of transmission (free-text box)
+Certificates of endowment (free-text box)	
+Bequest statements (free-text box)
+Ownership statements (free-text box) 
+Contract – Sale (free-text box) 
+Contract – Donation (free-text box)
+Contract - Personal status (free-text box)
+Contract of employment of a scribe (free-text box)
+Ex libris (free-text box)
+Inventory (free-text box)
+Book list (free-text box)
+Family genealogy (free-text box)
+Note (free-text box)
+Proofreading note (free-text box)
+Ijāza (free-text box)
+Transmission note (free-text box)
+Reader’s formula (free-text box)
+Signatures (free-text box) 
+Stamps (free-text box) 
+Talismanic inscriptions (free-text box)
+Magic squares
+Magic letters
+Solomon seal
+Kabīkaj
+Geomantic figures 
+Observations (free-text box)
+
+Table of contents (free-text box)
+Title page (free-text box)	
+Frontispiece (free-text box)	
+Tailpiece (free-text box)	
+Primitive critical apparatus
+Marginal glosses (free-text box)
+Interlineations (free-text box)
+Collation statements (free-text box)
+Other (free-text box)
+Pen trials (free-text box)
+
+Sums (free-text box)
+Coins (free-text box)
+Institutions (free-text box)
+Book titles (free-text box)
+Book descriptions (free-text box)
+Other (free-text box)
+
+
+The names of the people involved in the manuscript's history may be tagged using the "name" tag, their
+function can be described using the "role" attribute.
+Values:
+Scribe (free-text box)
+Masorete (free-text box)
+Owner (free-text box)
+Entrepreneur (free-text box)
+Buyer (free-text box)
+Seller (free-text box)
+Witness (free-text box)
+Judge (free-text box)
+Name of places (free-text box)
+-->
+
+
                 <!--allows listRelation everywhere-->
                 <elementSpec ident="listRelation" mode="change" module="namesdates">
                     <classes>
@@ -239,6 +334,8 @@ xml:lang="en">
                         </attDef>
                     </attList>
                 </elementSpec>
+
+<!--Features like Endbands, spine, sewing, sewing stations et. al. are handled by the child element "decoNote"-->
 
                 <elementSpec ident="binding" mode="change" module="msdescription">
                    <attList>
@@ -423,7 +520,7 @@ xml:lang="en">
                 </elementSpec>
 
                 <elementSpec ident="personGrp" mode="change" module="namesdates">
-                    
+                    <!--Is this relevant to us? What would be the values?-->
                     <attList>
                         <attDef ident="role" mode="change">
                             <valList type="open">
@@ -541,11 +638,18 @@ xml:lang="en">
                     </attList>
                 </elementSpec>
 
+<!--Notes on presence of palimpsest to "condition"-->
+
                 <!--          controlled values for condition-->
                 <elementSpec ident="condition" mode="change" module="msdescription">
                     <attList>
                         <attDef ident="key" mode="replace" usage="req">
                             <valList type="closed">
+                                
+                                <!--Additional values:
+                                -	Part of codex
+                                -	Fragment of a leaf/sheet
+                                -->
                                 <valItem ident="deficient">
                                     <desc>The manuscript is badly preserved and severely
                                         damaged.</desc>
@@ -607,6 +711,9 @@ xml:lang="en">
                                 </valItem>
                                 <valItem ident="qa">
                                     <desc>Qaraim</desc>
+                                </valItem>
+                                <valItem ident="syr">
+                                    <desc>Syriac</desc>
                                 </valItem>
                             </valList>
                         </attDef>
@@ -728,6 +835,29 @@ xml:lang="en">
                    
                 </elementSpec>
 
+<!--Text genre may be stated in the "class"-attribute of "title". It is good practice to define such terms in "classDecl/taxonomy"
+values:
+
+-	Bible
+-	Bible Commentary
+-	Mishna
+-	Mishna Commentary
+-	Talmud
+-	Talmud Commentary
+-	Halakha (books of precepts, responsa, minhagim, decisions)
+-	Midrash
+-	Liturgy
+-	Kabbala and Mysticism
+-	Philosophy
+-	Science
+-	Medicine
+-	Linguistic Thought
+-	Belles-Lettres
+-	Poetry
+-	Magic and Divination
+-	Other--> 
+
+
                 <!--          suggest use in title of type complete, incomplete, normalized or alternative-->
                 <elementSpec ident="title" mode="change" module="core">
                 
@@ -777,7 +907,8 @@ xml:lang="en">
 
                         </attDef>
                         <attDef ident="type" mode="replace" usage="opt">
-                            <!--Added values according to GoogleDoc-file. As it is now, the list may be confusing to editors. Which values can be excised?-->
+                            <!--Added values according to GoogleDoc-file. 
+                                At this length, the list may be confusing to the editors. Which values can be excised?-->
                             <valList type="closed">
                                 <valItem ident="altMain">
                                     <desc>Alternative version of main title.</desc>
@@ -965,7 +1096,7 @@ xml:lang="en">
                         </attDef>
                     </attList>
                 </elementSpec>
-
+                <!--must be overhauled; ‘denomination’ instead of ‘faith’-->
                 <!--          specifies values for faith element, limiting number of values to 2 for "further specification"-->
                 <elementSpec ident="faith" mode="change" module="namesdates">
                    <attList>
@@ -1485,7 +1616,17 @@ xml:lang="en">
                         </attDef>
                     </attList>
                 </elementSpec>
-
+                
+                <!--The Word file suggests that the *existence* of certain features should be *indicated*. Do we need to tag this or is prose text fine? (→ title piece, → frontispiece, → incipit page, → headpieces, → tailpieces, → finispieces, and describe the shape of the piece(s) in question, e.g. rectangular, circular, lozenge-shaped, etc.)
+                • ADD type-values for  Textual decorations: chapter- and verse-dividers (→ Textual dividers and paragraph marks), rosettes, discs, → cloudbands, diagrams, micrography, initials
+                • ADD type-values for Marginal decorations: indicate the existence of → palmettes, → vignettes,
+                → roundels (medallions), etc.
+                ADD type-values for other decorations: Historiated, Rule-borders and frames, Panels
+                • Tag or Prose? Colours (→ Coloured inks and paints): comment on the choice of colours, e.g. lapis lazuli predominates; generous use of black or brick-red colours.
+                • Tag or Prose? → Rule-borders and frames: indicate whether single-, double- or treblerule or frame.
+                • Tag or Prose? Decorated → borders: describe the main motif, e.g. arabesque.
+                • Illustrations (miniature painting): indicate the number of illustrations and their location in the codex and give a short description of each, if possible.-->
+                
                 <!--          suggest values for decoNote/@type-->
                 <elementSpec ident="decoNote" mode="change" module="msdescription">
                      <constraintSpec scheme="isoschematron" ident="decoNote">
@@ -1530,6 +1671,7 @@ xml:lang="en">
                         <attDef ident="xml:id" mode="change" usage="req"/>
                         <attDef ident="color" mode="add" usage="opt"/>
                         <attDef ident="pastedown" mode="add" usage="opt">
+                            <!--Is this relevant to us?-->
                             <datatype maxOccurs="3">
                                 <dataRef key="teidata.word"/>
                             </datatype>
@@ -1856,8 +1998,10 @@ xml:lang="en">
                         <attDef ident="xml:id" mode="change" usage="req"/>
                     </attList>
                 </elementSpec>
-
+                
                 <elementSpec ident="msItem" mode="change" module="msdescription">
+                <!--Date and place of original composition with relevant reference(s) and date 
+                conversion will be part of the authority file-->
                     <constraintSpec scheme="isoschematron" ident="msItem">
                         <constraint>
                             <sch:rule context="tei:msItem">
@@ -1922,7 +2066,163 @@ xml:lang="en">
                             </attDef>
                     </attList>
                 </elementSpec>
+                
+                <!--What follows is a list of possible new child elements (and attributes) to "handNote" as I understood them from the commentaries.
+                To me it seems that most of them are straightforward in that they consist of the element itself + an attribute.-->
+                
+                <!--The exception is this:
+                ADD NEW ELEMENT for Dimension and proportion of letters: 
+                This propososed element would contain its own child elements:
+                (ir)regularity, size, width, ascenders/descenders, ligatures -->
+                
+                <!-- The second exception I identified is describing the Density of text and spacing.
+                    Here, I propose a "densDesc" element that contains all the observations that together
+                    make up the overall assesment of this feature.
+                    My feeling is that the following features should be child elements, but if we consider 
+                    them as equally interesting they could work as attributes to a general "density" element:
+                    overall, between lines, between words, between letters in a word--> 
+                
+                <!--ADD NEW ELEMENT "state" as child element to "handNote"
+                values: 
+                
+                -	Visible
+                -	Illegible
+                -	Erased
+                Observations (free-text box) instead of “State of writing note”:
+                -->
+                
+                
+                <!--ADD NEW ELEMENT "vocalization" as childelement of "handNote"
+                type-values: 
+                Tiberian: tiberian
+                Extended Tiberian: extTiberian
+                Babylonian: babylonian
+                Palestinian: palestinian
+                Arabic: arabic
+                Hybrid: hybrid
+                
+                scope-values:
+                
+                -	No vowels or accents (I'm against values that signify absence, as they take up space and time. Don't add the element that should be enough to get the message) 
+                -	Complete
+                -	Sporadic
+                -	Mixed
 
+                Or should this rather be an attribute of "handNote"?
+                -->
+                
+              <!--  Add element for Special graphic signs?
+                -	attribute  for Name of God
+                values:
+                -	tetragrammaton
+                -	2 yods
+                -	3 yods
+                -	4 yods
+                -	Yods with symbols/abbreviation signs
+                -	Variant of elohim 
+                
+                -	attribute Abbreviations
+                values:
+                -	Short oblique line
+                -	Dots above letters
+                -	Broken letters
+                -	Lines or symbols above letters
+                
+                -	attribute Special signs for vernacular words in Hebrew letters (this would have to be filled in freely – own element or is prose sufficient?)
+                
+                -	attribute Judeo-Arabic diacritics 
+                values:
+                -	Single dot (free-text box)
+                -	Double dots (free-text box)
+                -	Flat line (free-text box)
+                -	Single accent (free-text box)
+                -	Double accent (free-text box)-->
+                
+               <!-- ADD element or attribute for Glosses? 
+                values:
+                -	Marginal
+                -	Interlineal
+                -	Signes-de-renvoi-->
+                
+                
+                <!--One comment called for an element dedicated to personal/idiosyncratic 
+                    features of script as childelement of "handNote"
+                type-values: "naskh with elements of →
+                nastaʿlīq, naskh/nastaʿlīq, Iranian naskh influenced by → shikastah" "subconscious movements;
+                shape and relative position of diacritical points; under- & overlining; cancelling characters / symbols"-->
+                
+                <!--ADD NEW ATTRIBUTE "ductus" to element "handNote"
+                type-values: 
+                connectivity, 
+                ‘abusive’ ligatures-->
+                
+                <!--ADD NEW ELEMENT for characteristic letterforms as child element of "handNote"
+                type-values: ???-->
+                
+                <!--ADD NEW ELEMENT for head-serifs as child element of "handNote"
+                type-values: ???-->
+                
+                <!--ADD NEW ELEMENT for Letter-pointing as child element of "handNote"
+                type-values: ???-->
+                
+                <!--ADD NEW ELEMENT "space" (Arrangement and use of space)-->
+                
+                <!--ADD NEW ELEMENT "slanting" (Axes of letters)
+                type-values: parallelism, orientation, inhomogeneity, homogeneity-->
+                
+                <!--ADD NEW ELEMENT "line" Line of writing 
+                type-values: baseline, upper/lower line: (in)stability; general direction, (in)homogeneity -->
+                
+                <!--ADD NEW ELEMENT "pencilPressure" -->
+                
+                <!--ADD NEW ELEMENT "regularity"--> 
+                
+                <!--ADD NEW ELEMENT "grading" (grading of pressure (shading))-->
+                
+                <!--ADD NEW ELEMENT for sharpness/fuzziness of strokes; -->
+                
+                <!--ADD NEW ELEMENT for finale letters -->
+                
+                <!--ADD NEW ELEMENT "rhythm" (Rhythm and speed of writing)--> 
+                
+                <!--ADD NEW ELEMENT "morphology" (Morphology: closeness/discrepancy between stereotype models and a scribe’s individuality)-->
+                
+                <!--ADD NEW ELEMENT for Signature, paratextual notes-->
+                
+                <!-- One comment called for an element dedicated to rubrication. TEI intends 
+                    such features to be handled by the "decoNote" element, which is not contained by "handNote".
+                The descriptions pertaining to a specific hand can be linked using the key-attributes.
+                However, if this is not satisfactory, we can add a new element.-->
+                
+               <!-- The "handNote" element also has the "medium" attribute which we can use to encode the ink.
+                values:
+                -	Brown (iron-gall)
+                -	Black (carbon based)
+                -	Pigments (free-text box)
+                -	Mixed ink (iron gall + carbon)
+                -	Plant based ink
+                -	Unidentified
+                -->
+                
+                <!--How to deal with the identification of the scribe? Dedicated element or attribute?
+                The Word file lists the following scenarios:
+                
+                -	Scribe named in the document
+                -	Scribe identified by handwriting
+                -	Scribe non identified
+                -	Autograph 
+                
+                The same goes for Type of naming in the document: (multiple choice)
+                -	Full name
+                -	Acrostic
+                -	Acrostic from bottom to top
+                -	Pairs of letters
+                -	Differentiated letters
+                -	Gematria/atbash-->
+                
+                <!--The word file suggests that invocations are a case for the description of the script/scribe.
+                To me, they seem better taken care off in the "origin" element.-->
+                
                 <!--          controlled values for SCRIPT-->
                 <elementSpec ident="handNote" mode="change" module="msdescription">
                     <constraintSpec scheme="isoschematron" ident="handNote">
@@ -1936,8 +2236,7 @@ xml:lang="en">
                         </constraint>
                     </constraintSpec>
                     <attList>
-                        <!--ADD attribute "scope" to indicate if this is the main hand or a minor hand in the overall manuscript-->
-                        <!-- Other paleagraphic could also be made machine-readable with bespoke-attributes. e.g. vocalization, letter-pointing-->
+                        <!--USE the attribute "scope" to indicate if this is the main hand or a minor hand in the overall manuscript-->
                         <attDef ident="xml:id" mode="change" usage="req"/>
                         <!--Where possible I'd like to stick to the standard-TEI elements. The same granularity for describing 
                         script can be achieved with descriptive script attribute values.-->
@@ -1963,11 +2262,13 @@ xml:lang="en">
                         <attDef ident="script" mode="replace" usage="req">
                             <valList mode="replace" type="semi">
 <!--FIRHIST list-->
-                                <!--If we adopt Olszowy-Schlangers taxonomy for describing script, 
+                                <!--If we adopt Olszowy-Schlanger's taxonomy for describing script, 
                                 I suggest that the values clearly reflect each of the features 
                                 she describes in her Check List. The following is only an example 
                                 that can be applied to other geocultural regions. The Syriaca-project 
-                                uses a similar taxonomy.-->
+                                uses a similar taxonomy. It would be good practice to follow the 
+                                example of Syriaca and explain the identifiers in  profileDesc/langUsage/lang
+                                -->
                                 <valItem ident="s-call-Or">
                                     <desc>square-calligraphic Oriental</desc>
                                 </valItem>
@@ -1990,7 +2291,9 @@ xml:lang="en">
                         </attDef>
                     </attList>
                 </elementSpec>
-
+                
+<!--To tag specific components of names modify the "type" attribute of the "addName" element
+type values: kunya, ism, nasab, nisba, etc. -->
         
                 <!--          recomend @corresp in persName and test that is always there in mss and work-->
                 <elementSpec ident="persName" mode="change" module="namesdates">
@@ -2060,13 +2363,13 @@ xml:lang="en">
                                 <valItem ident="regnal">
                                     <desc>name given on coronation (kings and queens but also
                                         patriarchs)</desc>
-                                </valItem>
+                                </valItem><!--
                                 <valItem ident="monastic">
                                     <desc>name given on entering monastic life </desc>
                                 </valItem>
                                 <valItem ident="horse">
                                     <desc>the name of the battle horse of kings and rulers</desc>
-                                </valItem>
+                                </valItem>-->
                                 <valItem ident="nick">
                                     <desc>a name given to a person associated to his occupation or
                                         other deeds</desc>
@@ -2085,10 +2388,6 @@ xml:lang="en">
                                 </valItem>
                                 <valItem ident="alt">
                                     <desc>alternative name</desc>
-                                </valItem>
-
-                                <valItem ident="tabot">
-                                    <desc>the saint to whom the tābot is dedicated</desc>
                                 </valItem>
                             </valList>
                         </attDef>
@@ -2295,11 +2594,29 @@ xml:lang="en">
 
                 <!--          controlled values for material-->
                 <elementSpec ident="material" mode="change" module="msdescription">
+                    
+                    <!-- To encode paper Europea, Arabia, Persia, Indian USE "origPlace" as child element-->
+                    
+                    <!-- To encode watermarks USE "watermark" as child element-->
+                    
+                    ADD element for laid lines + attributes "type" (Horizontal, Vertical, Curved, Straight), 
+                    "number" (per centimeter), "width" of 20 laid lines, "depth" (thickness)
+                    
+                    
+                    <!--ADD element for chain lines, + attribute "lines" to indicate groups-->
+                    
+                    <!--To encode width of chain-lines USE "dimension/width" as child elements-->
+                    
+                    <!--Parchment: describe the characteristics of hair and flesh sides, whether
+                    concave/convex, smooth/rough, creamy-white, ink peeling off, tinted, etc.-->
+                    
+                    <!--Encode colour and translucency? Values?-->
+                    
                       <attList>
                         <attDef ident="key" mode="replace" usage="req">
                             <valList type="closed">
 
-                                <!--                          list coming from myCore-->
+                                <!-- ADDITIONAL values: mixed-->
                                 <valItem ident="wood"/>
                                 <valItem ident="papyrus"/>
                                 <valItem ident="cardboard"/>
@@ -2385,12 +2702,12 @@ xml:lang="en">
                                     <desc>manuscript format consisting of one continuous flow of
                                         writing material rolled up, generally around one or two
                                         wooden cylindrical supports.</desc>
-                                </valItem>
+                                </valItem><!--
                                 <valItem ident="Leporello">
                                     <desc>manuscript format consisting of one leaf assembled in a
                                         multiple zig-zag folding, resembling an accordion, and
-                                        generally enclosed between two hard boards.</desc>
-                                </valItem>
+                                        generally enclosed between two hard boards.</desc>-->
+                                <!--</valItem>-->
                                 <valItem ident="Leaf">
                                     <desc>manuscript format consisting of one single unbound
                                         sheet.</desc>
@@ -3432,6 +3749,8 @@ xml:lang="en">
                                 <valItem ident="colophon">
                                     <desc>colophon of a work (not of a manuscript) that is systematically transmitted (copied) with the text</desc>
                                 </valItem>
+                                <!--The colophon of a manuscript may either be in the "colophon" element which is part of "msItem".
+                                Alternatively, it may be encoded in the "origin" element as a "quote" element using a suitable "type" attribute".-->
                                 <valItem ident="list">
                                     <desc>a number of connected items or names written consecutively, either one after the other or one below the other</desc>
                                 </valItem>
@@ -3728,6 +4047,28 @@ locus is used to point to values of these elements in the teiHeader.
                 </elementSpec>
                 
                 <elementSpec ident="collation" module="msdescription" mode="change">
+                    
+                    <!--no. of leafs in quires or possibly formula tagged with "formula" child element-->
+                        
+                    <!--"collation" ALSO contains description of "catchwords" in the respective element
+                    The Word-document provides a list of variations. Should they be encoded?
+                    -	No marking
+                    -	Catchwords at the end of quires, position (free-text box)
+-	Catchwords at the end of folios, position (free-text box)
+-	Catchwords at the end of pages, position (free-text box)
+-	Middle markings, type and position (free-text box)
+-	Signatures at the end of quires, position (free-text box)
+-	Signatures at the beginning of quires, position (free-text box)
+-	Folio numbers, type and position (free-text box)
+-	Page numbers, type and position (free-text box)
+-	Running titles, position (free-text box)
+-	Other (free-text box)
+
+                    
+                    -->
+                    
+                    <!--hair/flesh distribution prose text?-->
+                    
                     <attList>
                         <attDef ident="mainStructures">
                             <desc>Specifies the typical quire structure(s) of the book,
@@ -3752,6 +4093,9 @@ locus is used to point to values of these elements in the teiHeader.
                 
                 <!-- make the foliation element a member of att.datable (this is to enable identification of medieval foliation, if desired -->
                 <elementSpec ident="foliation" module="msdescription" mode="change">
+                    <!--Information about the systems used to number the folios or pages in the manuscript.-->
+                    
+                    <!--ADD @type, e.g. “arabic”, “hebrew” to make this feature machine readable?-->
                     <classes mode="change">
                         <memberOf key="att.datable"/>
                     </classes>
@@ -3759,11 +4103,60 @@ locus is used to point to values of these elements in the teiHeader.
 
                 <!-- add new attributes "topLine" and "rulingMedium" to layout
                         make layout part of att.typed  -->
+                
+                <!--ADD new attribute "rulingPattern", 
+                values: 
+                -	Framework only
+                -	Grid of single vertical and horizontal lines
+                -	Presence of additional lines
+                -	Variable instead of repeating “Presence of additional lines”-->
+                
+                <!--Do we need an attribute to establish whether there is ruling? In my view, the 
+                presence of the "ruling" attribute is sufficient.-->
+                
+                <!--ADD the "prickingMedium" attribute (values Flat blade, Awl, Compass) to "layout" -->
+                
+                <!--ADD the "prickingPattern" attribute (horizontal, vertical, horizontal & vertical, additional) to "layout" -->
+                
+                <!--ADD attribute (or element?) "justification"
+                values:
+                -	Left-hand margin is not even
+                -	Space fillers
+                -	Extended letters
+                -	Reduced letters
+                -	Broken letters
+                -	Anticipation
+                -	Abbreviation
+                -	Change of script register
+                -	Writing above the line horizontal
+                -	Writing above the line oblique
+                -	Writing below the line
+                -	Vertical writing
+                -	Change of orientation of letter components
+                -	Other (free-text box)	-->
+                
+                <!--ADD attribute (or element?) "textLayout"
+                values: 
+                -	No graphic marks of text navigation
+                -	Spaces between paragraphs
+                -	Paragraph marks and textual dividers (free-text box)
+                -	Rubric
+                -	Numbering of sections
+                -	Enlarged titles and incipits
+                -	Explicits
+                -	Colours
+                -	Change of script register
+                -	Change of script type
+                -	Decoration
+                -	Other (free-text box)-->
+                
+                
                 <elementSpec ident="layout" module="msdescription" mode="change">
                     <classes mode="change">
                         <memberOf key="att.typed"/>
                     </classes>
                     <attList>
+                        <!--should we adopt these non-standard customizations?-->
                         <attDef ident="topLine" mode="add">
                             <desc>Specifies the whether the writing is above top line, below top
                                 line, or mixed. Note: This is a customization which is not
@@ -3789,6 +4182,7 @@ locus is used to point to values of these elements in the teiHeader.
                             <datatype minOccurs="1" maxOccurs="1">
                                 <dataRef key="teidata.enumerated"/>
                             </datatype>
+                             ADD value for mastara
                             <valList type="semi">
                                 <valItem ident="ink">
                                     <desc>The ruling is carried out using ink.</desc>
@@ -3873,6 +4267,21 @@ locus is used to point to values of these elements in the teiHeader.
                         <macroRef key="macro.phraseSeq"/>
                     </content>
                 </elementSpec>
+                
+                <!-- ADD new element "format" to describe the format of the writing substrate in prose inside "dimension". 
+                values: 
+                -	Square
+                -	Horizontal rectangle
+                -	Vertical rectangle
+                -	Ṣafīna
+                -	Irregular
+                -	Other-->
+                
+                <!--ADD new attribute "msType" to "objectDesc" to describe the Type of manuscript 
+                values:
+                -	"single": Single manuscript 
+                -	"composite" Composite manuscript
+                -	"multiple" Multiple Text Manuscript-->
                 
                 
                 <!-- use ENRICH values for supportDesc/@material and make the attribute required -->
