@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../schemas/mss.rng" 
+schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="../schemas/mss.rng" 
+type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:id="ESum035" xml:lang="en" type="mss">
+      <teiHeader xml:base="https://betamasaheft.eu/">
+            <fileDesc>
+                  <titleStmt>
+                        <title>
+                              <!-- Title of this manuscript catalogue record, e.g., -->
+                              <!--Ya-ʿUrā Masqal dabdābbe, Land-charter of ʿUrā Masqal-->
+                        </title>
+                        <!-- Put initials of editors in @key below -->
+                        <editor role="cataloguer" key="EB" when="2020-02-09">אפרים בן-פורת</editor>
+                        <editor role="encoder" key="mm" when="2021-07-01">Maximilian de
+                              Molière</editor>
+                        <editor role="generalEditor" key=""/>
+                  </titleStmt>
+                  <editionStmt>
+                        <p><!-- Information about the text below can go here, e.g. -->
+                              <!--The Edition of King Ṭanṭawǝdǝm’s land charter is part of the project
+                              HornEast <ref target="https://cordis.europa.eu/project/id/726206"
+                                    >https://cordis.europa.eu/project/id/726206</ref> that has
+                              received funding from the European Research Council (ERC) under the
+                              European Union’s Horizon 2020 research and innovation programme (Grant
+                              agreement No. 726206).-->
+                              <!--NOT RELEVANT TO US-->
+                        </p>
+                  </editionStmt>
+                  <publicationStmt>
+                        <authority>
+                              <!-- Responsible person or agency, e.g., -->
+                              <!--Hiob-Ludolf-Zentrum für Äthiopistik-->
+                        </authority>
+                        <pubPlace><!-- Place this record is published. --></pubPlace>
+                        <publisher><!-- Publisher (e.g., project, institution, center) --></publisher>
+                        <availability>
+                              <licence target="http://creativecommons.org/licenses/by-sa/4.0/">
+                                    <p> This file is licensed under the Creative Commons
+                                          Attribution-ShareAlike 4.0. </p>
+                              </licence>
+                        </availability>
+                        <date>2021-07-01</date>
+                  </publicationStmt>
+                  <sourceDesc>
+                        <!-- Description of manuscript begins. -->
+                        <msDesc xml:id="ms">
+                              <!-- Own identifier/URI goes here as well as shelfmarks and 
+                              alternative identifiers like catalog numbers-->
+                              <msIdentifier>
+                                    <repository ref="RNL">Russion National Library</repository>
+                                    <collection>Evr.-Arab.</collection>
+                                    <!-- idno is the main identifier. @facs (optional) can be 
+                                    used to link this id to the facsimile. Not sure what @n 
+                                    does here. -->
+                                    <idno facs="I:1430" n="14">I:1430</idno>
+                                    <altIdentifier>
+                                          <idno type="IMHM">F 55338</idno>
+                                    </altIdentifier>
+                                    <altIdentifier>
+                                          <idno type="IMHM">F 45169</idno>
+                                    </altIdentifier>
+                              </msIdentifier>
+                              <!-- If the manuscript consists of multiple parts (codicological units), 
+                                    each part would get a <msPart> here containing its own 
+                                    description of contents and physical description, etc. 
+                                    If the manuscript is composed of multiple fragments, each fragment
+                                    would be described within its own <msFrag> element. -->
+                              <msContents>
+                                    <summary>Commentary on the Psalms</summary>
+                                    <msItem xml:id="p1_i1" class="bibleCommentary">
+                                          <!-- Insert the folio numbers where the text begins and ends 
+                                                in @from and @to -->
+                                          <locus from="1" to="71">1–71</locus>
+                                          <title xml:lang="he">פירוש לתהלים</title>
+                                          <textLang mainLang="ar">Arabic</textLang>
+                                          <!--Observations by the catalogers could be encoded in the "note" element.
+                                          It goes without saying that the entitites in these notes can also be tagged. 
+                                          The following is only a sample.-->
+                                          <note>אפשר להציע לזהות את חייא בן יצחק הספרדי, דיין
+                                                בפוסטאט באמצע המאה הי"ב, כמחבר הפירוש. עמוד אחד
+                                                מתחילת פירושו נמצא בכ"י New York, JTS Schechter 1.
+                                                בכה"י המחבר מביא פירוש לפסוק בתהלים שהוא שמע בשיעור
+                                                (מג'לס) של ראס אלמתיבה (ראש הישיבה) יצחק בן אשר. יש
+                                                מכתב מגניזת קהיר של יצחק בן אשר הספרדי מסויים שבו
+                                                הוא מורה לפרנס הראשי של פוסטאט לחלק כספים לנזקקים.
+                                                ממכתב הזה, נראה שליצחק בן אשר הזה היתה משרה גבוהה,
+                                                אולי כראש ישיבת א"י בפוסטאט. </note>
+                                          <note>גם אפשר לזהות את ראש הישיבה יצחק בן אשר כיצחק שהיה
+                                                אחרון גאוני סורא באמצא המאה הי"א. ואפשר שהמדובר
+                                                ביצחק הכהן אבן אואני. זמנו אמצע המאה השלוש עשרה.
+                                                העניין עדיין צריך עיון. </note>
+                                          <!-- Because there are texts within the text additional msItems are nested inside: -->
+                                          <msItem xml:id="p1_i1.1" class="bibleCommentary">
+                                                <locus from="1" to="50a">1–50a</locus>
+                                                <title xml:lang="he">פירוש נד:8-פו:1</title>
+                                                <textLang mainLang="ar">Arabic</textLang>
+                                                <!--Titles can be tagged as "rubric"+"locus"-->
+                                                <rubric>
+                                                  <locus from="26a" to="26a">26א</locus> אלמזמור
+                                                  אלאול מן אלספר אלתאלת </rubric>
+                                                <rubric>
+                                                  <locus from="44a" to="44a">44א</locus> אלעאשר מן
+                                                  אלגז אלתאלת </rubric>
+                                                <rubric>
+                                                  <locus from="60b" to="60b">60ב</locus> אלספר
+                                                  אלראבע אלאול מנה תפלה למשה </rubric>
+                                          </msItem>
+                                          <msItem xml:id="p1_i1.2" class="bibleCommentary">
+                                                <locus from="51" to="60">51–60</locus>
+                                                <title xml:lang="he">פירוש פז:1- פט:53</title>
+                                                <textLang mainLang="ar">Arabic</textLang>
+                                          </msItem>
+                                          <msItem xml:id="p1_i1.3" class="bibleCommentary">
+                                                <locus from="61" to="61">61</locus>
+                                                <title xml:lang="he">תרגום קא:8-3 ופירוש
+                                                  קא:4-1</title>
+                                                <textLang mainLang="ar">Arabic</textLang>
+                                          </msItem>
+                                          <msItem xml:id="p1_i1.4" class="bibleCommentary">
+                                                <locus from="62" to="62">62</locus>
+                                                <title xml:lang="he">תרגום קד:35-15</title>
+                                                <textLang mainLang="ar">Arabic</textLang>
+                                          </msItem>
+                                          <msItem xml:id="p1_i1.5" class="bibleCommentary">
+                                                <locus from="63" to="71">63–71</locus>
+                                                <title xml:lang="he">פירוש קל:4-קמב:1</title>
+                                                <textLang mainLang="ar">Arabic</textLang>
+                                          </msItem>
+                                    </msItem>
+                              </msContents>
+                              <physDesc>
+                                    <!-- Object forms can be selected from a list, e.g., "Codex" -->
+                                    <objectDesc form="Codex">
+                                          <supportDesc>
+                                                <support>
+                                                  <!-- Materials can be selected from a list, e.g., "parchment" -->
+                                                      <material key="paper">נייר</material>
+                                                </support>
+                                                <!-- Extent can be partly prose description but it is 
+                                                      important that measurements be given in a standardized
+                                                      form like so -->
+                                                <!--<extent>Made of <measure unit="leaf">$$</measure>
+                                                  folios, in <measure unit="quire">$</measure>
+                                                  quires. <dimensions type="outer">
+                                                  <height unit="mm"/>
+                                                  <width unit="mm"/>
+                                                  <depth unit="mm"/>
+                                                  </dimensions>
+                                                </extent>-->
+                                                <foliation>
+                                                  <!-- Description of the foliation system, e.g., -->
+                                                </foliation>
+                                                <collation>
+                                                  <!-- Quiring described here, e.g., 2 quires below -->
+                                                  <list>
+                                                  <item xml:id="q1">
+                                                  <dim unit="leaf">7</dim>
+                                                  <locus from="1" to="71"/>
+                                                  <note>הקונטרסים כ-quinion. </note>
+                                                  </item>
+                                                  </list>
+                                                  <catchwords>יש שומרי קונטרסים עם מספר הקונטרס
+                                                  המסתיים מעל ל-catchword. יש מספרי קונטרס באות
+                                                  עברית בפינה העליונה השמאלית של העמוד.</catchwords>
+                                                </collation>
+                                                <!-- Condition described here in prose. 
+                                                      @key can be selected from a list.  
+                                                      Other elements can be included here, such as links 
+                                                to specific places in the manuscript using <locus> -->
+                                                <condition key="deficient">חלק מהתוכן מוכתם. חלקו
+                                                  חסר בשל קרעים וחלקו דהה. יש נזק ממים. אכול על ידי
+                                                  תולעים. השלמות ומחיקות של הסופר.</condition>
+                                          </supportDesc>
+                                          <!--<layoutDesc>
+                                                <!-\- Number of columns and lines -\->
+                                                <layout columns="1" writtenLines="19"> 19 lines per
+                                                  page. <!-\- Dimensions of text and margins -\->
+                                                  <dimensions unit="mm">
+                                                  <height/>
+                                                  <width/>
+                                                  <dim type="intercolumn"/>
+                                                  </dimensions>
+                                                  <dimensions type="margin">
+                                                  <dim type="top"/>
+                                                  <dim type="bottom"/>
+                                                  <dim type="right"/>
+                                                  <dim type="left"/>
+                                                  <dim type="intercolumn"/>
+                                                  </dimensions>
+                                                  <note>All data for <locus target="#4r"
+                                                  >4r</locus>.</note>
+                                                  <!-\- Prose descriptions of ruling and pricking -\->
+                                                  <ab type="ruling">From 13 to 18.</ab>
+                                                  <ab type="pricking">Ruling and pricking are
+                                                  visible. </ab>
+                                                  <ab type="ruling" subtype="pattern"> Ruling
+                                                  pattern: 1A-1A/0-0/0-0/C.</ab>
+                                                  <ab type="pricking"> Primary pricks are partly
+                                                  visible.</ab>
+                                                  <ab type="pricking"> Ruling pricks are partly
+                                                  visible.</ab>
+                                                  <ab type="ruling"> The upper line is written above
+                                                  the ruling.</ab>
+                                                  <ab type="ruling"> The bottom line is written
+                                                  above the ruling.</ab>
+                                                </layout>
+                                                <layout/>
+                                          </layoutDesc>-->
+                                    </objectDesc>
+                                    <handDesc>
+                                          <!-- Each <handNote> describes one of the scribal hands 
+                                                in the manuscript. These can be linked elsewhere 
+                                                to the different textual items. 
+                                                The list of scripts in @script needs to be adapted. -->
+                                          <handNote xml:id="h1" script="mizrahiBinoni">
+                                                <!-- Prose descriptions of script, ink, and rubrication. -->
+                                                מזרחי בינוני <seg type="vocalization">ניקוד ערבי
+                                                  ספורדי. </seg>
+                                                <note>ציטוט ראשי הפסוקים בתרגום. סימון שלוש נקודות
+                                                  מעליהם. שלוש נקודות באות גם מעל מספרי מזמורים ומעל
+                                                  המילים "<quote>אלתאויל</quote>",
+                                                  "<quote>אלנכת</quote>". המילים האלה פותחות את
+                                                  פירוש המזמורים. מזמורי כל ספר מחמשת ספרי תהלים
+                                                  ממוספרים לעצמם, כגון "<quote>אלמזמור אלאול מן
+                                                  אלספר אלתאלת</quote>" (=המזמור הראשון של הספר
+                                                  השלישי; מזמור עג; דף <locus from="26a" to="26a"
+                                                  >26א</locus>)</note>
+                                          </handNote>
+                                    </handDesc>
+                                    <!--<additions>
+                                          <list>
+                                                <!-\- Each scribal addition can be listed here, 
+                                                      with its <locus> and @type -\->
+                                                <item xml:id="e1"><locus target="#6r"
+                                                  >6r</locus><desc type="StampExlibris"
+                                                  ><idno>C3-IV-83</idno></desc></item>
+                                                <item xml:id="e2"><desc>The title ደብዳቤ፡ የመስቀል፡ is
+                                                  written in the lower margin on <locus
+                                                  target="#11v">fol. 11v</locus> with blue
+                                                  paint.</desc></item>
+                                                <!-\- I would have thought the item below (e3) would be part
+                                                      of the handDesc? -\->
+                                                <item xml:id="e3"><desc>The scribe used compressed
+                                                  script: fols. 5v, 6r, 8r, 9v, 10r. </desc></item>
+                                                <item xml:id="e4"><desc>Omitted letters inserted
+                                                  interlineally: fols. 7r, 9v. </desc></item>
+                                                <item xml:id="e5"><desc>Corrections written
+                                                  interlineally in red ink: <locus target="#7r">fol.
+                                                  7r</locus>. </desc></item>
+                                                <item xml:id="e6"><desc>Erasures: <locus
+                                                  target="#2r">fol. 2r</locus>.</desc></item>
+                                          </list>
+                                    </additions>-->
+                                    <!--<bindingDesc>
+                                          <!-\- Multiple <binding>s could be listed if relevant. 
+                                                The @types and other aspects of the  binding description below 
+                                                should be adapted. -\->
+                                          <binding contemporary="false">
+                                                <decoNote xml:id="b1">One pair of sewing
+                                                  stations.&#xD; Quire I is crudely held together by
+                                                  a modern thread.</decoNote>
+                                                <decoNote xml:id="b2" type="bindingMaterial"/>
+                                                <decoNote xml:id="b3" type="Endbands"/>
+                                                <decoNote xml:id="b4" type="Other">A small hole is
+                                                  visible on the spine fold of quire II, close to
+                                                  the head of the codex.</decoNote>
+                                          </binding>
+                                    </bindingDesc>-->
+                              </physDesc>
+                              <history>
+                                    <!-- Place and date of origin, preferably using
+                                    machine-readable values/identifiers. -->
+                                    <origin>
+                                          <origPlace>
+                                                <placeName ref="INS0017UM"/>
+                                          </origPlace>
+                                          <origDate notBefore="1000" notAfter="1200">מאה
+                                                יא-יב</origDate>
+                                    </origin>
+                              </history>
+                              <additional>
+                                    <!-- Bibliography and custodial information can go here. -->
+                                    <adminInfo>
+                                          <recordHist>
+                                                <source>
+                                                  <!-- I'm commenting this out because it produces an error. -->
+                                                  <!--<listBibl type="catalogue">
+                                                  <bibl>
+                                                  <ptr target="bm:EthioSpare"/>
+                                                  </bibl>
+                                                  </listBibl>-->
+                                                </source>
+                                          </recordHist>
+                                          <custodialHist>
+                                                <custEvent type="restorations" subtype="modern"/>
+                                          </custodialHist>
+                                    </adminInfo>
+
+
+                              </additional>
+                        </msDesc>
+                  </sourceDesc>
+            </fileDesc>
+            <encodingDesc>
+                  <projectDesc>
+                        <p>Encoded according to TEI P5 Guidelines.</p>
+                  </projectDesc>
+                  <!-- A link to the documentation -->
+                  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                        href="https://raw.githubusercontent.com/BetaMasaheft/Documentation/master/prefixDef.xml">
+                        <xi:fallback>
+                              <p>Definitions of prefixes used.</p>
+                        </xi:fallback>
+                  </xi:include>
+            </encodingDesc>
+            <profileDesc>
+                  <!-- More metadata, e.g., -->
+                  <!--<textClass>
+                        <keywords scheme="#ethioauthlist">
+                              <term key="LegalDocument"/>
+                        </keywords>
+                  </textClass>-->
+                  <langUsage>
+                        <language ident="en">English/Hebrew</language>
+                  </langUsage>
+            </profileDesc>
+            <revisionDesc>
+                  <!-- Changelog of who did what in this manuscript description, e.g., -->
+                  <!--<change who="DN" when="2010-04-20">Ethio-SPaRe team photographed the
+                        manuscript</change>-->
+                  <!--<change who="DN" when="2014-08-27">catalogued</change>
+                  <change who="MV" when="2015-01-14">last edited</change>
+                  <change who="PL" when="2016-05-10">transformed from mycore to TEI P5</change>
+                  <change who="PL" when="2019-04-25">added missing extras from domlib</change>
+                  <change when="2020-12-21" who="ES">adjusted to schema</change>
+                  <change when="2021-05-27" who="PL">added transcription and facsimile from
+                        Transkribus. Layout and segmentation manually carried out by Giada Liuzzo.
+                        Initial HTR transcription using the Ethiopic – Classical Ethiopic scripts
+                        from Ethiopia and Eritrea
+                        (https://readcoop.eu/model/ethiopic-classical-ethiopic-scripts-from-ethiopia-and-eritrea
+                        ).</change>-->
+            </revisionDesc>
+      </teiHeader>
+      <facsimile xml:id="transkribusESum035">
+            <!-- If there is a digital facsimile of the text, metadata about it will go here. -->
+            <surface xmlns="http://www.tei-c.org/ns/1.0" xml:id="facs_1"/>
+      </facsimile>
+
+      <text xml:base="https://betamasaheft.eu/">
+            <body>
+                  <div type="edition" xml:id="Transkribus" subtype="transkribus">
+                        <!-- If there is a transcription of the text it will go here. -->
+                  </div>
+            </body>
+      </text>
+
+</TEI>
