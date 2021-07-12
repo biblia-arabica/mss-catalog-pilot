@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<meta xmlns="http://exist-db.org/xquery/repo">
+    <description>Test xforms</description>
+    <author>Winona Salesky</author>
+    <website/>
+    <status>alpha</status>
+    <license>GNU-LGPL</license>
+    <copyright>true</copyright>
+    <type>application</type>
+    <target>mssXForms</target>
+    <prepare>pre-install.xql</prepare>
+    <finish/>
+    <permissions user="xforms" group="dba" mode="rw-rw-r--"/>
+<deployed>2021-06-13T13:32:41.577-04:00</deployed>
+</meta>
