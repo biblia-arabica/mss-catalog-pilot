@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <formTitle>TEI Place records</formTitle>
+    <formAuthor>Winona Salesky</formAuthor>
+    <formDesc>Example of XForm generated from ODD</formDesc>
+    <schema src="../schemas/mss.xml"></schema>
+    <mainSchema src="../schemas/tei_all.rng"></mainSchema>
+<!--    <schema src="../schemas/msdesc.odd.xml"></schema>-->
+    <!-- Not sure which to use here? -->
+    <!--<schema src="../schemas/mss.rng"></schema>-->
+    <xmlTemplate src="blank-template.xml"></xmlTemplate>
+    <!-- 
+    <elements>
+        <element name="place">
+            <element name="placeName"/>
+        </element>
+    </elements>
+    -->
+</config>
