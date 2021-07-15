@@ -100,10 +100,19 @@ xml:lang="en">
                     term textLang title 
                     unclear 
                     "/>
-                <moduleRef key="header" include="teiHeader fileDesc title titleStmt publicationStmt sourceDesc"/>
+                <moduleRef key="header" 
+                    include="teiHeader fileDesc idno
+                    title titleStmt 
+                    publicationStmt sourceDesc"/>
                 <moduleRef key="tei"/>
                 <moduleRef key="textstructure" include="TEI text body div front back"/>
-                <moduleRef key="msdescription" include="msContents"/> 
+                <moduleRef key="msdescription" 
+                    include="altIdentifier collection
+                    locus
+                    msContents msDesc
+                    msIdentifier msItem 
+                    repository rubric
+                    summary"/> 
             </schemaSpec>
             </div>
         </body>

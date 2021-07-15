@@ -18,10 +18,7 @@
                <msIdentifier>
                   <repository ref="RNL">Russion National Library</repository>
                   <collection>Evr.-Arab.</collection>
-                  <!-- idno is the main identifier. @facs (optional) can be 
-                                    used to link this id to the facsimile. Not sure what @n 
-                                    does here. -->
-                  <idno facs="I:1430" n="14">I:1430</idno>
+                  <idno n="14">I:1430</idno>
                   <altIdentifier>
                      <idno type="IMHM">F 55338</idno>
                   </altIdentifier>
@@ -42,23 +39,6 @@
                      <locus from="1" to="71">1–71</locus>
                      <title xml:lang="he">פירוש לתהלים</title>
                      <textLang mainLang="ar">Arabic</textLang>
-                     <!--Observations by the catalogers could be encoded in the "note" element.
-                                          It goes without saying that the entitites in these notes can also be tagged. 
-                                          The following is only a sample.-->
-                     <note>אפשר להציע לזהות את חייא בן יצחק הספרדי, דיין
-                        בפוסטאט באמצע המאה הי"ב, כמחבר הפירוש. עמוד אחד
-                        מתחילת פירושו נמצא בכ"י New York, JTS Schechter 1.
-                        בכה"י המחבר מביא פירוש לפסוק בתהלים שהוא שמע בשיעור
-                        (מג'לס) של ראס אלמתיבה (ראש הישיבה) יצחק בן אשר. יש
-                        מכתב מגניזת קהיר של יצחק בן אשר הספרדי מסויים שבו
-                        הוא מורה לפרנס הראשי של פוסטאט לחלק כספים לנזקקים.
-                        ממכתב הזה, נראה שליצחק בן אשר הזה היתה משרה גבוהה,
-                        אולי כראש ישיבת א"י בפוסטאט. </note>
-                     <note>גם אפשר לזהות את ראש הישיבה יצחק בן אשר כיצחק שהיה
-                        אחרון גאוני סורא באמצא המאה הי"א. ואפשר שהמדובר
-                        ביצחק הכהן אבן אואני. זמנו אמצע המאה השלוש עשרה.
-                        העניין עדיין צריך עיון. </note>
-                     <!-- Because there are texts within the text additional msItems are nested inside: -->
                      <msItem xml:id="p1_i1.1" class="bibleCommentary">
                         <locus from="1" to="50a">1–50a</locus>
                         <title xml:lang="he">פירוש נד:8-פו:1</title>
