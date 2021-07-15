@@ -77,10 +77,33 @@ xml:lang="en">
                 <!--       MODULES USED BY THE SCHEMA
                 the @source ties the current schema to the pre-compiled Arabic Manuscripts Schema, which is tied to version 4.2.0 of TEI
                 -->
-                <moduleRef key="tei"/>
-                <moduleRef key="msdescription" include="msContents"/> 
+                <moduleRef key="core"
+                    include="
+                    abbr add address addrLine author analytic
+                    bibl biblScope biblStruct
+                    choice citedRange cit corr cb
+                    date del desc 
+                    editor email expan 
+                    foreign 
+                    gap graphic 
+                    head hi 
+                    imprint item 
+                    l label lb 
+                    lg list listBibl 
+                    measure monogr
+                    name note num 
+                    orig 
+                    p pb postCode publisher pubPlace 
+                    q quote 
+                    ref reg relatedItem resp respStmt 
+                    series sic street 
+                    term textLang title 
+                    unclear 
+                    "/>
                 <moduleRef key="header" include="teiHeader fileDesc title titleStmt publicationStmt sourceDesc"/>
+                <moduleRef key="tei"/>
                 <moduleRef key="textstructure" include="TEI text body div front back"/>
+                <moduleRef key="msdescription" include="msContents"/> 
             </schemaSpec>
             </div>
         </body>
