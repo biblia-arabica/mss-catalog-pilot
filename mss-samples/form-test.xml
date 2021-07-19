@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../schemas/mss-forms.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="../schemas/mss-forms.rng" type="application/xml"
+	schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title>Title</title>
+         </titleStmt>
+         <publicationStmt>
+            <p>Publication Information</p>
+         </publicationStmt>
+         <sourceDesc>
+            <msDesc xml:id="ms">
+               <!-- Own identifier/URI goes here as well as shelfmarks and 
+                              alternative identifiers like catalog numbers-->
+               <msIdentifier>
+                  <repository ref="RNL">Russion National Library</repository>
+                  <collection>Evr.-Arab.</collection>
+                  <idno n="14">I:1430</idno>
+                  <altIdentifier>
+                     <idno type="IMHM">F 55338</idno>
+                  </altIdentifier>
+                  <altIdentifier>
+                     <idno type="IMHM">F 45169</idno>
+                  </altIdentifier>
+               </msIdentifier>
+               <!-- If the manuscript consists of multiple parts (codicological units), 
+                                    each part would get a <msPart> here containing its own 
+                                    description of contents and physical description, etc. 
+                                    If the manuscript is composed of multiple fragments, each fragment
+                                    would be described within its own <msFrag> element. -->
+               <msContents>
+                  <summary>Commentary on the Psalms</summary>
+                  <msItem xml:id="p1_i1" class="bibleCommentary">
+                     <!-- Insert the folio numbers where the text begins and ends 
+                                                in @from and @to -->
+                     <locus from="1" to="71">1–71</locus>
+                     <title xml:lang="he">פירוש לתהלים</title>
+                     <textLang mainLang="ar">Arabic</textLang>
+                     <msItem xml:id="p1_i1.1" class="bibleCommentary">
+                        <locus from="1" to="50a">1–50a</locus>
+                        <title xml:lang="he">פירוש נד:8-פו:1</title>
+                        <textLang mainLang="ar">Arabic</textLang>
+                        <!--Titles can be tagged as "rubric"+"locus"-->
+                        <rubric>
+                           <locus from="26a" to="26a">26א</locus> אלמזמור
+                           אלאול מן אלספר אלתאלת </rubric>
+                        <rubric>
+                           <locus from="44a" to="44a">44א</locus> אלעאשר מן
+                           אלגז אלתאלת </rubric>
+                        <rubric>
+                           <locus from="60b" to="60b">60ב</locus> אלספר
+                           אלראבע אלאול מנה תפלה למשה </rubric>
+                     </msItem>
+                     <msItem xml:id="p1_i1.2" class="bibleCommentary">
+                        <locus from="51" to="60">51–60</locus>
+                        <title xml:lang="he">פירוש פז:1- פט:53</title>
+                        <textLang mainLang="ar">Arabic</textLang>
+                     </msItem>
+                     <msItem xml:id="p1_i1.3" class="bibleCommentary">
+                        <locus from="61" to="61">61</locus>
+                        <title xml:lang="he">תרגום קא:8-3 ופירוש
+                           קא:4-1</title>
+                        <textLang mainLang="ar">Arabic</textLang>
+                     </msItem>
+                     <msItem xml:id="p1_i1.4" class="bibleCommentary">
+                        <locus from="62" to="62">62</locus>
+                        <title xml:lang="he">תרגום קד:35-15</title>
+                        <textLang mainLang="ar">Arabic</textLang>
+                     </msItem>
+                     <msItem xml:id="p1_i1.5" class="bibleCommentary">
+                        <locus from="63" to="71">63–71</locus>
+                        <title xml:lang="he">פירוש קל:4-קמב:1</title>
+                        <textLang mainLang="ar">Arabic</textLang>
+                     </msItem>
+                  </msItem>
+               </msContents>
+            </msDesc>
+         </sourceDesc>
+      </fileDesc>
+  </teiHeader>
+  <text>
+      <body>
+         <p>Some text here.</p>
+      </body>
+  </text>
+</TEI>

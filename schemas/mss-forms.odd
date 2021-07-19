@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Start license statement: do not remove
+
+Schema for the encoding of arabic manuscripts
+originated from Beta maṣāḥǝft Schema
+Copyright (c) 2021- by all contributors listed in <titleStmt>, below and contributors to the github stored version
+see https://github.com/BetaMasaheft/Schema/graphs/contributors
+
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+
+End license statement: do not remove -->
+
+<!--requirements: 
+    
+    FIRHIST compatibility
+    
+
+-->
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:tei="http://www.tei-c.org/ns/1.0"
+    xmlns:rng="http://relaxng.org/ns/structure/1.0" xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+xml:lang="en">
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+                <title>Arabic Manuscripts Schema, constrained for usage in XForms</title>
+                <author xml:id="PL">Pietro Liuzzo</author>
+                <author xml:id="NG">Nathan Gibson</author>
+            </titleStmt>
+            <publicationStmt>
+                <authority>Hiob-Ludolf-Zentrum für Äthiopistik</authority>
+                <publisher>Die Schriftkultur des christlichen Äthiopiens und Eritreas: Eine
+                    multimediale Forschungsumgebung / Beta maṣāḥǝft</publisher>
+                <pubPlace>Hamburg</pubPlace>
+                <availability>
+                    <licence target="http://creativecommons.org/licenses/by-sa/4.0/"> This file is
+                        licensed under the Creative Commons Attribution-ShareAlike 4.0. </licence>
+                </availability>
+
+            </publicationStmt>
+            <sourceDesc>
+                <p>created electronically</p>
+            </sourceDesc>
+        </fileDesc>
+        <revisionDesc>
+            <change who="NG" when="2021-04-21">Created schema on basis of Arabic Manuscripts Schema created by Pietro Liuzzo</change>
+        </revisionDesc>
+    </teiHeader>
+    <text>
+        <front>
+            <divGen type="toc"/>
+        </front>
+        <body>
+           <div> 
+               <head>Information on this customization</head>
+               <p>Schema for Arabic Manuscripts based on the schema of Beta maṣāḥǝft: Manuscripts of Ethiopia and Eritrea research
+                environment. The <ref target="https://betamasaheft.eu/Guidelines">Beta
+                    maṣāḥǝft Guidelines</ref> contain examples and details of that customization.</p>
+            <p>Added Rules from the <ref target="https://github.com/msDesc/consolidated-tei-schema/blob/master/msdesc.odd">consolidated schema</ref> of FIRHIST</p>
+           <p>Constrained this schema for generating forms.</p>
+           </div>
+            <div>
+            <schemaSpec ident="tei-arabic" docLang="en" prefix="tei_" start="TEI"
+                xml:lang="en" source="mss-compiled.odd">
+
+                <!--       MODULES USED BY THE SCHEMA
+                the @source ties the current schema to the pre-compiled Arabic Manuscripts Schema, which is tied to version 4.2.0 of TEI
+                -->
+                <moduleRef key="core"
+                    include="
+                    abbr address addrLine author analytic
+                    bibl biblScope biblStruct
+                    choice citedRange cit corr cb
+                    date desc 
+                    editor email expan 
+                    foreign 
+                    gap graphic 
+                    head hi 
+                    imprint item 
+                    l label lb 
+                    lg list listBibl 
+                    measure monogr
+                    name note num 
+                    orig 
+                    p pb postCode publisher pubPlace 
+                    q quote 
+                    ref reg relatedItem resp respStmt 
+                    series sic street 
+                    term textLang title  
+                    "/>
+                <moduleRef key="header" 
+                    include="teiHeader fileDesc idno
+                    title titleStmt 
+                    publicationStmt sourceDesc"/>
+                <moduleRef key="msdescription" 
+                    include="altIdentifier collection
+                    colophon country 
+                    explicit finalRubric
+                    incipit institution locus
+                    msContents msDesc
+                    msIdentifier msItem 
+                    msName 
+                    repository rubric
+                    settlement summary"/> 
+                <moduleRef key="namesdates"
+                    include="forename surname
+                    persName addName"/>
+                <moduleRef key="tei"/>
+                <moduleRef key="textstructure" include="TEI text body div front back"/>
+            </schemaSpec>
+            </div>
+        </body>
+    </text>
+</TEI>
