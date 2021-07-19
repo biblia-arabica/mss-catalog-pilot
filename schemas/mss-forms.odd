@@ -79,10 +79,10 @@ xml:lang="en">
                 -->
                 <moduleRef key="core"
                     include="
-                    abbr add address addrLine author analytic
+                    abbr address addrLine author analytic
                     bibl biblScope biblStruct
                     choice citedRange cit corr cb
-                    date del desc 
+                    date desc 
                     editor email expan 
                     foreign 
                     gap graphic 
@@ -97,8 +97,7 @@ xml:lang="en">
                     q quote 
                     ref reg relatedItem resp respStmt 
                     series sic street 
-                    term textLang title 
-                    unclear 
+                    term textLang title  
                     "/>
                 <moduleRef key="header" 
                     include="teiHeader fileDesc idno

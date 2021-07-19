@@ -5,7 +5,7 @@
          xmlns:teix="http://www.tei-c.org/ns/Examples"
          datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
          ns="http://www.tei-c.org/ns/1.0"><!--
-Schema generated from ODD source 2021-07-19T11:03:06Z. .
+Schema generated from ODD source 2021-07-19T13:48:04Z. .
 TEI Edition: 
 TEI Edition Location: https://www.tei-c.org/Vault/P5//
   
@@ -1240,44 +1240,6 @@ The element indicated by @spanTo (<sch:value-of select="@spanTo"/>) must follow 
          </attribute>
       </optional>
    </define>
-   <define name="tei_att.transcriptional.attributes">
-      <ref name="tei_att.editLike.attributes"/>
-      <ref name="tei_att.written.attributes"/>
-      <ref name="tei_att.transcriptional.attribute.status"/>
-      <ref name="tei_att.transcriptional.attribute.cause"/>
-      <ref name="tei_att.transcriptional.attribute.seq"/>
-   </define>
-   <define name="tei_att.transcriptional.attribute.status">
-      <optional>
-         <attribute xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
-                    name="status"
-                    a:defaultValue="unremarkable">
-            <a:documentation>indicates the effect of the intervention, for example in the case of a deletion, strikeouts which include too much or too little text, or in the case of an addition, an insertion which duplicates some of the text already present.
-Sample values include: 1] duplicate; 2] duplicate-partial; 3] excessStart; 4] excessEnd; 5] shortStart; 6] shortEnd; 7] partial; 8] unremarkable</a:documentation>
-            <data type="token">
-               <param name="pattern">[^\p{C}\p{Z}]+</param>
-            </data>
-         </attribute>
-      </optional>
-   </define>
-   <define name="tei_att.transcriptional.attribute.cause">
-      <optional>
-         <attribute name="cause">
-            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">documents the presumed cause for the intervention.</a:documentation>
-            <data type="token">
-               <param name="pattern">[^\p{C}\p{Z}]+</param>
-            </data>
-         </attribute>
-      </optional>
-   </define>
-   <define name="tei_att.transcriptional.attribute.seq">
-      <optional>
-         <attribute name="seq">
-            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(sequence) assigns a sequence number related to the order in which the encoded features carrying this attribute are believed to have occurred.</a:documentation>
-            <data type="nonNegativeInteger"/>
-         </attribute>
-      </optional>
-   </define>
    <define name="tei_att.citing.attributes">
       <ref name="tei_att.citing.attribute.unit"/>
       <ref name="tei_att.citing.attribute.from"/>
@@ -1645,9 +1607,6 @@ Suggested values include: 1] volume (volume); 2] issue; 3] page (page); 4] line;
          <ref name="tei_corr"/>
          <ref name="tei_reg"/>
          <ref name="tei_orig"/>
-         <ref name="tei_add"/>
-         <ref name="tei_del"/>
-         <ref name="tei_unclear"/>
       </choice>
    </define>
    <define name="tei_model.pPart.transcriptional_alternation">
@@ -1656,9 +1615,6 @@ Suggested values include: 1] volume (volume); 2] issue; 3] page (page); 4] line;
          <ref name="tei_corr"/>
          <ref name="tei_reg"/>
          <ref name="tei_orig"/>
-         <ref name="tei_add"/>
-         <ref name="tei_del"/>
-         <ref name="tei_unclear"/>
       </choice>
    </define>
    <define name="tei_model.pPart.transcriptional_sequence">
@@ -1666,9 +1622,6 @@ Suggested values include: 1] volume (volume); 2] issue; 3] page (page); 4] line;
       <ref name="tei_corr"/>
       <ref name="tei_reg"/>
       <ref name="tei_orig"/>
-      <ref name="tei_add"/>
-      <ref name="tei_del"/>
-      <ref name="tei_unclear"/>
    </define>
    <define name="tei_model.pPart.transcriptional_sequenceOptional">
       <optional>
@@ -1682,15 +1635,6 @@ Suggested values include: 1] volume (volume); 2] issue; 3] page (page); 4] line;
       </optional>
       <optional>
          <ref name="tei_orig"/>
-      </optional>
-      <optional>
-         <ref name="tei_add"/>
-      </optional>
-      <optional>
-         <ref name="tei_del"/>
-      </optional>
-      <optional>
-         <ref name="tei_unclear"/>
       </optional>
    </define>
    <define name="tei_model.pPart.transcriptional_sequenceOptionalRepeatable">
@@ -1706,15 +1650,6 @@ Suggested values include: 1] volume (volume); 2] issue; 3] page (page); 4] line;
       <zeroOrMore>
          <ref name="tei_orig"/>
       </zeroOrMore>
-      <zeroOrMore>
-         <ref name="tei_add"/>
-      </zeroOrMore>
-      <zeroOrMore>
-         <ref name="tei_del"/>
-      </zeroOrMore>
-      <zeroOrMore>
-         <ref name="tei_unclear"/>
-      </zeroOrMore>
    </define>
    <define name="tei_model.pPart.transcriptional_sequenceRepeatable">
       <oneOrMore>
@@ -1728,15 +1663,6 @@ Suggested values include: 1] volume (volume); 2] issue; 3] page (page); 4] line;
       </oneOrMore>
       <oneOrMore>
          <ref name="tei_orig"/>
-      </oneOrMore>
-      <oneOrMore>
-         <ref name="tei_add"/>
-      </oneOrMore>
-      <oneOrMore>
-         <ref name="tei_del"/>
-      </oneOrMore>
-      <oneOrMore>
-         <ref name="tei_unclear"/>
       </oneOrMore>
    </define>
    <define name="tei_model.pPart.edit">
@@ -2242,7 +2168,6 @@ Suggested values include: 1] volume (volume); 2] issue; 3] page (page); 4] line;
          <ref name="tei_corr"/>
          <ref name="tei_reg"/>
          <ref name="tei_orig"/>
-         <ref name="tei_unclear"/>
          <ref name="tei_abbr"/>
          <ref name="tei_expan"/>
       </choice>
@@ -2865,193 +2790,6 @@ Normalization 12. Critical Apparatus]</a:documentation>
             <attribute name="agent">
                <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(agent) in the case of text omitted because of damage, categorizes the cause of the damage, if it can be identified.
 Sample values include: 1] rubbing (rubbing); 2] mildew (mildew); 3] smoke (smoke)</a:documentation>
-               <data type="token">
-                  <param name="pattern">[^\p{C}\p{Z}]+</param>
-               </data>
-            </attribute>
-         </optional>
-         <empty/>
-      </element>
-   </define>
-   <define name="tei_add">
-      <element name="add">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(addition) contains letters, words, or phrases inserted in the source text by an author, scribe, or a previous annotator or corrector. [3.5.3. Additions, Deletions, and Omissions]</a:documentation>
-         <ref name="tei_macro.paraContent"/>
-         <ref name="tei_att.global.attributes"/>
-         <ref name="tei_att.transcriptional.attributes"/>
-         <ref name="tei_att.typed.attributes"/>
-         <ref name="tei_att.dimensions.attributes"/>
-         <optional>
-            <attribute name="place">
-               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
-               <choice>
-                  <value>above</value>
-                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">text written above the line</a:documentation>
-                  <value>below</value>
-                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">text written below the line</a:documentation>
-                  <value>bottom</value>
-                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">text written at the foot of the page</a:documentation>
-                  <value>inline</value>
-                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">text written within the body of the text</a:documentation>
-                  <value>interlinear</value>
-                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">text written between two lines</a:documentation>
-                  <value>left</value>
-                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">text written to the left of the preceding text node</a:documentation>
-                  <value>margin</value>
-                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">text written in the margin (left, right, or both)</a:documentation>
-                  <value>mixed</value>
-                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">text written both on top and left or right and bottom</a:documentation>
-                  <value>opposite</value>
-                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">text written on the opposite, i.e. facing, page</a:documentation>
-                  <value>overleaf</value>
-                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">text written on the other side of the leaf</a:documentation>
-                  <value>overstrike</value>
-                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">text written over previously deleted text</a:documentation>
-                  <value>right</value>
-                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">text written to the right of the preceding text node</a:documentation>
-                  <value>top</value>
-                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">text written at the top of the page</a:documentation>
-                  <value>unspecified</value>
-                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">use this only when no information is currently available and make yourself a note to check photos or source to improve this point</a:documentation>
-               </choice>
-            </attribute>
-         </optional>
-         <empty/>
-      </element>
-   </define>
-   <define name="tei_del">
-      <element name="del">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(deletion) contains a letter, word, or passage deleted, marked as deleted, or otherwise indicated as superfluous or spurious in the copy text by an author, scribe, or a previous annotator or corrector. [3.5.3. Additions, Deletions, and Omissions]</a:documentation>
-         <ref name="tei_macro.paraContent"/>
-         <ref name="tei_att.global.attribute.xmlid"/>
-         <ref name="tei_att.global.attribute.n"/>
-         <ref name="tei_att.global.attribute.xmllang"/>
-         <ref name="tei_att.global.attribute.xmlbase"/>
-         <ref name="tei_att.global.attribute.xmlspace"/>
-         <ref name="tei_att.global.rendition.attribute.style"/>
-         <ref name="tei_att.global.rendition.attribute.rendition"/>
-         <ref name="tei_att.global.responsibility.attribute.cert"/>
-         <ref name="tei_att.global.responsibility.attribute.resp"/>
-         <ref name="tei_att.global.source.attribute.source"/>
-         <ref name="tei_att.transcriptional.attributes"/>
-         <ref name="tei_att.typed.attributes"/>
-         <ref name="tei_att.dimensions.attributes"/>
-         <optional>
-            <attribute name="rend">
-               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
-               <list>
-                  <choice>
-                     <value>erasure</value>
-                     <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">scratched with a knife or similar</a:documentation>
-                     <value>strikethrough</value>
-                     <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">crossed out with red or black ink, a line or dashes</a:documentation>
-                     <value>expunctuated</value>
-                     <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">marked with dots above or below the line, marked with lines above and below or encircled</a:documentation>
-                     <value>effaced</value>
-                     <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">deleted or washed out, the material is untouched</a:documentation>
-                  </choice>
-                  <optional>
-                     <choice>
-                        <value>erasure</value>
-                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">scratched with a knife or similar</a:documentation>
-                        <value>strikethrough</value>
-                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">crossed out with red or black ink, a line or dashes</a:documentation>
-                        <value>expunctuated</value>
-                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">marked with dots above or below the line, marked with lines above and below or encircled</a:documentation>
-                        <value>effaced</value>
-                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">deleted or washed out, the material is untouched</a:documentation>
-                     </choice>
-                  </optional>
-                  <optional>
-                     <choice>
-                        <value>erasure</value>
-                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">scratched with a knife or similar</a:documentation>
-                        <value>strikethrough</value>
-                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">crossed out with red or black ink, a line or dashes</a:documentation>
-                        <value>expunctuated</value>
-                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">marked with dots above or below the line, marked with lines above and below or encircled</a:documentation>
-                        <value>effaced</value>
-                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">deleted or washed out, the material is untouched</a:documentation>
-                     </choice>
-                  </optional>
-                  <optional>
-                     <choice>
-                        <value>erasure</value>
-                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">scratched with a knife or similar</a:documentation>
-                        <value>strikethrough</value>
-                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">crossed out with red or black ink, a line or dashes</a:documentation>
-                        <value>expunctuated</value>
-                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">marked with dots above or below the line, marked with lines above and below or encircled</a:documentation>
-                        <value>effaced</value>
-                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">deleted or washed out, the material is untouched</a:documentation>
-                     </choice>
-                  </optional>
-                  <optional>
-                     <choice>
-                        <value>erasure</value>
-                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">scratched with a knife or similar</a:documentation>
-                        <value>strikethrough</value>
-                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">crossed out with red or black ink, a line or dashes</a:documentation>
-                        <value>expunctuated</value>
-                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">marked with dots above or below the line, marked with lines above and below or encircled</a:documentation>
-                        <value>effaced</value>
-                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">deleted or washed out, the material is untouched</a:documentation>
-                     </choice>
-                  </optional>
-                  <optional>
-                     <choice>
-                        <value>erasure</value>
-                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">scratched with a knife or similar</a:documentation>
-                        <value>strikethrough</value>
-                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">crossed out with red or black ink, a line or dashes</a:documentation>
-                        <value>expunctuated</value>
-                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">marked with dots above or below the line, marked with lines above and below or encircled</a:documentation>
-                        <value>effaced</value>
-                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">deleted or washed out, the material is untouched</a:documentation>
-                     </choice>
-                  </optional>
-               </list>
-            </attribute>
-         </optional>
-         <empty/>
-      </element>
-   </define>
-   <define name="tei_unclear">
-      <element name="unclear">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(unclear) contains a word, phrase, or passage which cannot be transcribed with certainty because it is illegible or inaudible in the source. [11.3.3.1. Damage, Illegibility, and Supplied Text 3.5.3. Additions, Deletions, and Omissions]</a:documentation>
-         <ref name="tei_macro.paraContent"/>
-         <ref name="tei_att.global.attributes"/>
-         <ref name="tei_att.editLike.attributes"/>
-         <ref name="tei_att.dimensions.attributes"/>
-         <optional>
-            <attribute name="reason">
-               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">indicates why the material is hard to transcribe.
-Suggested values include: 1] illegible (illegible); 2] inaudible (inaudible); 3] faded (faded); 4] background_noise (background_noise); 5] eccentric_ductus (eccentric_ductus)</a:documentation>
-               <list>
-                  <oneOrMore>
-                     <choice>
-                        <value>illegible</value>
-                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(illegible) </a:documentation>
-                        <value>inaudible</value>
-                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(inaudible) </a:documentation>
-                        <value>faded</value>
-                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(faded) </a:documentation>
-                        <value>background_noise</value>
-                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(background_noise) </a:documentation>
-                        <value>eccentric_ductus</value>
-                        <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(eccentric_ductus) indicates illegibility due to an unusual, awkward, or incompetent execution of a glyph or glyphs </a:documentation>
-                        <data type="token">
-                           <param name="pattern">[^\p{C}\p{Z}]+</param>
-                        </data>
-                     </choice>
-                  </oneOrMore>
-               </list>
-            </attribute>
-         </optional>
-         <optional>
-            <attribute name="agent">
-               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">Where the difficulty in transcription arises from damage, categorizes the cause of the damage, if it can be identified.
-Sample values include: 1] rubbing; 2] mildew; 3] smoke</a:documentation>
                <data type="token">
                   <param name="pattern">[^\p{C}\p{Z}]+</param>
                </data>
@@ -4792,6 +4530,9 @@ locus is used to point to values of these elements in the teiHeader.
          <group>
             <group>
                <optional>
+                  <ref name="tei_institution"/>
+               </optional>
+               <optional>
                   <ref name="tei_repository"/>
                </optional>
                <zeroOrMore>
@@ -4803,6 +4544,7 @@ locus is used to point to values of these elements in the teiHeader.
             </group>
             <zeroOrMore>
                <choice>
+                  <ref name="tei_msName"/>
                   <ref name="tei_altIdentifier"/>
                </choice>
             </zeroOrMore>
@@ -4816,6 +4558,15 @@ locus is used to point to values of these elements in the teiHeader.
             </rule>
          </pattern>
          <ref name="tei_att.global.attributes"/>
+         <empty/>
+      </element>
+   </define>
+   <define name="tei_institution">
+      <element name="institution">
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(institution) contains the name of an organization such as a university or library, with which a manuscript or other object is identified, generally its holding institution. [10.4. The Manuscript Identifier]</a:documentation>
+         <ref name="tei_macro.phraseSeq.limited"/>
+         <ref name="tei_att.global.attributes"/>
+         <ref name="tei_att.naming.attributes"/>
          <empty/>
       </element>
    </define>
@@ -4843,6 +4594,9 @@ locus is used to point to values of these elements in the teiHeader.
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(alternative identifier) contains an alternative or former structured identifier used for a manuscript or other object, such as a former catalogue number. [10.4. The Manuscript Identifier]</a:documentation>
          <group>
             <optional>
+               <ref name="tei_institution"/>
+            </optional>
+            <optional>
                <ref name="tei_repository"/>
             </optional>
             <optional>
@@ -4856,6 +4610,21 @@ locus is used to point to values of these elements in the teiHeader.
          <ref name="tei_att.global.attributes"/>
          <ref name="tei_att.typed.attributes"/>
          <ref name="tei_att.datable.attributes"/>
+         <empty/>
+      </element>
+   </define>
+   <define name="tei_msName">
+      <element name="msName">
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(alternative name) contains any form of unstructured alternative name used for a manuscript or other object, such as an ocellus nominum, or nickname. [10.4. The Manuscript Identifier]</a:documentation>
+         <zeroOrMore>
+            <choice>
+               <text/>
+               <ref name="tei_model.gLike"/>
+               <ref name="tei_name"/>
+            </choice>
+         </zeroOrMore>
+         <ref name="tei_att.global.attributes"/>
+         <ref name="tei_att.typed.attributes"/>
          <empty/>
       </element>
    </define>
