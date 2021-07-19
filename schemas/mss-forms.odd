@@ -104,15 +104,20 @@ xml:lang="en">
                     include="teiHeader fileDesc idno
                     title titleStmt 
                     publicationStmt sourceDesc"/>
-                <moduleRef key="tei"/>
-                <moduleRef key="textstructure" include="TEI text body div front back"/>
                 <moduleRef key="msdescription" 
                     include="altIdentifier collection
-                    locus
+                    colophon
+                    explicit finalRubric
+                    incipit locus
                     msContents msDesc
                     msIdentifier msItem 
                     repository rubric
                     summary"/> 
+                <moduleRef key="namesdates"
+                    include="forename surname
+                    persName addName"/>
+                <moduleRef key="tei"/>
+                <moduleRef key="textstructure" include="TEI text body div front back"/>
             </schemaSpec>
             </div>
         </body>
