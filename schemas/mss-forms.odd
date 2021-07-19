@@ -106,13 +106,14 @@ xml:lang="en">
                     publicationStmt sourceDesc"/>
                 <moduleRef key="msdescription" 
                     include="altIdentifier collection
-                    colophon
+                    colophon country 
                     explicit finalRubric
-                    incipit locus
+                    incipit institution locus
                     msContents msDesc
                     msIdentifier msItem 
+                    msName 
                     repository rubric
-                    summary"/> 
+                    settlement summary"/> 
                 <moduleRef key="namesdates"
                     include="forename surname
                     persName addName"/>
