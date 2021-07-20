@@ -79,23 +79,17 @@ xml:lang="en">
                 -->
                 <moduleRef key="core"
                     include="
-                    abbr address addrLine author analytic
+                    address addrLine author
                     bibl biblScope biblStruct
-                    choice citedRange cit corr cb
+                    citedRange cit cb
                     date desc 
-                    editor email expan 
-                    foreign 
-                    gap graphic 
-                    head hi 
-                    imprint item 
-                    l label lb 
-                    lg list listBibl 
+                    editor email 
+                    foreign head 
+                    imprint item listBibl lb 
                     measure monogr
-                    name note num 
-                    orig 
-                    p pb postCode publisher pubPlace 
-                    q quote 
-                    ref reg relatedItem resp respStmt 
+                    name note 
+                    p postCode publisher pubPlace 
+                    ref relatedItem resp respStmt 
                     series sic street 
                     term textLang title  
                     "/>
@@ -114,8 +108,12 @@ xml:lang="en">
                     repository rubric
                     settlement summary"/> 
                 <moduleRef key="namesdates"
-                    include="forename surname
-                    persName addName"/>
+                    include="addName birth 
+                    death faith 
+                    floruit forename
+                    occupation 
+                    persName placeName 
+                    residence roleName surname"/>
                 <moduleRef key="tei"/>
                 <moduleRef key="textstructure" include="TEI text body div front back"/>
             </schemaSpec>
