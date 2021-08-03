@@ -21,7 +21,6 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
 End license statement: do not remove -->
-
 <!--requirements: 
     
     FIRHIST compatibility
@@ -30,13 +29,14 @@ End license statement: do not remove -->
 -->
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:tei="http://www.tei-c.org/ns/1.0"
     xmlns:rng="http://relaxng.org/ns/structure/1.0" xmlns:sch="http://purl.oclc.org/dsdl/schematron"
-xml:lang="en">
+    xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title>Arabic Manuscripts Schema, constrained for usage in XForms</title>
                 <author xml:id="PL">Pietro Liuzzo</author>
                 <author xml:id="NG">Nathan Gibson</author>
+                <author xml:id="MM">Maximilian de Molière</author>
             </titleStmt>
             <publicationStmt>
                 <authority>Hiob-Ludolf-Zentrum für Äthiopistik</authority>
@@ -47,14 +47,14 @@ xml:lang="en">
                     <licence target="http://creativecommons.org/licenses/by-sa/4.0/"> This file is
                         licensed under the Creative Commons Attribution-ShareAlike 4.0. </licence>
                 </availability>
-
             </publicationStmt>
             <sourceDesc>
                 <p>created electronically</p>
             </sourceDesc>
         </fileDesc>
         <revisionDesc>
-            <change who="NG" when="2021-04-21">Created schema on basis of Arabic Manuscripts Schema created by Pietro Liuzzo</change>
+            <change who="NG" when="2021-04-21">Created schema on basis of Arabic Manuscripts Schema
+                created by Pietro Liuzzo</change>
         </revisionDesc>
     </teiHeader>
     <text>
@@ -62,61 +62,737 @@ xml:lang="en">
             <divGen type="toc"/>
         </front>
         <body>
-           <div> 
-               <head>Information on this customization</head>
-               <p>Schema for Arabic Manuscripts based on the schema of Beta maṣāḥǝft: Manuscripts of Ethiopia and Eritrea research
-                environment. The <ref target="https://betamasaheft.eu/Guidelines">Beta
-                    maṣāḥǝft Guidelines</ref> contain examples and details of that customization.</p>
-            <p>Added Rules from the <ref target="https://github.com/msDesc/consolidated-tei-schema/blob/master/msdesc.odd">consolidated schema</ref> of FIRHIST</p>
-           <p>Constrained this schema for generating forms.</p>
-           </div>
             <div>
-            <schemaSpec ident="tei-arabic" docLang="en" prefix="tei_" start="TEI"
-                xml:lang="en" source="mss-compiled.odd">
-
-                <!--       MODULES USED BY THE SCHEMA
+                <head>Information on this customization</head>
+                <p>Schema for Arabic Manuscripts based on the schema of Beta maṣāḥǝft: Manuscripts
+                    of Ethiopia and Eritrea research environment. The <ref
+                        target="https://betamasaheft.eu/Guidelines">Beta maṣāḥǝft Guidelines</ref>
+                    contain examples and details of that customization.</p>
+                <p>Added Rules from the <ref
+                        target="https://github.com/msDesc/consolidated-tei-schema/blob/master/msdesc.odd"
+                        >consolidated schema</ref> of FIRHIST</p>
+                <p>Constrained this schema for generating forms.</p>
+            </div>
+            <div>
+                <schemaSpec ident="tei-arabic" docLang="en" prefix="tei_" start="TEI" xml:lang="en"
+                    source="mss-compiled.odd">
+                    <!--       MODULES USED BY THE SCHEMA
                 the @source ties the current schema to the pre-compiled Arabic Manuscripts Schema, which is tied to version 4.2.0 of TEI
                 -->
-                <moduleRef key="core"
-                    include="
-                    address addrLine author
-                    bibl biblScope biblStruct
-                    citedRange cit cb
-                    date desc 
-                    editor email 
-                    foreign head 
-                    imprint item listBibl lb 
-                    measure monogr
-                    name note 
-                    p postCode publisher pubPlace 
-                    ref relatedItem resp respStmt 
-                    series sic street 
-                    term textLang title  
-                    "/>
-                <moduleRef key="header" 
-                    include="teiHeader fileDesc idno
-                    title titleStmt 
-                    publicationStmt sourceDesc"/>
-                <moduleRef key="msdescription" 
-                    include="altIdentifier collection
-                    colophon country 
-                    explicit finalRubric
-                    incipit institution locus
-                    msContents msDesc
-                    msIdentifier msItem 
-                    msName 
-                    repository rubric
-                    settlement summary"/> 
-                <moduleRef key="namesdates"
-                    include="addName birth 
-                    death faith 
-                    floruit forename
-                    occupation 
-                    persName placeName 
-                    residence roleName surname"/>
-                <moduleRef key="tei"/>
-                <moduleRef key="textstructure" include="TEI text body div front back"/>
-            </schemaSpec>
+                    <moduleRef key="core"
+                        include="addrLine address author date editor email imprint monogr name note postCode pubPlace publisher ref resp respStmt series street textLang title"/>
+                    <moduleRef key="header"
+                        include="teiHeader fileDesc idno                     title titleStmt                      publicationStmt sourceDesc"/>
+                    <moduleRef key="msdescription"
+                        include="altIdentifier collection colophon explicit finalRubric incipit institution locus locusGrp msContents msDesc msFrag msIdentifier msItem msName msPart repository rubric summary"/>
+                    <moduleRef key="namesdates"
+                        include="addName forename persName placeName roleName surname"/>
+                    <moduleRef key="tei"/>
+                    <moduleRef key="textstructure" include="TEI"/>
+                    <elementSpec ident="fileDesc" module="header" mode="change" ns="">
+                        <attList>
+                            <attDef ident="ana" mode="delete"/>
+                            <attDef ident="cert" mode="delete"/>
+                            <attDef ident="change" mode="delete"/>
+                            <attDef ident="copyOf" mode="delete"/>
+                            <attDef ident="corresp" mode="delete"/>
+                            <attDef ident="exclude" mode="delete"/>
+                            <attDef ident="facs" mode="delete"/>
+                            <attDef ident="n" mode="delete"/>
+                            <attDef ident="next" mode="delete"/>
+                            <attDef ident="prev" mode="delete"/>
+                            <attDef ident="rend" mode="delete"/>
+                            <attDef ident="rendition" mode="delete"/>
+                            <attDef ident="resp" mode="delete"/>
+                            <attDef ident="sameAs" mode="delete"/>
+                            <attDef ident="select" mode="delete"/>
+                            <attDef ident="source" mode="delete"/>
+                            <attDef ident="style" mode="delete"/>
+                            <attDef ident="synch" mode="delete"/>
+                            <attDef ident="xml:base" mode="delete"/>
+                            <attDef ident="xml:id" mode="delete"/>
+                            <attDef ident="xml:lang" mode="delete"/>
+                            <attDef ident="xml:space" mode="delete"/>
+                        </attList>
+                        <classes mode="replace">
+                            <memberOf key="att.global" mode="delete"/>
+                        </classes>
+                    </elementSpec>
+                    <elementSpec ident="idno" module="header" mode="change" ns="">
+                        <attList>
+                            <attDef ident="ana" mode="delete"/>
+                            <attDef ident="calendar" mode="delete"/>
+                            <attDef ident="cert" mode="delete"/>
+                            <attDef ident="change" mode="delete"/>
+                            <attDef ident="copyOf" mode="delete"/>
+                            <attDef ident="corresp" mode="delete"/>
+                            <attDef ident="datingMethod" mode="delete"/>
+                            <attDef ident="datingPoint" mode="delete"/>
+                            <attDef ident="exclude" mode="delete"/>
+                            <attDef ident="facs" mode="delete"/>
+                            <attDef ident="from" mode="delete"/>
+                            <attDef ident="from-custom" mode="delete"/>
+                            <attDef ident="from-iso" mode="delete"/>
+                            <attDef ident="n" mode="delete"/>
+                            <attDef ident="next" mode="delete"/>
+                            <attDef ident="notAfter" mode="delete"/>
+                            <attDef ident="notAfter-custom" mode="delete"/>
+                            <attDef ident="notAfter-iso" mode="delete"/>
+                            <attDef ident="notBefore" mode="delete"/>
+                            <attDef ident="notBefore-custom" mode="delete"/>
+                            <attDef ident="notBefore-iso" mode="delete"/>
+                            <attDef ident="period" mode="delete"/>
+                            <attDef ident="prev" mode="delete"/>
+                            <attDef ident="rend" mode="delete"/>
+                            <attDef ident="rendition" mode="delete"/>
+                            <attDef ident="resp" mode="delete"/>
+                            <attDef ident="select" mode="delete"/>
+                            <attDef ident="sortKey" mode="delete"/>
+                            <attDef ident="source" mode="delete"/>
+                            <attDef ident="style" mode="delete"/>
+                            <attDef ident="subtype" mode="delete"/>
+                            <attDef ident="synch" mode="delete"/>
+                            <attDef ident="to" mode="delete"/>
+                            <attDef ident="to-custom" mode="delete"/>
+                            <attDef ident="to-iso" mode="delete"/>
+                            <attDef ident="type" mode="delete"/>
+                            <attDef ident="when" mode="delete"/>
+                            <attDef ident="when-custom" mode="delete"/>
+                            <attDef ident="when-iso" mode="delete"/>
+                            <attDef ident="xml:base" mode="delete"/>
+                            <attDef ident="xml:id" mode="delete"/>
+                            <attDef ident="xml:lang" mode="delete"/>
+                            <attDef ident="xml:space" mode="delete"/>
+                        </attList>
+                        <classes mode="replace">
+                            <memberOf key="model.msItemPart"/>
+                            <memberOf key="model.nameLike"/>
+                            <memberOf key="model.personPart"/>
+                            <memberOf key="model.publicationStmtPart.detail"/>
+                            <memberOf key="att.datable"/>
+                            <memberOf key="att.global"/>
+                            <memberOf key="att.sortable"/>
+                            <memberOf key="att.typed"/>
+                        </classes>
+                    </elementSpec>
+                    <elementSpec ident="addName" module="namesdates" mode="change" ns="">
+                        <attList>
+                            <attDef ident="ana" mode="delete"/>
+                            <attDef ident="cert" mode="delete"/>
+                            <attDef ident="change" mode="delete"/>
+                            <attDef ident="copyOf" mode="delete"/>
+                            <attDef ident="corresp" mode="delete"/>
+                            <attDef ident="exclude" mode="delete"/>
+                            <attDef ident="facs" mode="delete"/>
+                            <attDef ident="full" mode="delete"/>
+                            <attDef ident="key" mode="delete"/>
+                            <attDef ident="n" mode="delete"/>
+                            <attDef ident="next" mode="delete"/>
+                            <attDef ident="prev" mode="delete"/>
+                            <attDef ident="rend" mode="delete"/>
+                            <attDef ident="rendition" mode="delete"/>
+                            <attDef ident="resp" mode="delete"/>
+                            <attDef ident="sameAs" mode="delete"/>
+                            <attDef ident="select" mode="delete"/>
+                            <attDef ident="sort" mode="delete"/>
+                            <attDef ident="source" mode="delete"/>
+                            <attDef ident="style" mode="delete"/>
+                            <attDef ident="subtype" mode="delete"/>
+                            <attDef ident="synch" mode="delete"/>
+                            <attDef ident="type" mode="delete"/>
+                            <attDef ident="xml:base" mode="delete"/>
+                            <attDef ident="xml:id" mode="delete"/>
+                            <attDef ident="xml:lang" mode="delete"/>
+                            <attDef ident="xml:space" mode="delete"/>
+                        </attList>
+                        <classes mode="replace">
+                            <memberOf key="model.persNamePart"/>
+                            <memberOf key="att.global" mode="delete"/>
+                            <memberOf key="att.personal" mode="delete"/>
+                            <memberOf key="att.typed" mode="delete"/>
+                        </classes>
+                    </elementSpec>
+                    <elementSpec ident="forename" module="namesdates" mode="change" ns="">
+                        <attList>
+                            <attDef ident="ana" mode="delete"/>
+                            <attDef ident="cert" mode="delete"/>
+                            <attDef ident="change" mode="delete"/>
+                            <attDef ident="copyOf" mode="delete"/>
+                            <attDef ident="corresp" mode="delete"/>
+                            <attDef ident="exclude" mode="delete"/>
+                            <attDef ident="facs" mode="delete"/>
+                            <attDef ident="full" mode="delete"/>
+                            <attDef ident="key" mode="delete"/>
+                            <attDef ident="n" mode="delete"/>
+                            <attDef ident="next" mode="delete"/>
+                            <attDef ident="nymRef" mode="delete"/>
+                            <attDef ident="prev" mode="delete"/>
+                            <attDef ident="rend" mode="delete"/>
+                            <attDef ident="rendition" mode="delete"/>
+                            <attDef ident="resp" mode="delete"/>
+                            <attDef ident="role" mode="delete"/>
+                            <attDef ident="sameAs" mode="delete"/>
+                            <attDef ident="select" mode="delete"/>
+                            <attDef ident="sort" mode="delete"/>
+                            <attDef ident="source" mode="delete"/>
+                            <attDef ident="style" mode="delete"/>
+                            <attDef ident="subtype" mode="delete"/>
+                            <attDef ident="synch" mode="delete"/>
+                            <attDef ident="type" mode="delete"/>
+                            <attDef ident="xml:base" mode="delete"/>
+                            <attDef ident="xml:id" mode="delete"/>
+                            <attDef ident="xml:lang" mode="delete"/>
+                            <attDef ident="xml:space" mode="delete"/>
+                        </attList>
+                        <classes mode="replace">
+                            <memberOf key="model.persNamePart"/>
+                            <memberOf key="att.global" mode="delete"/>
+                            <memberOf key="att.personal" mode="delete"/>
+                            <memberOf key="att.typed" mode="delete"/>
+                        </classes>
+                    </elementSpec>
+                    <elementSpec ident="persName" module="namesdates" mode="change" ns="">
+                        <classes mode="replace">
+                            <memberOf key="model.nameLike"/>
+                            <memberOf key="model.nameLike.agent"/>
+                            <memberOf key="model.persStateLike"/>
+                            <memberOf key="att.canonical" mode="add"/>
+                            <memberOf key="att.datable" mode="delete"/>
+                            <memberOf key="att.editLike" mode="delete"/>
+                            <memberOf key="att.global" mode="delete"/>
+                            <memberOf key="att.personal" mode="delete"/>
+                            <memberOf key="att.typed" mode="delete"/>
+                        </classes>
+                        <attList>
+                            <attDef ident="ana" mode="delete"/>
+                            <attDef ident="calendar" mode="delete"/>
+                            <attDef ident="cert" mode="delete"/>
+                            <attDef ident="change" mode="delete"/>
+                            <attDef ident="copyOf" mode="delete"/>
+                            <attDef ident="corresp" mode="delete"/>
+                            <attDef ident="datingMethod" mode="delete"/>
+                            <attDef ident="datingPoint" mode="delete"/>
+                            <attDef ident="evidence" mode="delete"/>
+                            <attDef ident="exclude" mode="delete"/>
+                            <attDef ident="facs" mode="delete"/>
+                            <attDef ident="from" mode="delete"/>
+                            <attDef ident="from-custom" mode="delete"/>
+                            <attDef ident="from-iso" mode="delete"/>
+                            <attDef ident="full" mode="delete"/>
+                            <attDef ident="instant" mode="delete"/>
+                            <attDef ident="key" mode="delete"/>
+                            <attDef ident="n" mode="delete"/>
+                            <attDef ident="next" mode="delete"/>
+                            <attDef ident="notAfter" mode="delete"/>
+                            <attDef ident="notAfter-custom" mode="delete"/>
+                            <attDef ident="notAfter-iso" mode="delete"/>
+                            <attDef ident="notBefore" mode="delete"/>
+                            <attDef ident="notBefore-custom" mode="delete"/>
+                            <attDef ident="notBefore-iso" mode="delete"/>
+                            <attDef ident="nymRef" mode="delete"/>
+                            <attDef ident="period" mode="delete"/>
+                            <attDef ident="prev" mode="delete"/>
+                            <attDef ident="rend" mode="delete"/>
+                            <attDef ident="rendition" mode="delete"/>
+                            <attDef ident="resp" mode="delete"/>
+                            <attDef ident="role" mode="delete"/>
+                            <attDef ident="sameAs" mode="delete"/>
+                            <attDef ident="select" mode="delete"/>
+                            <attDef ident="sort" mode="delete"/>
+                            <attDef ident="source" mode="delete"/>
+                            <attDef ident="style" mode="delete"/>
+                            <attDef ident="subtype" mode="delete"/>
+                            <attDef ident="synch" mode="delete"/>
+                            <attDef ident="to" mode="delete"/>
+                            <attDef ident="to-custom" mode="delete"/>
+                            <attDef ident="to-iso" mode="delete"/>
+                            <attDef ident="type" mode="delete"/>
+                            <attDef ident="when" mode="delete"/>
+                            <attDef ident="when-custom" mode="delete"/>
+                            <attDef ident="when-iso" mode="delete"/>
+                            <attDef ident="xml:base" mode="delete"/>
+                            <attDef ident="xml:id" mode="delete"/>
+                            <attDef ident="xml:lang" mode="delete"/>
+                            <attDef ident="xml:space" mode="delete"/>
+                        </attList>
+                    </elementSpec>
+                    <elementSpec ident="placeName" module="namesdates" mode="change">
+                        <classes mode="replace">
+                            <memberOf key="model.placeNamePart"/>
+                            <memberOf key="model.settingPart"/>
+                            <memberOf key="att.canonical" mode="add"/>
+                            <memberOf key="att.datable" mode="delete"/>
+                            <memberOf key="att.editLike" mode="delete"/>
+                            <memberOf key="att.global" mode="delete"/>
+                            <memberOf key="att.personal" mode="delete"/>
+                            <memberOf key="att.typed" mode="delete"/>
+                        </classes>
+                        <attList>
+                            <attDef ident="ana" mode="delete"/>
+                            <attDef ident="calendar" mode="delete"/>
+                            <attDef ident="cert" mode="delete"/>
+                            <attDef ident="change" mode="delete"/>
+                            <attDef ident="copyOf" mode="delete"/>
+                            <attDef ident="corresp" mode="delete"/>
+                            <attDef ident="datingMethod" mode="delete"/>
+                            <attDef ident="datingPoint" mode="delete"/>
+                            <attDef ident="evidence" mode="delete"/>
+                            <attDef ident="exclude" mode="delete"/>
+                            <attDef ident="facs" mode="delete"/>
+                            <attDef ident="from" mode="delete"/>
+                            <attDef ident="from-custom" mode="delete"/>
+                            <attDef ident="from-iso" mode="delete"/>
+                            <attDef ident="full" mode="delete"/>
+                            <attDef ident="instant" mode="delete"/>
+                            <attDef ident="key" mode="delete"/>
+                            <attDef ident="n" mode="delete"/>
+                            <attDef ident="next" mode="delete"/>
+                            <attDef ident="notAfter" mode="delete"/>
+                            <attDef ident="notAfter-custom" mode="delete"/>
+                            <attDef ident="notAfter-iso" mode="delete"/>
+                            <attDef ident="notBefore" mode="delete"/>
+                            <attDef ident="notBefore-custom" mode="delete"/>
+                            <attDef ident="notBefore-iso" mode="delete"/>
+                            <attDef ident="nymRef" mode="delete"/>
+                            <attDef ident="period" mode="delete"/>
+                            <attDef ident="prev" mode="delete"/>
+                            <attDef ident="rend" mode="delete"/>
+                            <attDef ident="rendition" mode="delete"/>
+                            <attDef ident="resp" mode="delete"/>
+                            <attDef ident="role" mode="delete"/>
+                            <attDef ident="sameAs" mode="delete"/>
+                            <attDef ident="select" mode="delete"/>
+                            <attDef ident="sort" mode="delete"/>
+                            <attDef ident="source" mode="delete"/>
+                            <attDef ident="style" mode="delete"/>
+                            <attDef ident="subtype" mode="delete"/>
+                            <attDef ident="synch" mode="delete"/>
+                            <attDef ident="to" mode="delete"/>
+                            <attDef ident="to-custom" mode="delete"/>
+                            <attDef ident="to-iso" mode="delete"/>
+                            <attDef ident="type" mode="delete"/>
+                            <attDef ident="when" mode="delete"/>
+                            <attDef ident="when-custom" mode="delete"/>
+                            <attDef ident="when-iso" mode="delete"/>
+                            <attDef ident="xml:base" mode="delete"/>
+                            <attDef ident="xml:id" mode="delete"/>
+                            <attDef ident="xml:lang" mode="delete"/>
+                            <attDef ident="xml:space" mode="delete"/>
+                        </attList>
+                    </elementSpec>
+                    <elementSpec ident="surname" module="namesdates" mode="change" ns="">
+                        <classes mode="replace">
+                            <memberOf key="model.persNamePart"/>
+                            <memberOf key="att.global" mode="delete"/>
+                            <memberOf key="att.personal" mode="delete"/>
+                            <memberOf key="att.typed" mode="delete"/>
+                        </classes>
+                        <attList>
+                            <attDef ident="ana" mode="delete"/>
+                            <attDef ident="cert" mode="delete"/>
+                            <attDef ident="change" mode="delete"/>
+                            <attDef ident="copyOf" mode="delete"/>
+                            <attDef ident="corresp" mode="delete"/>
+                            <attDef ident="exclude" mode="delete"/>
+                            <attDef ident="facs" mode="delete"/>
+                            <attDef ident="full" mode="delete"/>
+                            <attDef ident="key" mode="delete"/>
+                            <attDef ident="n" mode="delete"/>
+                            <attDef ident="next" mode="delete"/>
+                            <attDef ident="nymRef" mode="delete"/>
+                            <attDef ident="prev" mode="delete"/>
+                            <attDef ident="rend" mode="delete"/>
+                            <attDef ident="rendition" mode="delete"/>
+                            <attDef ident="resp" mode="delete"/>
+                            <attDef ident="role" mode="delete"/>
+                            <attDef ident="sameAs" mode="delete"/>
+                            <attDef ident="select" mode="delete"/>
+                            <attDef ident="sort" mode="delete"/>
+                            <attDef ident="source" mode="delete"/>
+                            <attDef ident="style" mode="delete"/>
+                            <attDef ident="subtype" mode="delete"/>
+                            <attDef ident="synch" mode="delete"/>
+                            <attDef ident="type" mode="delete"/>
+                            <attDef ident="xml:base" mode="delete"/>
+                            <attDef ident="xml:id" mode="delete"/>
+                            <attDef ident="xml:lang" mode="delete"/>
+                            <attDef ident="xml:space" mode="delete"/>
+                        </attList>
+                    </elementSpec>
+                    <elementSpec ident="roleName" module="namesdates" mode="change">
+                        <attList>
+                            <attDef ident="ana" mode="delete"/>
+                            <attDef ident="cert" mode="delete"/>
+                            <attDef ident="change" mode="delete"/>
+                            <attDef ident="copyOf" mode="delete"/>
+                            <attDef ident="corresp" mode="delete"/>
+                            <attDef ident="exclude" mode="delete"/>
+                            <attDef ident="facs" mode="delete"/>
+                            <attDef ident="full" mode="delete"/>
+                            <attDef ident="key" mode="delete"/>
+                            <attDef ident="n" mode="delete"/>
+                            <attDef ident="next" mode="delete"/>
+                            <attDef ident="nymRef" mode="delete"/>
+                            <attDef ident="prev" mode="delete"/>
+                            <attDef ident="rend" mode="delete"/>
+                            <attDef ident="rendition" mode="delete"/>
+                            <attDef ident="resp" mode="delete"/>
+                            <attDef ident="role" mode="delete"/>
+                            <attDef ident="sameAs" mode="delete"/>
+                            <attDef ident="select" mode="delete"/>
+                            <attDef ident="sort" mode="delete"/>
+                            <attDef ident="source" mode="delete"/>
+                            <attDef ident="style" mode="delete"/>
+                            <attDef ident="subtype" mode="delete"/>
+                            <attDef ident="synch" mode="delete"/>
+                            <attDef ident="type" mode="delete"/>
+                            <attDef ident="xml:base" mode="delete"/>
+                            <attDef ident="xml:id" mode="delete"/>
+                            <attDef ident="xml:lang" mode="delete"/>
+                            <attDef ident="xml:space" mode="delete"/>
+                        </attList>
+                    </elementSpec>
+                    <elementSpec ident="author" module="core" mode="change">
+                        <attList>
+                            <attDef ident="ana" mode="delete"/>
+                            <attDef ident="calendar" mode="delete"/>
+                            <attDef ident="change" mode="delete"/>
+                            <attDef ident="copyOf" mode="delete"/>
+                            <attDef ident="corresp" mode="delete"/>
+                            <attDef ident="datingMethod" mode="delete"/>
+                            <attDef ident="datingPoint" mode="delete"/>
+                            <attDef ident="exclude" mode="delete"/>
+                            <attDef ident="facs" mode="delete"/>
+                            <attDef ident="from" mode="delete"/>
+                            <attDef ident="from-custom" mode="delete"/>
+                            <attDef ident="from-iso" mode="delete"/>
+                            <attDef ident="key" mode="delete"/>
+                            <attDef ident="n" mode="delete"/>
+                            <attDef ident="next" mode="delete"/>
+                            <attDef ident="notAfter" mode="delete"/>
+                            <attDef ident="notAfter-custom" mode="delete"/>
+                            <attDef ident="notAfter-iso" mode="delete"/>
+                            <attDef ident="notBefore" mode="delete"/>
+                            <attDef ident="notBefore-custom" mode="delete"/>
+                            <attDef ident="notBefore-iso" mode="delete"/>
+                            <attDef ident="nymRef" mode="delete"/>
+                            <attDef ident="period" mode="delete"/>
+                            <attDef ident="prev" mode="delete"/>
+                            <attDef ident="rend" mode="delete"/>
+                            <attDef ident="rendition" mode="delete"/>
+                            <attDef ident="resp" mode="delete"/>
+                            <attDef ident="sameAs" mode="delete"/>
+                            <attDef ident="select" mode="delete"/>
+                            <attDef ident="source" mode="delete"/>
+                            <attDef ident="style" mode="delete"/>
+                            <attDef ident="synch" mode="delete"/>
+                            <attDef ident="to" mode="delete"/>
+                            <attDef ident="to-custom" mode="delete"/>
+                            <attDef ident="to-iso" mode="delete"/>
+                            <attDef ident="when" mode="delete"/>
+                            <attDef ident="when-custom" mode="delete"/>
+                            <attDef ident="when-iso" mode="delete"/>
+                            <attDef ident="xml:base" mode="delete"/>
+                            <attDef ident="xml:id" mode="delete"/>
+                            <attDef ident="xml:lang" mode="delete"/>
+                            <attDef ident="xml:space" mode="delete"/>
+                        </attList>
+                    </elementSpec>
+                    <elementSpec ident="title" module="core" mode="change" ns="">
+                        <attList>
+                            <attDef ident="ana" mode="delete"/>
+                            <attDef ident="calendar" mode="delete"/>
+                            <attDef ident="change" mode="delete"/>
+                            <attDef ident="copyOf" mode="delete"/>
+                            <attDef ident="corresp" mode="delete"/>
+                            <attDef ident="datingMethod" mode="delete"/>
+                            <attDef ident="datingPoint" mode="delete"/>
+                            <attDef ident="exclude" mode="delete"/>
+                            <attDef ident="facs" mode="delete"/>
+                            <attDef ident="from" mode="delete"/>
+                            <attDef ident="from-custom" mode="delete"/>
+                            <attDef ident="from-iso" mode="delete"/>
+                            <attDef ident="key" mode="delete"/>
+                            <attDef ident="level" mode="delete"/>
+                            <attDef ident="n" mode="delete"/>
+                            <attDef ident="next" mode="delete"/>
+                            <attDef ident="notAfter" mode="delete"/>
+                            <attDef ident="notAfter-custom" mode="delete"/>
+                            <attDef ident="notAfter-iso" mode="delete"/>
+                            <attDef ident="notBefore" mode="delete"/>
+                            <attDef ident="notBefore-custom" mode="delete"/>
+                            <attDef ident="notBefore-iso" mode="delete"/>
+                            <attDef ident="period" mode="delete"/>
+                            <attDef ident="prev" mode="delete"/>
+                            <attDef ident="rend" mode="delete"/>
+                            <attDef ident="rendition" mode="delete"/>
+                            <attDef ident="resp" mode="delete"/>
+                            <attDef ident="sameAs" mode="delete"/>
+                            <attDef ident="select" mode="delete"/>
+                            <attDef ident="source" mode="delete"/>
+                            <attDef ident="style" mode="delete"/>
+                            <attDef ident="subtype" mode="delete"/>
+                            <attDef ident="synch" mode="delete"/>
+                            <attDef ident="to" mode="delete"/>
+                            <attDef ident="to-custom" mode="delete"/>
+                            <attDef ident="to-iso" mode="delete"/>
+                            <attDef ident="when" mode="delete"/>
+                            <attDef ident="when-custom" mode="delete"/>
+                            <attDef ident="when-iso" mode="delete"/>
+                            <attDef ident="xml:base" mode="delete"/>
+                            <attDef ident="xml:id" mode="delete"/>
+                            <attDef ident="xml:space" mode="delete"/>
+                        </attList>
+                        <classes mode="replace">
+                            <memberOf key="model.emphLike"/>
+                            <memberOf key="model.msQuoteLike"/>
+                            <memberOf key="att.canonical"/>
+                            <memberOf key="att.datable" mode="delete"/>
+                            <memberOf key="att.global" mode="delete"/>
+                            <memberOf key="att.typed" mode="delete"/>
+                        </classes>
+                    </elementSpec>
+                    <elementSpec ident="addrLine" module="core" mode="change">
+                        <classes mode="replace">
+                            <memberOf key="model.addrPart"/>
+                            <memberOf key="att.global" mode="delete"/>
+                        </classes>
+                    </elementSpec>
+                    <elementSpec ident="address" module="core" mode="change">
+                        <classes mode="replace">
+                            <memberOf key="model.addressLike"/>
+                            <memberOf key="model.publicationStmtPart.detail"/>
+                            <memberOf key="att.global" mode="delete"/>
+                        </classes>
+                    </elementSpec>
+                    <elementSpec ident="desc" module="core" mode="change" ns="">
+                        <classes mode="replace">
+                            <memberOf key="model.descLike"/>
+                            <memberOf key="model.labelLike"/>
+                            <memberOf key="att.global" mode="delete"/>
+                            <memberOf key="att.translatable" mode="delete"/>
+                            <memberOf key="att.typed" mode="delete"/>
+                        </classes>
+                    </elementSpec>
+                    <elementSpec ident="date" module="core" mode="change">
+                        <classes mode="replace">
+                            <memberOf key="model.dateLike"/>
+                            <memberOf key="model.publicationStmtPart.detail"/>
+                            <memberOf key="att.datable"/>
+                            <memberOf key="att.canonical" mode="delete"/>
+                            <memberOf key="att.dimensions" mode="delete"/>
+                            <memberOf key="att.duration" mode="delete"/>
+                            <memberOf key="att.editLike" mode="delete"/>
+                            <memberOf key="att.global" mode="delete"/>
+                            <memberOf key="att.typed" mode="delete"/>
+                        </classes>
+                    </elementSpec>
+                    <elementSpec ident="editor" module="core" mode="change">
+                        <classes mode="replace">
+                            <memberOf key="model.respLike"/>
+                            <memberOf key="att.canonical" mode="add"/>
+                            <memberOf key="att.datable" mode="delete"/>
+                            <memberOf key="att.global" mode="delete"/>
+                            <memberOf key="att.naming" mode="delete"/>
+                        </classes>
+                    </elementSpec>
+                    <elementSpec ident="email" module="core" mode="change">
+                        <classes mode="replace">
+                            <memberOf key="model.addressLike"/>
+                            <memberOf key="att.global" mode="delete"/>
+                        </classes>
+                    </elementSpec>
+                    <elementSpec ident="imprint" module="core" mode="change">
+                        <classes mode="replace">
+                            <memberOf key="att.global" mode="delete"/>
+                        </classes>
+                    </elementSpec>
+                    <elementSpec ident="monogr" module="core" mode="change">
+                        <classes mode="replace">
+                            <memberOf key="att.global" mode="delete"/>
+                        </classes>
+                    </elementSpec>
+                    <elementSpec ident="note" module="core" mode="change">
+                        <classes mode="replace">
+                            <memberOf key="model.annotationLike"/>
+                            <memberOf key="model.annotationPart.body"/>
+                            <memberOf key="model.correspActionPart"/>
+                            <memberOf key="model.correspContextPart"/>
+                            <memberOf key="model.correspDescPart"/>
+                            <memberOf key="model.noteLike"/>
+                            <memberOf key="att.anchoring" mode="delete"/>
+                            <memberOf key="att.global" mode="delete"/>
+                            <memberOf key="att.placement" mode="delete"/>
+                            <memberOf key="att.pointing" mode="delete"/>
+                            <memberOf key="att.typed" mode="delete"/>
+                            <memberOf key="att.written" mode="delete"/>
+                        </classes>
+                    </elementSpec>
+                    <elementSpec ident="postCode" module="core" mode="change">
+                        <classes mode="replace">
+                            <memberOf key="model.addrPart"/>
+                            <memberOf key="att.global" mode="delete"/>
+                        </classes>
+                    </elementSpec>
+                    <elementSpec ident="pubPlace" module="core" mode="change">
+                        <classes mode="replace">
+                            <memberOf key="model.imprintPart"/>
+                            <memberOf key="model.publicationStmtPart.detail"/>
+                            <memberOf key="att.global"/>
+                            <memberOf key="att.naming" mode="delete"/>
+                        </classes>
+                    </elementSpec>
+                    <elementSpec ident="publisher" module="core" mode="change" ns="">
+                        <classes mode="replace">
+                            <memberOf key="model.imprintPart"/>
+                            <memberOf key="model.publicationStmtPart.agency"/>
+                            <memberOf key="att.canonical"/>
+                            <memberOf key="att.global" mode="delete"/>
+                        </classes>
+                    </elementSpec>
+                    <elementSpec ident="resp" module="core" mode="change">
+                        <classes mode="replace">
+                            <memberOf key="att.canonical"/>
+                            <memberOf key="att.datable" mode="delete"/>
+                            <memberOf key="att.global" mode="delete"/>
+                        </classes>
+                    </elementSpec>
+                    <elementSpec ident="respStmt" module="core" mode="change">
+                        <classes mode="replace">
+                            <memberOf key="model.recordingPart"/>
+                            <memberOf key="model.respLike"/>
+                            <memberOf key="att.canonical" mode="delete"/>
+                            <memberOf key="att.global" mode="delete"/>
+                        </classes>
+                    </elementSpec>
+                    <elementSpec ident="series" module="core" mode="change">
+                        <classes mode="replace">
+                            <memberOf key="model.biblPart"/>
+                            <memberOf key="att.global" mode="delete"/>
+                        </classes>
+                    </elementSpec>
+                    <elementSpec ident="street" module="core" mode="change">
+                        <classes mode="replace">
+                            <memberOf key="model.addrPart"/>
+                            <memberOf key="att.global" mode="delete"/>
+                        </classes>
+                    </elementSpec>
+                    <elementSpec ident="titleStmt" module="header" mode="change">
+                        <classes mode="replace">
+                            <memberOf key="att.global" mode="delete"/>
+                        </classes>
+                    </elementSpec>
+                    <elementSpec ident="teiHeader" module="header" mode="change">
+                        <classes mode="replace">
+                            <memberOf key="att.global" mode="delete"/>
+                        </classes>
+                    </elementSpec>
+                    <elementSpec ident="sourceDesc" module="header" mode="change">
+                        <classes mode="replace">
+                            <memberOf key="att.declarable" mode="delete"/>
+                            <memberOf key="att.global" mode="delete"/>
+                        </classes>
+                    </elementSpec>
+                    <elementSpec ident="altIdentifier" module="msdescription" mode="change">
+                        <classes mode="replace">
+                            <memberOf key="att.typed"/>
+                            <memberOf key="att.datable" mode="delete"/>
+                            <memberOf key="att.global" mode="delete"/>
+                        </classes>
+                    </elementSpec>
+                    <elementSpec ident="collection" module="msdescription" mode="change">
+                        <classes mode="replace">
+                            <memberOf key="att.global" mode="delete"/>
+                            <memberOf key="att.naming" mode="delete"/>
+                            <memberOf key="att.typed" mode="delete"/>
+                        </classes>
+                    </elementSpec>
+                    <elementSpec ident="colophon" module="msdescription" mode="change">
+                        <classes mode="replace">
+                            <memberOf key="model.msQuoteLike"/>
+                            <memberOf key="att.global" mode="delete"/>
+                            <memberOf key="att.msExcerpt" mode="delete"/>
+                        </classes>
+                    </elementSpec>
+                    <elementSpec ident="explicit" module="msdescription" mode="change">
+                        <classes mode="replace">
+                            <memberOf key="model.biblPart"/>
+                            <memberOf key="model.msQuoteLike"/>
+                            <memberOf key="att.typed"/>
+                            <memberOf key="att.global" mode="delete"/>
+                            <memberOf key="att.msExcerpt" mode="delete"/>
+                        </classes>
+                    </elementSpec>
+                    <elementSpec ident="finalRubric" module="msdescription" mode="change">
+                        <classes mode="replace">
+                            <memberOf key="model.msQuoteLike"/>
+                            <memberOf key="att.global" mode="delete"/>
+                            <memberOf key="att.msExcerpt" mode="delete"/>
+                            <memberOf key="att.typed" mode="delete"/>
+                        </classes>
+                    </elementSpec>
+                    <elementSpec ident="incipit" module="msdescription" mode="change">
+                        <classes mode="replace">
+                            <memberOf key="model.biblPart"/>
+                            <memberOf key="model.msQuoteLike"/>
+                            <memberOf key="att.global" mode="delete"/>
+                            <memberOf key="att.msExcerpt" mode="delete"/>
+                            <memberOf key="att.typed" mode="delete"/>
+                        </classes>
+                    </elementSpec>
+                    <elementSpec ident="institution" module="msdescription" mode="change">
+                        <classes mode="replace">
+                            <memberOf key="att.global"/>
+                            <memberOf key="att.naming" mode="delete"/>
+                        </classes>
+                    </elementSpec>
+                    <elementSpec ident="locus" module="msdescription" mode="change">
+                        <classes mode="replace">
+                            <memberOf key="model.pPart.msdesc"/>
+                            <memberOf key="att.pointing"/>
+                            <memberOf key="att.global" mode="delete"/>
+                            <memberOf key="att.typed" mode="delete"/>
+                        </classes>
+                    </elementSpec>
+                    <elementSpec ident="locusGrp" module="msdescription" mode="change">
+                        <classes mode="replace">
+                            <memberOf key="model.pPart.msdesc"/>
+                            <memberOf key="att.global" mode="delete"/>
+                        </classes>
+                    </elementSpec>
+                    <elementSpec ident="msFrag" module="msdescription" mode="change">
+                        <classes mode="replace">
+                            <memberOf key="att.global"/>
+                            <memberOf key="att.typed" mode="delete"/>
+                        </classes>
+                    </elementSpec>
+                    <elementSpec ident="msItem" module="msdescription" mode="change">
+                        <classes mode="replace">
+                            <memberOf key="model.msItemPart"/>
+                            <memberOf key="att.global"/>
+                            <memberOf key="att.msClass"/>
+                            <memberOf key="att.msExcerpt" mode="delete"/>
+                        </classes>
+                    </elementSpec>
+                    <elementSpec ident="repository" module="msdescription" mode="change">
+                        <classes mode="replace">
+                            <memberOf key="att.global"/>
+                            <memberOf key="att.naming" mode="delete"/>
+                        </classes>
+                    </elementSpec>
+                    <elementSpec ident="summary" module="msdescription" mode="change">
+                        <classes mode="replace">
+                            <memberOf key="att.global" mode="delete"/>
+                        </classes>
+                    </elementSpec>
+                    <elementSpec ident="TEI" module="textstructure" mode="change">
+                        <classes mode="replace">
+                            <memberOf key="model.describedResource"/>
+                            <memberOf key="att.global"/>
+                            <memberOf key="att.typed" mode="delete"/>
+                        </classes>
+                    </elementSpec>
+                </schemaSpec>
             </div>
         </body>
     </text>
