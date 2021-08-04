@@ -155,7 +155,6 @@ End license statement: do not remove -->
                             <attDef ident="to" mode="delete"/>
                             <attDef ident="to-custom" mode="delete"/>
                             <attDef ident="to-iso" mode="delete"/>
-                            <attDef ident="type" mode="delete"/>
                             <attDef ident="when" mode="delete"/>
                             <attDef ident="when-custom" mode="delete"/>
                             <attDef ident="when-iso" mode="delete"/>
@@ -199,7 +198,6 @@ End license statement: do not remove -->
                             <attDef ident="style" mode="delete"/>
                             <attDef ident="subtype" mode="delete"/>
                             <attDef ident="synch" mode="delete"/>
-                            <attDef ident="type" mode="delete"/>
                             <attDef ident="xml:base" mode="delete"/>
                             <attDef ident="xml:id" mode="delete"/>
                             <attDef ident="xml:lang" mode="delete"/>
@@ -238,7 +236,6 @@ End license statement: do not remove -->
                             <attDef ident="style" mode="delete"/>
                             <attDef ident="subtype" mode="delete"/>
                             <attDef ident="synch" mode="delete"/>
-                            <attDef ident="type" mode="delete"/>
                             <attDef ident="xml:base" mode="delete"/>
                             <attDef ident="xml:id" mode="delete"/>
                             <attDef ident="xml:lang" mode="delete"/>
@@ -312,7 +309,6 @@ End license statement: do not remove -->
                             <attDef ident="when-iso" mode="delete"/>
                             <attDef ident="xml:base" mode="delete"/>
                             <attDef ident="xml:id" mode="delete"/>
-                            <attDef ident="xml:lang" mode="delete"/>
                             <attDef ident="xml:space" mode="delete"/>
                         </attList>
                     </elementSpec>
@@ -376,7 +372,6 @@ End license statement: do not remove -->
                             <attDef ident="when-iso" mode="delete"/>
                             <attDef ident="xml:base" mode="delete"/>
                             <attDef ident="xml:id" mode="delete"/>
-                            <attDef ident="xml:lang" mode="delete"/>
                             <attDef ident="xml:space" mode="delete"/>
                         </attList>
                     </elementSpec>
@@ -412,7 +407,6 @@ End license statement: do not remove -->
                             <attDef ident="style" mode="delete"/>
                             <attDef ident="subtype" mode="delete"/>
                             <attDef ident="synch" mode="delete"/>
-                            <attDef ident="type" mode="delete"/>
                             <attDef ident="xml:base" mode="delete"/>
                             <attDef ident="xml:id" mode="delete"/>
                             <attDef ident="xml:lang" mode="delete"/>
@@ -494,7 +488,6 @@ End license statement: do not remove -->
                             <attDef ident="when-iso" mode="delete"/>
                             <attDef ident="xml:base" mode="delete"/>
                             <attDef ident="xml:id" mode="delete"/>
-                            <attDef ident="xml:lang" mode="delete"/>
                             <attDef ident="xml:space" mode="delete"/>
                         </attList>
                     </elementSpec>
