@@ -89,7 +89,7 @@ End license statement: do not remove -->
                         include="addName forename persName placeName roleName surname"/>
                     <moduleRef key="tei"/>
                     <moduleRef key="textstructure" include="TEI"/>
-                    <elementSpec ident="fileDesc" module="header" mode="change" ns="">
+                    <elementSpec ident="fileDesc" module="header" mode="change">
                         <classes mode="replace">
                             <memberOf key="att.global" mode="delete"/>
                         </classes>
@@ -118,7 +118,7 @@ End license statement: do not remove -->
                             <attDef ident="xml:space" mode="delete"/>
                         </attList>
                     </elementSpec>
-                    <elementSpec ident="idno" module="header" mode="change" ns="">                        
+                    <elementSpec ident="idno" module="header" mode="change">                        
                         <classes mode="replace">
                             <memberOf key="model.msItemPart"/>
                             <memberOf key="model.nameLike"/>
@@ -174,7 +174,7 @@ End license statement: do not remove -->
                             <attDef ident="xml:space" mode="delete"/>
                         </attList>
                     </elementSpec>
-                    <elementSpec ident="addName" module="namesdates" mode="change" ns="">
+                    <elementSpec ident="addName" module="namesdates" mode="change">
                         <classes mode="replace">
                             <memberOf key="model.persNamePart"/>
                             <memberOf key="att.global" mode="delete"/>
@@ -210,7 +210,7 @@ End license statement: do not remove -->
                             <attDef ident="xml:space" mode="delete"/>
                         </attList>
                     </elementSpec>
-                    <elementSpec ident="forename" module="namesdates" mode="change" ns="">
+                    <elementSpec ident="forename" module="namesdates" mode="change">
                         <classes mode="replace">
                             <memberOf key="model.persNamePart"/>
                             <memberOf key="att.global" mode="delete"/>
@@ -248,7 +248,7 @@ End license statement: do not remove -->
                             <attDef ident="xml:space" mode="delete"/>
                         </attList>
                     </elementSpec>
-                    <elementSpec ident="persName" module="namesdates" mode="change" ns="">
+                    <elementSpec ident="persName" module="namesdates" mode="change">
                         <classes mode="replace">
                             <memberOf key="model.nameLike"/>
                             <memberOf key="model.nameLike.agent"/>
@@ -375,7 +375,7 @@ End license statement: do not remove -->
                             <attDef ident="xml:space" mode="delete"/>
                         </attList>
                     </elementSpec>
-                    <elementSpec ident="surname" module="namesdates" mode="change" ns="">
+                    <elementSpec ident="surname" module="namesdates" mode="change">
                         <classes mode="replace">
                             <memberOf key="model.persNamePart"/>
                             <memberOf key="att.global" mode="delete"/>
@@ -491,7 +491,7 @@ End license statement: do not remove -->
                             <attDef ident="xml:space" mode="delete"/>
                         </attList>
                     </elementSpec>
-                    <elementSpec ident="title" module="core" mode="change" ns="">
+                    <elementSpec ident="title" module="core" mode="change">
                         <classes mode="replace">
                             <memberOf key="model.emphLike"/>
                             <memberOf key="model.msQuoteLike"/>
@@ -558,7 +558,7 @@ End license statement: do not remove -->
                             <memberOf key="att.global" mode="delete"/>
                         </classes>
                     </elementSpec>
-                    <elementSpec ident="desc" module="core" mode="change" ns="">
+                    <elementSpec ident="desc" module="core" mode="change">
                         <classes mode="replace">
                             <memberOf key="model.descLike"/>
                             <memberOf key="model.labelLike"/>
@@ -635,7 +635,7 @@ End license statement: do not remove -->
                             <memberOf key="att.naming" mode="delete"/>
                         </classes>
                     </elementSpec>
-                    <elementSpec ident="publisher" module="core" mode="change" ns="">
+                    <elementSpec ident="publisher" module="core" mode="change">
                         <classes mode="replace">
                             <memberOf key="model.imprintPart"/>
                             <memberOf key="model.publicationStmtPart.agency"/>
