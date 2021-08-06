@@ -118,7 +118,7 @@ End license statement: do not remove -->
                             <attDef ident="xml:space" mode="delete"/>
                         </attList>
                     </elementSpec>
-                    <elementSpec ident="idno" module="header" mode="change">                        
+                    <elementSpec ident="idno" module="header" mode="change">
                         <classes mode="replace">
                             <memberOf key="model.msItemPart"/>
                             <memberOf key="model.nameLike"/>
@@ -177,7 +177,7 @@ End license statement: do not remove -->
                     <elementSpec ident="addName" module="namesdates" mode="change">
                         <classes mode="replace">
                             <memberOf key="model.persNamePart"/>
-                            <memberOf key="att.global" mode="delete"/>
+                            <memberOf key="att.global"/>
                             <memberOf key="att.personal" mode="delete"/>
                             <memberOf key="att.typed" mode="delete"/>
                         </classes>
@@ -206,14 +206,13 @@ End license statement: do not remove -->
                             <attDef ident="synch" mode="delete"/>
                             <attDef ident="xml:base" mode="delete"/>
                             <attDef ident="xml:id" mode="delete"/>
-                            <attDef ident="xml:lang" mode="delete"/>
                             <attDef ident="xml:space" mode="delete"/>
                         </attList>
                     </elementSpec>
                     <elementSpec ident="forename" module="namesdates" mode="change">
                         <classes mode="replace">
                             <memberOf key="model.persNamePart"/>
-                            <memberOf key="att.global" mode="delete"/>
+                            <memberOf key="att.global"/>
                             <memberOf key="att.personal" mode="delete"/>
                             <memberOf key="att.typed" mode="delete"/>
                         </classes>
@@ -244,7 +243,6 @@ End license statement: do not remove -->
                             <attDef ident="synch" mode="delete"/>
                             <attDef ident="xml:base" mode="delete"/>
                             <attDef ident="xml:id" mode="delete"/>
-                            <attDef ident="xml:lang" mode="delete"/>
                             <attDef ident="xml:space" mode="delete"/>
                         </attList>
                     </elementSpec>
@@ -256,7 +254,7 @@ End license statement: do not remove -->
                             <memberOf key="att.canonical" mode="add"/>
                             <memberOf key="att.datable" mode="delete"/>
                             <memberOf key="att.editLike" mode="delete"/>
-                            <memberOf key="att.global" mode="delete"/>
+                            <memberOf key="att.global"/>
                             <memberOf key="att.personal" mode="delete"/>
                             <memberOf key="att.typed" mode="delete"/>
                         </classes>
@@ -319,7 +317,7 @@ End license statement: do not remove -->
                             <memberOf key="att.canonical" mode="add"/>
                             <memberOf key="att.datable" mode="delete"/>
                             <memberOf key="att.editLike" mode="delete"/>
-                            <memberOf key="att.global" mode="delete"/>
+                            <memberOf key="att.global"/>
                             <memberOf key="att.personal" mode="delete"/>
                             <memberOf key="att.typed" mode="delete"/>
                         </classes>
@@ -409,7 +407,6 @@ End license statement: do not remove -->
                             <attDef ident="synch" mode="delete"/>
                             <attDef ident="xml:base" mode="delete"/>
                             <attDef ident="xml:id" mode="delete"/>
-                            <attDef ident="xml:lang" mode="delete"/>
                             <attDef ident="xml:space" mode="delete"/>
                         </attList>
                     </elementSpec>
@@ -442,7 +439,6 @@ End license statement: do not remove -->
                             <attDef ident="type" mode="delete"/>
                             <attDef ident="xml:base" mode="delete"/>
                             <attDef ident="xml:id" mode="delete"/>
-                            <attDef ident="xml:lang" mode="delete"/>
                             <attDef ident="xml:space" mode="delete"/>
                         </attList>
                     </elementSpec>
@@ -497,7 +493,7 @@ End license statement: do not remove -->
                             <memberOf key="model.msQuoteLike"/>
                             <memberOf key="att.canonical"/>
                             <memberOf key="att.datable" mode="delete"/>
-                            <memberOf key="att.global" mode="delete"/>
+                            <memberOf key="att.global"/>
                             <memberOf key="att.typed" mode="delete"/>
                         </classes>
                         <attList>
@@ -562,7 +558,7 @@ End license statement: do not remove -->
                         <classes mode="replace">
                             <memberOf key="model.descLike"/>
                             <memberOf key="model.labelLike"/>
-                            <memberOf key="att.global" mode="delete"/>
+                            <memberOf key="att.global"/>
                             <memberOf key="att.translatable" mode="delete"/>
                             <memberOf key="att.typed" mode="delete"/>
                         </classes>
@@ -576,7 +572,7 @@ End license statement: do not remove -->
                             <memberOf key="att.dimensions" mode="delete"/>
                             <memberOf key="att.duration" mode="delete"/>
                             <memberOf key="att.editLike" mode="delete"/>
-                            <memberOf key="att.global" mode="delete"/>
+                            <memberOf key="att.global"/>
                             <memberOf key="att.typed" mode="delete"/>
                         </classes>
                     </elementSpec>
@@ -614,7 +610,7 @@ End license statement: do not remove -->
                             <memberOf key="model.correspDescPart"/>
                             <memberOf key="model.noteLike"/>
                             <memberOf key="att.anchoring" mode="delete"/>
-                            <memberOf key="att.global" mode="delete"/>
+                            <memberOf key="att.global"/>
                             <memberOf key="att.placement" mode="delete"/>
                             <memberOf key="att.pointing" mode="delete"/>
                             <memberOf key="att.typed" mode="delete"/>
@@ -683,19 +679,19 @@ End license statement: do not remove -->
                     <elementSpec ident="sourceDesc" module="header" mode="change">
                         <classes mode="replace">
                             <memberOf key="att.declarable" mode="delete"/>
-                            <memberOf key="att.global" mode="delete"/>
+                            <memberOf key="att.global"/>
                         </classes>
                     </elementSpec>
                     <elementSpec ident="altIdentifier" module="msdescription" mode="change">
                         <classes mode="replace">
                             <memberOf key="att.typed"/>
                             <memberOf key="att.datable" mode="delete"/>
-                            <memberOf key="att.global" mode="delete"/>
+                            <memberOf key="att.global"/>
                         </classes>
                     </elementSpec>
                     <elementSpec ident="collection" module="msdescription" mode="change">
                         <classes mode="replace">
-                            <memberOf key="att.global" mode="delete"/>
+                            <memberOf key="att.global"/>
                             <memberOf key="att.naming" mode="delete"/>
                             <memberOf key="att.typed" mode="delete"/>
                         </classes>
@@ -703,7 +699,7 @@ End license statement: do not remove -->
                     <elementSpec ident="colophon" module="msdescription" mode="change">
                         <classes mode="replace">
                             <memberOf key="model.msQuoteLike"/>
-                            <memberOf key="att.global" mode="delete"/>
+                            <memberOf key="att.global"/>
                             <memberOf key="att.msExcerpt" mode="delete"/>
                         </classes>
                     </elementSpec>
@@ -712,14 +708,14 @@ End license statement: do not remove -->
                             <memberOf key="model.biblPart"/>
                             <memberOf key="model.msQuoteLike"/>
                             <memberOf key="att.typed"/>
-                            <memberOf key="att.global" mode="delete"/>
+                            <memberOf key="att.global"/>
                             <memberOf key="att.msExcerpt" mode="delete"/>
                         </classes>
                     </elementSpec>
                     <elementSpec ident="finalRubric" module="msdescription" mode="change">
                         <classes mode="replace">
                             <memberOf key="model.msQuoteLike"/>
-                            <memberOf key="att.global" mode="delete"/>
+                            <memberOf key="att.global"/>
                             <memberOf key="att.msExcerpt" mode="delete"/>
                             <memberOf key="att.typed" mode="delete"/>
                         </classes>
@@ -728,7 +724,7 @@ End license statement: do not remove -->
                         <classes mode="replace">
                             <memberOf key="model.biblPart"/>
                             <memberOf key="model.msQuoteLike"/>
-                            <memberOf key="att.global" mode="delete"/>
+                            <memberOf key="att.global"/>
                             <memberOf key="att.msExcerpt" mode="delete"/>
                             <memberOf key="att.typed" mode="delete"/>
                         </classes>
@@ -743,14 +739,14 @@ End license statement: do not remove -->
                         <classes mode="replace">
                             <memberOf key="model.pPart.msdesc"/>
                             <memberOf key="att.pointing"/>
-                            <memberOf key="att.global" mode="delete"/>
+                            <memberOf key="att.global"/>
                             <memberOf key="att.typed" mode="delete"/>
                         </classes>
                     </elementSpec>
                     <elementSpec ident="locusGrp" module="msdescription" mode="change">
                         <classes mode="replace">
                             <memberOf key="model.pPart.msdesc"/>
-                            <memberOf key="att.global" mode="delete"/>
+                            <memberOf key="att.global"/>
                         </classes>
                     </elementSpec>
                     <elementSpec ident="msFrag" module="msdescription" mode="change">
@@ -784,6 +780,43 @@ End license statement: do not remove -->
                             <memberOf key="att.global"/>
                             <memberOf key="att.typed" mode="delete"/>
                         </classes>
+                    </elementSpec>
+                    <elementSpec ident="msDesc" module="msdescription" mode="change">
+                        <classes mode="replace">
+                            <memberOf key="model.biblLike"/>
+                            <memberOf key="att.declaring"/>
+                            <memberOf key="att.docStatus"/>
+                            <memberOf key="att.sortable"/>
+                            <memberOf key="att.typed"/>
+                            <memberOf key="att.global" mode="delete"/>
+                        </classes>
+                        <attList>
+                            <attDef ident="rendition" mode="delete"/>
+                            <attDef ident="style" mode="delete"/>
+                            <attDef ident="xml:base" mode="delete"/>
+                            <attDef ident="decls" mode="delete"/>
+                            <attDef ident="sortKey" mode="delete"/>
+                            <attDef ident="cert" mode="delete"/>
+                            <attDef ident="rend" mode="delete"/>
+                        </attList>
+                    </elementSpec>
+                    <elementSpec ident="msIdentifier" module="msdescription" mode="change">
+                        <attList>
+                            <attDef ident="rendition" mode="delete"/>
+                            <attDef ident="style" mode="delete"/>
+                            <attDef ident="xml:base" mode="delete"/>
+                            <attDef ident="cert" mode="delete"/>
+                            <attDef ident="rend" mode="delete"/>
+                        </attList>
+                    </elementSpec>
+                    <elementSpec ident="msContents" module="msdescription" mode="change">
+                        <attList>
+                            <attDef ident="cert" mode="delete"/>
+                            <attDef ident="rend" mode="delete"/>
+                            <attDef ident="rendition" mode="delete"/>
+                            <attDef ident="style" mode="delete"/>
+                            <attDef ident="xml:base" mode="delete"/>
+                        </attList>
                     </elementSpec>
                 </schemaSpec>
             </div>
