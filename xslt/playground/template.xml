@@ -14,12 +14,14 @@
                               
                         </title>
                         
-                        <editor role="cataloguer" key=""/>
-                        <editor role="encoder" key=""/>
+                        <editor role="cataloguer" key="EB" when="2020-02-09">אפרים בן-פורת</editor>
+                        <editor role="encoder" key="mm" when="2021-07-01">Maximilian de
+                              Molière</editor>
                         <editor role="generalEditor" key=""/>
                   </titleStmt>
                   <editionStmt>
                         <p>
+                              
                               
                         </p>
                   </editionStmt>
@@ -36,198 +38,136 @@
                                           Attribution-ShareAlike 4.0. </p>
                               </licence>
                         </availability>
-                        <date type="" maxOccurs="unbounded">2016-06-07T17:47:42.093+02:00</date>
+                        <date calendar="" type="" maxOccurs="unbounded">2021-07-01</date>
                   </publicationStmt>
                   <sourceDesc>
                         
                         <msDesc xml:id="ms">
                               
                               <msIdentifier>
-                                    <repository ref="INS0017UM"/>
-                                    <collection>Ethio-SPaRe</collection>
+                                    <repository ref="RNL">Russion National Library</repository>
+                                    <collection>Evr.-Arab.</collection>
                                     
-                                    <idno type="" facs="UM/035/UM-035" n="14">UM-035</idno>
+                                    <idno type="" facs="I:1430" n="14">I:1430</idno>
                                     <altIdentifier>
-                                          <idno type="">C3-IV-83</idno>
+                                          <idno type="IMHM">F 55338</idno>
+                                    </altIdentifier>
+                                    <altIdentifier>
+                                          <idno type="IMHM">F 45169</idno>
                                     </altIdentifier>
                               </msIdentifier>
-                               
+                              
                               <msContents>
-                                    <summary>
-                                                                                    
+                                    <summary>Commentary on the Psalms</summary>
+                                    <msItem xml:id="p1_i1" class="bibleCommentary">
                                           
-                                    </summary>
-                                    <msItem xml:id="ms_i1">
+                                          <locus from="1" to="71">1–71</locus>
+                                          <title evidence="" type="" subtype="" xml:lang="he">פירוש לתהלים</title>
+                                          <textLang mainLang="ar" otherLangs="">Arabic</textLang>
                                           
-                                          <locus from="1r" to="11v"/>
-                                          <title evidence="" type="" subtype="">
+                                          <note type="">אפשר להציע לזהות את חייא בן יצחק הספרדי, דיין
+                                                בפוסטאט באמצע המאה הי"ב, כמחבר הפירוש. עמוד אחד
+                                                מתחילת פירושו נמצא בכ"י New York, JTS Schechter 1.
+                                                בכה"י המחבר מביא פירוש לפסוק בתהלים שהוא שמע בשיעור
+                                                (מג'לס) של ראס אלמתיבה (ראש הישיבה) יצחק בן אשר. יש
+                                                מכתב מגניזת קהיר של יצחק בן אשר הספרדי מסויים שבו
+                                                הוא מורה לפרנס הראשי של פוסטאט לחלק כספים לנזקקים.
+                                                ממכתב הזה, נראה שליצחק בן אשר הזה היתה משרה גבוהה,
+                                                אולי כראש ישיבת א"י בפוסטאט. </note>
+                                          <note type="">גם אפשר לזהות את ראש הישיבה יצחק בן אשר כיצחק שהיה
+                                                אחרון גאוני סורא באמצא המאה הי"א. ואפשר שהמדובר
+                                                ביצחק הכהן אבן אואני. זמנו אמצע המאה השלוש עשרה.
+                                                העניין עדיין צריך עיון. </note>
+                                          
+                                          <msItem xml:id="p1_i1.1" class="bibleCommentary">
+                                                <locus from="1" to="50a">1–50a</locus>
+                                                <title evidence="" type="" subtype="" xml:lang="he">פירוש נד:8-פו:1</title>
+                                                <textLang mainLang="ar" otherLangs="">Arabic</textLang>
                                                 
-                                                
-                                          </title>
-                                          
-                                          
+                                                <rubric>
+                                                  <locus from="26a" to="26a">26א</locus> אלמזמור
+                                                  אלאול מן אלספר אלתאלת </rubric>
+                                                <rubric>
+                                                  <locus from="44a" to="44a">44א</locus> אלעאשר מן
+                                                  אלגז אלתאלת </rubric>
+                                                <rubric>
+                                                  <locus from="60b" to="60b">60ב</locus> אלספר
+                                                  אלראבע אלאול מנה תפלה למשה </rubric>
+                                          </msItem>
+                                          <msItem xml:id="p1_i1.2" class="bibleCommentary">
+                                                <locus from="51" to="60">51–60</locus>
+                                                <title evidence="" type="" subtype="" xml:lang="he">פירוש פז:1- פט:53</title>
+                                                <textLang mainLang="ar" otherLangs="">Arabic</textLang>
+                                          </msItem>
+                                          <msItem xml:id="p1_i1.3" class="bibleCommentary">
+                                                <locus from="61" to="61">61</locus>
+                                                <title evidence="" type="" subtype="" xml:lang="he">תרגום קא:8-3 ופירוש
+                                                  קא:4-1</title>
+                                                <textLang mainLang="ar" otherLangs="">Arabic</textLang>
+                                          </msItem>
+                                          <msItem xml:id="p1_i1.4" class="bibleCommentary">
+                                                <locus from="62" to="62">62</locus>
+                                                <title evidence="" type="" subtype="" xml:lang="he">תרגום קד:35-15</title>
+                                                <textLang mainLang="ar" otherLangs="">Arabic</textLang>
+                                          </msItem>
+                                          <msItem xml:id="p1_i1.5" class="bibleCommentary">
+                                                <locus from="63" to="71">63–71</locus>
+                                                <title evidence="" type="" subtype="" xml:lang="he">פירוש קל:4-קמב:1</title>
+                                                <textLang mainLang="ar" otherLangs="">Arabic</textLang>
+                                          </msItem>
                                     </msItem>
                               </msContents>
                               <physDesc>
-                                     
+                                    
                                     <objectDesc form="Codex">
                                           <supportDesc material="">
                                                 <support>
-                                                      
-                                                  <material key="parchment"/>
+                                                  
+                                                      <material key="paper">נייר</material>
                                                 </support>
                                                 
-                                                <extent>Made of <measure type="" unit="leaf">11.0</measure>
-                                                  folios, in <measure type="" unit="quire">2.0</measure>
-                                                  quires . <dimensions rend="" type="outer">
-                                                  <height unit="mm">120</height>
-                                                  <width unit="mm">95</width>
-                                                  <depth unit="mm">15</depth>
-                                                  </dimensions>
-                                                </extent>
+                                                
                                                 <foliation>
-                                                      
-                                                      
+                                                  
                                                 </foliation>
                                                 <collation mainStructures="">
-                                                      
+                                                  
                                                   <list type="">
-                                                      <item rend="" xml:id="q1">
-                                                          <dim unit="leaf" type="">7</dim>
-                                                          <locus from="1r" to="7v"/>I(7/fols. 1r-7v; s.l.:
-                                                          1, no stub) <note type="">The structure of quire I can not
-                                                          be established with certainty due to the condition
-                                                          of the present Ms.</note>
-                                                      </item>
-                                                      <item rend="" xml:id="q2">
-                                                          <dim unit="leaf" type="">4</dim>
-                                                          <locus from="8r" to="11v"/> II(4/fols.
-                                                          8r-11v).&#xD; &#xD; 
-                                                      </item>
+                                                  <item rend="" xml:id="q1">
+                                                  <dim unit="leaf" type="">7</dim>
+                                                  <locus from="1" to="71"/>
+                                                  <note type="">הקונטרסים כ-quinion. </note>
+                                                  </item>
                                                   </list>
+                                                  <catchwords>יש שומרי קונטרסים עם מספר הקונטרס
+                                                  המסתיים מעל ל-catchword. יש מספרי קונטרס באות
+                                                  עברית בפינה העליונה השמאלית של העמוד.</catchwords>
                                                 </collation>
                                                 
-                                                <condition key="deficient">The boards and the spine
-                                                  cover are missing.&#xD; The sewing is severely
-                                                  damaged.&#xD; The Ms. is slightly worn and loosely
-                                                  held together.&#xD; Text on <locus target="#4r">4r</locus>, 7r, 8r, 10r, 11v is barely legible
-                                                  due to faded ink, esp. red.</condition>
+                                                <condition key="deficient">חלק מהתוכן מוכתם. חלקו
+                                                  חסר בשל קרעים וחלקו דהה. יש נזק ממים. אכול על ידי
+                                                  תולעים. השלמות ומחיקות של הסופר.</condition>
                                           </supportDesc>
-                                          <layoutDesc>
-                                                
-                                                <layout topLine="" rulingMedium="" columns="1" writtenLines="16">
-                                                  
-                                                  <dimensions rend="" type="" unit="mm">
-                                                      <height>87</height>
-                                                      <width>62</width>
-                                                      <dim unit="" type="intercolumn"/>
-                                                  </dimensions>
-                                                  <dimensions rend="" type="margin">
-                                                      <dim unit="" type="top">12</dim>
-                                                      <dim unit="" type="bottom">20</dim>
-                                                      <dim unit="" type="right">21</dim>
-                                                      <dim unit="" type="left">11</dim>
-                                                      <dim unit="" type="intercolumn"/>
-                                                  </dimensions>
-                                                  <note type="">All data for <locus target="#4r">4r</locus>.</note>
-                                                
-                                                  <ab type="ruling" subtype="">From 13 to 18.</ab>
-                                                  <ab type="pricking" subtype="">Ruling and pricking are
-                                                  visible. </ab>
-                                                  <ab type="ruling" subtype="pattern"> Ruling
-                                                  pattern: 1A-1A/0-0/0-0/C.</ab>
-                                                  <ab type="pricking" subtype=""> Primary pricks are partly
-                                                  visible.</ab>
-                                                  <ab type="pricking" subtype=""> Ruling pricks are partly
-                                                  visible.</ab>
-                                                  <ab type="ruling" subtype=""> The upper line is written above
-                                                  the ruling.</ab>
-                                                  <ab type="ruling" subtype=""> The bottom line is written
-                                                  above the ruling.</ab>
-                                                </layout>
-                                                <layout topLine="" rulingMedium=""/>
-                                          </layoutDesc>
+                                          
                                     </objectDesc>
                                     <handDesc hands="">
                                           
-                                          <handNote xml:id="h1" execution="" script="Ethiopic">
+                                          <handNote xml:id="h1" script="mizrahiBinoni">
                                                 
-                                                <seg type="script" rend="">mediocre</seg>
-                                                <seg type="ink" rend="">Black; red</seg>
-                                                <date type="" maxOccurs="unbounded">18th century (?)</date>
-                                                <seg type="rubrication" rend="">Divine names (Māryām,
-                                                  masqal); the place-name mǝdra Karan on fol. 7r;
-                                                  two lines in the incipit page; incipit of the
-                                                  sections; elements of the punctuation signs and
-                                                  Ethiopic numerals.</seg>
+                                                מזרחי בינוני <seg type="vocalization" rend="">ניקוד ערבי
+                                                  ספורדי. </seg>
+                                                <note type="">ציטוט ראשי הפסוקים בתרגום. סימון שלוש נקודות
+                                                  מעליהם. שלוש נקודות באות גם מעל מספרי מזמורים ומעל
+                                                  המילים "<quote>אלתאויל</quote>",
+                                                  "<quote>אלנכת</quote>". המילים האלה פותחות את
+                                                  פירוש המזמורים. מזמורי כל ספר מחמשת ספרי תהלים
+                                                  ממוספרים לעצמם, כגון "<quote>אלמזמור אלאול מן
+                                                  אלספר אלתאלת</quote>" (=המזמור הראשון של הספר
+                                                  השלישי; מזמור עג; דף <locus from="26a" to="26a">26א</locus>)</note>
                                           </handNote>
                                     </handDesc>
-                                    <additions>
-                                          <list type="">
-                                                
-                                                <item rend="" xml:id="e1">
-                           <locus target="#6r">6r</locus>
-                           <desc type="StampExlibris">
-                              <idno type="">C3-IV-83</idno>
-                           </desc>
-                        </item>
-                                                <item rend="" xml:id="e2">
-                           <desc type="">The title ደብዳቤ፡ የመስቀል፡ is
-                                                  written in the lower margin on <locus target="#11v">fol. 11v</locus> with blue
-                                                  paint.</desc>
-                        </item>
-                                                 
-                                                <item rend="" xml:id="e3">
-                           <desc type="">The scribe used compressed
-                                                  script: fols. 5v, 6r, 8r, 9v, 10r. </desc>
-                        </item>
-                                                <item rend="" xml:id="e4">
-                           <desc type="">Omitted letters inserted
-                                                  interlineally: fols. 7r, 9v. </desc>
-                        </item>
-                                                <item rend="" xml:id="e5">
-                           <desc type="">Corrections written
-                                                  interlineally in red ink: <locus target="#7r">fol.
-                                                  7r</locus>. </desc>
-                        </item>
-                                                <item rend="" xml:id="e6">
-                           <desc type="">Erasures: <locus target="#2r">fol. 2r</locus>.</desc>
-                        </item>
-                                          </list>
-                                    </additions>
-                                    <bindingDesc>
-                                          
-                                          <binding contemporary="false">
-                                                <decoNote xml:id="b1"
-                                  color=""
-                                  pastedown=""
-                                  repaired=""
-                                  type=""
-                                  rend="">One pair of sewing
-                                                  stations.&#xD; Quire I is crudely held together by
-                                                  a modern thread.</decoNote>
-                                                <decoNote xml:id="b2"
-                                  color=""
-                                  pastedown=""
-                                  repaired=""
-                                  type="bindingMaterial"
-                                  rend=""/>
-                                                <decoNote xml:id="b3"
-                                  color=""
-                                  pastedown=""
-                                  repaired=""
-                                  type="Endbands"
-                                  rend=""/>
-                                                <decoNote xml:id="b4"
-                                  color=""
-                                  pastedown=""
-                                  repaired=""
-                                  type="Other"
-                                  rend="">A small hole is
-                                                  visible on the spine fold of quire II, close to
-                                                  the head of the codex.</decoNote>
-                                          </binding>
-                                    </bindingDesc>
+                                    
+                                    
                               </physDesc>
                               <history>
                                     
@@ -235,7 +175,8 @@
                                           <origPlace>
                                                 <placeName ref="INS0017UM" type=""/>
                                           </origPlace>
-                                          <origDate evidence="" notBefore="1700" notAfter="1750"/>
+                                          <origDate evidence="" notBefore="1000" notAfter="1200">מאה
+                                                יא-יב</origDate>
                                     </origin>
                               </history>
                               <additional>
@@ -243,7 +184,7 @@
                                     <adminInfo>
                                           <recordHist>
                                                 <source>
-                                                
+                                                  
                                                   
                                                 </source>
                                           </recordHist>
@@ -262,8 +203,7 @@
                         <p>Encoded according to TEI P5 Guidelines.</p>
                   </projectDesc>
                   
-                  <listPrefixDef xml:base="https://raw.githubusercontent.com/BetaMasaheft/Documentation/master/prefixDef.xml"
-                        xml:lang="">
+                  <listPrefixDef>
             <prefixDef ident="bm"
                        matchPattern="([a-zA-Z0-9]+)"
                        replacementPattern="https://www.zotero.org/groups/358366/ethiostudies/items/tag/bm:$1">
@@ -356,18 +296,19 @@
                        replacementPattern="http://xmlns.com/foaf/0.1/$1">
      </prefixDef>
          </listPrefixDef>
+                        
+                  
             </encodingDesc>
             <profileDesc>
-                   
+                  
                   
                   <langUsage>
-                        <language ident="en">English</language>
+                        <language ident="en">English/Hebrew</language>
                   </langUsage>
             </profileDesc>
             <revisionDesc>
                   
-                  <change target="" who="DN" when="2010-04-20">Ethio-SPaRe team photographed the
-                        manuscript</change>
+                  
                   
             </revisionDesc>
       </teiHeader>

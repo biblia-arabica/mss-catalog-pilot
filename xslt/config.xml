@@ -8,12 +8,11 @@
 <!--    <schema src="../schemas/msdesc.odd.xml"></schema>-->
     <!-- Not sure which to use here? -->
     <!--<schema src="../schemas/mss.rng"></schema>-->
-    <xmlTemplate src="blank-template.xml"></xmlTemplate>
-    <!-- 
-    <elements>
-        <element name="place">
-            <element name="placeName"/>
-        </element>
-    </elements>
+    <xmlTemplate src="RNL-Evr.Arab.I-1430.xml"></xmlTemplate>
+    <!-- Break up form into tabs? 
+    <formTabs>
+        <tab xpath=""></tab>
+    </formTabs>
     -->
+    
 </config>

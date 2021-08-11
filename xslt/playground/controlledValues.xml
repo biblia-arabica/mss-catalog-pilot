@@ -97,6 +97,26 @@
                             </valList>
       </place>
    </add>
+   <date>
+      <calendar>
+         <valList xmlns:rng="http://relaxng.org/ns/structure/1.0"
+                  xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                  type="closed">
+                                <valItem ident="hebrew">
+                                    <desc>Hebrew calendar</desc>
+                                </valItem>
+                                <valItem ident="alexander">
+                                    <desc>Era of Alexander of Macedon, year 1 = 319 BC</desc>
+                                </valItem>
+                                <valItem ident="islamic">
+                                    <desc>Islamic Era</desc>
+                                </valItem>
+                                <valItem ident="julian">
+                                    <desc>Julian calendar</desc>
+                                </valItem>
+                            </valList>
+      </calendar>
+   </date>
    <condition>
       <key>
          <valList xmlns:rng="http://relaxng.org/ns/structure/1.0"
@@ -124,27 +144,9 @@
          <valList xmlns:rng="http://relaxng.org/ns/structure/1.0"
                   xmlns:sch="http://purl.oclc.org/dsdl/schematron"
                   type="closed">
-                                <!--  modified  list of languages coming from myCore-->
-                                <valItem ident="am">
-                                    <desc>Amharic</desc>
-                                </valItem>
-                                <valItem ident="om">
-                                    <desc>Afaan Oromoo</desc>
-                                </valItem>
+                                <!--  modified  list of languages coming from Codicological DB templates MB-Docs-QiLT-->
                                 <valItem ident="ar">
                                     <desc>Arabic</desc>
-                                </valItem>
-                                <valItem ident="hy">
-                                    <desc>Armenian</desc>
-                                </valItem>
-                                <valItem ident="cop">
-                                    <desc>Coptic</desc>
-                                </valItem>
-                                <valItem ident="geo">
-                                    <desc>Georgian</desc>
-                                </valItem>
-                                <valItem ident="la">
-                                    <desc>Latin</desc>
                                 </valItem>
                                 <valItem ident="fr">
                                     <desc>French</desc>
@@ -152,75 +154,21 @@
                                 <valItem ident="grc">
                                     <desc>Greek</desc>
                                 </valItem>
-                                <valItem ident="gez">
-                                    <desc>Gǝʿǝz</desc>
-                                </valItem>
                                 <valItem ident="he">
                                     <desc>Hebrew</desc>
-                                </valItem>
-                                <valItem ident="it">
-                                    <desc>Italian</desc>
                                 </valItem>
                                 <valItem ident="fa">
                                     <desc>Persian</desc>
                                 </valItem>
-                                <valItem ident="syr">
-                                    <desc>Syriac</desc>
-                                </valItem>
-                                <valItem ident="tu">
-                                    <desc>Turkish</desc>
-                                </valItem>
-                                <valItem ident="ti">
-                                    <desc>Tigrinya</desc>
-                                </valItem>
-                                <valItem ident="en">
-                                    <desc>English</desc>
-                                </valItem>
-                                <valItem ident="sv">
-                                    <desc>Swedish</desc>
-                                </valItem>
-                                <valItem ident="ru">
-                                    <desc>Russian</desc>
-                                </valItem>
-                                <valItem ident="de">
-                                    <desc>German</desc>
-                                </valItem>
                                 <valItem ident="es">
                                     <desc>Spanish</desc>
                                 </valItem>
-                                <valItem ident="pal">
-                                    <desc>Pahlavi</desc>
-                                </valItem>
-                                <valItem ident="gft">
-                                    <desc>Gāfāt</desc>
-                                </valItem>
-                                <valItem ident="awn">
-                                    <desc>Awngi</desc>
-                                </valItem>
-                                <valItem ident="pt">
-                                    <desc>Portuguese</desc>
-                                </valItem>
-                                <valItem ident="pl">
-                                    <desc>Polish</desc>
-                                </valItem>
-                                <valItem ident="cs">
-                                    <desc>Czech</desc>
-                                </valItem>
-                                <valItem ident="el">
-               <desc>Modern Greek</desc>
-            </valItem>
-                                <valItem ident="nl">
-               <desc>Dutch</desc>
-            </valItem>
                                 <valItem ident="ji">
-               <desc>Yiddish</desc>
-            </valItem>
-                                <valItem ident="rmo">
-               <desc>Sinte Romani</desc>
-            </valItem>
-                                <valItem ident="cu">
-               <desc>Church Slavic</desc>
-            </valItem>
+                                    <desc>Yiddish</desc>
+                                </valItem>
+                                <valItem ident="qa">
+                                    <desc>Qaraim</desc>
+                                </valItem>
                             </valList>
       </ident>
    </language>
@@ -308,6 +256,21 @@
          <valList xmlns:rng="http://relaxng.org/ns/structure/1.0"
                   xmlns:sch="http://purl.oclc.org/dsdl/schematron"
                   type="closed">
+                                <valItem ident="altMain">
+                                    <desc>Alternative version of main title.</desc>
+                                </valItem>
+                                <valItem ident="secondary">
+                                    <desc>A secondary title.</desc>
+                                </valItem>
+                                <valItem ident="altSecondary">
+                                    <desc>Alternative version of secondary title.</desc>
+                                </valItem>
+                                <valItem ident="tertiary">
+                                    <desc>A tertiary title.</desc>
+                                </valItem>
+                                <valItem ident="altTertiary">
+                                    <desc>Alternative version of tertiary title.</desc>
+                                </valItem>
                                 <valItem ident="complete">
                                     <desc>the work is contained completely in the manuscript</desc>
                                 </valItem>
@@ -448,11 +411,10 @@
          <valList xmlns:rng="http://relaxng.org/ns/structure/1.0"
                   xmlns:sch="http://purl.oclc.org/dsdl/schematron"
                   type="closed">
-
+                                <!--Slightly modified the values.-->
                                 <valItem ident="Christianity">
                                     <desc>Unspecified Christian</desc>
                                 </valItem>
-
                                 <valItem ident="Anglican">
                                     <desc>Christian Anglican, belonging to the Anglican Church after
                                         the reformation</desc>
@@ -469,11 +431,6 @@
                                     <desc>Christian Orthodox, belonging to a pre-Chalcedonian Church
                                         or an Orthodox church after 1054</desc>
                                 </valItem>
-
-                                <valItem ident="EOTC">
-                                    <desc>Christian Orthodox, belonging to the Ethiopian Orthodox
-                                        Tewahedo Church</desc>
-                                </valItem>
                                 <valItem ident="Greek">
                                     <desc>Greek Orthodox Christian</desc>
                                 </valItem>
@@ -489,7 +446,6 @@
                                 <valItem ident="Syriac">
                                     <desc>Christian Syriac Orthodox ("Jacobite")</desc>
                                 </valItem>
-
                                 <valItem ident="Islam">
                                     <desc>Unspecified Islam</desc>
                                 </valItem>
@@ -499,25 +455,14 @@
                                 <valItem ident="Shia">
                                     <desc>Shia Islam</desc>
                                 </valItem>
-
                                 <valItem ident="Judaism">
                                     <desc>Unspecified Judaism</desc>
                                 </valItem>
-
-                                <valItem ident="Oromo">
-                                    <desc>Traditional Oromo belief system</desc>
+                                <valItem ident="Rabbinic">
+                                    <desc>Rabbinic Judaism</desc>
                                 </valItem>
-                                <valItem ident="Gurage">
-                                    <desc>Traditional Gurage belief system</desc>
-                                </valItem>
-                                <valItem ident="Traditional">
-                                    <desc>Traditional non-Christian or Muslim belief system</desc>
-                                </valItem>
-                                <valItem ident="Ethiopian">
-                                    <desc>Traditional Ethiopian belief system</desc>
-                                </valItem>
-                                <valItem ident="Aksumite">
-                                    <desc/>
+                                <valItem ident="Qaraite">
+                                    <desc>Qaraite Judaism</desc>
                                 </valItem>
                                 <valItem ident="notSpecified"/>
                             </valList>
@@ -549,6 +494,7 @@
          <valList xmlns:rng="http://relaxng.org/ns/structure/1.0"
                   xmlns:sch="http://purl.oclc.org/dsdl/schematron"
                   type="closed">
+                                <!--Does this list of values match our purposes?-->
                                 <valItem ident="DonationNote">
                                 </valItem>
                                 <valItem ident="OwnershipNote">

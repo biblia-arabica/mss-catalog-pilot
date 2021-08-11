@@ -69,10 +69,44 @@
                     -->
                     <!-- Create optional lookups -->
                     <!-- Create submit -->
+                    <!-- Submissions -->
+                    <!-- For error messages from server -->  
+                    <xf:instance id="i-submission">
+                        <response status="success">
+                            <message>Submission result</message>
+                        </response>
+                    </xf:instance>
+                    
+                    <!-- Download XML to your desktop -->
+                    <xf:submission id="s-download-xml" ref="instance('i-rec')" show="new" method="post" replace="all" action="form.xq?form=forms/download.xml?type=download"/>
+                    
+                    <!-- Download View XML in browser -->
+                    <xf:submission id="s-view-xml" ref="instance('i-rec')" show="new" method="post" replace="all" action="services/submit.xql?type=view"/>
+                    
+                    <!-- Save record to Database -->
+                    <xf:submission id="s-save" ref="instance('i-rec')" replace="instance" instance="i-submission" action="services/submit.xql?type=save" method="post">
+                        <xf:action ev:event="xforms-submit-done">
+                            <xf:message ref="instance('i-submission')//*:message"/>
+                        </xf:action>
+                        <xf:action ev:event="xforms-submit-error">
+                            <xf:message ref="instance('i-submission')//*:message"/>
+                        </xf:action>
+                    </xf:submission>
+                    
+                    <!-- Save record to github -->
+                    <xf:submission id="s-github" ref="instance('i-rec')" replace="instance" instance="i-submission" action="services/submit.xql?type=github" method="post">
+                        <xf:action ev:event="xforms-submit-done">
+                            <xf:message ref="instance('i-submission')//*:message"/>
+                        </xf:action>
+                        <xf:action ev:event="xforms-submit-error">
+                            <xf:message ev:event="xforms-submit-error" level="modal">Unable to submit your additions at this time, you may download your changes and email them to us.</xf:message>
+                        </xf:action>
+                    </xf:submission>
                 </xf:model>
             </head>
             <body>       
                 <div class="section xforms">
+                    <xsl:call-template name="submission"/>
                     <!-- Create view (inputs) -->
                     <!-- 
                         1. Check template for element
@@ -84,9 +118,26 @@
                         <!-- <xsl:call-template name="buildXFormsElement"/> -->
                         <xsl:apply-templates mode="formElement"/>
                     </xsl:for-each>
+                    <xsl:call-template name="submission"/>
                 </div>
             </body>
         </html>
+    </xsl:template>
+    <xsl:template name="submission">
+        <div class="submission pull-right">
+            <xf:submit class="btn btn-default" submission="s-github" appearance="minimal">
+                <xf:label><span class="glyphicon glyphicon-save-file"/> Submit to GitHub </xf:label>
+            </xf:submit>
+            <xf:submit class="btn btn-default" submission="s-save" appearance="minimal">
+                <xf:label><span class="glyphicon glyphicon-save-file"/> Save to Database </xf:label>    
+            </xf:submit>
+            <xf:submit class="btn btn-default" submission="s-download-xml" appearance="minimal">
+                <xf:label><span class="glyphicon glyphicon-save-file"/> Download XML </xf:label>
+            </xf:submit>
+            <xf:submit class="btn btn-default" submission="s-view-xml" appearance="minimal">
+                <xf:label><span class="glyphicon glyphicon-save-file"/> View XML </xf:label>
+            </xf:submit>
+        </div>
     </xsl:template>
     <xsl:template name="controlledValues">
         <!-- Build a template with all the controlled values, referenced by the xforms model -->
@@ -132,16 +183,31 @@
             </xsl:for-each>
         </xsl:variable>
         <div style="border:1px solid grey; padding:2px;">
-            <xsl:variable name="path" select="replace(replace(path(.),'Q\{http://www.tei-c.org/ns/1.0\}','tei:'),'tei:TEI','/')"/>
-            <xf:group ref="instance('i-rec'){$path}" id="{generate-id(.)}" class="xformsGroup">
+            <xsl:variable name="path" select="replace(replace(replace(replace(path(.),'Q\{http://www.tei-c.org/ns/1.0\}','tei:'),'tei:TEI','/'),'\[[0-9]+\]',''),'///','//')"/>
+            <xsl:variable name="xformsElement">
+                <xsl:choose>
+                    <xsl:when test="not(child::element())">repeat</xsl:when>
+                    <xsl:otherwise>group</xsl:otherwise>
+                </xsl:choose>
+            </xsl:variable>
+            <xsl:element name="{$xformsElement}" namespace="http://www.w3.org/2002/xforms">
+                <xsl:attribute name="ref">instance('i-rec')<xsl:value-of select="$path"/></xsl:attribute>
+                <xsl:attribute name="id" select="generate-id(.)"/>
+                <xsl:attribute name="class">xformsGroup</xsl:attribute>
                 <div class="inlineBlock">
+                    <xsl:if test="not(child::element())">
                         <xf:trigger appearance="minimal" class="btn remove inline">
                             <xf:label/>
                             <xf:delete ev:event="DOMActivate" ref="."/>
                         </xf:trigger>
-                        <h4 class="inline">
-                            <xsl:value-of select="$elementName"/>
-                        </h4>
+                        <xf:trigger class="btn add inline" appearance="minimal" ref="instance('i-rec'){$path}[1]">
+                            <xf:label/>
+                            <xf:insert ev:event="DOMActivate" nodeset="instance('i-rec'){$path}" at="last()" origin="instance('i-template'){$path}[1]"/>    
+                        </xf:trigger>
+                    </xsl:if>
+                    <h4 class="inline">                    
+                        <xsl:value-of select="$elementName"/>
+                    </h4>
                 </div>
                 <xsl:if test="not(child::element())">
                     <xsl:choose>
@@ -243,8 +309,10 @@
                         <xf:insert ev:event="DOMActivate" context="." at="." origin="instance('i-template')//tei:{$elementName}/@{@ident}"/>    
                     </xf:trigger>
                 </xsl:for-each>
-                <xsl:apply-templates mode="formElement"/> 
-            </xf:group>
+                <xsl:if test="child::element()">
+                    <xsl:apply-templates mode="formElement"/>
+                </xsl:if>
+            </xsl:element>
         </div>
     </xsl:template>
     <xsl:template match="*" mode="formRules">
