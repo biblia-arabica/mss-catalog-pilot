@@ -761,7 +761,14 @@ End license statement: do not remove -->
                             <memberOf key="att.global"/>
                             <memberOf key="att.msClass"/>
                             <memberOf key="att.msExcerpt" mode="delete"/>
-                        </classes>
+                           </classes>
+                        <attList>
+                            <attDef ident="rendition" mode="delete"/>
+                            <attDef ident="style" mode="delete"/>
+                            <attDef ident="xml:base" mode="delete"/>
+                            <attDef ident="cert" mode="delete"/>
+                            <attDef ident="rend" mode="delete"/>
+                        </attList>
                     </elementSpec>
                     <elementSpec ident="repository" module="msdescription" mode="change">
                         <classes mode="replace">
