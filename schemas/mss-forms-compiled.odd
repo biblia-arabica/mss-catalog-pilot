@@ -6720,7 +6720,7 @@ d'amours est toute enclose.</finalRubric>
                                 </sch:report>
                             </sch:rule>
                         </constraint>
-                    </constraintSpec><attList><attDef xmlns:teix="http://www.tei-c.org/ns/Examples" ident="xml:id" mode="change" usage="req"/></attList><exemplum xmlns:teix="http://www.tei-c.org/ns/Examples" xml:lang="mul">
+                    </constraintSpec><attList><attDef ident="rendition" mode="delete"/><attDef ident="style" mode="delete"/><attDef ident="xml:base" mode="delete"/><attDef ident="cert" mode="delete"/><attDef ident="rend" mode="delete"/><attDef xmlns:teix="http://www.tei-c.org/ns/Examples" ident="xml:id" mode="change" usage="req"/></attList><exemplum xmlns:teix="http://www.tei-c.org/ns/Examples" xml:lang="mul">
     <egXML xmlns="http://www.tei-c.org/ns/Examples" xml:lang="non">
       <msItem class="#saga">
         <locus>ff. 1r-24v</locus>
