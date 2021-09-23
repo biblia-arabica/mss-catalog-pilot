@@ -129,6 +129,9 @@ End license statement: do not remove -->
                             <memberOf key="att.sortable"/>
                             <memberOf key="att.typed"/>
                         </classes>
+                        <content>
+                            <textNode/>
+                        </content>
                         <attList>
                             <attDef ident="ana" mode="delete"/>
                             <attDef ident="calendar" mode="delete"/>
@@ -258,6 +261,9 @@ End license statement: do not remove -->
                             <memberOf key="att.personal" mode="delete"/>
                             <memberOf key="att.typed" mode="delete"/>
                         </classes>
+                        <content>
+                            <textNode/>
+                        </content>
                         <attList>
                             <attDef ident="ana" mode="delete"/>
                             <attDef ident="calendar" mode="delete"/>
