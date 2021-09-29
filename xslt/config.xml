@@ -1,18 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <config>
-    <formTitle>TEI Place records</formTitle>
+    <formTitle>Edit TEI records</formTitle>
     <formAuthor>Winona Salesky</formAuthor>
-    <formDesc>Example of XForm generated from ODD</formDesc>
-    <schema src="../schemas/mss.xml"></schema>
-    <mainSchema src="../schemas/tei_all.rng"></mainSchema>
-<!--    <schema src="../schemas/msdesc.odd.xml"></schema>-->
-    <!-- Not sure which to use here? -->
-    <!--<schema src="../schemas/mss.rng"></schema>-->
-    <xmlTemplate src="RNL-Evr.Arab.I-1430.xml"></xmlTemplate>
-    <!-- Break up form into tabs? 
-    <formTabs>
-        <tab xpath=""></tab>
-    </formTabs>
+    <formDesc>Example of TEI XForms generated from ODD. Run as an eXist-db application. Resulting TEI can be saved to eXist-db, downloaded to local filesystem, or saved to a GitHub repository</formDesc>
+    <!-- Current version of the form generator works with an odd file. More work would be needed to use  -->
+    <localSchema src="../schemas/msdesc.odd.xml"></localSchema>
+    <globalSchema src="../schemas/mss-compiled.odd"></globalSchema>
+    <!-- Main TEI record used to build the form. Initial form will have all the data from the example record included. -->
+    <xmlTemplate src="../mss-samples/form-test.xml"></xmlTemplate>
+    <!--
+        For better performance the TEI records are into sections. Each section will output a form. This will allow better load and response time for forms, 
+        and a step-by-step method of editing records. In process records will be stored in the DB or downloaded to the file system, where they can be loaded 
+        into the form again as needed. 
+        
+        List forms in order of editing preference.
     -->
-    
+    <subforms>
+        <subform xpath="/tei:TEI/tei:teiHeader/tei:fileDesc/tei:sourceDesc/tei:msDesc/tei:msIdentifier" formName="msIdentifier"></subform>
+        <subform xpath="/tei:TEI/tei:teiHeader/tei:fileDesc/tei:sourceDesc/tei:msDesc/tei:msContents" formName="msContents"></subform>
+    </subforms>
 </config>
