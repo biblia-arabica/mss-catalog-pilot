@@ -5,6 +5,7 @@
     xmlns:sc="http://www.ascc.net/xml/schematron" 
     xmlns:xf="http://www.w3.org/2002/xforms"
     xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema" 
     xmlns:local="http://syriaca.org/ns"
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="3.0">
     <!-- 
@@ -231,8 +232,17 @@
                             <xsl:variable name="subsequence">
                                 <xsl:evaluate xpath="$xpath" context-item="$template"/>
                             </xsl:variable>
-                            <xsl:for-each select="$subsequence">
-                                <xsl:apply-templates mode="formElement"/>
+                            <xsl:for-each select="$subsequence/element()">
+<!--                                <xsl:apply-templates mode="formElement"/>-->
+                                <xsl:variable name="elementPath" select="replace(replace(replace(replace(path(.),'Q\{http://www.tei-c.org/ns/1.0\}','tei:'),'tei:TEI','/'),'\[[0-9]+\]',''),'///','//')"/>
+                                <xsl:variable name="elementName" select="local-name(.)"/>
+<!--                                <elementPath><xsl:value-of select="$elementPath"/></elementPath>-->
+                                <xsl:call-template name="xformElementUI">
+                                    <xsl:with-param name="elementName" select="$elementName"/>
+                                    <xsl:with-param name="path"/>
+                                    <xsl:with-param name="min"/>
+                                    <xsl:with-param name="max"/>
+                                </xsl:call-template>
                                 <!-- 
                                 <xsl:if test="child::element()">
                                     <xsl:for-each select="child::element()">
@@ -347,7 +357,7 @@
         <xsl:param name="elementName"/>
         <xsl:param name="path"/>
         <xsl:param name="min"/>
-        <xsl:param name="max"/>
+        <xsl:param name="max"/>        
         <xsl:variable name="availableChildren" select="local:availableChildren($elementName)"/>
         <xsl:variable name="availableAttributes" select="local:availableAttributes($elementName)"/>
         <xsl:variable name="elementRules" select="local:elementRules($elementName)"/>
@@ -362,6 +372,20 @@
             Maybe generate a template for each model.* so I do not have an impossibly nested form? 
             generate children in correct order according to schema
         -->
+        <xsl:variable name="maxOccur">
+            <xsl:choose>
+                <xsl:when test="$max !='' "><xsl:value-of select="$max"/></xsl:when>
+                <xsl:when test="$elementRules/tei:content/tei:sequence[@maxOccur]"><xsl:value-of select="string($elementRules/tei:content/tei:sequence/@maxOccur)"/></xsl:when>
+                <xsl:otherwise></xsl:otherwise>
+            </xsl:choose>
+        </xsl:variable>
+        <xsl:variable name="minOccur">
+            <xsl:choose>
+                <xsl:when test="$max !='' "><xsl:value-of select="$min"/></xsl:when>
+                <xsl:when test="$elementRules/tei:content/tei:sequence[@minOccur]"><xsl:value-of select="string($elementRules/tei:content/tei:sequence/@minOccur)"/></xsl:when>
+                <xsl:otherwise></xsl:otherwise>
+            </xsl:choose>
+        </xsl:variable>
         <xsl:variable name="xformsElement">
             <xsl:choose>
                 <xsl:when test="$max = 'unbounded' or $max = ''">repeat</xsl:when>
@@ -369,6 +393,7 @@
             </xsl:choose>
         </xsl:variable>
      
+        <!-- Create a min.max variable that test for param or element rules  -->
         <div style="border:1px solid grey; padding:2px;">
             <xsl:element name="{$xformsElement}" namespace="http://www.w3.org/2002/xforms">
                 <!-- Add title, drop down of available attributes and available elements -->
@@ -378,9 +403,33 @@
                 <xsl:attribute name="id" select="generate-id(.)"/>
                 <xsl:attribute name="class">xformsGroup</xsl:attribute>
                 <div class="inlineBlock">
-                    <!-- Test if repeatable, if required etc. -->
+                    <path><xsl:value-of select="$path"/></path>
+                    <!-- Test if repeatable, if required etc. sequence minOccurs="1" maxOccurs="1"-->
                     <xsl:choose>
-                        <xsl:when test="">
+                        <xsl:when test="$minOccur">
+                            <xsl:choose>
+                                <xsl:when test="$minOccur castable as xs:integer">
+                                    <xsl:choose>
+                                        <xsl:when test="xs:integer($minOccur) = 0">
+                                            <!-- If 0 required, allow delete button all the time -->
+                                            <xf:trigger appearance="minimal" class="btn remove inline">
+                                                <xf:label/>
+                                                <xf:delete ev:event="DOMActivate" ref="."/>
+                                            </xf:trigger>
+                                        </xsl:when>
+                                        <xsl:when test="xs:integer($minOccur) = 1">
+                                            <!-- If one is required allow delete only if sibling elements exist -->
+                                            <xf:trigger appearance="minimal" class="btn remove inline" ref=".[following-sibling::tei:{$elementName}]">
+                                                <xf:label/>
+                                                <xf:delete ev:event="DOMActivate" ref="."/>
+                                            </xf:trigger>
+                                        </xsl:when>
+                                        <xsl:when test="xs:integer($minOccur) gt 1">
+                                            <!-- WS:Note, not sure what to do here, or if this is even likely -->
+                                        </xsl:when>
+                                    </xsl:choose>
+                                </xsl:when>
+                            </xsl:choose>
                             <!-- When at least 1 required, test for siblings, if no siblings do not have delete -->
                         </xsl:when>
                         <xsl:otherwise>
@@ -391,9 +440,34 @@
                         </xsl:otherwise>
                     </xsl:choose>
                     <xsl:choose>
-                        <xsl:when test="">
+                        <xsl:when test="$maxOccur">
                             <!-- Test if unbounded, if yes, have add, no restrictions -->
-                            <!-- if limit count siblings -->
+                            <xsl:choose>
+                                <xsl:when test="$maxOccur castable as xs:integer">
+                                    <xsl:choose>
+                                        <xsl:when test="xs:integer($maxOccur) = 1">
+                                            <!-- If one is required allow delete only if sibling elements exist -->
+                                            <xf:trigger appearance="minimal" class="btn remove inline" ref="instance('i-rec')/{$path}[1]">
+                                                <xf:label/>
+                                                <xf:insert ev:event="DOMActivate" nodeset="instance('i-rec')/{$path}" at="last()" origin="instance('i-template')/{$path}[1]"/>
+                                            </xf:trigger>
+                                        </xsl:when>
+                                        <xsl:when test="xs:integer($maxOccur) gt 1">
+                                            <!-- WS:Note should find limit and bind ref to # of siblings -->
+                                            <xf:trigger class="btn add inline" appearance="minimal" ref="instance('i-rec')/{$path}[1]">
+                                                <xf:label/>
+                                                <xf:insert ev:event="DOMActivate" nodeset="instance('i-rec')/{$path}" at="last()" origin="instance('i-template')/{$path}[1]"/>        
+                                            </xf:trigger>
+                                        </xsl:when>
+                                    </xsl:choose>
+                                </xsl:when>
+                                <xsl:otherwise>
+                                    <xf:trigger class="btn add inline" appearance="minimal" ref="instance('i-rec')/{$path}[1]">
+                                        <xf:label/>
+                                        <xf:insert ev:event="DOMActivate" nodeset="instance('i-rec')/{$path}" at="last()" origin="instance('i-template')/{$path}[1]"/>        
+                                    </xf:trigger>
+                                </xsl:otherwise>
+                            </xsl:choose>
                         </xsl:when>
                         <xsl:otherwise>
                             <xf:trigger class="btn add inline" appearance="minimal" ref="instance('i-rec')/{$path}[1]">
@@ -412,8 +486,37 @@
                             Check if controlled value list, use select1 
                             otherwise use input
                             
+                            Deal with adding global attributes or attribute groups
                             then have add/delete triggers
                         -->
+                        <xsl:variable name="attRef" select="concat('@',current-grouping-key())"/>
+                        <xsl:choose>
+                            <xsl:when test="descendant-or-self::tei:valItem">
+                                <!-- Controlled list -->
+                                <xf:select1 ref="{$attRef}">
+                                    <xf:label><xsl:value-of select="$attRef"/></xf:label>
+                                    <xf:item>
+                                        <xf:label>--- Select ---</xf:label>
+                                        <xf:value/>
+                                    </xf:item>
+                                    <xf:itemset ref="instance('i-ctr-vals')//tei:{$elementName}/tei:{$attRef}/descendant::tei:valItem">
+                                        <xf:label ref="@ident"/>
+                                        <xf:value ref="@ident"/>
+                                    </xf:itemset>
+                                </xf:select1>
+                                <xf:trigger appearance="minimal" class="btn remove pull-right" ref="{$attRef}">
+                                    <xf:label/>
+                                    <xf:delete ev:event="DOMActivate" ref="."/>
+                                </xf:trigger>
+                            </xsl:when>
+                            <xsl:otherwise>
+                                <xf:input ref="{$attRef}"/>
+                                <xf:trigger appearance="minimal" class="btn remove pull-right" ref="{$attRef}">
+                                    <xf:label/>
+                                    <xf:delete ev:event="DOMActivate" ref="."/>
+                                </xf:trigger>
+                            </xsl:otherwise>
+                        </xsl:choose>
                         <p><xsl:value-of select="@ident"/></p>
                     </xsl:for-each-group>
                 </xsl:if>
@@ -426,6 +529,13 @@
                         <xsl:if test="$elementName != @key">
                             <xsl:call-template name="xformElementUI">
                                 <xsl:with-param name="elementName" select="@key"/>
+                                <xsl:with-param name="path" select="$path"/>
+                                <xsl:with-param name="min">    
+                                    <xsl:if test="@minOccurs != ''"><xsl:value-of select="@minOccurs"/></xsl:if>
+                                </xsl:with-param>
+                                <xsl:with-param name="max">
+                                    <xsl:if test="@maxOccurs != ''"><xsl:value-of select="@maxOccurs"/></xsl:if>
+                                </xsl:with-param> 
                             </xsl:call-template>
                         </xsl:if>
                     </xsl:for-each-group>
