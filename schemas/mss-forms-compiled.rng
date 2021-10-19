@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar ns="http://www.w3.org/XML/1998/namespace" xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns="http://relaxng.org/ns/structure/1.0" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+  <start>
+    <element name="tei:TEI">
+      <attribute>
+        <name>lang</name>
+        <data type="NCName"/>
+      </attribute>
+      <element name="tei:teiHeader">
+        <element name="tei:fileDesc">
+          <element name="tei:titleStmt">
+            <element name="tei:title">
+              <text/>
+            </element>
+            <oneOrMore>
+              <element name="tei:author">
+                <attribute>
+                  <name>id</name>
+                  <data type="NCName"/>
+                </attribute>
+                <text/>
+              </element>
+            </oneOrMore>
+          </element>
+          <element name="tei:publicationStmt">
+            <element name="tei:authority">
+              <text/>
+            </element>
+            <element name="tei:publisher">
+              <text/>
+            </element>
+            <element name="tei:pubPlace">
+              <data type="NCName"/>
+            </element>
+            <element name="tei:availability">
+              <element name="tei:licence">
+                <attribute name="target">
+                  <data type="anyURI"/>
+                </attribute>
+                <text/>
+              </element>
+            </element>
+          </element>
+          <element name="tei:sourceDesc">
+            <ref name="p"/>
+          </element>
+        </element>
+        <element name="tei:revisionDesc">
+          <element name="tei:change">
+            <attribute name="when">
+              <data type="date"/>
+            </attribute>
+            <attribute name="who">
+              <data type="NCName"/>
+            </attribute>
+            <text/>
+          </element>
+        </element>
+      </element>
+      <element name="tei:text">
+        <element name="tei:front">
+          <element name="tei:divGen">
+            <attribute name="type">
+              <data type="NCName"/>
+            </attribute>
+          </element>
+        </element>
+        <element name="tei:body">
+          <oneOrMore>
+            <element name="tei:div">
+              <choice>
+                <element name="tei:schemaSpec">
+                  <attribute name="docLang">
+                    <data type="NCName"/>
+                  </attribute>
+                  <attribute name="ident">
+                    <data type="NCName"/>
+                  </attribute>
+                  <attribute name="prefix">
+                    <data type="NCName"/>
+                  </attribute>
+                  <attribute name="source">
+                    <data type="NCName"/>
+                  </attribute>
+                  <attribute name="start">
+                    <data type="NCName"/>
+                  </attribute>
+                  <attribute>
+                    <name>lang</name>
+                    <data type="NCName"/>
+                  </attribute>
+                  <oneOrMore>
+                    <element name="tei:moduleRef">
+                      <optional>
+                        <attribute name="include"/>
+                      </optional>
+                      <attribute name="key">
+                        <data type="NCName"/>
+                      </attribute>
+                    </element>
+                  </oneOrMore>
+                  <oneOrMore>
+                    <element name="tei:elementSpec">
+                      <attribute name="ident">
+                        <data type="NCName"/>
+                      </attribute>
+                      <attribute name="mode">
+                        <data type="NCName"/>
+                      </attribute>
+                      <attribute name="module">
+                        <data type="NCName"/>
+                      </attribute>
+                      <optional>
+                        <element name="tei:classes">
+                          <attribute name="mode">
+                            <data type="NCName"/>
+                          </attribute>
+                          <oneOrMore>
+                            <element name="tei:memberOf">
+                              <attribute name="key">
+                                <data type="NCName"/>
+                              </attribute>
+                              <optional>
+                                <attribute name="mode">
+                                  <data type="NCName"/>
+                                </attribute>
+                              </optional>
+                            </element>
+                          </oneOrMore>
+                        </element>
+                      </optional>
+                      <optional>
+                        <element name="tei:content">
+                          <element name="tei:textNode">
+                            <empty/>
+                          </element>
+                        </element>
+                      </optional>
+                      <optional>
+                        <element name="tei:attList">
+                          <oneOrMore>
+                            <element name="tei:attDef">
+                              <attribute name="ident">
+                                <data type="NMTOKEN"/>
+                              </attribute>
+                              <attribute name="mode">
+                                <data type="NCName"/>
+                              </attribute>
+                            </element>
+                          </oneOrMore>
+                        </element>
+                      </optional>
+                    </element>
+                  </oneOrMore>
+                </element>
+                <group>
+                  <element name="tei:head">
+                    <text/>
+                  </element>
+                  <oneOrMore>
+                    <ref name="p"/>
+                  </oneOrMore>
+                </group>
+              </choice>
+            </element>
+          </oneOrMore>
+        </element>
+      </element>
+    </element>
+  </start>
+  <define name="p">
+    <element name="tei:p">
+      <oneOrMore>
+        <choice>
+          <text/>
+          <element name="tei:ref">
+            <attribute name="target">
+              <data type="anyURI"/>
+            </attribute>
+            <text/>
+          </element>
+        </choice>
+      </oneOrMore>
+    </element>
+  </define>
+</grammar>
