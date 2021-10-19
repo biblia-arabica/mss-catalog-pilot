@@ -133,7 +133,7 @@ type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
                               <physDesc>
                                     <!-- Object forms can be selected from a list, e.g., "Codex" -->
                                     <objectDesc form="Codex">
-                                          <supportDesc>
+                                          <supportDesc material="chart">
                                                 <support>
                                                   <!-- Materials can be selected from a list, e.g., "parchment" -->
                                                       <material key="paper">נייר</material>
@@ -216,7 +216,7 @@ type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
                                                 The list of scripts in @script needs to be adapted. -->
                                           <handNote xml:id="h1" script="mizrahiBinoni">
                                                 <!-- Prose descriptions of script, ink, and rubrication. -->
-                                                מזרחי בינוני <seg type="vocalization">ניקוד ערבי
+                                                מזרחי בינוני <seg type="script" subtype="vocalization">ניקוד ערבי
                                                   ספורדי. </seg>
                                                 <note>ציטוט ראשי הפסוקים בתרגום. סימון שלוש נקודות
                                                   מעליהם. שלוש נקודות באות גם מעל מספרי מזמורים ומעל
@@ -326,11 +326,11 @@ type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
                         <language ident="en">English/Hebrew</language>
                   </langUsage>
             </profileDesc>
-            <revisionDesc>
-                  <!-- Changelog of who did what in this manuscript description, e.g., -->
-                  <!--<change who="DN" when="2010-04-20">Ethio-SPaRe team photographed the
-                        manuscript</change>-->
-                  <!--<change who="DN" when="2014-08-27">catalogued</change>
+            <!--<revisionDesc>
+                  <!-\- Changelog of who did what in this manuscript description, e.g., -\->
+                  <!-\-<change who="DN" when="2010-04-20">Ethio-SPaRe team photographed the
+                        manuscript</change>-\->
+                  <!-\-<change who="DN" when="2014-08-27">catalogued</change>
                   <change who="MV" when="2015-01-14">last edited</change>
                   <change who="PL" when="2016-05-10">transformed from mycore to TEI P5</change>
                   <change who="PL" when="2019-04-25">added missing extras from domlib</change>
@@ -340,8 +340,8 @@ type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
                         Initial HTR transcription using the Ethiopic – Classical Ethiopic scripts
                         from Ethiopia and Eritrea
                         (https://readcoop.eu/model/ethiopic-classical-ethiopic-scripts-from-ethiopia-and-eritrea
-                        ).</change>-->
-            </revisionDesc>
+                        ).</change>-\->
+            </revisionDesc>-->
       </teiHeader>
       <facsimile xml:id="transkribusESum035">
             <!-- If there is a digital facsimile of the text, metadata about it will go here. -->
