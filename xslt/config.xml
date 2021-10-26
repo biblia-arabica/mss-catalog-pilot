@@ -4,8 +4,9 @@
     <formAuthor>Winona Salesky</formAuthor>
     <formDesc>Example of TEI XForms generated from ODD. Run as an eXist-db application. Resulting TEI can be saved to eXist-db, downloaded to local filesystem, or saved to a GitHub repository</formDesc>
     <!-- Current version of the form generator works with an odd file. More work would be needed to use  -->
-    <localSchema src="../schemas/msdesc.odd.xml"></localSchema>
+    <localSchema src="../schemas/mss-forms-compiled-ws.odd"></localSchema>
     <globalSchema src="../schemas/mss-compiled.odd"></globalSchema>
+    <!-- msdesc.odd -->
     <!-- Main TEI record used to build the form. Initial form will have all the data from the example record included. -->
     <xmlTemplate src="../mss-samples/form-test.xml"></xmlTemplate>
     <!--
@@ -17,6 +18,7 @@
     -->
     <subforms>
         <subform xpath="/tei:TEI/tei:teiHeader/tei:fileDesc/tei:sourceDesc/tei:msDesc/tei:msIdentifier" formName="msIdentifier"></subform>
+<!--        <subform xpath="/tei:TEI/tei:teiHeader/tei:fileDesc/tei:sourceDesc/tei:msDesc/tei:msContents" formName="msContents"></subform>-->
         <subform xpath="/tei:TEI/tei:teiHeader/tei:fileDesc/tei:sourceDesc/tei:msDesc/tei:msContents" formName="msContents"></subform>
     </subforms>
 </config>

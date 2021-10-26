@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="../schemas/mss.rng" 
-schematypens="http://relaxng.org/ns/structure/1.0"?>
-<?xml-model href="../schemas/mss.rng" 
-type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:id="ESum035" xml:lang="en" type="mss">
+schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-model href="../schemas/mss.rng" 
+type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?><TEI xmlns="http://www.tei-c.org/ns/1.0" xml:id="ESum035" xml:lang="en" type="mss">
       <teiHeader xml:base="https://betamasaheft.eu/">
             <fileDesc>
                   <titleStmt>
@@ -122,7 +120,7 @@ type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
                                                       <item xml:id="q2">
                                                           <dim unit="leaf">4</dim>
                                                           <locus from="8r" to="11v"/> II(4/fols.
-                                                          8r-11v).&#xD; &#xD; 
+                                                          8r-11v).  
                                                       </item>
                                                   </list>
                                                 </collation>
@@ -131,10 +129,9 @@ type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
                                                       Other elements can be included here, such as links 
                                                 to specific places in the manuscript using <locus> -->
                                                 <condition key="deficient">The boards and the spine
-                                                  cover are missing.&#xD; The sewing is severely
-                                                  damaged.&#xD; The Ms. is slightly worn and loosely
-                                                  held together.&#xD; Text on <locus target="#4r"
-                                                  >4r</locus>, 7r, 8r, 10r, 11v is barely legible
+                                                  cover are missing. The sewing is severely
+                                                  damaged. The Ms. is slightly worn and loosely
+                                                  held together. Text on <locus target="#4r">4r</locus>, 7r, 8r, 10r, 11v is barely legible
                                                   due to faded ink, esp. red.</condition>
                                           </supportDesc>
                                           <layoutDesc>
@@ -153,8 +150,7 @@ type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
                                                       <dim type="left">11</dim>
                                                       <dim type="intercolumn"/>
                                                   </dimensions>
-                                                  <note>All data for <locus target="#4r"
-                                                  >4r</locus>.</note>
+                                                  <note>All data for <locus target="#4r">4r</locus>.</note>
                                                 <!-- Prose descriptions of ruling and pricking -->
                                                   <ab type="ruling">From 13 to 18.</ab>
                                                   <ab type="pricking">Ruling and pricking are
@@ -194,12 +190,9 @@ type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
                                           <list>
                                                 <!-- Each scribal addition can be listed here, 
                                                       with its <locus> and @type -->
-                                                <item xml:id="e1"><locus target="#6r"
-                                                  >6r</locus><desc type="StampExlibris"
-                                                  ><idno>C3-IV-83</idno></desc></item>
+                                                <item xml:id="e1"><locus target="#6r">6r</locus><desc type="StampExlibris"><idno>C3-IV-83</idno></desc></item>
                                                 <item xml:id="e2"><desc>The title ደብዳቤ፡ የመስቀል፡ is
-                                                  written in the lower margin on <locus
-                                                  target="#11v">fol. 11v</locus> with blue
+                                                  written in the lower margin on <locus target="#11v">fol. 11v</locus> with blue
                                                   paint.</desc></item>
                                                 <!-- I would have thought the item below (e3) would be part
                                                       of the handDesc? --> 
@@ -210,8 +203,7 @@ type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
                                                 <item xml:id="e5"><desc>Corrections written
                                                   interlineally in red ink: <locus target="#7r">fol.
                                                   7r</locus>. </desc></item>
-                                                <item xml:id="e6"><desc>Erasures: <locus
-                                                  target="#2r">fol. 2r</locus>.</desc></item>
+                                                <item xml:id="e6"><desc>Erasures: <locus target="#2r">fol. 2r</locus>.</desc></item>
                                           </list>
                                     </additions>
                                     <bindingDesc>
@@ -220,7 +212,7 @@ type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
                                                 should be adapted. -->
                                           <binding contemporary="false">
                                                 <decoNote xml:id="b1">One pair of sewing
-                                                  stations.&#xD; Quire I is crudely held together by
+                                                  stations. Quire I is crudely held together by
                                                   a modern thread.</decoNote>
                                                 <decoNote xml:id="b2" type="bindingMaterial"/>
                                                 <decoNote xml:id="b3" type="Endbands"/>
@@ -268,8 +260,7 @@ type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
                         <p>Encoded according to TEI P5 Guidelines.</p>
                   </projectDesc>
                   <!-- A link to the documentation -->
-                  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-                        href="https://raw.githubusercontent.com/BetaMasaheft/Documentation/master/prefixDef.xml">
+                  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="https://raw.githubusercontent.com/BetaMasaheft/Documentation/master/prefixDef.xml">
                         <xi:fallback>
                               <p>Definitions of prefixes used.</p>
                         </xi:fallback>
@@ -305,7 +296,7 @@ type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
       </teiHeader>
       <facsimile xml:id="transkribusESum035">
             <!-- If there is a digital facsimile of the text, metadata about it will go here. -->
-            <surface xmlns="http://www.tei-c.org/ns/1.0" xml:id="facs_1"/>
+            <surface xml:id="facs_1"/>
       </facsimile>
 
       <text xml:base="https://betamasaheft.eu/">

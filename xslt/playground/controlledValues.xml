@@ -5,64 +5,619 @@
      xmlns:xf="http://www.w3.org/2002/xforms"
      xmlns:ev="http://www.w3.org/2001/xml-events"
      xmlns:xs="http://www.w3.org/2001/XMLSchema"
+     xmlns:xi="http://www.w3.org/2001/XInclude"
      xmlns:local="http://syriaca.org/ns"
      xml:id="controlledValues"
      xml:lang="en">
-   <include>
-      <parse>
-         <valList xmlns:sch="http://purl.oclc.org/dsdl/schematron" type="closed">
-                                    <valItem ident="xml"/>
-                                    <valItem ident="text"/>
-                                </valList>
-      </parse>
-   </include>
-   <layout>
-      <topLine>
-         <valList xmlns:sch="http://purl.oclc.org/dsdl/schematron" type="closed">
-                                    <valItem ident="above">
-                                        <desc>The writing is above top line.</desc>
-                                    </valItem>
-                                    <valItem ident="below">
-                                        <desc>The writing is below top line.</desc>
-                                    </valItem>
-                                    <valItem ident="mixed">
-                                        <desc>The writing is variously above and below top line with
-                                            no clear pattern.</desc>
-                                    </valItem>
+   <desc>
+      <type>
+         <valList xmlns:teix="http://www.tei-c.org/ns/Examples"
+                  xmlns:rng="http://relaxng.org/ns/structure/1.0"
+                  xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                  type="closed">
 
-                                </valList>
-      </topLine>
-   </layout>
-   <availability>
-      <status>
-         <valList xmlns:sch="http://purl.oclc.org/dsdl/schematron" type="closed">
-                                    <valItem ident="free">
-                                        <desc>The item is available.</desc>
-                                    </valItem>
-                                    <!-- nb: not necessarily permanently restricted -->
-                                    <valItem ident="restricted">
-                                        <desc>Access to the item is restricted for conservation or
-                                            other reasons.</desc>
-                                    </valItem>
-                                    <valItem ident="exhibition">
-                                        <desc>The item is on exhibition at the owning library or
-                                            another institution, and is likely to be temporarily
-                                            unavailable.</desc>
-                                    </valItem>
-                                    <valItem ident="offsite">
-                                        <desc>The item is stored offsite, and will take at least
-                                            twenty-four hours to produce.</desc>
-                                    </valItem>
-                                    <valItem ident="printcat">
-                                        <desc>The item is orderable through a catalogue of printed materials, typically because it is a fragment in a printed book or because it is part of a collection of mostly printed material.</desc>
-                                    </valItem>
-                                    <valItem ident="none">
-                                        <desc>The item cannot be ordered, typically either because it is a stub record or because it is not held by the library which is responsible for the catalogue.</desc>
-                                    </valItem>
-                                    <valItem ident="unknown">
-                                        <desc>Availability of the item is unknown.</desc>
-                                    </valItem>
-                                </valList>
-      </status>
-   </availability>
+                  <valItem ident="DonationNote"> </valItem>
+                  <valItem ident="OwnershipNote"> </valItem>
+                  <valItem ident="PurchaseNote"> </valItem>
+                  <valItem ident="AcquisitionNote"> </valItem>
+                  <valItem ident="ReceiptNote"/>
+                  <valItem ident="Admonition"> </valItem>
+                  <valItem ident="LandGrant"> </valItem>
+                  <valItem ident="FoundationCharter"> </valItem>
+                  <valItem ident="Genealogy"> </valItem>
+                  <valItem ident="ScribalSignature"> </valItem>
+                  <valItem ident="Supplication"> </valItem>
+                  <valItem ident="Subscription"> </valItem>
+                  <valItem ident="Doxology"> </valItem>
+                  <valItem ident="Exhortation"> </valItem>
+                  <valItem ident="Invocation"> </valItem>
+                  <valItem ident="Inventory"> </valItem>
+                  <valItem ident="ScribalNoteCommencing"> </valItem>
+                  <valItem ident="ScribalNoteOrdering"> </valItem>
+                  <valItem ident="ScribalNoteCommissioning"> </valItem>
+                  <valItem ident="ScribalNoteCompleting"> </valItem>
+                  <valItem ident="ScribalNoteAssigningLand"> </valItem>
+                  <valItem ident="ScribalNoteBequeathing"> </valItem>
+                  <valItem ident="RecordReconciliation"> </valItem>
+                  <valItem ident="RecordLitigation"> </valItem>
+                  <valItem ident="RecordTransaction"> </valItem>
+                  <valItem ident="RecordDistribution"> </valItem>
+                  <valItem ident="RecordGuarantors"> </valItem>
+                  <valItem ident="Record"> </valItem>
+                  <valItem ident="ScribalSupplication"> </valItem>
+                  <valItem ident="Unclear"> </valItem>
+                  <valItem ident="GuarantorsList"> </valItem>
+                  <valItem ident="CommemorativeNote"> </valItem>
+                  <valItem ident="Condemnation"> </valItem>
+                  <valItem ident="ProtectivePrayer"> </valItem>
+                  <valItem ident="Poem"> </valItem>
+                  <valItem ident="PoemQene"> </valItem>
+                  <valItem ident="PoemSalam"> </valItem>
+                  <valItem ident="PoemArke"> </valItem>
+                  <valItem ident="StampExlibris"> </valItem>
+                  <valItem ident="CalendaricNote"> </valItem>
+                  <valItem ident="Excerpt"> </valItem>
+                  <valItem ident="Letter"> </valItem>
+                  <valItem ident="MagicFormula"> </valItem>
+                  <valItem ident="MagicText"> </valItem>
+                  <valItem ident="Comment"> </valItem>
+                  <valItem ident="Correction"> </valItem>
+                  <valItem ident="Gloss"> </valItem>
+                  <valItem ident="Excommunication"> </valItem>
+                  <valItem ident="GuestText"> </valItem>
+                  <valItem ident="MalkeHymn"> </valItem>
+                  <valItem ident="Directive"> </valItem>
+                  <valItem ident="Asmat"> </valItem>
+                  <valItem ident="CustomaryLaw"> </valItem>
+                  <valItem ident="Statutes"> </valItem>
+                  <valItem ident="MixedNote"> </valItem>
+                  <valItem ident="findingAid"> </valItem>
+                </valList>
+      </type>
+   </desc>
+   <date>
+      <calendar>
+         <valList xmlns:teix="http://www.tei-c.org/ns/Examples"
+                  xmlns:rng="http://relaxng.org/ns/structure/1.0"
+                  xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                  type="closed">
+                  <valItem ident="hebrew">
+                    <desc>Hebrew calendar</desc>
+                  </valItem>
+                  <valItem ident="alexander">
+                    <desc>Era of Alexander of Macedon, year 1 = 319 BC</desc>
+                  </valItem>
+                  <valItem ident="islamic">
+                    <desc>Islamic Era</desc>
+                  </valItem>
+                  <valItem ident="julian">
+                    <desc>Julian calendar</desc>
+                  </valItem>
+                </valList>
+      </calendar>
+   </date>
+   <ref>
+      <type>
+         <valList xmlns:teix="http://www.tei-c.org/ns/Examples"
+                  xmlns:rng="http://relaxng.org/ns/structure/1.0"
+                  xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                  type="closed">
+                  <valItem ident="mspart">
+                    <desc>Please use this type if <att>corresp</att> is pointing to the
+                        <att>xml:id</att> of a <gi>msPart</gi> in a manuscript record</desc>
+                  </valItem>
+                  <valItem ident="author">
+                    <desc>Please use this type if <att>corresp</att> is pointing to the
+                        <att>xml:id</att> of a person record</desc>
+                  </valItem>
+                  <valItem ident="place">
+                    <desc>Please use this type if <att>corresp</att> is pointing to the
+                        <att>xml:id</att> of a place record</desc>
+                  </valItem>
+                  <valItem ident="item">
+                    <desc>Please use this type if <att>corresp</att> is pointing to the
+                        <att>xml:id</att> of a <gi>msItem</gi> in a manuscript record</desc>
+                  </valItem>
+                  <valItem ident="hand">
+                    <desc>Please use this type if <att>corresp</att> is pointing to the
+                        <att>xml:id</att> of a <gi>handNote</gi> in a manuscript record</desc>
+                  </valItem>
+                  <valItem ident="quire">
+                    <desc>Please use this type if <att>corresp</att> is pointing to the
+                        <att>xml:id</att> of a <gi>item</gi> in the <gi>collation</gi> of a
+                      manuscript record</desc>
+                  </valItem>
+                  <valItem ident="mss">
+                    <desc>Please use this type if <att>corresp</att> is pointing to the
+                        <att>xml:id</att> of a manuscript record</desc>
+                  </valItem>
+                  <valItem ident="work">
+                    <desc>Please use this type if <att>corresp</att> is pointing to the
+                        <att>xml:id</att> of a textual unit record</desc>
+                  </valItem>
+                  <valItem ident="ins">
+                    <desc>Please use this type if <att>corresp</att> is pointing to the
+                        <att>xml:id</att> of a repository record</desc>
+                  </valItem>
+                  <valItem ident="pers">
+                    <desc>Please use this type if <att>corresp</att> is pointing to the
+                        <att>xml:id</att> of a person record</desc>
+                  </valItem>
+                  <valItem ident="title">
+                    <desc>Please use this type if <att>corresp</att> is pointing to the
+                        <att>xml:id</att> of a <gi>title</gi> in a textual unit record</desc>
+                  </valItem>
+                  <valItem ident="deco">
+                    <desc>Please use this type if <att>corresp</att> is pointing to the
+                        <att>xml:id</att> of a <gi>decoNote</gi> in the <gi>decoDesc</gi> of a
+                      manuscript record</desc>
+                  </valItem>
+                  <valItem ident="group">
+                    <desc>Please use this type if <att>corresp</att> is pointing to the
+                        <att>xml:id</att> of a <gi>personGrp</gi> in a person record</desc>
+                  </valItem>
+                  <valItem ident="binding">
+                    <desc>Please use this type if <att>corresp</att> is pointing to the
+                        <att>xml:id</att> of a <gi>bindingNote</gi> in the <gi>binding</gi> of a
+                      manuscript record</desc>
+                  </valItem>
+                  <valItem ident="authFile">
+                    <desc>Please use this type if <att>corresp</att> is pointing to the
+                        <att>xml:id</att> of an authority file record</desc>
+                  </valItem>
+                  <valItem ident="studies">
+                    <desc>A record in the Studies repository</desc>
+                  </valItem>
+                </valList>
+      </type>
+   </ref>
+   <note>
+      <type>
+         <valList xmlns:teix="http://www.tei-c.org/ns/Examples"
+                  xmlns:rng="http://relaxng.org/ns/structure/1.0"
+                  xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                  type="closed">
+                  <valItem ident="commemoration"/>
+                  <valItem ident="liturgical"/>
+                  <valItem ident="résumé"/>
+                  <valItem ident="scientifique"/>
+                  <valItem ident="transcription"/>
+                </valList>
+      </type>
+   </note>
+   <title>
+      <type>
+         <valList xmlns:teix="http://www.tei-c.org/ns/Examples"
+                  xmlns:rng="http://relaxng.org/ns/structure/1.0"
+                  xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                  type="closed">
+                  <valItem ident="altMain">
+                    <desc>Alternative version of main title.</desc>
+                  </valItem>
+                  <valItem ident="secondary">
+                    <desc>A secondary title.</desc>
+                  </valItem>
+                  <valItem ident="altSecondary">
+                    <desc>Alternative version of secondary title.</desc>
+                  </valItem>
+                  <valItem ident="tertiary">
+                    <desc>A tertiary title.</desc>
+                  </valItem>
+                  <valItem ident="altTertiary">
+                    <desc>Alternative version of tertiary title.</desc>
+                  </valItem>
+                  <valItem ident="complete">
+                    <desc>the work is contained completely in the manuscript</desc>
+                  </valItem>
+                  <valItem ident="incomplete">
+                    <desc>the work is contained incompletely in the manuscript, i.e. even only a
+                      small part is missing </desc>
+                  </valItem>
+                  <valItem ident="normalized">
+                    <desc>Transliteration of the title</desc>
+                  </valItem>
+                  <valItem ident="supplied">
+                    <desc>syriaca.org: an existing print catalogue provides a descriptive
+                      title</desc>
+                  </valItem>
+                  <valItem ident="uniform">
+                    <desc>syriaca.org: a title for such work established by the editor or
+                      cataloguer</desc>
+                  </valItem>
+                  <valItem ident="main">
+                    <desc>for titleStmt, specifies to which title to give priority in output.</desc>
+                  </valItem>
+                  <valItem ident="short">
+                    <desc>for titleStmt, contains an abbreviated form of the title, typically
+                      citation forms like Sal. Mar. or Jn. or Gen..</desc>
+                  </valItem>
+                  <valItem ident="D'usage">
+                    <desc>EMA</desc>
+                  </valItem>
+                  <valItem ident="académique">
+                    <desc>EMA</desc>
+                  </valItem>
+                  <valItem ident="Forgé">
+                    <desc>EMA</desc>
+                  </valItem>
+                  <valItem ident="Original">
+                    <desc>EMA</desc>
+                  </valItem>
+                  <valItem ident="sub">
+                    <desc>The title is a subtitle or title of a part</desc>
+                  </valItem>
+                  <valItem ident="alt">
+                    <desc>The title is an alternate title, translation, or alias</desc>
+                  </valItem>
+                  <valItem ident="desc">
+                    <desc>The title is a descriptive paraphrase of the work functioning as a
+                      title</desc>
+                  </valItem>
+                  <valItem ident="collection">
+                    <desc>The title is of a collection</desc>
+                  </valItem>
+                </valList>
+      </type>
+      <subtype>
+         <valList xmlns:teix="http://www.tei-c.org/ns/Examples"
+                  xmlns:rng="http://relaxng.org/ns/structure/1.0"
+                  xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                  type="closed">
+                  <valItem ident="supplication"/>
+                  <valItem ident="expanded"/>
+                  <valItem ident="inscriptio"/>
+                  <valItem ident="subscriptio"/>
+                  <valItem ident="embedded"/>
+                  <valItem ident="translation"/>
+                </valList>
+      </subtype>
+      <level>
+         <valList xmlns:teix="http://www.tei-c.org/ns/Examples"
+                  xmlns:rng="http://relaxng.org/ns/structure/1.0"
+                  xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                  type="closed">
+                  <valItem ident="a">
+                    <gloss versionDate="2007-07-04" xml:lang="en">analytic</gloss>
+                    <gloss versionDate="2007-12-20" xml:lang="ko">분석적</gloss>
+                    <gloss versionDate="2007-06-12" xml:lang="fr">analytique</gloss>
+                    <gloss versionDate="2007-11-06" xml:lang="it">analitico</gloss>
+                    <gloss versionDate="2007-05-04" xml:lang="es">analítico</gloss>
+                    <gloss versionDate="2017-06-04" xml:lang="de">unselbständig</gloss>
+                    <desc versionDate="2013-04-29" xml:lang="en">the title applies to an analytic
+                      item, such as an article, poem, or other work published as part of a larger
+                      item.</desc>
+                    <desc versionDate="2007-12-20" xml:lang="ko">분석적 제목(보다 큰 항목의 일부로 출판된 논문, 시, 또는
+                      기타 항목)</desc>
+                    <desc versionDate="2007-05-02" xml:lang="zh-TW">分析層題名
+                      (文章、詩、或其他隸屬於一個較大作品的項目)</desc>
+                    <desc versionDate="2008-04-06" xml:lang="es">título analítico (de artículo, de
+                      poema, o de otro elemento publicado como parte de un elemento más
+                      grande)</desc>
+                    <desc versionDate="2008-04-05" xml:lang="ja">分析的タイトル(例えば，論文や詩など，大きめの刊行物の部分と
+                      なるもの)．</desc>
+                    <desc versionDate="2008-03-30" xml:lang="fr">titre analytique (article, poème ou
+                      autre, publié comme partie d'un ensemble plus grand)</desc>
+                    <desc versionDate="2007-01-21" xml:lang="it">titolo analitico (articolo, poesia
+                      o altra unità bibliografica pubblicata come parte di un'unità più
+                      grande)</desc>
+                    <desc versionDate="2017-06-04" xml:lang="de">der Titel gehört zu einer
+                      unselbständigen Publikation, wie einem Artikel, Gedicht oder einem anderen
+                      Werk, das als Teil einer umfangreicheren Einheit publiziert wurde.</desc>
+                  </valItem>
+                  <valItem ident="m">
+                    <gloss versionDate="2007-07-04" xml:lang="en">monographic</gloss>
+                    <gloss versionDate="2007-12-20" xml:lang="ko">단행본</gloss>
+                    <gloss versionDate="2007-06-12" xml:lang="fr">monographique</gloss>
+                    <gloss versionDate="2007-11-06" xml:lang="it">monografico</gloss>
+                    <gloss versionDate="2007-05-04" xml:lang="es">monográfico</gloss>
+                    <gloss versionDate="2017-06-04" xml:lang="de">Monografie</gloss>
+                    <desc versionDate="2013-04-29" xml:lang="en">the title applies to a monograph
+                      such as a book or other item considered to be a distinct publication,
+                      including single volumes of multi-volume works</desc>
+                    <desc versionDate="2007-12-20" xml:lang="ko">단행본 제목(여러 권 중 한 권으로 출판된 경우를 포함하여,
+                      독립된 항목으로 출판된 책, 모음집, 또는 기타 항목)</desc>
+                    <desc versionDate="2007-05-02" xml:lang="zh-TW">專題層題名
+                      (書、選集、或其他獨立出版的項目，包含多冊作品的其中一冊)</desc>
+                    <desc versionDate="2008-04-06" xml:lang="es">título monográfico (libro,
+                      colección, u otro elemento publicado como elemento distinto, incluído los
+                      volúmenes individuales de trabajos multivolúmenes)</desc>
+                    <desc versionDate="2008-04-05" xml:lang="ja">単行物のタイトル(例えば，書籍や叢書など，複数の巻に別れる作
+                      品のうちのひとつや，独立してある出版物)．</desc>
+                    <desc versionDate="2008-03-30" xml:lang="fr">titre de monographie (livre,
+                      ensemble ou autre, publié comme un document distinct, y compris les volumes
+                      isolés d'ouvrages en plusieurs volumes)</desc>
+                    <desc versionDate="2007-01-21" xml:lang="it">titolo della monografia (libro,
+                      raccolta o altra unità bibliografica pubblicata indipendentemente, inculso il
+                      singolo volume di opere a più volumi)</desc>
+                    <desc versionDate="2017-06-04" xml:lang="de">der Titel bezieht sich auf
+                      Monografien wie z.B. ein Bücher oder andere selbständige Publikationen, also
+                      auch auf einzelne Bände in einem mehrbändigen Werk.</desc>
+                  </valItem>
+                  <valItem ident="j">
+                    <gloss versionDate="2007-07-04" xml:lang="en">journal</gloss>
+                    <gloss versionDate="2007-12-20" xml:lang="ko">학술지</gloss>
+                    <gloss versionDate="2007-11-06" xml:lang="it">rivista</gloss>
+                    <gloss versionDate="2007-05-04" xml:lang="es">título de revista.</gloss>
+                    <gloss versionDate="2017-06-04" xml:lang="de">Zeitschrift</gloss>
+                    <desc versionDate="2013-04-29" xml:lang="en">the title applies to any serial or
+                      periodical publication such as a journal, magazine, or newspaper</desc>
+                    <desc versionDate="2007-12-20" xml:lang="ko">학술지 제목</desc>
+                    <desc versionDate="2007-05-02" xml:lang="zh-TW">期刊層題名</desc>
+                    <desc versionDate="2008-04-06" xml:lang="es">título de diario, periódico o
+                      revista</desc>
+                    <desc versionDate="2008-04-05" xml:lang="ja">雑誌のタイトル．</desc>
+                    <desc versionDate="2008-03-30" xml:lang="fr">titre de revue</desc>
+                    <desc versionDate="2007-01-21" xml:lang="it">titolo di rivista</desc>
+                    <desc versionDate="2017-06-04" xml:lang="de">der Titel bezieht sich auf jede Art
+                      fortlaufender oder periodischer Veröffentlichungen wie z. B. Zeitschriften,
+                      Magazine oder Zeitungen.</desc>
+                  </valItem>
+                  <valItem ident="s">
+                    <gloss versionDate="2007-07-04" xml:lang="en">series</gloss>
+                    <gloss versionDate="2007-12-20" xml:lang="ko">연간물</gloss>
+                    <gloss versionDate="2007-06-12" xml:lang="fr">série</gloss>
+                    <gloss versionDate="2007-11-06" xml:lang="it">serie</gloss>
+                    <gloss versionDate="2007-05-04" xml:lang="es">series</gloss>
+                    <gloss versionDate="2017-06-04" xml:lang="de">Reihe</gloss>
+                    <desc versionDate="2013-04-29" xml:lang="en">the title applies to a series of
+                      otherwise distinct publications such as a collection</desc>
+                    <desc versionDate="2007-12-20" xml:lang="ko">연간물 제목</desc>
+                    <desc versionDate="2007-05-02" xml:lang="zh-TW">叢書層題名</desc>
+                    <desc versionDate="2008-04-06" xml:lang="es">título de serie</desc>
+                    <desc versionDate="2008-04-05" xml:lang="ja">叢書のタイトル．</desc>
+                    <desc versionDate="2008-03-30" xml:lang="fr">titre de publication en
+                      série</desc>
+                    <desc versionDate="2007-01-21" xml:lang="it">titolo di collana</desc>
+                    <desc versionDate="2017-06-04" xml:lang="de">der Titel bezeichnet eine Reihe von
+                      ansonsten selbständig publizierten Veröffentlichungen, wie z. B. eine
+                      Buchreihe.</desc>
+                  </valItem>
+                  <valItem ident="u">
+                    <gloss versionDate="2007-07-04" xml:lang="en">unpublished</gloss>
+                    <gloss versionDate="2017-06-04" xml:lang="de">unveröffentlicht</gloss>
+                    <gloss versionDate="2007-12-20" xml:lang="ko">미간행</gloss>
+                    <desc versionDate="2013-04-29" xml:lang="en">the title applies to any
+                      unpublished material (including theses and dissertations unless published by a
+                      commercial press)</desc>
+                    <desc versionDate="2007-12-20" xml:lang="ko">미간행물(출판사에서 출판되지 않은 석박사 논문을 포함하여)의
+                      제목</desc>
+                    <desc versionDate="2007-05-02" xml:lang="zh-TW">未出版的項目題名
+                      (包括未經商業刊物發表的專題論文)</desc>
+                    <desc versionDate="2008-04-06" xml:lang="es">título de un material inédito
+                      (incluidas tesis y disertaciones que no sean publicadas por una editorial
+                      comercial)</desc>
+                    <desc versionDate="2008-04-05" xml:lang="ja">非刊行物のタイトル(未刊の学位論文など)．</desc>
+                    <desc versionDate="2008-03-30" xml:lang="fr">titre de matéria non publié (thèses
+                      et dissertations comprises, à l'exception de leurs éditions
+                      commerciales)</desc>
+                    <desc versionDate="2007-01-21" xml:lang="it">titolo di materiale non pubblicato
+                      (incluse tesi non pubblicate da case editrici)</desc>
+                    <desc versionDate="2017-06-04" xml:lang="de">der Titel bezieht sich auf
+                      unveröffentliches Material (incl. universitäre Qualifikationsarbeiten, soweit
+                      sie nicht von einem Verlag veröffentlicht worden sind).</desc>
+                  </valItem>
+                </valList>
+      </level>
+   </title>
+   <listBibl>
+      <type>
+         <valList xmlns:teix="http://www.tei-c.org/ns/Examples"
+                  xmlns:rng="http://relaxng.org/ns/structure/1.0"
+                  xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                  type="closed">
+
+                  <valItem ident="catalogue">
+                    <desc>Descriptions in manuscript catalogues of the subject of the record. This
+                      only makes sense if you are editing a manuscript record. </desc>
+                  </valItem>
+                  <valItem ident="editions">
+                    <desc>Editions of the Textual Unit (Work). This only makes sense if you are
+                      editing a Textual Unit.</desc>
+                  </valItem>
+                  <valItem ident="text">
+                    <desc>Bibliography about the Textual Unit (Work), which is not an edition. This
+                      could also find its place in secondary bibliography.</desc>
+                  </valItem>
+                  <valItem ident="otherLanguages">
+                    <desc>About the same textual unit in a different literary tradition.</desc>
+                  </valItem>
+                  <valItem ident="clavis">
+                    <desc>ID of the work in other clavis (CC, CPG etc.) </desc>
+                  </valItem>
+                  <valItem ident="translation">
+                    <desc>Modern translations of the work </desc>
+                  </valItem>
+                  <valItem ident="secondary">
+                    <desc>Secondary bibliography on the subject of the record. </desc>
+                  </valItem>
+                </valList>
+      </type>
+   </listBibl>
+   <colophon>
+      <type>
+         <valList xmlns:teix="http://www.tei-c.org/ns/Examples"
+                  xmlns:rng="http://relaxng.org/ns/structure/1.0"
+                  xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                  type="closed">
+                  <valItem ident="supplication"/>
+                  <valItem ident="expanded"/>
+                  <valItem ident="inscriptio"/>
+                  <valItem ident="subscriptio"/>
+                  <valItem ident="embedded"/>
+                  <valItem ident="translation"/>
+                </valList>
+      </type>
+   </colophon>
+   <explicit>
+      <type>
+         <valList xmlns:teix="http://www.tei-c.org/ns/Examples"
+                  xmlns:rng="http://relaxng.org/ns/structure/1.0"
+                  xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                  type="closed">
+                  <valItem ident="supplication"/>
+                  <valItem ident="expanded"/>
+                  <valItem ident="inscriptio"/>
+                  <valItem ident="subscriptio"/>
+                  <valItem ident="embedded"/>
+                  <valItem ident="translation"/>
+                </valList>
+      </type>
+   </explicit>
+   <incipit>
+      <type>
+         <valList xmlns:teix="http://www.tei-c.org/ns/Examples"
+                  xmlns:rng="http://relaxng.org/ns/structure/1.0"
+                  xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                  type="closed">
+                  <valItem ident="supplication"/>
+                  <valItem ident="expanded"/>
+                  <valItem ident="inscriptio"/>
+                  <valItem ident="subscriptio"/>
+                  <valItem ident="embedded"/>
+                  <valItem ident="translation"/>
+                </valList>
+      </type>
+   </incipit>
+   <persName>
+      <role>
+         <valList xmlns:teix="http://www.tei-c.org/ns/Examples"
+                  xmlns:rng="http://relaxng.org/ns/structure/1.0"
+                  xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                  type="closed">
+                  <valItem ident="illustrator">
+                    <desc>the illustrator of the manuscript</desc>
+                  </valItem>
+                  <valItem ident="scribe">
+                    <desc>the copyist of the manuscript</desc>
+                  </valItem>
+                  <valItem ident="donor">
+                    <desc>the person who donated the manuscript</desc>
+                  </valItem>
+                  <valItem ident="bequeather">
+                    <desc>the person who donated the manuscript, typically to a library</desc>
+                  </valItem>
+                  <valItem ident="author">
+                    <desc>the author of a work</desc>
+                  </valItem>
+                  <valItem ident="translator">
+                    <desc>the translator of a work</desc>
+                  </valItem>
+                  <valItem ident="binder">
+                    <desc>manuscript binder</desc>
+                  </valItem>
+                  <valItem ident="parchmentMaker">
+                    <desc>parchment maker</desc>
+                  </valItem>
+                  <valItem ident="owner">
+                    <desc>the owner of a ms or an item</desc>
+                  </valItem>
+                  <valItem ident="patron">
+                    <desc>the commissioner of a ms or an item</desc>
+                  </valItem>
+                  <valItem ident="sponsor">
+                    <desc>the person paying for a ms (possibly not the same as
+                      donor/commissioner)</desc>
+                  </valItem>
+                  <valItem ident="other"/>
+                </valList>
+      </role>
+      <type>
+         <valList xmlns:teix="http://www.tei-c.org/ns/Examples"
+                  xmlns:rng="http://relaxng.org/ns/structure/1.0"
+                  xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                  type="closed">
+                  <valItem ident="main">
+                    <desc>to be used only in person records, to idenfity a preferred option among
+                      the names provided.</desc>
+                  </valItem>
+                  <valItem ident="normalized">
+                    <desc>the normalized transcription of the name in fidal or another script</desc>
+                  </valItem>
+                  <valItem ident="given">
+                    <desc>name received later in life, different from the other specified types of
+                      names</desc>
+                  </valItem>
+                  <valItem ident="birth">
+                    <desc>name given at birth</desc>
+                  </valItem>
+                  <valItem ident="baptismal">
+                    <desc>name given at baptism</desc>
+                  </valItem>
+                  <valItem ident="regnal">
+                    <desc>name given on coronation (kings and queens but also patriarchs)</desc>
+                  </valItem>
+                  <valItem ident="monastic">
+                    <desc>name given on entering monastic life </desc>
+                  </valItem>
+                  <valItem ident="horse">
+                    <desc>the name of the battle horse of kings and rulers</desc>
+                  </valItem>
+                  <valItem ident="nick">
+                    <desc>a name given to a person associated to his occupation or other
+                      deeds</desc>
+                  </valItem>
+                  <valItem ident="war">
+                    <desc>nom de guerre (if different from horse name, e.g. Malas)</desc>
+                  </valItem>
+                  <valItem ident="hypocoristic">
+                    <desc>short form (diminutive or abbreviated, e.g. Taklo for Takla Māryām)</desc>
+                  </valItem>
+                  <valItem ident="patronymic">
+                    <desc>father's name, esp. for eventual Russian names, but could be also
+                      highlighted in others</desc>
+                  </valItem>
+                  <valItem ident="alt">
+                    <desc>alternative name</desc>
+                  </valItem>
+
+                  <valItem ident="tabot">
+                    <desc>the saint to whom the tābot is dedicated</desc>
+                  </valItem>
+                </valList>
+      </type>
+   </persName>
+   <roleName>
+      <type>
+         <valList xmlns:teix="http://www.tei-c.org/ns/Examples"
+                  xmlns:rng="http://relaxng.org/ns/structure/1.0"
+                  xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                  type="closed">
+                  <valItem ident="title"/>
+                  <valItem ident="office"/>
+                  <valItem ident="function"/>
+                  <valItem ident="rank"/>
+                </valList>
+      </type>
+   </roleName>
+   <div>
+      <type>
+         <valList xmlns:teix="http://www.tei-c.org/ns/Examples"
+                  xmlns:rng="http://relaxng.org/ns/structure/1.0"
+                  xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                  type="closed">
+                  <valItem ident="apparatus">
+                    <desc>to contain apparatus criticus or textual notes</desc>
+                  </valItem>
+                  <valItem ident="bibliography">
+                    <desc>to contain bibliographical information, previous publications, etc.</desc>
+                  </valItem>
+                  <valItem ident="commentary">
+                    <desc>to contain all editorial commentary, historical/prosopographical
+                      discussion, etc.</desc>
+                  </valItem>
+                  <valItem ident="edition">
+                    <desc>to contain the text of the edition itself; may include multiple
+                      text-parts</desc>
+                  </valItem>
+                  <valItem ident="textpart">
+                    <desc>used to divide a div[type=edition] into multiple parts (fragments,
+                      columns, faces, etc.)</desc>
+                  </valItem>
+                  <valItem ident="translation">
+                    <desc>to contain a translation of the text into one or more modern
+                      languages</desc>
+                  </valItem>
+                </valList>
+      </type>
+   </div>
 </TEI>

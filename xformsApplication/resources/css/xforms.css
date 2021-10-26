@@ -38,6 +38,8 @@ a {
   text-decoration:none;
 }
 
+.elementLable {font-size: 1.15em}
+
 /* Fieldset styling */
 fieldset {
     margin: 0px; padding:  8px 0px 0px 0px; display: block; position: relative; width: 100%;
@@ -221,7 +223,8 @@ div.xforms-dialog {
 
 /* XSLT Forms styles */
 /*#xsltforms_debug {display:none;}*/
-.xforms-label {display:inline; padding-right:.5em; padding-left:1em; font-weight:600;}
+.elementLable {display:inline; font-weight:600; font-size 1.25em;}
+.xforms-label {display:inline; padding-right:.5em; padding-left:.5em;}
 
 .xforms-select option{width: 40em;}
 
