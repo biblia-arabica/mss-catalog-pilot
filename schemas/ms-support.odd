@@ -418,7 +418,19 @@ End license statement: do not remove -->
                             <attDef ident="corresp" mode="delete"/>
                             <attDef ident="exclude" mode="delete"/>
                             <attDef ident="facs" mode="delete"/>
-                            <attDef ident="form" mode="delete"/>
+                            <attDef ident="form" mode="change">
+                                <valList type="closed" mode="change">
+                                <valItem mode="add" ident="single">
+                                    <desc xml:lang="en">used for Single manuscript</desc>
+                                </valItem>
+                                    <valItem mode="add" ident="composite">
+                                        <desc xml:lang="en">used for Composite manuscript</desc>
+                                    </valItem>
+                                    <valItem mode="add" ident="multiple">
+                                        <desc xml:lang="en">used for Multiple Text Manuscript</desc>
+                                    </valItem>
+                                </valList>
+                            </attDef>
                             <attDef ident="n" mode="delete"/>
                             <attDef ident="next" mode="delete"/>
                             <attDef ident="prev" mode="delete"/>
