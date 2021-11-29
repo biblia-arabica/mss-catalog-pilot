@@ -83,7 +83,7 @@ End license statement: do not remove -->
                 the @source ties the current schema to the pre-compiled Arabic Manuscripts Schema, which is tied to version 4.2.0 of TEI
                 -->
                     <moduleRef key="textstructure" include="TEI"/>
-                    <moduleRef key="core" include="item list measure note p"/>
+                    <moduleRef key="core" include="measure note p"/>
                     <moduleRef key="msdescription"
                         include="catchwords collation condition depth dim dimensions foliation height locus locusGrp material msDesc objectDesc origDate origPlace physDesc watermark width"/>
                     <moduleRef key="tei"/>
@@ -395,7 +395,12 @@ End license statement: do not remove -->
                             <attDef ident="next" mode="delete"/>
                             <attDef ident="prev" mode="delete"/>
                             <attDef ident="rend" mode="delete"/>
-                            <attDef ident="rendition" mode="delete"/>
+                            <attDef ident="rendition" mode="replace" usage="req">
+                                <valList type="closed">
+                                    <valItem ident="original"/>
+                                    <valItem ident="modern"/>
+                                </valList>
+                            </attDef>
                             <attDef ident="resp" mode="delete"/>
                             <attDef ident="sameAs" mode="delete"/>
                             <attDef ident="select" mode="delete"/>
@@ -559,7 +564,6 @@ End license statement: do not remove -->
                             <attDef ident="from" mode="delete"/>
                             <attDef ident="from-iso" mode="delete"/>
                             <attDef ident="instant" mode="delete"/>
-                            <attDef ident="key" mode="delete"/>
                             <attDef ident="next" mode="delete"/>
                             <attDef ident="notAfter" mode="delete"/>
                             <attDef ident="notAfter-custom" mode="delete"/>
