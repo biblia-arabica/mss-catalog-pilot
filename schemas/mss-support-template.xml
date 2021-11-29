@@ -1,0 +1,56 @@
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+    <teiHeader>
+        <fileDesc>
+            <sourceDesc>
+                <msDesc>
+                    <physDesc>
+                        <!-- Object forms can be selected from a list, e.g., "single composite multiple" -->
+                        <objectDesc form="single">
+                            <supportDesc>
+                                <support>
+                                    <p>
+                                        <material key="paper"
+                                            ><!-- Materials can be selected from a list "parchment, paper, …" -->
+                                        </material> with
+                                            <watermark><!--Enter watermark motif--></watermark>
+                                        watermark. Per watermark, the paper originated in
+                                        <origPlace key="<!--Enter MAJLIS ID-->"><!--Enter place of origin--></origPlace> 
+                                        in <origDate when="" from="" to="" period=""><!--Enter date. Use attributes correctly.-->
+                                        </origDate>. <!--Discussion of additional features like Hair/flesh distribution, laid 
+                                            lines, chain lines, colour and translucency of material in prose.--></p>
+                                </support>
+                                <!-- Extent can be partly prose description but it is important that measurements be given in a 
+                                    standardized form  -->
+                                <extent>
+                                    <p>
+                                        <measure unit="leaf"><!--Number of folios--></measure>
+                                    folios. The text block measures <dimensions type="leaves">
+                                        <height unit="mm"><!--Enter height--></height>
+                                        <width unit="mm"><!--Enter width--></width>
+                                        <depth unit="mm"><!--Enter depth--></depth>.
+                                    </dimensions>
+                                    </p>
+                                </extent>
+                                <foliation rendition="<!--Enter the values "original modern"-->">
+                                    <p>
+                                      <!-- Description of the foliation system in prose. In case of multiples, indicate  which foliation you use in your descriptions.-->  
+                                    </p>
+                                </foliation>
+                                <collation>
+                                    <p><!-- Quiring described here in prose --></p>
+                                    <formula key="<!--Enter Link to vceditor-->"><!--Enter formula generated with Viscoll tool 
+                                        (https://vceditor.library.upenn.edu/)--></formula>
+                                    <catchwords><p><!--Describe catchwords here--></p></catchwords>
+                                </collation>
+                                <condition key="intact">
+                                    <p><!-- Condition in prose. 
+                                                to specific places in the manuscript using <locus>. @key takes the values "intact,
+                                                good, deficient, other" --></p></condition>
+                            </supportDesc>
+                        </objectDesc>
+                    </physDesc>
+                </msDesc>
+            </sourceDesc>
+        </fileDesc>
+    </teiHeader>
+</TEI>
