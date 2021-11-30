@@ -1,0 +1,25 @@
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+    <teiHeader>
+        <fileDesc>
+            <sourceDesc>
+                <msDesc>
+                    <physDesc>
+                        <additions>
+                            <list>
+                                    <item>
+                                        <locus target="<!--Indicate location in manuscript-->">e.g 6a</locus>
+                                        <desc type="<!--Enter list value "ownershipNote gloss comment etc."-->">There is a marginal note: <q>Here be <lb/> dragons</q></desc>
+                                    </item>
+                                <item>
+                                    <locus target="<!--Indicate location in manuscript-->">e.g 6a</locus>
+                                    <desc type="<!--Enter list value "ownershipNote gloss comment etc."-->">There is a marginal note: <q>Here be <lb/> dragons</q></desc>
+                                </item>
+                            </list>
+                        </additions>
+</physDesc>
+                    
+                </msDesc>
+            </sourceDesc>
+        </fileDesc>
+    </teiHeader>
+</TEI>

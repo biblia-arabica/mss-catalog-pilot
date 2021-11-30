@@ -85,7 +85,7 @@ End license statement: do not remove -->
                     <moduleRef key="textstructure" include="TEI"/>
                     <moduleRef key="core" include="note p"/>
                     <moduleRef key="msdescription"
-                        include="binding bindingDesc condition decoNote depth dimensions height material msDesc objectDesc origDate origPlace physDesc width"/>
+                        include="binding bindingDesc condition decoNote depth dimensions height msDesc objectDesc origDate origPlace physDesc width"/>
                     <moduleRef key="tei"/>
                     <elementSpec ident="note" module="core" mode="change">
                         <classes mode="replace">
@@ -982,7 +982,6 @@ End license statement: do not remove -->
                                             used to mark the beginning of a new text or section of
                                             text.</desc>
                                     </valItem>
-
                                     <valItem ident="doodles">
                                         <desc>crude drawings which do not belong to the primary
                                             strata of the manuscript (already encoded as
