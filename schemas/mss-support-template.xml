@@ -9,8 +9,8 @@
                             <supportDesc>
                                 <support>
                                     <p>
-                                        <material key="paper"
-                                            ><!-- Materials can be selected from a list "parchment, paper, …" -->
+                                        <material key="<!-- Materials can be selected from a list "parchment, paper, …" -->"
+                                            ><!-- Describe material here also -->
                                         </material> with
                                             <watermark><!--Enter watermark motif--></watermark>
                                         watermark. Per watermark, the paper originated in

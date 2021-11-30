@@ -1,0 +1,35 @@
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+    <teiHeader>
+        <fileDesc>
+            <sourceDesc>
+                <msDesc>
+                    <physDesc>
+    <bindingDesc>
+                                          <!-- Multiple bindings could be listed if relevant. 
+                                                The @types and other aspects of the  binding description below 
+                                                should be adapted. -->
+                                          <binding contemporary="<!--Indicate of binding is original (true) or not (false).-->">
+                                              <dimensions type="binding">
+                                                  <height unit="mm"><!--Enter height--></height>
+                                                  <width unit="mm"><!--Enter width--></width>
+                                                  <depth unit="mm"><!--Enter depth--></depth>
+                                                  The binding originated in
+                                                  <origPlace key="<!--Enter MAJLIS ID-->"><!--Enter place of origin--></origPlace> 
+                                                  in <origDate when="" from="" to="" period=""><!--Enter date. Use attributes correctly.-->
+                                                  </origDate>.
+                                              <decoNote type="<!--Describe binding components using defined values-->">
+                                                    Describe binding <material>materials</material> and components in prose.</decoNote>
+                                                  <decoNote type="<!--Describe binding components using defined values-->">Add more components as needed.</decoNote>
+                                                  <condition>
+                                                      <!-- Condition in prose. 
+                                                to specific places in the manuscript using <locus>. @key takes the values "intact,
+                                                good, deficient, other" --></condition>
+                                          </binding>
+                                    </bindingDesc>
+</physDesc>
+                    
+                </msDesc>
+            </sourceDesc>
+        </fileDesc>
+    </teiHeader>
+</TEI>

@@ -1114,85 +1114,85 @@ End license statement: do not remove -->
                             <attDef ident="synch" mode="delete"/>
                             <attDef ident="type" mode="change">
                                 <valList type="closed" mode="change">
-                                    <valItem mode="add" ident="OwnershipNote">
+                                    <valItem mode="add" ident="ownershipNote">
                                         <desc xml:lang="en">Indicating that the book belongs to 1) an institution; 2) an individual.</desc>
                                     </valItem>
-                                    <valItem mode="add" ident="PurchaseNote">
+                                    <valItem mode="add" ident="purchaseNote">
                                         <desc xml:lang="en">note stating that the book has been purchased for money by an individual or an institution</desc>
                                     </valItem>
-                                    <valItem mode="add" ident="AcquisitionNote">
+                                    <valItem mode="add" ident="acquisitionNote">
                                         <desc xml:lang="en">Points only to the fact of the acquisition of the book or transaction with the book.</desc>
                                     </valItem>
-                                    <valItem mode="add" ident="ReceiptNote">
+                                    <valItem mode="add" ident="receiptNote">
                                         <desc xml:lang="en">note written down as a receipt of a transaction of goods.</desc>
                                     </valItem>
-                                    <valItem mode="add" ident="Genealogy">
+                                    <valItem mode="add" ident="genealogy">
                                         <desc xml:lang="en">genealogy of local lineages or ruling families or individual rulers; it can be a genealogy of the owner/donor of the book, independent or included into another note.</desc>
                                     </valItem>
-                                    <valItem mode="add" ident="ScribalSignature">
+                                    <valItem mode="add" ident="scribalSignature">
                                         <desc xml:lang="en">The name of the scribe written down.</desc>
                                     </valItem>
-                                    <valItem mode="add" ident="Supplication">
+                                    <valItem mode="add" ident="supplication">
                                         <desc xml:lang="en">A short prayer for (the souls) of individuals.</desc>
                                     </valItem>
-                                    <valItem mode="add" ident="Subscription">
+                                    <valItem mode="add" ident="subscription">
                                         <desc xml:lang="en">note added at the end of the main text concerning its completion.</desc>
                                     </valItem>
-                                    <valItem mode="add" ident="Doxology">
+                                    <valItem mode="add" ident="doxology">
                                         <desc xml:lang="en">hymn or praise to God or other entities.</desc>
                                     </valItem>
-                                    <valItem mode="add" ident="Invocation">
+                                    <valItem mode="add" ident="invocation">
                                         <desc xml:lang="en">invocation against those who stole or erased the book or against other individuals.</desc>
                                     </valItem>
-                                    <valItem mode="add" ident="Inventory">
+                                    <valItem mode="add" ident="inventory">
                                         <desc xml:lang="en">Lists of books or other objects.</desc>
                                     </valItem>
-                                    <valItem mode="add" ident="ScribalNoteCommencing">
+                                    <valItem mode="add" ident="scribalNoteCommencing">
                                         <desc xml:lang="en">scribe’s note on commencing the work.</desc>
                                     </valItem>
-                                    <valItem mode="add" ident="ScribalNoteOrdering">
+                                    <valItem mode="add" ident="scribalNoteOrdering">
                                         <desc xml:lang="en">scribe’s note on ordering of the copying.</desc>
                                     </valItem>
-                                    <valItem mode="add" ident="ScribalNoteCommissioning">
+                                    <valItem mode="add" ident="scribalNoteCommissioning">
                                         <desc xml:lang="en">scribe’s note on commissioning of the writing.</desc>
                                     </valItem>
-                                    <valItem mode="add" ident="ScribalNoteCompleting">
+                                    <valItem mode="add" ident="scribalNoteCompleting">
                                         <desc xml:lang="en">scribe’s note on completing the writing.</desc>
                                     </valItem>
-                                    <valItem mode="add" ident="ScribalNoteBequeathing">
+                                    <valItem mode="add" ident="scribalNoteBequeathing">
                                         <desc xml:lang="en">scribe’s note on bequeathing.</desc>
                                     </valItem>
-                                    <valItem mode="add" ident="RecordTransaction">
+                                    <valItem mode="add" ident="recordTransaction">
                                         <desc xml:lang="en">text documenting an act of selling or buying something, in many cases a house and land, sometimes a book.</desc>
                                     </valItem>
-                                    <valItem mode="add" ident="RecordGuarantors">
+                                    <valItem mode="add" ident="recordGuarantors">
                                         <desc xml:lang="en">documentary record concerning the guarantors of a transaction or a loan.</desc>
                                     </valItem>
-                                    <valItem mode="add" ident="Record">
+                                    <valItem mode="add" ident="record">
                                         <desc xml:lang="en">generic note of a documentary, official character.</desc>
                                     </valItem>
-                                    <valItem mode="add" ident="ScribalSupplication">
+                                    <valItem mode="add" ident="scribalSupplication">
                                         <desc xml:lang="en">scribe’s entreat to God.</desc>
                                     </valItem>
-                                    <valItem mode="add" ident="Unclear">
+                                    <valItem mode="add" ident="unclear">
                                         <desc xml:lang="en">Content is too vague to assign another category or resists any interpretation.</desc>
                                     </valItem>
-                                    <valItem mode="add" ident="Poem">
+                                    <valItem mode="add" ident="poem">
                                         <desc xml:lang="en">Poem.</desc>
                                     </valItem>
-                                    <valItem mode="add" ident="StampExlibris">
+                                    <valItem mode="add" ident="stampExlibris">
                                         <desc xml:lang="en">stamp affixed by the owning institution, e.g., a library. </desc>
                                     </valItem>
-                                    <valItem mode="add" ident="Letter">
+                                    <valItem mode="add" ident="letter">
                                         <desc xml:lang="en">Written message looking like a sample of the epistolary genre copied into a manuscript.</desc>
                                     </valItem>
-                                    <valItem mode="add" ident="Comment">
+                                    <valItem mode="add" ident="comment">
                                         <desc xml:lang="en">note added at a later stage in order to comment word or passages of the main text.</desc>
                                     </valItem>
-                                    <valItem mode="add" ident="Correction">
+                                    <valItem mode="add" ident="correction">
                                         <desc xml:lang="en">Addition of omitted passages, words or letters and the like.</desc>
                                     </valItem>
-                                    <valItem mode="add" ident="Gloss">
+                                    <valItem mode="add" ident="gloss">
                                         <desc xml:lang="en">Refers to a note aimed to solve a purely language difficulty.</desc>
                                     </valItem>
                                 </valList>

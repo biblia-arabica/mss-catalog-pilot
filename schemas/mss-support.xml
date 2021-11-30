@@ -319,15 +319,15 @@ End license statement: do not remove -->
                             <attDef ident="key" mode="replace" usage="req">
                                 <valList type="closed">
                                     <valItem ident="deficient">
-                                        <desc>The manuscript is badly preserved and severely
+                                        <desc>The item is badly preserved and severely
                                             damaged.</desc>
                                     </valItem>
                                     <valItem ident="good">
-                                        <desc>The manuscript is preserved with minimal
+                                        <desc>The item is preserved with minimal
                                             damages.</desc>
                                     </valItem>
                                     <valItem ident="intact">
-                                        <desc>The manuscript is preserved completely
+                                        <desc>The item is preserved completely
                                             undamaged.</desc>
                                     </valItem>
                                     <valItem ident="other">
