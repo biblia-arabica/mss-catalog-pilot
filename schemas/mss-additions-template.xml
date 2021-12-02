@@ -7,12 +7,12 @@
                         <additions>
                             <list>
                                     <item>
-                                        <locus target="<!--Indicate location in manuscript-->">e.g 6a</locus>
-                                        <desc type="<!--Enter list value "ownershipNote gloss comment etc."-->">There is a marginal note: <q>Here be <lb/> dragons</q></desc>
+                                        <locus target=""></locus>
+                                        <desc type="comment"><q>Here be <lb/> dragons</q></desc>
                                     </item>
                                 <item>
-                                    <locus target="<!--Indicate location in manuscript-->">e.g 6a</locus>
-                                    <desc type="<!--Enter list value "ownershipNote gloss comment etc."-->">There is a marginal note: <q>Here be <lb/> dragons</q></desc>
+                                    <locus target=""></locus>
+                                    <desc type="comment"><q>Here be <lb/> dragons</q></desc>
                                 </item>
                             </list>
                         </additions>
