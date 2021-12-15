@@ -1,0 +1,56 @@
+<msDesc>
+    <msIdentifier>
+        <country/>
+        <settlement/>
+        <repository/>
+        <idno/>
+        <altIdentifier>
+            <idno type="IMHM"/>
+        </altIdentifier>
+        <altIdentifier>
+            <idno type="SfarData"/>
+        </altIdentifier>
+        <altIdentifier>
+            <idno type="Ktiv"/>
+        </altIdentifier>
+        <msName/>
+    </msIdentifier>
+    <msContents>
+        <summary/>
+        <msItem xml:id="" class="">
+            <locus from="" to=""/>
+            <title xml:lang="he" ref=""/>
+            <title xml:lang="ar" ref=""/>
+            <title xml:lang="en" ref=""/>
+            <author ref="">
+                <persName>
+                    <forename></forename>
+                    <surname></surname>
+                    <addName></addName>
+                </persName>
+            </author>
+            <textLang mainLang=""/>
+            <rubric>
+                <locus from="" to=""/>
+                <q><lb/></q>
+            </rubric>
+            <incipit>
+                <locus from="" to=""/>
+                <q><lb/></q>
+            </incipit>
+            <explicit>
+                <locus from="" to=""/>
+                <q><lb/></q>
+            </explicit>
+            <finalRubric>
+                <locus from="" to=""/>
+                <q><lb/></q>
+            </finalRubric>
+            <colophon>
+                <locus from="" to=""/>
+                <q><lb/></q>
+            </colophon>
+            <note></note>
+        </msItem>
+    </msContents>
+</msDesc>

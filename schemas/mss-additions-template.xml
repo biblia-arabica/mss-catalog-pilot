@@ -5,19 +5,19 @@
                 <msDesc>
                     <physDesc>
                         <additions>
+                            <p> </p>
                             <list>
                                     <item>
-                                        <locus target=""></locus>
-                                        <desc type="comment"><q>Here be <lb/> dragons</q></desc>
+                                        <p> on fol. </p><locus target=""></locus>
+                                        <desc type="comment">a note:<q>Here be <lb/> dragons</q></desc>
                                     </item>
                                 <item>
-                                    <locus target=""></locus>
-                                    <desc type="comment"><q>Here be <lb/> dragons</q></desc>
+                                    <p> on fol. </p><locus target=""></locus>
+                                    <desc type="comment">a note:<q>Here be <lb/> dragons</q></desc>
                                 </item>
                             </list>
                         </additions>
 </physDesc>
-                    
                 </msDesc>
             </sourceDesc>
         </fileDesc>

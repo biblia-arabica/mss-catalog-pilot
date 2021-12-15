@@ -33,21 +33,24 @@ End license statement: do not remove -->
     <teiHeader>
         <fileDesc>
             <titleStmt>
-                <title>Arabic Manuscripts Schema, constrained for usage in XForms</title>
+                <title>Partial Manuscripts Schema, constrained for usage in XForms</title>
+                <author xml:id="MM">Maximilian de Molière</author>
                 <author xml:id="PL">Pietro Liuzzo</author>
                 <author xml:id="NG">Nathan Gibson</author>
-                <author xml:id="MM">Maximilian de Molière</author>
             </titleStmt>
             <publicationStmt>
-                <authority>Hiob-Ludolf-Zentrum für Äthiopistik</authority>
-                <publisher>Die Schriftkultur des christlichen Äthiopiens und Eritreas: Eine
-                    multimediale Forschungsumgebung / Beta maṣāḥǝft</publisher>
-                <pubPlace>Hamburg</pubPlace>
+                <authority>Institut für den Nahen und Mittleren Osten</authority>
+                <publisher>ERC-funded project: MAJLIS. The Transformation of Jewish Literature in
+                    Arabic in the Islamicate World</publisher>
+                <pubPlace>München</pubPlace>
                 <availability>
                     <licence target="http://creativecommons.org/licenses/by-sa/4.0/"> This file is
                         licensed under the Creative Commons Attribution-ShareAlike 4.0. </licence>
                 </availability>
             </publicationStmt>
+            <notesStmt>
+                <note type="ns">http://www.example.org/ns/nonTEI</note>
+            </notesStmt>
             <sourceDesc>
                 <p>created electronically</p>
             </sourceDesc>
@@ -64,10 +67,10 @@ End license statement: do not remove -->
         <body>
             <div>
                 <head>Information on this customization</head>
-                <p>Schema for Arabic Manuscripts based on the schema of Beta maṣāḥǝft: Manuscripts
-                    of Ethiopia and Eritrea research environment. The <ref
-                        target="https://betamasaheft.eu/Guidelines">Beta maṣāḥǝft Guidelines</ref>
-                    contain examples and details of that customization.</p>
+                <p>Schema for MAJLIS Project. This part of the schema is used for entering
+                    descriptions of the msItem section using XForms.</p>
+                <p>Built on the <ref target="https://betamasaheft.eu/Guidelines">Beta maṣāḥǝft
+                        Guidelines</ref> contain examples and details of that customization.</p>
                 <p>Added Rules from the <ref
                         target="https://github.com/msDesc/consolidated-tei-schema/blob/master/msdesc.odd"
                         >consolidated schema</ref> of FIRHIST</p>
@@ -80,13 +83,13 @@ End license statement: do not remove -->
                 the @source ties the current schema to the pre-compiled Arabic Manuscripts Schema, which is tied to version 4.2.0 of TEI
                 -->
                     <moduleRef key="core"
-                        include="addrLine address author date editor email imprint monogr name note postCode pubPlace publisher ref resp respStmt series street textLang title"/>
+                        include="author textLang title"/>
                     <moduleRef key="header"
-                        include="teiHeader fileDesc idno                     title titleStmt                      publicationStmt sourceDesc"/>
+                        include="idno title"/>
                     <moduleRef key="msdescription"
-                        include="altIdentifier collection colophon explicit finalRubric incipit institution locus locusGrp msContents msDesc msFrag msIdentifier msItem msName msPart repository rubric summary"/>
+                        include="altIdentifier colophon explicit finalRubric incipit locus msContents msDesc msFrag msIdentifier msItem msName msPart repository rubric summary"/>
                     <moduleRef key="namesdates"
-                        include="addName forename persName placeName roleName surname"/>
+                        include="addName country forename persName settlement surname"/>
                     <moduleRef key="tei"/>
                     <moduleRef key="textstructure" include="TEI"/>
                     <elementSpec ident="fileDesc" module="header" mode="change">
@@ -767,7 +770,7 @@ End license statement: do not remove -->
                             <memberOf key="att.global"/>
                             <memberOf key="att.msClass"/>
                             <memberOf key="att.msExcerpt" mode="delete"/>
-                           </classes>
+                        </classes>
                         <attList>
                             <attDef ident="rendition" mode="delete"/>
                             <attDef ident="style" mode="delete"/>
