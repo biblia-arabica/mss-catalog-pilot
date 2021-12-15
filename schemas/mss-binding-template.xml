@@ -5,21 +5,23 @@
                 <msDesc>
                     <physDesc>
                         <bindingDesc>
-                            <binding contemporary="true">
+                            <binding contemporary=""><p></p>
                                 <dimensions type="binding">
                                     <height unit="mm"/>
                                     <width unit="mm"/>
-                                    <depth unit="mm"/>
-                                </dimensions> The binding originated in <origPlace ref=""/> in
-                                    <origDate when="" from="" to="" period=""> </origDate>.
-                                    <decoNote type="">
-                                    <material/></decoNote>
-                                <decoNote type=""/>
-                                <condition> </condition>
+                                    <depth unit="mm"/><p>.</p>
+                                </dimensions><p> The binding originated in </p><origPlace ref=""/><p> in</p>
+                                <origDate when="" from="" to="" period=""></origDate><p>.</p>
+                                <decoNote type=""><p></p>
+                                    <material/><p>.</p>
+                                </decoNote>
+                                <decoNote type=""><p></p>
+                                    <material/><p>.</p>
+                                </decoNote> 
+                                <condition><p></p></condition>
                             </binding>
                         </bindingDesc>
                     </physDesc>
-
                 </msDesc>
             </sourceDesc>
         </fileDesc>

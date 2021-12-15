@@ -4,37 +4,30 @@
             <sourceDesc>
                 <msDesc>
                     <physDesc>
-
                         <objectDesc form="single">
                             <supportDesc>
                                 <support>
-                                    <p>
-                                        <material key="paper"></material> with <watermark/>
-                                        watermark. Per watermark, the paper originated in <origPlace
-                                            ref=""/> in <origDate when="" from="" to="" period=""
-                                        > </origDate>.</p>
+                                    <p> </p><material key="paper"></material><p> with watermark:</p><watermark/>
+                                    <p>, see fol. </p> <locus target=""></locus><p> Per watermark, the paper originated in </p><origPlace
+                                            ref=""/> in <origDate when="" from="" to=""
+                                        ></origDate>
                                 </support>
                                 <extent>
-                                    <p>
-                                        <measure unit="leaf"/> folios. The text block measures
+                                        <measure unit="leaf"/> 
                                             <dimensions type="leaves">
                                             <height unit="mm"/>
                                             <width unit="mm"/>
-                                            <depth unit="mm"/>. </dimensions>
-                                    </p>
+                                            <depth unit="mm"/></dimensions>
                                 </extent>
-                                <foliation rendition="original modern">
-                                    <p> </p>
+                                <foliation rendition="">
                                 </foliation>
                                 <collation>
-                                    <p/>
+                                    <p></p>
                                     <formula ref=""></formula>
                                     <catchwords>
-                                        <p/>
                                     </catchwords>
                                 </collation>
                                 <condition key="intact">
-                                    <p/>
                                 </condition>
                             </supportDesc>
                         </objectDesc>

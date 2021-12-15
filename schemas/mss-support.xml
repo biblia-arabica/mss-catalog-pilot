@@ -34,7 +34,7 @@ End license statement: do not remove -->
         <fileDesc>
             <titleStmt>
                 <title>Partial Manuscripts Schema, constrained for usage in XForms</title>
-                <author xml:id="PL">Pietro Liuzzo</author>
+                <author xml:id="PL">Maximilian de Molière</author>
                 <author xml:id="NG">Nathan Gibson</author>
                 <author xml:id="MM">Maximilian de Molière</author>
             </titleStmt>
@@ -77,67 +77,18 @@ End license statement: do not remove -->
                 <p>Constrained this schema for generating forms.</p>
             </div>
             <div>
-                <schemaSpec ident="mss-support" docLang="en" prefix="tei_" start="TEI" xml:lang="en">
+                <schemaSpec ident="mss-support" docLang="en" prefix="tei_" start="TEI" xml:lang="en"
+                    targetLang="en">
                     <!--source="mss-compiled.odd"-->
                     <!--       MODULES USED BY THE SCHEMA
                 the @source ties the current schema to the pre-compiled Arabic Manuscripts Schema, which is tied to version 4.2.0 of TEI
                 -->
                     <moduleRef key="textstructure" include="TEI"/>
-                    <moduleRef key="core" include="measure note p"/>
+                    <moduleRef key="core" except="list"/>
                     <moduleRef key="msdescription"
-                        include="catchwords collation condition depth dim dimensions foliation height locus locusGrp material msDesc objectDesc origDate origPlace physDesc watermark width"/>
+                        include="catchwords collation condition depth dimensions foliation height locus locusGrp material msDesc objectDesc origDate origPlace physDesc supportDesc support"/>
                     <moduleRef key="tei"/>
-                    <elementSpec ident="note" module="core" mode="change">
-                        <classes mode="replace">
-                            <memberOf key="model.annotationLike"/>
-                            <memberOf key="model.annotationPart.body"/>
-                            <memberOf key="model.correspActionPart"/>
-                            <memberOf key="model.correspContextPart"/>
-                            <memberOf key="model.correspDescPart"/>
-                            <memberOf key="model.noteLike"/>
-                            <memberOf key="att.anchoring" mode="delete"/>
-                            <memberOf key="att.global"/>
-                            <memberOf key="att.placement" mode="delete"/>
-                            <memberOf key="att.pointing" mode="delete"/>
-                            <memberOf key="att.typed" mode="delete"/>
-                            <memberOf key="att.written" mode="delete"/>
-                        </classes>
-                        <attList>
-                            <attDef ident="n" mode="delete"/>
-                            <attDef ident="xml:base" mode="delete"/>
-                            <attDef ident="xml:space" mode="delete"/>
-                            <attDef ident="xml:rend" mode="delete"/>
-                            <attDef ident="xml:style" mode="delete"/>
-                            <attDef ident="xml:rendition" mode="delete"/>
-                            <attDef ident="xml:lang" mode="delete"/>
-                            <attDef ident="corresp" mode="delete"/>
-                            <attDef ident="synch" mode="delete"/>
-                            <attDef ident="sameAs" mode="delete"/>
-                            <attDef ident="copyOf" mode="delete"/>
-                            <attDef ident="next" mode="delete"/>
-                            <attDef ident="prev" mode="delete"/>
-                            <attDef ident="exclude" mode="delete"/>
-                            <attDef ident="select" mode="delete"/>
-                            <attDef ident="ana" mode="delete"/>
-                            <attDef ident="facs" mode="delete"/>
-                            <attDef ident="change" mode="delete"/>
-                            <attDef ident="cert" mode="delete"/>
-                            <attDef ident="resp" mode="delete"/>
-                            <attDef ident="source" mode="delete"/>
-                            <attDef ident="place" mode="delete"/>
-                            <attDef ident="targetLang" mode="delete"/>
-                            <attDef ident="target" mode="delete"/>
-                            <attDef ident="evaluate" mode="delete"/>
-                            <attDef ident="type" mode="delete"/>
-                            <attDef ident="subtype" mode="delete"/>
-                            <attDef ident="hand" mode="delete"/>
-                            <attDef ident="anchored" mode="delete"/>
-                            <attDef ident="targetEnd" mode="delete"/>
-                            <attDef ident="rend" mode="delete"/>
-                            <attDef ident="rendition" mode="delete"/>
-                            <attDef ident="style" mode="delete"/>
-                        </attList>
-                    </elementSpec>
+                    <elementSpec ident="note" module="core" mode="delete"/>
                     <elementSpec ident="locus" module="msdescription" mode="change">
                         <classes mode="replace">
                             <memberOf key="model.pPart.msdesc"/>
@@ -145,6 +96,9 @@ End license statement: do not remove -->
                             <memberOf key="att.global"/>
                             <memberOf key="att.typed" mode="delete"/>
                         </classes>
+                        <content>
+                            <textNode/>
+                        </content>
                         <attList>
                             <attDef ident="ana" mode="delete"/>
                             <attDef ident="change" mode="delete"/>
@@ -204,12 +158,7 @@ End license statement: do not remove -->
                             <attDef ident="xml:space" mode="delete"/>
                         </attList>
                     </elementSpec>
-                    <elementSpec ident="msFrag" module="msdescription" mode="change">
-                        <classes mode="replace">
-                            <memberOf key="att.global"/>
-                            <memberOf key="att.typed" mode="delete"/>
-                        </classes>
-                    </elementSpec>
+                    <elementSpec ident="msFrag" module="msdescription" mode="delete"/>
                     <elementSpec ident="TEI" module="textstructure" mode="change">
                         <classes mode="replace">
                             <memberOf key="model.describedResource"/>
@@ -226,6 +175,11 @@ End license statement: do not remove -->
                             <memberOf key="att.typed"/>
                             <memberOf key="att.global" mode="delete"/>
                         </classes>
+                        <content>
+                            <sequence maxOccurs="1" minOccurs="1">
+                                <elementRef key="physDesc"/>
+                            </sequence>
+                        </content>
                         <attList>
                             <attDef ident="rendition" mode="delete"/>
                             <attDef ident="style" mode="delete"/>
@@ -256,6 +210,9 @@ End license statement: do not remove -->
                         </attList>
                     </elementSpec>
                     <elementSpec ident="catchwords" module="msdescription" mode="change">
+                        <content>
+                            <textNode/>
+                        </content>
                         <attList>
                             <attDef ident="ana" mode="delete"/>
                             <attDef ident="cert" mode="delete"/>
@@ -282,6 +239,11 @@ End license statement: do not remove -->
                         </attList>
                     </elementSpec>
                     <elementSpec ident="collation" module="msdescription" mode="change">
+                        <content>
+                            <elementRef key="p"/>
+                            <elementRef key="formula"/>
+                            <elementRef key="catchwords"/>
+                        </content>
                         <attList>
                             <attDef ident="ana" mode="delete"/>
                             <attDef ident="cert" mode="delete"/>
@@ -308,6 +270,9 @@ End license statement: do not remove -->
                         </attList>
                     </elementSpec>
                     <elementSpec ident="condition" module="msdescription" mode="change">
+                        <content>
+                            <textNode/>
+                        </content>
                         <attList>
                             <attDef ident="ana" mode="delete"/>
                             <attDef ident="cert" mode="delete"/>
@@ -323,12 +288,10 @@ End license statement: do not remove -->
                                             damaged.</desc>
                                     </valItem>
                                     <valItem ident="good">
-                                        <desc>The item is preserved with minimal
-                                            damages.</desc>
+                                        <desc>The item is preserved with minimal damages.</desc>
                                     </valItem>
                                     <valItem ident="intact">
-                                        <desc>The item is preserved completely
-                                            undamaged.</desc>
+                                        <desc>The item is preserved completely undamaged.</desc>
                                     </valItem>
                                     <valItem ident="other">
                                         <desc>If you use this value, please provide in the
@@ -354,37 +317,11 @@ End license statement: do not remove -->
                             <attDef ident="xml:space" mode="delete"/>
                         </attList>
                     </elementSpec>
-                    <elementSpec ident="dim" module="msdescription" mode="change">
-                        <attList>
-                            <attDef ident="ana" mode="delete"/>
-                            <attDef ident="cert" mode="delete"/>
-                            <attDef ident="change" mode="delete"/>
-                            <attDef ident="confidence" mode="delete"/>
-                            <attDef ident="copyOf" mode="delete"/>
-                            <attDef ident="corresp" mode="delete"/>
-                            <attDef ident="exclude" mode="delete"/>
-                            <attDef ident="extent" mode="delete"/>
-                            <attDef ident="facs" mode="delete"/>
-                            <attDef ident="next" mode="delete"/>
-                            <attDef ident="precision" mode="delete"/>
-                            <attDef ident="prev" mode="delete"/>
-                            <attDef ident="quantity" mode="delete"/>
-                            <attDef ident="rend" mode="delete"/>
-                            <attDef ident="rendition" mode="delete"/>
-                            <attDef ident="resp" mode="delete"/>
-                            <attDef ident="sameAs" mode="delete"/>
-                            <attDef ident="select" mode="delete"/>
-                            <attDef ident="source" mode="delete"/>
-                            <attDef ident="style" mode="delete"/>
-                            <attDef ident="subtype" mode="delete"/>
-                            <attDef ident="synch" mode="delete"/>
-                            <attDef ident="xml:base" mode="delete"/>
-                            <attDef ident="xml:id" mode="delete"/>
-                            <attDef ident="xml:lang" mode="delete"/>
-                            <attDef ident="xml:space" mode="delete"/>
-                        </attList>
-                    </elementSpec>
+                    <elementSpec ident="dim" module="msdescription" mode="delete"/>
                     <elementSpec ident="foliation" module="msdescription" mode="change">
+                        <content>
+                            <textNode/>
+                        </content>
                         <attList>
                             <attDef ident="ana" mode="delete"/>
                             <attDef ident="change" mode="delete"/>
@@ -414,6 +351,9 @@ End license statement: do not remove -->
                         </attList>
                     </elementSpec>
                     <elementSpec ident="material" module="msdescription" mode="change">
+                        <content>
+                            <textNode/>
+                        </content>
                         <attList>
                             <attDef ident="ana" mode="delete"/>
                             <attDef ident="change" mode="delete"/>
@@ -460,6 +400,11 @@ End license statement: do not remove -->
                         </attList>
                     </elementSpec>
                     <elementSpec ident="objectDesc" module="msdescription" mode="change">
+                        <content>
+                            <sequence maxOccurs="1" minOccurs="1">
+                                <elementRef key="supportDesc"/>
+                            </sequence>
+                        </content>
                         <attList>
                             <attDef ident="ana" mode="delete"/>
                             <attDef ident="cert" mode="delete"/>
@@ -499,6 +444,9 @@ End license statement: do not remove -->
                         </attList>
                     </elementSpec>
                     <elementSpec ident="origDate" module="msdescription" mode="change">
+                        <content>
+                            <textNode/>
+                        </content>
                         <attList>
                             <attDef ident="ana" mode="delete"/>
                             <attDef ident="atLeast" mode="delete"/>
@@ -551,6 +499,9 @@ End license statement: do not remove -->
                         </attList>
                     </elementSpec>
                     <elementSpec ident="origPlace" module="msdescription" mode="change">
+                        <content>
+                            <textNode/>
+                        </content>
                         <attList>
                             <attDef ident="ana" mode="delete"/>
                             <attDef ident="calendar" mode="delete"/>
@@ -599,6 +550,11 @@ End license statement: do not remove -->
                         </attList>
                     </elementSpec>
                     <elementSpec ident="physDesc" module="msdescription" mode="change">
+                        <content>
+                            <sequence maxOccurs="1" minOccurs="1">
+                                <elementRef key="objectDesc"/>
+                            </sequence>
+                        </content>
                         <attList>
                             <attDef ident="ana" mode="delete"/>
                             <attDef ident="cert" mode="delete"/>
@@ -623,6 +579,9 @@ End license statement: do not remove -->
                         </attList>
                     </elementSpec>
                     <elementSpec ident="watermark" module="msdescription" mode="change">
+                        <content>
+                            <textNode/>
+                        </content>
                         <attList>
                             <attDef ident="ana" mode="delete"/>
                             <attDef ident="cert" mode="delete"/>
@@ -648,6 +607,9 @@ End license statement: do not remove -->
                         </attList>
                     </elementSpec>
                     <elementSpec ident="p" module="core" mode="change">
+                        <content>
+                            <textNode/>
+                        </content>
                         <attList>
                             <attDef ident="ana" mode="delete"/>
                             <attDef ident="cert" mode="delete"/>
@@ -677,6 +639,9 @@ End license statement: do not remove -->
                         </attList>
                     </elementSpec>
                     <elementSpec ident="depth" module="msdescription" mode="change">
+                        <content>
+                            <textNode/>
+                        </content>
                         <attList>
                             <attDef ident="ana" mode="delete"/>
                             <attDef ident="atLeast" mode="delete"/>
@@ -713,6 +678,9 @@ End license statement: do not remove -->
                         </attList>
                     </elementSpec>
                     <elementSpec ident="height" module="msdescription" mode="change">
+                        <content>
+                            <textNode/>
+                        </content>
                         <attList>
                             <attDef ident="ana" mode="delete"/>
                             <attDef ident="atLeast" mode="delete"/>
@@ -749,6 +717,9 @@ End license statement: do not remove -->
                         </attList>
                     </elementSpec>
                     <elementSpec ident="width" module="msdescription" mode="change">
+                        <content>
+                            <textNode/>
+                        </content>
                         <attList>
                             <attDef ident="ana" mode="delete"/>
                             <attDef ident="atLeast" mode="delete"/>
@@ -784,62 +755,8 @@ End license statement: do not remove -->
                             <attDef ident="xml:space" mode="delete"/>
                         </attList>
                     </elementSpec>
-                    <elementSpec ident="item" module="core" mode="change">
-                        <attList>
-                            <attDef ident="ana" mode="delete"/>
-                            <attDef ident="cert" mode="delete"/>
-                            <attDef ident="change" mode="delete"/>
-                            <attDef ident="copyOf" mode="delete"/>
-                            <attDef ident="corresp" mode="delete"/>
-                            <attDef ident="exclude" mode="delete"/>
-                            <attDef ident="facs" mode="delete"/>
-                            <attDef ident="n" mode="delete"/>
-                            <attDef ident="next" mode="delete"/>
-                            <attDef ident="prev" mode="delete"/>
-                            <attDef ident="rend" mode="delete"/>
-                            <attDef ident="rendition" mode="delete"/>
-                            <attDef ident="resp" mode="delete"/>
-                            <attDef ident="sameAs" mode="delete"/>
-                            <attDef ident="select" mode="delete"/>
-                            <attDef ident="sortKey" mode="delete"/>
-                            <attDef ident="source" mode="delete"/>
-                            <attDef ident="style" mode="delete"/>
-                            <attDef ident="synch" mode="delete"/>
-                            <attDef ident="xml:base" mode="delete"/>
-                            <attDef ident="xml:id" mode="delete"/>
-                            <attDef ident="xml:lang" mode="delete"/>
-                            <attDef ident="xml:space" mode="delete"/>
-                        </attList>
-                    </elementSpec>
-                    <elementSpec ident="list" module="core" mode="change">
-                        <attList>
-                            <attDef ident="ana" mode="delete"/>
-                            <attDef ident="cert" mode="delete"/>
-                            <attDef ident="change" mode="delete"/>
-                            <attDef ident="copyOf" mode="delete"/>
-                            <attDef ident="corresp" mode="delete"/>
-                            <attDef ident="exclude" mode="delete"/>
-                            <attDef ident="facs" mode="delete"/>
-                            <attDef ident="n" mode="delete"/>
-                            <attDef ident="next" mode="delete"/>
-                            <attDef ident="prev" mode="delete"/>
-                            <attDef ident="rend" mode="delete"/>
-                            <attDef ident="rendition" mode="delete"/>
-                            <attDef ident="resp" mode="delete"/>
-                            <attDef ident="sameAs" mode="delete"/>
-                            <attDef ident="select" mode="delete"/>
-                            <attDef ident="sortKey" mode="delete"/>
-                            <attDef ident="source" mode="delete"/>
-                            <attDef ident="style" mode="delete"/>
-                            <attDef ident="subtype" mode="delete"/>
-                            <attDef ident="synch" mode="delete"/>
-                            <attDef ident="type" mode="delete"/>
-                            <attDef ident="xml:base" mode="delete"/>
-                            <attDef ident="xml:id" mode="delete"/>
-                            <attDef ident="xml:lang" mode="delete"/>
-                            <attDef ident="xml:space" mode="delete"/>
-                        </attList>
-                    </elementSpec>
+                    <elementSpec ident="item" module="core" mode="delete"/>
+                    <elementSpec ident="list" module="core" mode="delete"/>
                     <elementSpec ident="measure" module="core" mode="change">
                         <attList>
                             <attDef ident="ana" mode="delete"/>
@@ -880,6 +797,49 @@ End license statement: do not remove -->
                             <attDef ident="xml:lang" mode="delete"/>
                             <attDef ident="xml:space" mode="delete"/>
                         </attList>
+                    </elementSpec>
+                    <moduleRef key="header" include="extent"/>
+                    <moduleRef key="figures" include="formula"/>
+                    <elementSpec ident="dimensions" mode="change">
+                        <content>
+                            <alternate maxOccurs="unbounded" minOccurs="0">
+                                <elementRef key="height"/>
+                                <elementRef key="width"/>
+                                <elementRef key="depth"/>
+                            </alternate>
+                        </content>
+                    </elementSpec>
+                    <elementSpec ident="supportDesc" mode="change">
+                        <content>
+                            <sequence maxOccurs="1" minOccurs="1">
+                                <elementRef key="support"/>
+                                <elementRef key="extent"/>
+                                <elementRef key="foliation"/>
+                                <elementRef key="collation"/>
+                                <elementRef key="condition"/>
+                            </sequence>
+                        </content>
+                    </elementSpec>
+                    <elementSpec ident="support" mode="change">
+                        <content>
+                            <elementRef key="p"/>
+                            <elementRef key="material"/>
+                            <elementRef key="watermark"/>
+                            <elementRef key="locus"/>
+                            <elementRef key="origDate"/>
+                            <elementRef key="origPlace"/>
+                        </content>
+                    </elementSpec>
+                    <elementSpec ident="extent" mode="change">
+                        <content>
+                            <elementRef key="measure"/>
+                            <elementRef key="dimensions"/>
+                        </content>
+                    </elementSpec>
+                    <elementSpec ident="formula" mode="change">
+                        <content>
+                            <textNode/>
+                        </content>
                     </elementSpec>
                 </schemaSpec>
             </div>
