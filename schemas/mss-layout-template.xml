@@ -1,0 +1,18 @@
+<layoutDesc>
+    <summary/>
+    <layout columns="" writtenLines="">
+        <p/>
+        <dimensions unit="mm">
+            <height/>
+            <width/>
+            <dim type="intercolumn"/>
+        </dimensions>
+        <note>
+            <p/>
+            <locus target=""/>
+            <p>.</p>
+        </note>
+        <ab type="ruling"/>
+        <ab type="pricking"/>
+    </layout>
+</layoutDesc>

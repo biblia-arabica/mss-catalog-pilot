@@ -1,0 +1,29 @@
+<history>
+    <summary/>
+    <origin>
+        <origDate notBefore="" notAfter="" when=""/>
+        <origPlace ref=""/>
+        <locus target=""/>
+        <persName role=""/>
+        <q/>
+        <p/>
+    </origin>
+    <provenance>
+        <date notBefore="" notAfter="" when=""/>
+        <placeName ref=""/>
+        <locus target=""/>
+        <persName ref=""/>
+        <signatures/>
+        <stamp/>
+        <p/>
+    </provenance>
+    <acquisition>
+        <date notBefore="" notAfter="" when=""/>
+        <placeName ref=""/>
+        <locus target=""/>
+        <persName ref=""/>
+        <signatures/>
+        <stamp/>
+        <p/>
+    </acquisition>
+</history>
