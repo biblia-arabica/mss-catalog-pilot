@@ -2,7 +2,7 @@
     <summary/>
     <handNote xml:id="" scope="" script="" mode="" quality="" medium="">
         <p/>
-        <persName ref=""/>
+        <persName ref="" role=""/>
         <p/>
         <placeName ref=""/>
         <p/>
@@ -10,7 +10,7 @@
         <p/>
         <locus from="" to=""/>
         <p/>
-        <origDate/>
+        <origDate when="" notAfter="" notBefore=""/>
         <p/>
     </handNote>
 </handDesc>
