@@ -1,0 +1,773 @@
+<?xml version="1.0" encoding="utf-8"?>
+<grammar xmlns:xlink="http://www.w3.org/1999/xlink"
+         xmlns:tei="http://www.tei-c.org/ns/1.0"
+         xmlns:teix="http://www.tei-c.org/ns/Examples"
+         xmlns="http://relaxng.org/ns/structure/1.0"
+         datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+         ns="http://www.tei-c.org/ns/1.0"><!--
+Schema generated from ODD source 2021-12-19T11:15:34Z. .
+TEI Edition: Version 4.3.0. Last updated on
+        31st August 2021, revision b4f72b1ff
+TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.3.0/
+  
+--><!--[http://creativecommons.org/licenses/by-sa/4.0/] This file is licensed under the Creative Commons Attribution-ShareAlike 4.0. -->
+   <sch:ns xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+           prefix="tei"
+           uri="http://www.tei-c.org/ns/1.0"/>
+   <define name="tei_att.global.responsibility.attribute.cert">
+      <optional>
+         <attribute name="cert">
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(certainty) signifies the degree of certainty associated with the intervention or interpretation.</a:documentation>
+            <choice>
+               <data type="double"/>
+               <choice>
+                  <value>high</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <value>medium</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <value>low</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <value>unknown</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+               </choice>
+            </choice>
+         </attribute>
+      </optional>
+   </define>
+   <define name="tei_att.global.responsibility.attribute.resp">
+      <optional>
+         <attribute name="resp">
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(responsible party) indicates the agency responsible for the intervention or interpretation, for example an editor or transcriber.</a:documentation>
+            <list>
+               <oneOrMore>
+                  <data type="anyURI"/>
+               </oneOrMore>
+            </list>
+         </attribute>
+      </optional>
+   </define>
+   <define name="tei_att.global.rendition.attribute.rend">
+      <optional>
+         <attribute name="rend">
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(rendition) indicates how the element in question was rendered or presented in the source text.</a:documentation>
+            <list>
+               <oneOrMore>
+                  <data type="token">
+                     <param name="pattern">[^\p{C}\p{Z}]+</param>
+                  </data>
+               </oneOrMore>
+            </list>
+         </attribute>
+      </optional>
+   </define>
+   <define name="tei_att.global.rendition.attribute.style">
+      <optional>
+         <attribute name="style">
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">contains an expression in some formal style definition language which defines the rendering or presentation used for this element in the source text</a:documentation>
+            <data type="string"/>
+         </attribute>
+      </optional>
+   </define>
+   <define name="tei_att.global.rendition.attribute.rendition">
+      <optional>
+         <attribute name="rendition">
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">points to a description of the rendering or presentation used for this element in the source text.</a:documentation>
+            <list>
+               <oneOrMore>
+                  <data type="anyURI"/>
+               </oneOrMore>
+            </list>
+         </attribute>
+      </optional>
+   </define>
+   <define name="tei_att.global.source.attribute.source">
+      <optional>
+         <attribute name="source">
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">specifies the source from which some aspect of this element is drawn.</a:documentation>
+            <list>
+               <oneOrMore>
+                  <data type="anyURI"/>
+               </oneOrMore>
+            </list>
+         </attribute>
+      </optional>
+   </define>
+   <define name="tei_att.global.attribute.xmlid">
+      <optional>
+         <attribute name="xml:id">
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(identifier) provides a unique identifier for the element bearing the attribute.</a:documentation>
+            <data type="ID"/>
+         </attribute>
+      </optional>
+   </define>
+   <define name="tei_att.handFeatures.attribute.scribe">
+      <optional>
+         <attribute name="scribe">
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">gives a name or other identifier for the scribe believed to be responsible for this hand.</a:documentation>
+            <data type="Name"/>
+         </attribute>
+      </optional>
+   </define>
+   <define name="tei_att.handFeatures.attribute.scribeRef">
+      <optional>
+         <attribute name="scribeRef">
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">points to a full description of the scribe concerned, typically supplied by a <code xmlns="http://www.w3.org/1999/xhtml">&lt;person&gt;</code> element elsewhere in the description.</a:documentation>
+            <list>
+               <oneOrMore>
+                  <data type="anyURI"/>
+               </oneOrMore>
+            </list>
+         </attribute>
+      </optional>
+   </define>
+   <define name="tei_att.handFeatures.attribute.scriptRef">
+      <optional>
+         <attribute name="scriptRef">
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">points to a full description of the script or writing style used by this hand, typically supplied by a <code xmlns="http://www.w3.org/1999/xhtml">&lt;scriptNote&gt;</code> element elsewhere in the description.</a:documentation>
+            <list>
+               <oneOrMore>
+                  <data type="anyURI"/>
+               </oneOrMore>
+            </list>
+         </attribute>
+      </optional>
+   </define>
+   <define name="tei_att.handFeatures.attribute.scope">
+      <optional>
+         <attribute name="scope">
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">specifies how widely this hand is used in the manuscript.</a:documentation>
+            <choice>
+               <value>sole</value>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">only this hand is used throughout the manuscript</a:documentation>
+               <value>major</value>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">this hand is used through most of the manuscript</a:documentation>
+               <value>minor</value>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">this hand is used occasionally in the manuscript</a:documentation>
+            </choice>
+         </attribute>
+      </optional>
+   </define>
+   <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
+            id="mss-hand-att.pointing-targetLang-targetLang-constraint-rule-1">
+      <sch:rule xmlns:xi="http://www.w3.org/2001/XInclude"
+                xmlns="http://www.tei-c.org/ns/1.0"
+                xmlns:rng="http://relaxng.org/ns/structure/1.0"
+                xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                context="tei:*[not(self::tei:schemaSpec)][@targetLang]">
+            <sch:assert test="@target">@targetLang should only be used on <sch:name/> if @target is specified.</sch:assert>
+          </sch:rule>
+   </pattern>
+   <define name="tei_model.nameLike.agent">
+      <choice>
+         <ref name="tei_persName"/>
+      </choice>
+   </define>
+   <define name="tei_model.nameLike.agent_alternation">
+      <choice>
+         <ref name="tei_persName"/>
+      </choice>
+   </define>
+   <define name="tei_model.nameLike.agent_sequence">
+      <ref name="tei_persName"/>
+   </define>
+   <define name="tei_model.nameLike.agent_sequenceOptional">
+      <optional>
+         <ref name="tei_persName"/>
+      </optional>
+   </define>
+   <define name="tei_model.nameLike.agent_sequenceOptionalRepeatable">
+      <zeroOrMore>
+         <ref name="tei_persName"/>
+      </zeroOrMore>
+   </define>
+   <define name="tei_model.nameLike.agent_sequenceRepeatable">
+      <oneOrMore>
+         <ref name="tei_persName"/>
+      </oneOrMore>
+   </define>
+   <define name="tei_model.hiLike">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.hiLike_alternation">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.hiLike_sequence">
+      <empty/>
+   </define>
+   <define name="tei_model.hiLike_sequenceOptional">
+      <empty/>
+   </define>
+   <define name="tei_model.hiLike_sequenceOptionalRepeatable">
+      <empty/>
+   </define>
+   <define name="tei_model.hiLike_sequenceRepeatable">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.emphLike">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.emphLike_alternation">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.emphLike_sequence">
+      <empty/>
+   </define>
+   <define name="tei_model.emphLike_sequenceOptional">
+      <empty/>
+   </define>
+   <define name="tei_model.emphLike_sequenceOptionalRepeatable">
+      <empty/>
+   </define>
+   <define name="tei_model.emphLike_sequenceRepeatable">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.dateLike">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.dateLike_alternation">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.dateLike_sequence">
+      <empty/>
+   </define>
+   <define name="tei_model.dateLike_sequenceOptional">
+      <empty/>
+   </define>
+   <define name="tei_model.dateLike_sequenceOptionalRepeatable">
+      <empty/>
+   </define>
+   <define name="tei_model.dateLike_sequenceRepeatable">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.measureLike">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.measureLike_alternation">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.measureLike_sequence">
+      <empty/>
+   </define>
+   <define name="tei_model.measureLike_sequenceOptional">
+      <empty/>
+   </define>
+   <define name="tei_model.measureLike_sequenceOptionalRepeatable">
+      <empty/>
+   </define>
+   <define name="tei_model.measureLike_sequenceRepeatable">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.offsetLike">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.offsetLike_alternation">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.offsetLike_sequence">
+      <empty/>
+   </define>
+   <define name="tei_model.offsetLike_sequenceOptional">
+      <empty/>
+   </define>
+   <define name="tei_model.offsetLike_sequenceOptionalRepeatable">
+      <empty/>
+   </define>
+   <define name="tei_model.offsetLike_sequenceRepeatable">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.pPart.editorial">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.pPart.editorial_alternation">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.pPart.editorial_sequence">
+      <empty/>
+   </define>
+   <define name="tei_model.pPart.editorial_sequenceOptional">
+      <empty/>
+   </define>
+   <define name="tei_model.pPart.editorial_sequenceOptionalRepeatable">
+      <empty/>
+   </define>
+   <define name="tei_model.pPart.editorial_sequenceRepeatable">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.pPart.transcriptional">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.pPart.transcriptional_alternation">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.pPart.transcriptional_sequence">
+      <empty/>
+   </define>
+   <define name="tei_model.pPart.transcriptional_sequenceOptional">
+      <empty/>
+   </define>
+   <define name="tei_model.pPart.transcriptional_sequenceOptionalRepeatable">
+      <empty/>
+   </define>
+   <define name="tei_model.pPart.transcriptional_sequenceRepeatable">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.placeNamePart">
+      <choice>
+         <ref name="tei_placeName"/>
+      </choice>
+   </define>
+   <define name="tei_model.placeNamePart_alternation">
+      <choice>
+         <ref name="tei_placeName"/>
+      </choice>
+   </define>
+   <define name="tei_model.placeNamePart_sequence">
+      <ref name="tei_placeName"/>
+   </define>
+   <define name="tei_model.placeNamePart_sequenceOptional">
+      <optional>
+         <ref name="tei_placeName"/>
+      </optional>
+   </define>
+   <define name="tei_model.placeNamePart_sequenceOptionalRepeatable">
+      <zeroOrMore>
+         <ref name="tei_placeName"/>
+      </zeroOrMore>
+   </define>
+   <define name="tei_model.placeNamePart_sequenceRepeatable">
+      <oneOrMore>
+         <ref name="tei_placeName"/>
+      </oneOrMore>
+   </define>
+   <define name="tei_model.placeStateLike">
+      <choice>
+         <ref name="tei_model.placeNamePart"/>
+      </choice>
+   </define>
+   <define name="tei_model.placeStateLike_alternation">
+      <choice>
+         <ref name="tei_model.placeNamePart_alternation"/>
+      </choice>
+   </define>
+   <define name="tei_model.placeStateLike_sequence">
+      <ref name="tei_model.placeNamePart_sequence"/>
+   </define>
+   <define name="tei_model.placeStateLike_sequenceOptional">
+      <optional>
+         <ref name="tei_model.placeNamePart_sequenceOptional"/>
+      </optional>
+   </define>
+   <define name="tei_model.placeStateLike_sequenceOptionalRepeatable">
+      <zeroOrMore>
+         <ref name="tei_model.placeNamePart_sequenceOptionalRepeatable"/>
+      </zeroOrMore>
+   </define>
+   <define name="tei_model.placeStateLike_sequenceRepeatable">
+      <oneOrMore>
+         <ref name="tei_model.placeNamePart_sequenceRepeatable"/>
+      </oneOrMore>
+   </define>
+   <define name="tei_model.quoteLike">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.quoteLike_alternation">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.quoteLike_sequence">
+      <empty/>
+   </define>
+   <define name="tei_model.quoteLike_sequenceOptional">
+      <empty/>
+   </define>
+   <define name="tei_model.quoteLike_sequenceOptionalRepeatable">
+      <empty/>
+   </define>
+   <define name="tei_model.quoteLike_sequenceRepeatable">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.addressLike">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.addressLike_alternation">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.addressLike_sequence">
+      <empty/>
+   </define>
+   <define name="tei_model.addressLike_sequenceOptional">
+      <empty/>
+   </define>
+   <define name="tei_model.addressLike_sequenceOptionalRepeatable">
+      <empty/>
+   </define>
+   <define name="tei_model.addressLike_sequenceRepeatable">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.nameLike">
+      <choice>
+         <ref name="tei_model.nameLike.agent"/>
+         <ref name="tei_model.offsetLike"/>
+         <ref name="tei_model.placeStateLike"/>
+         <ref name="tei_model.persNamePart"/>
+      </choice>
+   </define>
+   <define name="tei_model.nameLike_alternation">
+      <choice>
+         <ref name="tei_model.nameLike.agent_alternation"/>
+         <ref name="tei_model.offsetLike_alternation"/>
+         <ref name="tei_model.placeStateLike_alternation"/>
+         <ref name="tei_model.persNamePart_alternation"/>
+      </choice>
+   </define>
+   <define name="tei_model.nameLike_sequence">
+      <ref name="tei_model.nameLike.agent_sequence"/>
+      <ref name="tei_model.offsetLike_sequence"/>
+      <ref name="tei_model.placeStateLike_sequence"/>
+      <ref name="tei_model.persNamePart_sequence"/>
+   </define>
+   <define name="tei_model.nameLike_sequenceOptional">
+      <optional>
+         <ref name="tei_model.nameLike.agent_sequenceOptional"/>
+      </optional>
+      <optional>
+         <ref name="tei_model.offsetLike_sequenceOptional"/>
+      </optional>
+      <optional>
+         <ref name="tei_model.placeStateLike_sequenceOptional"/>
+      </optional>
+      <optional>
+         <ref name="tei_model.persNamePart_sequenceOptional"/>
+      </optional>
+   </define>
+   <define name="tei_model.nameLike_sequenceOptionalRepeatable">
+      <zeroOrMore>
+         <ref name="tei_model.nameLike.agent_sequenceOptionalRepeatable"/>
+      </zeroOrMore>
+      <zeroOrMore>
+         <ref name="tei_model.offsetLike_sequenceOptionalRepeatable"/>
+      </zeroOrMore>
+      <zeroOrMore>
+         <ref name="tei_model.placeStateLike_sequenceOptionalRepeatable"/>
+      </zeroOrMore>
+      <zeroOrMore>
+         <ref name="tei_model.persNamePart_sequenceOptionalRepeatable"/>
+      </zeroOrMore>
+   </define>
+   <define name="tei_model.nameLike_sequenceRepeatable">
+      <oneOrMore>
+         <ref name="tei_model.nameLike.agent_sequenceRepeatable"/>
+      </oneOrMore>
+      <oneOrMore>
+         <ref name="tei_model.offsetLike_sequenceRepeatable"/>
+      </oneOrMore>
+      <oneOrMore>
+         <ref name="tei_model.placeStateLike_sequenceRepeatable"/>
+      </oneOrMore>
+      <oneOrMore>
+         <ref name="tei_model.persNamePart_sequenceRepeatable"/>
+      </oneOrMore>
+   </define>
+   <define name="tei_p">
+      <element name="p">
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(paragraph) marks paragraphs in prose. [3.1. Paragraphs 7.2.5. Speech Contents]</a:documentation>
+         <text/>
+         <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
+                  id="mss-hand-p-abstractModel-structure-p-constraint-report-1">
+            <rule context="tei:p">
+               <report xmlns:rng="http://relaxng.org/ns/structure/1.0"
+                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                       test="not(ancestor::tei:floatingText) and (ancestor::tei:p or ancestor::tei:ab)          and not(parent::tei:exemplum                |parent::tei:item                |parent::tei:note                |parent::tei:q                |parent::tei:quote                |parent::tei:remarks                |parent::tei:said                |parent::tei:sp                |parent::tei:stage                |parent::tei:cell                |parent::tei:figure                )">
+        Abstract model violation: Paragraphs may not occur inside other paragraphs or ab elements.
+      </report>
+            </rule>
+         </pattern>
+         <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
+                  id="mss-hand-p-abstractModel-structure-l-constraint-report-2">
+            <rule context="tei:p">
+               <report xmlns:rng="http://relaxng.org/ns/structure/1.0"
+                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                       test="(ancestor::tei:l or ancestor::tei:lg) and not(parent::tei:figure or parent::tei:note or ancestor::tei:floatingText)">
+        Abstract model violation: Lines may not contain higher-level structural elements such as div, p, or ab, unless p is a child of figure or note, or is a descendant of floatingText.
+      </report>
+            </rule>
+         </pattern>
+      </element>
+   </define>
+   <define name="tei_locus">
+      <element name="locus">
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(locus) defines a location within a manuscript, manuscript part, or other object typically as a (possibly discontinuous) sequence of folio references. [10.3.5. References to Locations within a Manuscript]</a:documentation>
+         <zeroOrMore>
+            <choice>
+               <text/>
+            </choice>
+         </zeroOrMore>
+         <zeroOrMore>
+            <choice>
+               <text/>
+            </choice>
+         </zeroOrMore>
+         <optional>
+            <attribute name="from">
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(from) specifies the starting point of the location in a normalized form, typically a page number.</a:documentation>
+               <data type="token">
+                  <param name="pattern">[^\p{C}\p{Z}]+</param>
+               </data>
+            </attribute>
+         </optional>
+         <empty/>
+      </element>
+   </define>
+   <define name="tei_origDate">
+      <element name="origDate">
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(origin date) contains any form of date, used to identify the date of origin for a manuscript, manuscript part, or other object. [10.3.1. Origination]</a:documentation>
+         <text/>
+         <empty/>
+      </element>
+   </define>
+   <define name="tei_summary">
+      <element name="summary">
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">contains an overview of the available information concerning some aspect of an item or object (for example, its intellectual content, history, layout, typography etc.) as a complement or alternative to the more detailed information carried by more specific elements. [10.6. Intellectual Content]</a:documentation>
+         <text/>
+      </element>
+   </define>
+   <define name="tei_model.persNamePart">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.persNamePart_alternation">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.persNamePart_sequence">
+      <empty/>
+   </define>
+   <define name="tei_model.persNamePart_sequenceOptional">
+      <empty/>
+   </define>
+   <define name="tei_model.persNamePart_sequenceOptionalRepeatable">
+      <empty/>
+   </define>
+   <define name="tei_model.persNamePart_sequenceRepeatable">
+      <notAllowed/>
+   </define>
+   <define name="tei_persName">
+      <element name="persName">
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(personal name) contains a proper noun or proper-noun phrase referring to a person, possibly including one or more of the person's forenames, surnames, honorifics, added names, etc. [13.2.1. Personal Names]</a:documentation>
+         <text/>
+         <optional>
+            <attribute name="role">
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+               <choice>
+                  <value>scribe</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <value>vocalizer</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <value>masorator</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+               </choice>
+            </attribute>
+         </optional>
+         <empty/>
+      </element>
+   </define>
+   <define name="tei_placeName">
+      <element name="placeName">
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(place name) contains an absolute or relative place name. [13.2.3. Place Names]</a:documentation>
+         <text/>
+      </element>
+   </define>
+   <define name="tei_att.global.facs.attribute.facs">
+      <optional>
+         <attribute name="facs">
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(facsimile) points to one or more images, portions of an image, or surfaces which correspond to the current element.</a:documentation>
+            <list>
+               <oneOrMore>
+                  <data type="anyURI"/>
+               </oneOrMore>
+            </list>
+         </attribute>
+      </optional>
+   </define>
+   <define name="tei_att.global.change.attribute.change">
+      <optional>
+         <attribute name="change">
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">points to one or more <code xmlns="http://www.w3.org/1999/xhtml">&lt;change&gt;</code> elements documenting a state or revision campaign to which the element bearing this attribute and its children have been assigned by the encoder.</a:documentation>
+            <list>
+               <oneOrMore>
+                  <data type="anyURI"/>
+               </oneOrMore>
+            </list>
+         </attribute>
+      </optional>
+   </define>
+   <define name="tei_metamark">
+      <element name="metamark">
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">contains or describes any kind of graphic or written signal within a document the function of which is to determine how it should be read rather than forming part of the actual content of the document. [11.3.4.2. Metamarks]</a:documentation>
+         <text/>
+         <optional>
+            <attribute name="function">
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">describes the function (for example status, insertion, deletion, transposition) of the metamark.</a:documentation>
+               <choice>
+                  <value>vocalization</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <value>recitation</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+               </choice>
+            </attribute>
+         </optional>
+         <empty/>
+      </element>
+   </define>
+   <define name="tei_handNote">
+      <element name="handNote">
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(note on hand) describes a particular style or hand distinguished within a manuscript. [10.7.2. Writing, Decoration, and Other Notations]</a:documentation>
+         <ref name="tei_p"/>
+         <ref name="tei_persName"/>
+         <ref name="tei_placeName"/>
+         <ref name="tei_metamark"/>
+         <ref name="tei_origDate"/>
+         <ref name="tei_locus"/>
+         <ref name="tei_p"/>
+         <ref name="tei_persName"/>
+         <ref name="tei_placeName"/>
+         <ref name="tei_metamark"/>
+         <ref name="tei_origDate"/>
+         <ref name="tei_locus"/>
+         <ref name="tei_att.handFeatures.attribute.scribe"/>
+         <ref name="tei_att.handFeatures.attribute.scribeRef"/>
+         <ref name="tei_att.handFeatures.attribute.scriptRef"/>
+         <ref name="tei_att.handFeatures.attribute.scope"/>
+         <optional>
+            <attribute name="script">
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+               <choice>
+                  <value>oriental</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <value>yemenite</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <value>sephardi</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <value>byzantine</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <value>italian</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <value>ashkenazi</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <value>unidentified</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <value>abbasidBookHand</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <value>newStyle</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <value>naskh</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+               </choice>
+            </attribute>
+         </optional>
+         <optional>
+            <attribute name="medium">
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+               <choice>
+                  <value>brown</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <value>black</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <value>pigments</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <value>mixed</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <value>plantBased</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <value>unidentified</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+               </choice>
+            </attribute>
+         </optional>
+         <optional>
+            <attribute name="script">
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+               <choice>
+                  <value>oriental</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <value>yemenite</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <value>sephardi</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <value>byzantine</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <value>italian</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <value>ashkenazi</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <value>unidentified</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <value>abbasidBookHand</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <value>newStyle</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <value>naskh</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+               </choice>
+            </attribute>
+         </optional>
+         <optional>
+            <attribute name="medium">
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+               <choice>
+                  <value>brown</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <value>black</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <value>pigments</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <value>mixed</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <value>plantBased</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <value>unidentified</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+               </choice>
+            </attribute>
+         </optional>
+         <optional>
+            <attribute name="mode">
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+               <choice>
+                  <value/>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <value>square</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <value>nonSquare</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <value>cursive</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <value>unidentified</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+               </choice>
+            </attribute>
+         </optional>
+         <optional>
+            <attribute name="quality">
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+               <choice>
+                  <value>unidentified</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <value>untrained</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <value>careless</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <value>current</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <value>calligraphic</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <value>monumental</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+               </choice>
+            </attribute>
+         </optional>
+         <ref name="tei_att.global.attribute.xmlid"/>
+         <empty/>
+      </element>
+   </define>
+   <start>
+      <choice/>
+   </start>
+</grammar>
