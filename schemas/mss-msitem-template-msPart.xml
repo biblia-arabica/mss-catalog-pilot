@@ -1,3 +1,4 @@
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
 <msDesc>
     <msIdentifier>
         <country/>
@@ -35,7 +36,7 @@
                 </author>
                 <textLang mainLang=""/>
                 <rubric>
-                    <locus from="" to=""/>
+                    <locus from="" to=""></locus>
                     <q><lb/></q>
                 </rubric>
                 <incipit>
@@ -59,3 +60,4 @@
         </msContents>
     </msPart>
 </msDesc>
+</TEI>

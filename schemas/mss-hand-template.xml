@@ -1,3 +1,4 @@
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
 <handDesc hands="">
     <summary/>
     <handNote xml:id="" scope="" script="" mode="" quality="" medium="">
@@ -14,3 +15,4 @@
         <p/>
     </handNote>
 </handDesc>
+</TEI>

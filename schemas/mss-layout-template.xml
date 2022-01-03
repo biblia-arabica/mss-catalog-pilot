@@ -1,3 +1,4 @@
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
 <layoutDesc>
     <summary/>
     <layout columns="" writtenLines="">
@@ -16,3 +17,4 @@
         <ab type="pricking"/>
     </layout>
 </layoutDesc>
+</TEI>

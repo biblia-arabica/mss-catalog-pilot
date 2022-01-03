@@ -89,7 +89,7 @@ End license statement: do not remove -->
                     <moduleRef key="msdescription"
                         include="dim dimensions height layout layoutDesc locus summary width"/>
                     <moduleRef key="tei"/>
-                    <elementSpec ident="note" module="core" mode="change date">
+                    <elementSpec ident="note" module="core" mode="change">
                         <classes mode="replace">
                             <memberOf key="model.annotationLike"/>
                             <memberOf key="model.annotationPart.body"/>
@@ -197,9 +197,27 @@ End license statement: do not remove -->
                     <elementSpec ident="origDate" module="msdescription" mode="delete"/>
                     <elementSpec ident="origPlace" module="msdescription" mode="delete"/>
                     <elementSpec ident="physDesc" module="msdescription" mode="delete"/>
-                    <elementSpec ident="layoutDesc" module="msdescription" mode="delete"/>
+                    <elementSpec ident="layoutDesc" module="msdescription" mode="change">
+                        <content>
+                            <alternate>
+                                <sequence>
+                                    <elementRef key="summary" minOccurs="0"/>
+                                    <elementRef key="layout" minOccurs="1" maxOccurs="unbounded"/>
+                                </sequence>
+                            </alternate>
+                        </content>
+                    </elementSpec>
                     <elementSpec ident="dimensions" module="msdescription" mode="delete"/>
-                    <elementSpec ident="layout" module="msdescription" mode="delete"/>
+                    <elementSpec ident="layout" module="msdescription" mode="change">
+                        <content>
+                            <alternate>
+                                <elementRef key="p" minOccurs="0"/>
+                                <elementRef key="dimensions"  minOccurs="0"/>
+                                <elementRef key="note"  minOccurs="0"/>
+                                <elementRef key="ab"  minOccurs="0"/>
+                            </alternate>
+                        </content>
+                    </elementSpec>
                     <elementSpec ident="summary" module="msdescription" mode="change">
                         <content>
                             <textNode/>
@@ -232,7 +250,11 @@ End license statement: do not remove -->
                     <elementSpec ident="height" module="msdescription" mode="delete"/>
                     <elementSpec ident="width" module="msdescription" mode="delete"/>
 
-                    <elementSpec ident="ab" module="linking" mode="delete"/>
+                    <elementSpec ident="ab" module="linking" mode="change">
+                        <content>
+                            <textNode/>
+                        </content>
+                    </elementSpec>
                     <elementSpec ident="p" module="core" mode="change">
                         <content>
                             <textNode/>

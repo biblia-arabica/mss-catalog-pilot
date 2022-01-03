@@ -89,6 +89,18 @@ End license statement: do not remove -->
                         include="acquisition history locus origDate origin origPlace provenance signatures stamp summary"/>
                     <moduleRef key="namesdates" include="persName placeName"/>
                     <moduleRef key="tei"/>
+                    <elementSpec ident="history" module="msdescription" mode="change">
+                        <content>
+                            <alternate>
+                                <sequence>
+                                    <elementRef key="summary" minOccurs="0"/>
+                                    <elementRef key="origin" minOccurs="0"/>
+                                    <elementRef key="provenance" minOccurs="0" maxOccurs="unbounded"/>
+<!--                                    <elementRef key="acquisition" minOccurs="0"/>-->
+                                </sequence>
+                            </alternate>
+                        </content>
+                    </elementSpec>
                     <elementSpec ident="note" module="core" mode="change date">
                         <classes mode="replace">
                             <memberOf key="model.annotationLike"/>
@@ -194,7 +206,137 @@ End license statement: do not remove -->
                     <elementSpec ident="foliation" module="msdescription" mode="delete"/>
                     <elementSpec ident="material" module="msdescription" mode="delete"/>
                     <elementSpec ident="objectDesc" module="msdescription" mode="delete"/>
-                    <elementSpec ident="origDate" module="msdescription" mode="delete"/>
+                    <elementSpec ident="origDate" module="msdescription" mode="change">
+                        <content>
+                            <alternate minOccurs="0" maxOccurs="unbounded">
+                                <textNode/>
+                            </alternate>
+                        </content>
+                        <attList>
+                            <attDef ident="evidence" mode="replace" usage="opt">
+                                <datatype maxOccurs="6">
+                                    <dataRef key="teidata.word"/>
+                                </datatype>
+                                <valList type="semi">
+                                    <valItem ident="lettering">
+                                        <desc>Text dated palaeographically</desc>
+                                    </valItem>
+                                    <valItem ident="nomenclature">
+                                        <desc>Text dated by nomenclature or onomastics</desc>
+                                    </valItem>
+                                    <valItem ident="prosopography">
+                                        <desc>Text dated by known persons named or implied within it</desc>
+                                    </valItem>
+                                    <valItem ident="reign">
+                                        <desc>Text dated by the reign of a ruler</desc>
+                                    </valItem>
+                                    <valItem ident="titulature">
+                                        <desc>Text dated by the use of official titles</desc>
+                                    </valItem>
+                                    <valItem ident="internal-date">
+                                        <desc>Text dated by explicit internal date</desc>
+                                    </valItem>
+                                    <valItem ident="context">
+                                        <desc>Archaeological, epigraphic, iconographic or other context of the text
+                                            support</desc>
+                                    </valItem>
+                                </valList>
+                            </attDef>
+                        </attList>
+                    </elementSpec>
+                    <elementSpec ident="date" module="msdescription" mode="change">
+                        <content>
+                            <alternate minOccurs="0" maxOccurs="unbounded">
+                                <textNode/>
+                            </alternate>
+                        </content>
+                        <attList>
+                            <attDef ident="calendar" usage="opt" mode="replace">
+                                
+                                <valList type="closed">
+                                    <valItem ident="hebrew">
+                                        <desc>Hebrew calendar</desc>
+                                    </valItem>
+                                    <valItem ident="alexander">
+                                        <desc>Era of Alexander of Macedon, year 1 = 319 BC</desc>
+                                    </valItem>
+                                    <valItem ident="islamic">
+                                        <desc>Islamic Era</desc>
+                                    </valItem>
+                                    <valItem ident="julian">
+                                        <desc>Julian calendar</desc>
+                                    </valItem>
+                                </valList>
+                            </attDef>
+                            <attDef ident="type" usage="opt" mode="change">
+                                <datatype maxOccurs="3">
+                                    <dataRef key="teidata.word"/>
+                                </datatype>
+                                <valList type="open">
+                                    <valItem ident="age">
+                                        <desc>Age, the value should be given in a @dur attribute according to <ref
+                                            target="https://www.w3.org/TR/xmlschema-2/#duration">W3C
+                                            datatypes</ref></desc>
+                                    </valItem>
+                                    <valItem ident="reign">
+                                        <desc>Duration of a reign, the value should be given in a @dur attribute
+                                            according to <ref target="https://www.w3.org/TR/xmlschema-2/#duration">W3C
+                                                datatypes</ref></desc>
+                                    </valItem>
+                                    <valItem ident="life">
+                                        <desc>Duration of life, the value should be given in a @dur attribute according
+                                            to <ref target="https://www.w3.org/TR/xmlschema-2/#duration">W3C
+                                                datatypes</ref></desc>
+                                    </valItem>
+                                    <valItem ident="marriage">
+                                        <desc>Duration of marriage, the value should be given in a @dur attribute
+                                            according to <ref target="https://www.w3.org/TR/xmlschema-2/#duration">W3C
+                                                datatypes</ref></desc>
+                                    </valItem>
+                                    <valItem ident="generic-duration">
+                                        <desc>Generic duration, the value should be given in a @dur attribute according
+                                            to <ref target="https://www.w3.org/TR/xmlschema-2/#duration">W3C
+                                                datatypes</ref></desc>
+                                    </valItem>
+                                    <valItem ident="foundation">
+                                        <desc>Date of foundation</desc>
+                                    </valItem>
+                                    <valItem ident="composition">
+                                        <desc>Date of the composition of a work</desc>
+                                    </valItem>
+                                    <valItem ident="translation">
+                                        <desc>Date of the translation of a work</desc>
+                                    </valItem>
+                                    <valItem ident="revision">
+                                        <desc>Date of the revision of a work</desc>
+                                    </valItem>
+                                    <valItem ident="recension">
+                                        <desc>Date of the composition of a specific recension</desc>
+                                    </valItem>
+                                    <valItem ident="diesNatalis">
+                                        <desc>Date of a saint’s martyrdom</desc>
+                                    </valItem>
+                                    <valItem ident="birth">
+                                        <desc>Date of birth (do not use this in a person record, use element
+                                            birth)</desc>
+                                    </valItem>
+                                    <valItem ident="ascension">
+                                        <desc>Date of a person’s ascension to power</desc>
+                                    </valItem>
+                                    <valItem ident="death">
+                                        <desc>Date of death</desc>
+                                    </valItem>
+                                    <valItem ident="production">
+                                        <desc>The date of production of the document (EMA)</desc>
+                                    </valItem>
+                                    <valItem ident="repeated">
+                                        <desc>If the commemoration is repeated, please add this value as well in
+                                            type</desc>
+                                    </valItem>
+                                </valList>
+                            </attDef>
+                        </attList>
+                    </elementSpec>
                     <elementSpec ident="origPlace" module="msdescription" mode="delete"/>
                     <elementSpec ident="physDesc" module="msdescription" mode="delete"/>
                     <elementSpec ident="layoutDesc" module="msdescription" mode="delete"/>

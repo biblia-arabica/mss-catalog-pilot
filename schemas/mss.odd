@@ -217,7 +217,7 @@ xml:lang="en">
                 <!--          LISTS OF VALUES FOR ATTRIBUTES-->
                 <!--  adds value partly to del/@rend-->
                 <elementSpec ident="del" mode="change" module="core">
-                    <attList>
+                    <athntList>
                         <attDef ident="rend" mode="replace">
                             <datatype maxOccurs="6">
                                 <dataRef key="teidata.word"/>
@@ -237,7 +237,7 @@ xml:lang="en">
                                 </valItem>
                             </valList>
                         </attDef>
-                    </attList>
+                    </athntList>
                 </elementSpec>
 
                 <elementSpec ident="binding" mode="change" module="msdescription">

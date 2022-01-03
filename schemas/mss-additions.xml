@@ -278,7 +278,11 @@ End license statement: do not remove -->
                     <elementSpec ident="height" module="msdescription" mode="delete"/>
                     <elementSpec ident="width" module="msdescription" mode="delete"/>
                     <elementSpec ident="ab" module="linking" mode="delete"/>
-                    <elementSpec ident="p" module="core" mode="delete"/>
+                    <elementSpec ident="p" module="core" mode="change">
+                        <content>
+                            <textNode/>
+                        </content>
+                    </elementSpec>
                     <elementSpec ident="binding" module="msdescription" mode="delete"/>
                     <elementSpec ident="bindingDesc" module="msdescription" mode="delete"/>
                     <elementSpec ident="decoNote" module="msdescription" mode="delete"/>
@@ -351,7 +355,7 @@ End license statement: do not remove -->
                     </elementSpec>
                     <elementSpec ident="desc" module="core" mode="change">
                         <content>
-                            <elementRef key="q"/>
+<!--                            <elementRef key="q"/>-->
                             <textNode/>
                         </content>
                         <attList>
