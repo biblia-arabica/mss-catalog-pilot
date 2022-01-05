@@ -27,9 +27,7 @@ End license statement: do not remove -->
     
 
 -->
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:tei="http://www.tei-c.org/ns/1.0"
-    xmlns:rng="http://relaxng.org/ns/structure/1.0" xmlns:sch="http://purl.oclc.org/dsdl/schematron"
-    xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:rng="http://relaxng.org/ns/structure/1.0" xmlns:sch="http://purl.oclc.org/dsdl/schematron" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
@@ -71,14 +69,11 @@ End license statement: do not remove -->
                     descriptions of the manuscript layout using XForms.</p>
                 <p>Built on the <ref target="https://betamasaheft.eu/Guidelines">Beta maṣāḥǝft
                         Guidelines</ref> contain examples and details of that customization.</p>
-                <p>Added Rules from the <ref
-                        target="https://github.com/msDesc/consolidated-tei-schema/blob/master/msdesc.odd"
-                        >consolidated schema</ref> of FIRHIST</p>
+                <p>Added Rules from the <ref target="https://github.com/msDesc/consolidated-tei-schema/blob/master/msdesc.odd">consolidated schema</ref> of FIRHIST</p>
                 <p>Constrained this schema for generating forms.</p>
             </div>
             <div>
-                <schemaSpec ident="mss-hand" docLang="en" prefix="tei_" start="TEI" xml:lang="en"
-                    targetLang="en">
+                <schemaSpec ident="mss-hand" docLang="en" prefix="tei_" start="TEI" xml:lang="en" targetLang="en">
                     <!--source="mss-compiled.odd"-->
                     <!--       MODULES USED BY THE SCHEMA
                 the @source ties the current schema to the pre-compiled Arabic Manuscripts Schema, which is tied to version 4.2.0 of TEI
@@ -97,12 +92,7 @@ End license statement: do not remove -->
                             <memberOf key="att.typed" mode="delete"/>
                         </classes>
                         <content>
-                            <alternate maxOccurs="unbounded" minOccurs="0">
                                 <textNode/>
-                            </alternate>
-                            <alternate maxOccurs="unbounded" minOccurs="0">
-                                <textNode/>
-                            </alternate>
                         </content>
                         <attList>
                             <attDef ident="ana" mode="delete"/>
@@ -130,7 +120,6 @@ End license statement: do not remove -->
                             <attDef ident="xml:lang" mode="delete"/>
                             <attDef ident="xml:space" mode="delete"/>
                             <attDef ident="scheme" mode="delete"/>
-                            <attDef ident="to" mode="delete"/>
                             <attDef ident="n" mode="delete"/>
                             <attDef ident="exclude" mode="delete"/>
                             <attDef ident="cert" mode="delete"/>
@@ -238,12 +227,12 @@ End license statement: do not remove -->
                         </classes>
                         <content>
                             <textNode/>
-                        </content>
+                        <textNode/></content>
                         <attList>
-                            <attRef name="when" class="att.datable.w3c"/>
-                            <attRef name="notAfter" class="att.datable.w3c"/>
-                            <attRef name="notBefore" class="att.datable.w3c"/>
-                        </attList>
+                            <attRef name="when" usage="opt"/>
+                            <attRef name="notAfter" usage="opt"/>
+                            <attRef name="notBefore" usage="opt"/>
+                        <attRef name="when" class="att.datable.w3c"/><attRef name="notAfter" class="att.datable.w3c"/><attRef name="notBefore" class="att.datable.w3c"/></attList>
                     </elementSpec>
                     <elementSpec ident="persName" mode="change">
                         <classes mode="change">
@@ -255,10 +244,10 @@ End license statement: do not remove -->
                         </classes>
                         <content>
                             <textNode/>
-                        </content>
+                        <textNode/></content>
                         <attList>
                             <attDef ident="key" mode="delete"/>
-                            <attDef ident="ref" mode="delete"/>
+                            
                             <attDef ident="role" usage="opt">
                                 <datatype>
                                     <dataRef key="teidata.enumerated"/>
@@ -269,7 +258,7 @@ End license statement: do not remove -->
                                     <valItem ident="masorator"/>
                                 </valList>
                             </attDef>
-                        </attList>
+                        <attDef ident="role" mode="delete"/></attList>
                     </elementSpec>
                     <elementSpec ident="placeName" mode="change">
                         <classes mode="change">
@@ -281,10 +270,10 @@ End license statement: do not remove -->
                         </classes>
                         <content>
                             <textNode/>
-                        </content>
+                        <textNode/></content>
                         <attList>
                             <attDef ident="key" mode="delete"/>
-                            <attDef ident="ref" mode="delete"/>
+                            
                             <attDef ident="role" mode="delete"/>
                             <attDef ident="nymRef" mode="delete"/>
                         </attList>
