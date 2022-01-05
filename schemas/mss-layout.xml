@@ -27,9 +27,7 @@ End license statement: do not remove -->
     
 
 -->
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:tei="http://www.tei-c.org/ns/1.0"
-    xmlns:rng="http://relaxng.org/ns/structure/1.0" xmlns:sch="http://purl.oclc.org/dsdl/schematron"
-    xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:rng="http://relaxng.org/ns/structure/1.0" xmlns:sch="http://purl.oclc.org/dsdl/schematron" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
@@ -71,23 +69,19 @@ End license statement: do not remove -->
                     descriptions of the manuscript layout using XForms.</p>
                 <p>Built on the <ref target="https://betamasaheft.eu/Guidelines">Beta maṣāḥǝft
                         Guidelines</ref> contain examples and details of that customization.</p>
-                <p>Added Rules from the <ref
-                        target="https://github.com/msDesc/consolidated-tei-schema/blob/master/msdesc.odd"
-                        >consolidated schema</ref> of FIRHIST</p>
+                <p>Added Rules from the <ref target="https://github.com/msDesc/consolidated-tei-schema/blob/master/msdesc.odd">consolidated schema</ref> of FIRHIST</p>
                 <p>Constrained this schema for generating forms.</p>
             </div>
             <div>
-                <schemaSpec ident="mss-layout" docLang="en" prefix="tei_" start="TEI" xml:lang="en"
-                    targetLang="en">
+                <schemaSpec ident="mss-layout" docLang="en" prefix="tei_" start="TEI" xml:lang="en" targetLang="en">
                     <!--source="mss-compiled.odd"-->
                     <!--       MODULES USED BY THE SCHEMA
                 the @source ties the current schema to the pre-compiled Arabic Manuscripts Schema, which is tied to version 4.2.0 of TEI
                 -->
 
-                    <moduleRef key="core" include="p note"/>
-                    <moduleRef key="linking" include="ab"/>
-                    <moduleRef key="msdescription"
-                        include="dim dimensions height layout layoutDesc locus summary width"/>
+                    <moduleRef key="core" include="p"/>
+                    <moduleRef key="linking"/>
+                    <moduleRef key="msdescription" include="dim"/>
                     <moduleRef key="tei"/>
                     <elementSpec ident="note" module="core" mode="change date">
                         <classes mode="replace">
@@ -155,7 +149,7 @@ End license statement: do not remove -->
                             <alternate maxOccurs="unbounded" minOccurs="0">
                                 <textNode/>
                             </alternate>
-                        </content>
+                        <alternate maxOccurs="unbounded" minOccurs="0"><textNode/></alternate></content>
                         <attList>
                             <attDef ident="ana" mode="delete"/>
                             <attDef ident="change" mode="delete"/>
@@ -181,7 +175,7 @@ End license statement: do not remove -->
                             <attDef ident="xml:id" mode="delete"/>
                             <attDef ident="xml:lang" mode="delete"/>
                             <attDef ident="xml:space" mode="delete"/>
-                        </attList>
+                        <attDef ident="scheme" mode="delete"/><attDef ident="n" mode="delete"/><attDef ident="exclude" mode="delete"/><attDef ident="cert" mode="delete"/></attList>
                     </elementSpec>
                     <elementSpec ident="locusGrp" module="msdescription" mode="delete"/>
                     <elementSpec ident="msFrag" module="msdescription" mode="delete"/>
@@ -190,7 +184,7 @@ End license statement: do not remove -->
                     <elementSpec ident="catchwords" module="msdescription" mode="delete"/>
                     <elementSpec ident="collation" module="msdescription" mode="delete"/>
                     <elementSpec ident="condition" module="msdescription" mode="delete"/>
-                    <elementSpec ident="dim" module="msdescription" mode="delete"/>
+                    
                     <elementSpec ident="foliation" module="msdescription" mode="delete"/>
                     <elementSpec ident="material" module="msdescription" mode="delete"/>
                     <elementSpec ident="objectDesc" module="msdescription" mode="delete"/>
@@ -198,7 +192,7 @@ End license statement: do not remove -->
                     <elementSpec ident="origPlace" module="msdescription" mode="delete"/>
                     <elementSpec ident="physDesc" module="msdescription" mode="delete"/>
                     <elementSpec ident="layoutDesc" module="msdescription" mode="delete"/>
-                    <elementSpec ident="dimensions" module="msdescription" mode="delete"/>
+                    
                     <elementSpec ident="layout" module="msdescription" mode="delete"/>
                     <elementSpec ident="summary" module="msdescription" mode="change">
                         <content>
@@ -265,80 +259,11 @@ End license statement: do not remove -->
                             <attDef ident="xml:space" mode="delete"/>
                         </attList>
                     </elementSpec>
-                    <elementSpec ident="acquisition" mode="change">
-                        <classes mode="change">
-                            <memberOf key="att.datable" mode="delete"/>
-                            <memberOf key="att.global" mode="delete"/>
-                        </classes>
-                        <content>
-                            <elementRef key="placeName"/>
-                            <elementRef key="date"/>
-                            <elementRef key="stamp"/>
-                            <elementRef key="signatures"/>
-                            <elementRef key="p"/>
-                            <elementRef key="persName"/>
-                            <elementRef key="locus"/>
-                        </content>
-                    </elementSpec>
-                    <elementSpec ident="origin" mode="change">
-                        <classes mode="change">
-                            <memberOf key="att.datable" mode="delete"/>
-                            <memberOf key="att.editLike" mode="delete"/>
-                            <memberOf key="att.global" mode="delete"/>
-                        </classes>
-                        <content>
-                            <elementRef key="p"/>
-                            <elementRef key="q"/>
-                            <elementRef key="origPlace"/>
-                            <elementRef key="origDate"/>
-                            <elementRef key="locus"/>
-                            <elementRef key="persName"/>
-                        </content>
-                    </elementSpec>
-                    <elementSpec ident="provenance" mode="change">
-                        <classes mode="change">
-                            <memberOf key="att.datable" mode="delete"/>
-                            <memberOf key="att.global" mode="delete"/>
-                            <memberOf key="att.typed" mode="delete"/>
-                        </classes>
-                        <content>
-                            <elementRef key="date"/>
-                            <elementRef key="p"/>
-                            <elementRef key="locus"/>
-                            <elementRef key="persName"/>
-                            <elementRef key="signatures"/>
-                            <elementRef key="stamp"/>
-                            <elementRef key="placeName"/>
-                        </content>
-                    </elementSpec>
-                    <elementSpec ident="q" mode="change">
-                        <classes mode="change">
-                            <memberOf key="att.global" mode="delete"/>
-                        </classes>
-                        <content>
-                            <textNode/>
-                        </content>
-                        <attList>
-                            <attDef ident="type" mode="change">
-                                <valList type="closed" mode="change">
-                                    <valItem mode="add" ident="colophon">
-                                        <desc versionDate="2021-12-18" xml:lang="en">Colophon</desc>
-                                    </valItem>
-                                    <valItem mode="delete" ident="spoken"/>
-                                    <valItem mode="delete" ident="thought"/>
-                                    <valItem mode="delete" ident="written"/>
-                                    <valItem mode="delete" ident="soCalled"/>
-                                    <valItem mode="delete" ident="foreign"/>
-                                    <valItem mode="delete" ident="distinct"/>
-                                    <valItem mode="delete" ident="term"/>
-                                    <valItem mode="delete" ident="emph"/>
-                                    <valItem mode="delete" ident="mentioned"/>
-                                </valList>
-                            </attDef>
-                            <attDef ident="who" mode="delete"/>
-                        </attList>
-                    </elementSpec>
-                </schemaSpec>
+                    <elementSpec ident="acquisition" mode="delete"/>
+                    <elementSpec ident="origin" mode="delete"/>
+                    <elementSpec ident="provenance" mode="delete"/>
+                    <elementSpec ident="q" mode="delete"/>
+                <elementSpec ident="dimensions" mode="change"><classes mode="change"><memberOf key="att.global" mode="delete"/><memberOf key="att.typed" mode="delete"/></classes><content><alternate maxOccurs="unbounded" minOccurs="0"><elementRef key="dim"/><elementRef key="width"/><elementRef key="height"/></alternate></content><attList><attRef name="unit" class="att.citing"/></attList></elementSpec><elementSpec ident="dim" mode="change"><classes mode="change"><memberOf key="att.global" mode="delete"/><memberOf key="att.typed" mode="delete"/></classes><attList><attRef name="type" class="att.entryLike"/></attList></elementSpec></schemaSpec>
             </div>
         </body>
     </text>
