@@ -75,18 +75,18 @@
                 </persName>
 
                 <!--Additional biographical information-->
-                <birth>
+                <birth source="#bibl1205-1">
                     <date when="" notBefore="" notAfter=""/>
                     <placeName ref=""/>
                 </birth>
-                <death>
+                <death source="#bibl1205-1">
                     <date when="" notBefore="" notAfter=""/>
                     <placeName ref=""/>
                 </death>
-                <floruit from="1008" to="1040" notBefore="1889" notAfter="1914"/>
+                <floruit from="1008" to="1040" notBefore="1889" notAfter="1914" source="#bibl1205-1"/>
                 <sex value="m" source="#bibl1205-1">male</sex>
                 <faith source="#bibl1205-1">Judaism</faith>
-                <occupation source="#bibl1205-1">scholar</occupation>
+                <occupation type="scholar" source="#bibl1205-1">scholar</occupation>
                 <residence source="#bibl1205-1">
                     <placeName ref="">Jerusalem </placeName>
                 </residence>
