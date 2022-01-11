@@ -7,9 +7,9 @@
                         <objectDesc form="single">
                             <supportDesc>
                                 <support>
-                                    <p> </p><material key="paper"></material><p> with watermark:</p><watermark/>
-                                    <p>, see fol. </p> <locus target=""></locus><p> Per watermark, the paper originated in </p><origPlace
-                                            ref=""/> in <origDate when="" from="" to=""
+                                    <p> </p><material key="paper"></material><p>  </p><watermark/>
+                                    <p> </p> <locus target=""></locus><p> </p><origPlace
+                                            ref=""/> <origDate when="" from="" to=""
                                         ></origDate>
                                 </support>
                                 <extent>

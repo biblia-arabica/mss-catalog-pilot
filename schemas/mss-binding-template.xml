@@ -10,8 +10,8 @@
                                     <height unit="mm"/>
                                     <width unit="mm"/>
                                     <depth unit="mm"/><p>.</p>
-                                </dimensions><p> The binding originated in </p><origPlace ref=""/><p> in</p>
-                                <origDate when="" from="" to="" period=""></origDate><p>.</p>
+                                </dimensions><p> </p><origPlace ref=""/><p> </p>
+                                <origDate when="" from="" to="" period=""></origDate><p> </p>
                                 <decoNote type=""><p></p>
                                     <material/><p>.</p>
                                 </decoNote>

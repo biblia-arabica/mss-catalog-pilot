@@ -84,9 +84,8 @@ End license statement: do not remove -->
                 the @source ties the current schema to the pre-compiled Arabic Manuscripts Schema, which is tied to version 4.2.0 of TEI
                 -->
 
-                    <moduleRef key="core" include="p q"/>
-                    <moduleRef key="msdescription"
-                        include="acquisition history locus origDate origin origPlace provenance signatures stamp summary"/>
+                    <moduleRef key="core" include="p q date"/>
+                    <moduleRef key="msdescription" include="acquisition history locus origDate origin origPlace provenance signatures stamp summary"/>
                     <moduleRef key="namesdates" include="persName placeName"/>
                     <moduleRef key="tei"/>
                     <elementSpec ident="history" module="msdescription" mode="change">
@@ -162,12 +161,12 @@ End license statement: do not remove -->
                             <memberOf key="att.pointing"/>
                             <memberOf key="att.global"/>
                             <memberOf key="att.typed" mode="delete"/>
-                        </classes>
+                        <memberOf key="att.global" mode="delete"/><memberOf key="att.typed" mode="delete"/></classes>
                         <content>
                             <alternate maxOccurs="unbounded" minOccurs="0">
                                 <textNode/>
                             </alternate>
-                        </content>
+                        <alternate maxOccurs="unbounded" minOccurs="0"><textNode/></alternate></content>
                         <attList>
                             <attDef ident="ana" mode="delete"/>
                             <attDef ident="change" mode="delete"/>

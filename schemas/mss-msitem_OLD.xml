@@ -37,7 +37,6 @@ End license statement: do not remove -->
                 <author xml:id="MM">Maximilian de Molière</author>
                 <author xml:id="PL">Pietro Liuzzo</author>
                 <author xml:id="NG">Nathan Gibson</author>
-                <author xml:id="MM">Maximilian de Molière</author>
             </titleStmt>
             <publicationStmt>
                 <authority>Institut für den Nahen und Mittleren Osten</authority>
@@ -255,9 +254,9 @@ End license statement: do not remove -->
                     </elementSpec>
                     <elementSpec ident="persName" module="namesdates" mode="change">
                         <classes mode="replace">
-<!--                            <memberOf key="model.nameLike"/>-->
-<!--                            <memberOf key="model.nameLike.agent"/>-->
-<!--                            <memberOf key="model.persStateLike"/>-->
+                            <memberOf key="model.nameLike"/>
+                            <memberOf key="model.nameLike.agent"/>
+                            <memberOf key="model.persStateLike"/>
                             <memberOf key="att.canonical" mode="add"/>
                             <memberOf key="att.datable" mode="delete"/>
                             <memberOf key="att.editLike" mode="delete"/>
@@ -266,9 +265,7 @@ End license statement: do not remove -->
                             <memberOf key="att.typed" mode="delete"/>
                         </classes>
                         <content>
-                            <elementRef key="forename"/>
-                            <elementRef key="surname"/>
-                            <elementRef key="addName"/>
+                            <textNode/>
                         </content>
                         <attList>
                             <attDef ident="ana" mode="delete"/>
@@ -501,16 +498,13 @@ End license statement: do not remove -->
                     </elementSpec>
                     <elementSpec ident="title" module="core" mode="change">
                         <classes mode="replace">
-<!--                            <memberOf key="model.emphLike"/>-->
-<!--                            <memberOf key="model.msQuoteLike"/>-->
+                            <memberOf key="model.emphLike"/>
+                            <memberOf key="model.msQuoteLike"/>
                             <memberOf key="att.canonical"/>
                             <memberOf key="att.datable" mode="delete"/>
                             <memberOf key="att.global"/>
                             <memberOf key="att.typed" mode="delete"/>
                         </classes>
-                        <content>
-                            <textNode/>
-                        </content>
                         <attList>
                             <attDef ident="ana" mode="delete"/>
                             <attDef ident="calendar" mode="delete"/>
@@ -618,14 +612,12 @@ End license statement: do not remove -->
                     </elementSpec>
                     <elementSpec ident="note" module="core" mode="change">
                         <classes mode="replace">
-                            <!--
                             <memberOf key="model.annotationLike"/>
                             <memberOf key="model.annotationPart.body"/>
                             <memberOf key="model.correspActionPart"/>
                             <memberOf key="model.correspContextPart"/>
                             <memberOf key="model.correspDescPart"/>
                             <memberOf key="model.noteLike"/>
-                            -->
                             <memberOf key="att.anchoring" mode="delete"/>
                             <memberOf key="att.global"/>
                             <memberOf key="att.placement" mode="delete"/>
@@ -633,10 +625,6 @@ End license statement: do not remove -->
                             <memberOf key="att.typed" mode="delete"/>
                             <memberOf key="att.written" mode="delete"/>
                         </classes>
-                        <content>
-                            <elementRef key="p"/>
-                            <elementRef key="locus"/>
-                        </content>
                     </elementSpec>
                     <elementSpec ident="postCode" module="core" mode="change">
                         <classes mode="replace">
@@ -717,65 +705,38 @@ End license statement: do not remove -->
                             <memberOf key="att.typed" mode="delete"/>
                         </classes>
                     </elementSpec>
-                    <elementSpec ident="rubric" module="msdescription" mode="change">
-                        <classes mode="replace">
-                            <!--                            <memberOf key="model.msQuoteLike"/>-->
-                            <memberOf key="att.global"/>
-                            <memberOf key="att.msExcerpt" mode="delete"/>
-                        </classes>
-                        <content xmlns:teix="http://www.tei-c.org/ns/Examples">    
-                            <elementRef key="locus"/>
-                            <elementRef key="q"/>
-                        </content>
-                    </elementSpec>
                     <elementSpec ident="colophon" module="msdescription" mode="change">
                         <classes mode="replace">
-<!--                            <memberOf key="model.msQuoteLike"/>-->
+                            <memberOf key="model.msQuoteLike"/>
                             <memberOf key="att.global"/>
                             <memberOf key="att.msExcerpt" mode="delete"/>
                         </classes>
-                        <content xmlns:teix="http://www.tei-c.org/ns/Examples">    
-                            <elementRef key="locus"/>
-                            <elementRef key="q"/>
-                        </content>
                     </elementSpec>
                     <elementSpec ident="explicit" module="msdescription" mode="change">
                         <classes mode="replace">
-<!--                            <memberOf key="model.biblPart"/>-->
-<!--                            <memberOf key="model.msQuoteLike"/>-->
+                            <memberOf key="model.biblPart"/>
+                            <memberOf key="model.msQuoteLike"/>
                             <memberOf key="att.typed"/>
                             <memberOf key="att.global"/>
                             <memberOf key="att.msExcerpt" mode="delete"/>
                         </classes>
-                        <content xmlns:teix="http://www.tei-c.org/ns/Examples">    
-                            <elementRef key="locus"/>
-                            <elementRef key="q"/>
-                        </content>
                     </elementSpec>
                     <elementSpec ident="finalRubric" module="msdescription" mode="change">
                         <classes mode="replace">
-<!--                            <memberOf key="model.msQuoteLike"/>-->
+                            <memberOf key="model.msQuoteLike"/>
                             <memberOf key="att.global"/>
                             <memberOf key="att.msExcerpt" mode="delete"/>
                             <memberOf key="att.typed" mode="delete"/>
                         </classes>
-                        <content xmlns:teix="http://www.tei-c.org/ns/Examples">    
-                            <elementRef key="locus"/>
-                            <elementRef key="q"/>
-                        </content>
                     </elementSpec>
                     <elementSpec ident="incipit" module="msdescription" mode="change">
                         <classes mode="replace">
-<!--                            <memberOf key="model.biblPart"/>-->
-<!--                            <memberOf key="model.msQuoteLike"/>-->
+                            <memberOf key="model.biblPart"/>
+                            <memberOf key="model.msQuoteLike"/>
                             <memberOf key="att.global"/>
                             <memberOf key="att.msExcerpt" mode="delete"/>
                             <memberOf key="att.typed" mode="delete"/>
                         </classes>
-                        <content xmlns:teix="http://www.tei-c.org/ns/Examples">    
-                            <elementRef key="locus"/>
-                            <elementRef key="q"/>
-                        </content>
                     </elementSpec>
                     <elementSpec ident="institution" module="msdescription" mode="change">
                         <classes mode="replace">
@@ -785,16 +746,11 @@ End license statement: do not remove -->
                     </elementSpec>
                     <elementSpec ident="locus" module="msdescription" mode="change">
                         <classes mode="replace">
-<!--                            <memberOf key="model.pPart.msdesc"/>-->
+                            <memberOf key="model.pPart.msdesc"/>
                             <memberOf key="att.pointing"/>
                             <memberOf key="att.global"/>
                             <memberOf key="att.typed" mode="delete"/>
                         </classes>
-                        <content>
-                            <alternate maxOccurs="unbounded" minOccurs="0">
-                                <textNode/>
-                            </alternate>
-                        </content>
                     </elementSpec>
                     <elementSpec ident="locusGrp" module="msdescription" mode="change">
                         <classes mode="replace">
@@ -810,23 +766,11 @@ End license statement: do not remove -->
                     </elementSpec>
                     <elementSpec ident="msItem" module="msdescription" mode="change">
                         <classes mode="replace">
-<!--                            <memberOf key="model.msItemPart"/>-->
+                            <memberOf key="model.msItemPart"/>
                             <memberOf key="att.global"/>
                             <memberOf key="att.msClass"/>
                             <memberOf key="att.msExcerpt" mode="delete"/>
                         </classes>
-                        <content xmlns:teix="http://www.tei-c.org/ns/Examples">    
-                            <elementRef key="locus"/>
-                            <elementRef key="title"/>
-                            <elementRef key="author"/>
-                            <elementRef key="textLang"/>
-                            <elementRef key="rubric"/>
-                            <elementRef key="incipit"/>
-                            <elementRef key="explicit"/>
-                            <elementRef key="finalRubric"/>
-                            <elementRef key="colophon"/>
-                            <elementRef key="note"/>
-                        </content>
                         <attList>
                             <attDef ident="rendition" mode="delete"/>
                             <attDef ident="style" mode="delete"/>
@@ -845,9 +789,6 @@ End license statement: do not remove -->
                         <classes mode="replace">
                             <memberOf key="att.global" mode="delete"/>
                         </classes>
-                        <content>
-                            <textNode/>
-                        </content>
                     </elementSpec>
                     <elementSpec ident="TEI" module="textstructure" mode="change">
                         <classes mode="replace">
@@ -858,19 +799,13 @@ End license statement: do not remove -->
                     </elementSpec>
                     <elementSpec ident="msDesc" module="msdescription" mode="change">
                         <classes mode="replace">
-<!--                            <memberOf key="model.biblLike"/>-->
+                            <memberOf key="model.biblLike"/>
                             <memberOf key="att.declaring"/>
                             <memberOf key="att.docStatus"/>
                             <memberOf key="att.sortable"/>
                             <memberOf key="att.typed"/>
                             <memberOf key="att.global" mode="delete"/>
                         </classes>
-                        <content xmlns:teix="http://www.tei-c.org/ns/Examples">
-                            <sequence minOccurs="1" maxOccurs="1">
-                                <elementRef key="msIdentifier"/>
-                                <elementRef key="msPart"/>
-                            </sequence>
-                        </content>
                         <attList>
                             <attDef ident="rendition" mode="delete"/>
                             <attDef ident="style" mode="delete"/>
@@ -880,14 +815,6 @@ End license statement: do not remove -->
                             <attDef ident="cert" mode="delete"/>
                             <attDef ident="rend" mode="delete"/>
                         </attList>
-                    </elementSpec>
-                    <elementSpec ident="msPart" module="msdescription" mode="change">
-                        <content xmlns:teix="http://www.tei-c.org/ns/Examples">
-                            <sequence minOccurs="1" maxOccurs="1">
-                                <elementRef key="msIdentifier"/>
-                                <elementRef key="msContents"/>
-                            </sequence>
-                        </content>
                     </elementSpec>
                     <elementSpec ident="msIdentifier" module="msdescription" mode="change">
                         <attList>
@@ -899,14 +826,6 @@ End license statement: do not remove -->
                         </attList>
                     </elementSpec>
                     <elementSpec ident="msContents" module="msdescription" mode="change">
-                        <content>
-                            <alternate>
-                                <sequence>
-                                    <elementRef key="summary" minOccurs="0"/>
-                                    <elementRef key="msItem"/>
-                                </sequence>
-                            </alternate>
-                        </content>
                         <attList>
                             <attDef ident="cert" mode="delete"/>
                             <attDef ident="rend" mode="delete"/>

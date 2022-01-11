@@ -1,6 +1,6 @@
 <TEI xmlns="http://www.tei-c.org/ns/1.0">
 <msDesc>
-    <msIdentifier>
+    <!--<msIdentifier>
         <country/>
         <settlement/>
         <repository/>
@@ -15,7 +15,7 @@
             <idno type="Ktiv"/>
         </altIdentifier>
         <msName/>
-    </msIdentifier>
+    </msIdentifier>-->
     <msPart>
         <msIdentifier>
             <idno/>
@@ -34,7 +34,7 @@
                         <addName></addName>
                     </persName>
                 </author>
-                <textLang mainLang=""/>
+                <textLang mainLang="" otherLangs=""/>
                 <rubric>
                     <locus from="" to=""></locus>
                     <q><lb/></q>
@@ -55,7 +55,7 @@
                     <locus from="" to=""/>
                     <q><lb/></q>
                 </colophon>
-                <note></note>
+                <note><p></p></note>
             </msItem>
         </msContents>
     </msPart>
