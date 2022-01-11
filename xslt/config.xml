@@ -1,24 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <config>
-    <formTitle>Edit TEI records</formTitle>
+    <formTitle>Edit MSS TEI records</formTitle>
+    <formName>mssTEI</formName>
     <formAuthor>Winona Salesky</formAuthor>
     <formDesc>Example of TEI XForms generated from ODD. Run as an eXist-db application. Resulting TEI can be saved to eXist-db, downloaded to local filesystem, or saved to a GitHub repository</formDesc>
     <!-- Language to output lables, hints etc, if empty defaults to English -->
     <formLang>he</formLang>
-    <!-- Current version of the form generator works with an odd file. More work would be needed to use  -->
-    <localSchema src="../schemas/mss-msitem.xml"></localSchema>
-    <globalSchema src="../schemas/mss-compiled.odd"></globalSchema>
-    <!-- msdesc.odd -->
-    <!-- Main TEI record used to build the form. Initial form will have all the data from the example record included. -->
-    <xmlTemplate src="../schemas/mss-msitem-template-msPart.xml"></xmlTemplate>
     <!--
         For better performance the TEI records are into sections. Each section will output a form. This will allow better load and response time for forms, 
         and a step-by-step method of editing records. In process records will be stored in the DB or downloaded to the file system, where they can be loaded 
         into the form again as needed. 
         
         List forms in order of editing preference.
+        additions
     -->
     <subforms>
-        <subform xpath="/tei:TEI/descendant::tei:msContents" formName="msPart"></subform>
+        <subform xpath="/tei:TEI/descendant::tei:additions" formName="additions">
+            <localSchema src="../schemas/mss-additions.xml"></localSchema>
+            <globalSchema src="../schemas/mss-compiled.odd"></globalSchema>
+            <xmlTemplate src="../schemas/mss-additions-template.xml"></xmlTemplate>
+        </subform>
+        <subform xpath="/tei:TEI/descendant::tei:msContents" formName="msPart">
+            <localSchema src="../schemas/mss-msitem.xml"></localSchema>
+            <globalSchema src="../schemas/mss-compiled.odd"></globalSchema>
+            <xmlTemplate src="../schemas/mss-msitem-template-msPart.xml"></xmlTemplate>
+        </subform>
+        <!--
+        <subform xpath="/tei:TEI/tei:teiHeader/tei:fileDesc/tei:sourceDesc/tei:msDesc/tei:physDesc/tei:bindingDesc" formName="bindingDesc">
+            <localSchema src="../schemas/mss-binding.xml"></localSchema>
+            <globalSchema src="../schemas/mss-compiled.odd"></globalSchema>
+            <xmlTemplate src="../schemas/mss-binding-template.xml"></xmlTemplate>
+        </subform>
+        -->
+        <subform xpath="/tei:TEI/tei:teiHeader/tei:fileDesc/tei:sourceDesc/tei:msDesc/tei:physDesc/tei:objectDesc/tei:supportDesc/tei:support" formName="mssSupport">
+            <localSchema src="../schemas/mss-support.xml"></localSchema>
+            <globalSchema src="../schemas/mss-compiled.odd"></globalSchema>
+            <xmlTemplate src="../schemas/mss-support-template.xml"></xmlTemplate>
+        </subform>
+        <subform xpath="/tei:TEI/tei:layoutDesc" formName="layoutDesc">
+            <localSchema src="../schemas/mss-layout.xml"></localSchema>
+            <globalSchema src="../schemas/mss-compiled.odd"></globalSchema>
+            <xmlTemplate src="../schemas/mss-layout-template.xml"></xmlTemplate>
+        </subform>
+        <subform xpath="/tei:TEI/tei:history" formName="history">
+            <localSchema src="../schemas/mss-history.xml"></localSchema>
+            <globalSchema src="../schemas/mss-compiled.odd"></globalSchema>
+            <xmlTemplate src="../schemas/mss-history-template.xml"></xmlTemplate>
+        </subform>
+        <subform xpath="/tei:TEI/tei:handDesc" formName="handDesc">
+            <localSchema src="../schemas/mss-hand.xml"></localSchema>
+            <globalSchema src="../schemas/mss-compiled.odd"></globalSchema>
+            <xmlTemplate src="../schemas/mss-hand-template.xml"></xmlTemplate>
+        </subform>
     </subforms>
 </config>

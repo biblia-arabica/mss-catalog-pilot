@@ -34,8 +34,10 @@
         May need to ignore or turn into p elements for my own sanity
     -->
     <xsl:param name="config" select="'config.xml'"/>
+    <!-- Global Variables -->
+    <!-- XForm configuration document, default is config.xml -->
     <xsl:variable name="configDoc" select="document($config)"/>
-    <!-- Form languge -->
+    <!-- Form languge; default is en -->
     <xsl:variable name="formLang">
         <xsl:choose>
             <xsl:when test="$configDoc//formLang[. != '']">
@@ -44,44 +46,23 @@
             <xsl:otherwise>en</xsl:otherwise>
         </xsl:choose>
     </xsl:variable>
-    <!-- Local schema customizations -->
-    <xsl:variable name="localSchemaDoc" select="document($configDoc//localSchema/@src)"/>
-    <!-- Global schema -->
-    <xsl:variable name="globalSchemaDoc" select="document($configDoc//globalSchema/@src)"/>
-    <!-- Template for building form -->
-    <xsl:variable name="template" select="document($configDoc//xmlTemplate/@src)"/>
-    <!-- app root -->
+    <!-- For use with the eXist application, establishes the full path to the application -->
     <xsl:variable name="app-root" select="'http://localhost:8080/exist/apps/mssXForms/forms'"/>
+    
     <xsl:output name="xform" encoding="UTF-8" method="xhtml" indent="yes" omit-xml-declaration="yes" xml:space="preserve" xpath-default-namespace="http://www.w3.org/1999/xhtml"/>
-    <xsl:output name="tei" encoding="UTF-8" method="xml" indent="yes"
-        xpath-default-namespace="http://www.tei-c.org/ns/1.0"/>
+    <xsl:output name="tei" encoding="UTF-8" method="xml" indent="yes" xpath-default-namespace="http://www.tei-c.org/ns/1.0"/>
 
-    <!-- Check schema for element rules
-        WS:Note will need to refine so we get local/global and then check against each other for final set of rules. 
-    -->
     <!-- Helper functions -->
-    <xsl:function name="local:localElementRules">
-        <xsl:param name="elementName"/>
-        <xsl:for-each select="$localSchemaDoc//descendant-or-self::*:elementSpec[@ident = $elementName]">
-            <xsl:copy-of select="."/>
-        </xsl:for-each>
-    </xsl:function>
-    <xsl:function name="local:globalElementRules">
-        <xsl:param name="elementName"/>
-        <xsl:for-each
-            select="$globalSchemaDoc//descendant-or-self::*:elementSpec[@ident = $elementName]">
-            <xsl:copy-of select="."/>
-        </xsl:for-each>
-    </xsl:function>
-    <xsl:function name="local:parentElementRules">
-        <xsl:param name="parentElementName"/>
-        <xsl:for-each
-            select="$localSchemaDoc//descendant-or-self::tei:elementSpec[@ident = $parentElementName]">
-            <xsl:copy-of select="."/>
-        </xsl:for-each>
-    </xsl:function>
+    <!-- 
+        Check local and global schemas for element rules 
+        @param: elementName - name of element to lookup in the schema
+        @param: subform  - name of subform, for locating the correct local schema customizations
+    -->    
     <xsl:function name="local:elementRules">
         <xsl:param name="elementName"/>
+        <xsl:param name="subform"/>
+        <xsl:variable name="localSchemaDoc" select="document($configDoc//subform[@formName = $subform]/localSchema/@src)"/>
+        <xsl:variable name="globalSchemaDoc" select="document($configDoc//subform[@formName = $subform]/globalSchema/@src)"/>
         <rules xmlns="http://www.tei-c.org/ns/1.0">
             <local>
                 <xsl:for-each select="$localSchemaDoc//descendant-or-self::tei:elementSpec[@ident = $elementName]">
@@ -95,9 +76,15 @@
             </global>
         </rules>
     </xsl:function>
+    <!-- 
+        Find all child elements for selected element, check local schema rules first, then global 
+        @param: elementName - name of element to lookup in the schema
+        @param: subform  - name of subform, for locating the correct local schema customizations
+    -->
     <xsl:function name="local:childElements">
         <xsl:param name="elementName"/>
-        <xsl:variable name="elementRules" select="local:elementRules($elementName)"/>
+        <xsl:param name="subform"/>
+        <xsl:variable name="elementRules" select="local:elementRules($elementName, $subform)"/>
         <xsl:variable name="elementRefs">
             <xsl:variable name="rules">
                 <xsl:choose>
@@ -117,10 +104,10 @@
                         <xsl:when test="contains(current-grouping-key(),'.')">
                             <xsl:choose>
                                 <xsl:when test="contains(current-grouping-key(),'macro.')">
-                                    <xsl:copy-of select="local:resolveMacroSpec(current-grouping-key())"></xsl:copy-of> 
+                                    <xsl:copy-of select="local:resolveMacroSpec(current-grouping-key(),$subform)"></xsl:copy-of> 
                                 </xsl:when>
                                 <xsl:otherwise>
-                                    <xsl:copy-of select="local:resolveClassRef(current-grouping-key())"></xsl:copy-of>
+                                    <xsl:copy-of select="local:resolveClassRef(current-grouping-key(),$subform)"></xsl:copy-of>
                                 </xsl:otherwise>
                             </xsl:choose>
                         </xsl:when>
@@ -134,9 +121,16 @@
             <xsl:copy-of select="$elementRefs"/>
         </child>
     </xsl:function>
-    <!-- resolve class refs -->
+    <!-- 
+        Find all child elements using memberOf references within an element specification. 
+        @param: elementName - name of element to lookup in the schema
+        @param: subform  - name of subform, for locating the correct local schema customizations
+    -->
     <xsl:function name="local:resolveClassRef">
         <xsl:param name="className"/>
+        <xsl:param name="subform"/>
+        <xsl:variable name="localSchemaDoc" select="document($configDoc//subform[@formName = $subform]/localSchema/@src)"/>
+        <xsl:variable name="globalSchemaDoc" select="document($configDoc//subform[@formName = $subform]/globalSchema/@src)"/>
         <xsl:variable name="localRules">
             <xsl:for-each select="$localSchemaDoc//descendant-or-self::*[tei:classes/tei:memberOf[@key = $className]]">
                 <xsl:choose>
@@ -150,7 +144,7 @@
                             </xsl:when>
                             <xsl:when test="self::tei:classSpec">
                                 <xsl:variable name="subClassName" select="@ident"/>
-                                <xsl:copy-of select="local:resolveClassRef($subClassName)"/>
+                                <xsl:copy-of select="local:resolveClassRef($subClassName,$subform)"/>
                             </xsl:when>
                             <xsl:otherwise><xsl:value-of select="name(.)"/></xsl:otherwise>
                         </xsl:choose>
@@ -170,7 +164,7 @@
                         </xsl:when>
                         <xsl:when test="self::tei:classSpec">
                             <xsl:variable name="subClassName" select="@ident"/>
-                            <xsl:copy-of select="local:resolveClassRef($subClassName)"/>
+                            <xsl:copy-of select="local:resolveClassRef($subClassName,$subform)"/>
                         </xsl:when>
                         <xsl:otherwise><xsl:value-of select="name(.)"/></xsl:otherwise>
                     </xsl:choose>
@@ -178,8 +172,16 @@
             </xsl:otherwise>
         </xsl:choose>
     </xsl:function>
+    <!-- 
+        Find all child elements using macroSpec references within an element specification. 
+        @param: elementName - name of element to lookup in the schema
+        @param: subform  - name of subform, for locating the correct local schema customizations
+    -->
     <xsl:function name="local:resolveMacroSpec">
         <xsl:param name="macroSpec"/>
+        <xsl:param name="subform"/>
+        <xsl:variable name="localSchemaDoc" select="document($configDoc//subform[@formName = $subform]/localSchema/@src)"/>
+        <xsl:variable name="globalSchemaDoc" select="document($configDoc//subform[@formName = $subform]/globalSchema/@src)"/>
         <xsl:variable name="localRules">
             <xsl:for-each select="$globalSchemaDoc/descendant-or-self::tei:macroSpec[@ident = $macroSpec]/descendant-or-self::tei:content/descendant-or-self::*[@key]">
                 <xsl:choose>
@@ -193,11 +195,11 @@
                             </xsl:when>
                             <xsl:when test="self::tei:classSpec">
                                 <xsl:variable name="subClassName" select="@ident"/>
-                                <xsl:copy-of select="local:resolveClassRef($subClassName)"/>
+                                <xsl:copy-of select="local:resolveClassRef($subClassName,$subform)"/>
                             </xsl:when>
                             <xsl:when test="self::tei:classRef">
                                 <xsl:variable name="subClassName" select="@key"/>
-                                <xsl:copy-of select="local:resolveClassRef($subClassName)"/>
+                                <xsl:copy-of select="local:resolveClassRef($subClassName,$subform)"/>
                             </xsl:when>
                             <xsl:when test="self::tei:elementRef">
                                 <element xmlns="http://www.tei-c.org/ns/1.0" ident="{string(@key)}" class="local">
@@ -221,11 +223,11 @@
                         </xsl:when>
                         <xsl:when test="self::tei:classSpec">
                             <xsl:variable name="subClassName" select="@ident"/>
-                            <xsl:copy-of select="local:resolveClassRef($subClassName)"/>
+                            <xsl:copy-of select="local:resolveClassRef($subClassName,$subform)"/>
                         </xsl:when>
                         <xsl:when test="self::tei:classRef">
                             <xsl:variable name="subClassName" select="@key"/>
-                            <xsl:copy-of select="local:resolveClassRef($subClassName)"/>
+                            <xsl:copy-of select="local:resolveClassRef($subClassName, $subform)"/>
                         </xsl:when>
                         <xsl:when test="self::tei:elementRef">
                             <element xmlns="http://www.tei-c.org/ns/1.0" ident="{string(@key)}" class="global">
@@ -238,71 +240,16 @@
             </xsl:otherwise>
         </xsl:choose>
     </xsl:function>
-    
-    <xsl:function name="local:resolveElementClassRef">
-        <xsl:param name="className"/>
-        <xsl:variable name="localClass">
-            <xsl:for-each select="$localSchemaDoc//descendant-or-self::*[tei:classes/tei:memberOf[@key = $className]]">
-                <xsl:choose>
-                    <xsl:when test="self::tei:elementSpec">
-                        <element xmlns="http://www.tei-c.org/ns/1.0" ident="{string(@ident)}" className="{$className}">
-                            <xsl:value-of select="string(@ident)"/>
-                        </element>
-                    </xsl:when>
-                    <xsl:when test="self::tei:classSpec">
-                        <xsl:variable name="subClassName" select="@ident"/>
-                        <xsl:copy-of select="local:resolveElementClassRef($subClassName)"/>
-                    </xsl:when>
-                </xsl:choose>
-            </xsl:for-each>
-        </xsl:variable>
-        <xsl:choose>
-            <xsl:when test="$localClass//*:element">
-                <xsl:copy-of select="$localClass"/>
-            </xsl:when>
-            <xsl:otherwise>
-                <xsl:for-each select="$globalSchemaDoc//descendant-or-self::*[tei:classes/tei:memberOf[@key = $className]]">
-                    <xsl:choose>
-                        <xsl:when test="self::tei:elementSpec">
-                            <element xmlns="http://www.tei-c.org/ns/1.0" ident="{string(@ident)}" className="{$className}">
-                                <xsl:value-of select="string(@ident)"/>
-                            </element>
-                        </xsl:when>
-                        <xsl:when test="self::tei:classSpec">
-                            <xsl:variable name="subClassName" select="@ident"/>
-                            <xsl:copy-of select="local:resolveElementClassRef($subClassName)"/>
-                        </xsl:when>
-                    </xsl:choose>
-                </xsl:for-each>
-            </xsl:otherwise>
-        </xsl:choose>
-    </xsl:function>
-    <!-- Older function, moving away from this -->
-    <xsl:function name="local:elementRefs">
-        <xsl:param name="elementName"/>
-        <xsl:variable name="elementRules" select="local:elementRules($elementName)"/>
-        <xsl:variable name="childElement" select="$elementRules/descendant-or-self::tei:elementRef | $elementRules/descendant-or-self::tei:classRef | $elementRules/descendant-or-self::tei:macroRef"/>
-        <xsl:variable name="keys" select="distinct-values($elementRules/descendant-or-self::tei:elementRef/@key | $elementRules/descendant-or-self::tei:classRef/@key | $elementRules/descendant-or-self::tei:macroRef/@key)"/>
-        <xsl:for-each-group select="$childElement" group-by="@key">
-            <element xmlns="http://www.tei-c.org/ns/1.0" ident="{string(current-grouping-key())}">
-                <xsl:copy-of select="@*"/>
-                <xsl:choose>
-                    <xsl:when test="self::tei:classRef">
-                        <xsl:attribute name="classRef" select="'true'"/>
-                        <xsl:copy-of select="local:resolveElementClassRef(current-grouping-key())"/>
-                    </xsl:when>
-                    <xsl:when test="self::tei:macroRef">
-                    <!-- placeholder  -->
-                    </xsl:when>
-                    <xsl:otherwise>
-                        <xsl:value-of select="current-grouping-key()"/>
-                    </xsl:otherwise>
-                </xsl:choose>
-            </element>
-        </xsl:for-each-group>
-    </xsl:function>
+ <!-- 
+        Find all associated attributes of the specified element 
+        @param: elementName - name of element to lookup in the schema
+        @param: subform  - name of subform, for locating the correct local schema customizations
+    -->
     <xsl:function name="local:classSpecAtt">
         <xsl:param name="className"/>
+        <xsl:param name="subform"/>
+        <xsl:variable name="localSchemaDoc" select="document($configDoc//subform[@formName = $subform]/localSchema/@src)"/>
+        <xsl:variable name="globalSchemaDoc" select="document($configDoc//subform[@formName = $subform]/globalSchema/@src)"/>
         <xsl:variable name="localClasses" select="$localSchemaDoc//descendant-or-self::tei:classSpec[@ident = $className]"/>
         <xsl:variable name="globalClasses" select="$globalSchemaDoc//descendant-or-self::tei:classSpec[@ident = $className]"/>
         <rules xmlns="http://www.tei-c.org/ns/1.0">
@@ -312,7 +259,7 @@
                 </xsl:for-each>
                 <xsl:variable name="memberOf" select="$localClasses/descendant-or-self::tei:classes/tei:memberOf[starts-with(@key, 'att.')]/@key"/>
                 <xsl:for-each select="$memberOf">
-                    <xsl:copy-of select="local:classSpecAtt($memberOf)"/>
+                    <xsl:copy-of select="local:classSpecAtt($memberOf, $subform)"/>
                 </xsl:for-each>
             </local>
             <global>
@@ -321,27 +268,31 @@
                 </xsl:for-each>
                 <xsl:variable name="memberOf" select="$globalClasses/descendant-or-self::tei:classes/tei:memberOf[starts-with(@key, 'att.')]/@key"/>
                 <xsl:for-each select="$memberOf">
-                    <xsl:copy-of select="local:classSpecAtt($memberOf)"/>
+                    <xsl:copy-of select="local:classSpecAtt($memberOf,$subform)"/>
                 </xsl:for-each>
             </global>
         </rules>
     </xsl:function>
+    <!-- 
+        Find all associated attributes of the specified element 
+        @param: elementName - name of element to lookup in the schema
+        @param: subform  - name of subform, for locating the correct local schema customizations
+    -->
     <xsl:function name="local:allAttributes">
         <xsl:param name="elementName"/>
-        <xsl:variable name="elementRules" select="local:elementRules($elementName)"/>
+        <xsl:param name="subform"/>
+        <xsl:variable name="elementRules" select="local:elementRules($elementName, $subform)"/>
         <xsl:variable name="childAtt" select="$elementRules/descendant-or-self::tei:attList/descendant-or-self::tei:attDef"/>
-<!--        <xsl:variable name="memberOf" select="$elementRules/descendant-or-self::tei:classes/tei:memberOf[starts-with(@key, 'att.')]/@key"/>-->
         <xsl:variable name="memberOfAtt">
             <xsl:for-each select="$elementRules/descendant-or-self::tei:classes/tei:memberOf[starts-with(@key, 'att.')]">
                 <xsl:choose>
                     <xsl:when test=".[@mode='delete'][ancestor-or-self::tei:local]"></xsl:when>
-                    <xsl:when test=".[@mode='change'][ancestor-or-self::tei:local]"><xsl:copy-of select="local:classSpecAtt(.[@mode='change'][ancestor-or-self::tei:local][1]/@key)"/></xsl:when>
-                    <xsl:when test=".[@mode='opt'][ancestor-or-self::tei:local]"><xsl:copy-of select="local:classSpecAtt(.[@mode='opt'][ancestor-or-self::tei:local][1]/@key)"/></xsl:when>
-                    <xsl:when test=".[@mode='add'][ancestor-or-self::tei:local]"><xsl:copy-of select="local:classSpecAtt(.[@mode='add'][ancestor-or-self::tei:local][1]/@key)"/></xsl:when>
-                    <xsl:when test=".[@mode='replace'][ancestor-or-self::tei:local]"><xsl:copy-of select="local:classSpecAtt(.[@mode='replace'][ancestor-or-self::tei:local][1]/@key)"/></xsl:when>
+                    <xsl:when test=".[@mode='change'][ancestor-or-self::tei:local]"><xsl:copy-of select="local:classSpecAtt(.[@mode='change'][ancestor-or-self::tei:local][1]/@key,$subform)"/></xsl:when>
+                    <xsl:when test=".[@mode='opt'][ancestor-or-self::tei:local]"><xsl:copy-of select="local:classSpecAtt(.[@mode='opt'][ancestor-or-self::tei:local][1]/@key,$subform)"/></xsl:when>
+                    <xsl:when test=".[@mode='add'][ancestor-or-self::tei:local]"><xsl:copy-of select="local:classSpecAtt(.[@mode='add'][ancestor-or-self::tei:local][1]/@key,$subform)"/></xsl:when>
+                    <xsl:when test=".[@mode='replace'][ancestor-or-self::tei:local]"><xsl:copy-of select="local:classSpecAtt(.[@mode='replace'][ancestor-or-self::tei:local][1]/@key,$subform)"/></xsl:when>
                     <xsl:otherwise><xsl:copy-of select=".[1]"/></xsl:otherwise>
                 </xsl:choose>
-<!--                <xsl:copy-of select="local:classSpecAtt($memberOf)"/>-->
             </xsl:for-each>
         </xsl:variable>
         <availableAtts xmlns="http://www.tei-c.org/ns/1.0" elementName="{$elementName}">
@@ -360,7 +311,16 @@
     </xsl:function>
 
     <xsl:template match="/">
-        <!-- Output XForm for each subform in config.xml, if no subforms, output full TEI record (not recommended). -->
+        <!-- 
+            Output Main form navigation page
+            Load either template, or find record
+            List sections in order
+            Allow paging? 
+        -->
+        <xsl:result-document href="{$configDoc//formName}.xhtml" format="xform">
+            <xsl:call-template name="formMainPage"/>
+        </xsl:result-document>
+        <!-- Output an XForm for each subform listed in the config.xml subforms section -->
         <xsl:for-each select="$configDoc//subform">
             <xsl:variable name="formName" select="@formName"/>
             <xsl:result-document href="{$formName}.xhtml" format="xform">
@@ -369,20 +329,222 @@
                 </xsl:call-template>
             </xsl:result-document>
         </xsl:for-each>
-        <!-- Output controlledValues template file -->
+        <!-- Output controlled values for each custom schema -->
+        <xsl:for-each select="$configDoc//subform">
+            <xsl:variable name="formName" select="@formName"/>
+            <xsl:result-document href="{$formName}-controlledValues.xml" format="tei">
+                <xsl:call-template name="controlledValues">
+                    <xsl:with-param name="subform" select="$formName"/>
+                </xsl:call-template>
+            </xsl:result-document>
+        </xsl:for-each>
+        <!-- WS:NOTE Not needed any more? Test
         <xsl:result-document href="controlledValues.xml" format="tei">
             <xsl:call-template name="controlledValues"/>
         </xsl:result-document>
+        -->
+        <!-- Output an XForm with all possible elements, used to add elements -->
         <xsl:result-document href="elementTemplate.xml" format="tei">
             <xsl:call-template name="elementTemplate"/>
         </xsl:result-document>
+        <!-- Output an XForm with all possible attributes, used to add attributes -->
         <xsl:result-document href="attributesTemplate.xml" format="tei">
             <xsl:call-template name="attributesTemplate"/>
         </xsl:result-document>
     </xsl:template>
     
+    <xsl:template name="formMainPage">
+        <xsl:text disable-output-escaping="yes">&lt;!DOCTYPE html&gt;</xsl:text>
+        <html xmlns="http://www.w3.org/1999/xhtml" 
+            xmlns:xi="http://www.w3.org/2001/XInclude"
+            xmlns:ev="http://www.w3.org/2001/xml-events" 
+            xmlns:tei="http://www.tei-c.org/ns/1.0"
+            xmlns:xf="http://www.w3.org/2002/xforms"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+            <head>
+                <title>
+                    <xsl:value-of select="$configDoc//formTitle"/>
+                </title>
+                <meta name="author" content="{$configDoc//formAuthor}"/>
+                <meta name="description" content="{$configDoc//formDesc}"/>
+                <link rel="stylesheet" type="text/css" href="resources/bootstrap/css/bootstrap.min.css"/>
+                <link rel="stylesheet" type="text/css" href="resources/css/xforms.css"/>
+                <link href="resources/jquery-ui/jquery-ui.min.css" rel="stylesheet"/>
+                <script type="text/javascript" src="resources/js/jquery.min.js"/>
+                <script type="text/javascript" src="resources/bootstrap/js/bootstrap.min.js"/>
+                <xf:model id="m-mss">
+                    <xf:instance id="i-rec">
+                        <data></data>
+                    </xf:instance>
+                    <xf:instance id="i-upload">
+                        <attachment xsi:type="xsd:anyURI"></attachment>
+                    </xf:instance>
+                    <xf:instance id="i-search">
+                        <data></data>
+                    </xf:instance>
+                    <xf:instance id="i-search-results">
+                        <data></data>
+                    </xf:instance>
+                    <xf:instance id="i-selected">
+                        <data>
+                        </data>
+                    </xf:instance>
+                    <xf:instance id="i-selectTemplate">
+                        <data>
+                            <template name="Generic Template" src="/forms/templates/template.xml"></template>
+                            <template name="MSS Additions Template" src="/forms/templates/mss-additions-template.xml"></template>
+                            <template name="MSS Hand Template" src="/forms/templates/mss-hand-template.xml"></template>
+                            <template name="MSS History Template" src="/forms/templates/mss-history-template.xml"></template>
+                            <template name="MSS Layout Template" src="/forms/templates/mss-layout-template.xml"></template>
+                        </data>
+                    </xf:instance>
+                    <xf:instance id="i-subforms">
+                        <data>
+                            <xsl:for-each select="$configDoc//subform">
+                                <subform formName="{@formName}"></subform>
+                            </xsl:for-each>
+                        </data>
+                    </xf:instance>
+                    <xf:submission id="s-load-template" 
+                        method="post" ref="instance('i-selected')" 
+                        replace="instance" 
+                        instance="i-rec" 
+                        serialization="none" mode="synchronous">
+                        <xf:resource value="concat('services/get-rec.xql?template=true&amp;path=',instance('i-selected'))"/>
+                        <xf:message level="modeless" ev:event="xforms-submit-done"> Data Loaded! </xf:message>
+                        <xf:message level="modeless" ev:event="xforms-submit-error"> Submit error. </xf:message>
+                    </xf:submission>
+                    <xf:submission id="s-search-saved" 
+                        method="post" ref="instance('i-search')" 
+                        replace="instance" 
+                        instance="i-search-results" 
+                        serialization="none" mode="synchronous" action="services/get-rec.xql?search=true" >
+<!--                        <xf:resource value="concat('services/get-rec.xql?template=true&amp;path=',instance('i-selected'))"/>-->
+                        <xf:message level="modeless" ev:event="xforms-submit-done"> Data Loaded! </xf:message>
+                        <xf:message level="modeless" ev:event="xforms-submit-error"> Submit error. </xf:message>
+                    </xf:submission>
+                    <xf:submission id="s-browse-saved" 
+                        method="post" ref="instance('i-search')" 
+                        replace="instance" 
+                        instance="i-search-results" 
+                        serialization="none" mode="synchronous" action="services/get-rec.xql?search=true&amp;view=all" >
+                        <xf:message level="modeless" ev:event="xforms-submit-error"> Submit error. </xf:message>
+                    </xf:submission>
+                </xf:model>
+                    
+                    <!-- s-load-template
+                        <xf:submission id="upload" ref="instance('i-rec')" method="xml-urlencoded-post" replace="all" action="load.xql"> 
+                            <xf:message level="modeless" ev:event="xforms-submit-error"> Submit error. </xf:message> 
+                        </xf:submission> 
+                        <xf:submission id="fileSearch" ref="instance('i-search')" method="xml-urlencoded-post" replace="all" action="search.xql"> 
+                            <xf:message level="modeless" ev:event="xforms-submit-error"> Submit error. </xf:message> 
+                        </xf:submission>
+                    --> 
+            </head>
+            <body>
+                <div class="section xforms">
+                    <!-- Form title -->
+                    <h1><xsl:value-of select="$configDoc//formTitle"/></h1> 
+                    <!-- Form description -->
+                    <xsl:if test="$configDoc//formDesc != ''">
+                        <p><xsl:value-of select="$configDoc//formDesc"/></p>
+                    </xsl:if>
+                    <div class="row tabbable">
+                        <!-- Menu items, subforms -->
+                        <ul class="nav nav-pills nav-stacked col-md-3">
+                            <li>
+                                <xf:trigger appearance="minimal">
+                                    <xf:label>Main Page &#160;</xf:label>
+                                    <xf:action ev:event="DOMActivate">
+                                        <xf:toggle case="view-main-entry"/>
+                                    </xf:action>
+                                </xf:trigger>
+                            </li>
+                            <xsl:for-each select="$configDoc//subform">
+                                <li> 
+                                    <xf:trigger appearance="minimal" ref="instance('i-subforms')//*:subform[@formName = '{string(@formName)}']">
+                                        <xf:label><xsl:value-of select="string(@formName)"/> &#160;</xf:label>
+                                        <xf:action ev:event="DOMActivate">
+                                            <xf:toggle case="view-data-entry"/>
+                                            <xf:load if="@selected != 'true'" show="embed" targetid="subform" resource="{concat('form.xq?form=forms/',@formName,'.xhtml')}"/>
+                                            <xf:unload if="@selected = 'true'" targetid="subform"/>
+                                            <xf:setvalue ref="@selected" value=". != 'true'"/>
+                                        </xf:action>
+                                    </xf:trigger>
+                                </li>
+                            </xsl:for-each>
+                        </ul>
+                        <div class="tab-content col-md-9">
+                            <xf:switch id="edit" class="tab-panel">
+                                <xf:case id="view-main-entry" selected="true()">
+                                    <h2>Find your data</h2>
+                                    <!-- Save for later -->
+                                    <!-- Load an existing template -->
+                                    <div class="fileLoading">
+                                        <xf:select1 xmlns="http://www.w3.org/2002/xforms" ref="instance('i-selected')">
+                                            <xf:label>Search saved TEI records</xf:label>
+                                            <xf:itemset ref="instance('i-selectTemplate')//*:template">
+                                                <xf:label ref="@name"/>
+                                                <xf:value ref="@src"/>
+                                            </xf:itemset>
+                                        </xf:select1>
+                                        <xf:submit class="btn btn-default" submission="s-load-template" appearance="minimal">
+                                            <xf:label> Load selected record </xf:label>
+                                        </xf:submit>
+                                    </div>
+                                    <div class="fileLoading">
+                                        <xf:input ref="instance('i-search')" incremental="true">
+                                            <xf:label>Select a saved TEI XML record: </xf:label>
+                                        </xf:input>
+                                        <xf:submit class="btn btn-default" submission="s-search-saved" appearance="minimal">
+                                            <xf:label> Search </xf:label>
+                                        </xf:submit>
+                                        <xf:submit class="btn btn-default" submission="s-browse-saved" appearance="minimal">
+                                            <xf:label> Browse </xf:label>
+                                        </xf:submit>
+                                    </div>
+                                    <div class="fileLoading">
+                                        <xf:select1 xmlns="http://www.w3.org/2002/xforms" ref="instance('i-selected')">
+                                            <xf:label>Select a TEI XML record to edit</xf:label>
+                                            <xf:itemset ref="instance('i-search-results')//*:record">
+                                                <xf:label ref="@name"/>
+                                                <xf:value ref="@src"/>
+                                            </xf:itemset>
+                                        </xf:select1>
+                                        <xf:submit class="btn btn-default" submission="s-load-search" appearance="minimal">
+                                            <xf:label> Load selected record </xf:label>
+                                        </xf:submit>
+                                    </div>
+                                    <!--
+                                        <div class="fileLoading">
+                                            <xf:upload ref="instance('i-upload')" mediatype="application/xml" incremental="true">
+                                                <xf:label>Upload a TEI XML record: </xf:label>
+                                                <xf:trigger>
+                                                    <xf:label>Submit</xf:label>
+                                                    <xf:setvalue ev:event="DOMActivate" ref="instance('i-upload')//*:attachment" value="transform(instance('content'), serialize(instance('serialize')), true())"/>
+                                                </xf:trigger>
+                                            </xf:upload>
+                                        </div>
+                                    -->
+                                    <h3>Preview XML</h3>
+                                    <xf:group>
+                                        <xf:output value="serialize(instance('i-rec'))"/>
+                                    </xf:group>
+                                </xf:case>
+                                <xf:case id="view-data-entry">
+                                    <xf:group id="subform"/>
+                                </xf:case>
+                            </xf:switch>
+                        </div>
+                    </div>
+                </div>
+            </body>
+        </html>
+    </xsl:template>
+    
     <xsl:template name="xform">
         <xsl:param name="subform"/>
+        <xsl:variable name="template" select="document($subform/xmlTemplate/@src)"/>  
         <xsl:text disable-output-escaping="yes">&lt;!DOCTYPE html&gt;</xsl:text>
         <html xmlns="http://www.w3.org/1999/xhtml" xmlns:xi="http://www.w3.org/2001/XInclude"
             xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:tei="http://www.tei-c.org/ns/1.0"
@@ -393,17 +555,16 @@
                 </title>
                 <meta name="author" content="{$configDoc//formAuthor}"/>
                 <meta name="description" content="{$configDoc//formDesc}"/>
-                <link rel="stylesheet" type="text/css"
-                    href="resources/bootstrap/css/bootstrap.min.css"/>
+                <link rel="stylesheet" type="text/css" href="resources/bootstrap/css/bootstrap.min.css"/>
                 <link rel="stylesheet" type="text/css" href="resources/css/xforms.css"/>
                 <link href="resources/jquery-ui/jquery-ui.min.css" rel="stylesheet"/>
                 <script type="text/javascript" src="resources/js/jquery.min.js"/>
                 <script type="text/javascript" src="resources/bootstrap/js/bootstrap.min.js"/>
                 <xf:model id="m-mss">
                     <!-- Create instances -->
-                    <xf:instance id="i-rec" src="forms/templates/{$configDoc//xmlTemplate/@src}"/>
+                    <xf:instance id="i-rec" src="forms/templates/{$subform/xmlTemplate/@src}"/>
                     <xf:instance id="i-template" src="forms/templates/template.xml"/>
-                    <xf:instance id="i-ctr-vals" src="forms/templates/controlledValues.xml"/>
+                    <xf:instance id="i-ctr-vals" src="forms/templates/{string($subform/@formName)}-controlledValues.xml"/>
                     <xf:instance id="i-elementTemplate" src="forms/templates/elementTemplate.xml"/>
                     <xf:instance id="i-attributeTemplate" src="forms/templates/attributesTemplate.xml"/>
                     <!-- i-insert-elements -->
@@ -466,13 +627,6 @@
                     <h1>
                         <xsl:value-of select="$subform/@formName"/>
                     </h1>
-                    <!-- Create view (inputs) -->
-                    <!-- 
-                                 1. Check template for element
-                                 2. Check template and/or schema for optional attributes and child elements
-                                 3. If attributes, create inputs and dropdowns, with controlled values if specified in schema
-                                 3. If terminal element, build input options.
-                             -->
                     <xsl:variable name="xpath" select="string($subform/@xpath)"/>
                     <xsl:variable name="subsequence">
                         <xsl:evaluate xpath="$xpath" context-item="$template"/>
@@ -482,22 +636,12 @@
                         <xsl:variable name="elementName" select="local-name(.)"/>
                         <xsl:call-template name="xformElementUI">
                             <xsl:with-param name="elementName" select="$elementName"/>
+                            <xsl:with-param name="subform" select="$subform/@formName"/>
                             <xsl:with-param name="path"/>
                             <xsl:with-param name="min"/>
                             <xsl:with-param name="max"/>
                             <xsl:with-param name="level" select="'root'"/>
                         </xsl:call-template>
-
-                        <!-- 
-                                <xsl:if test="child::element()">
-                                    <xsl:for-each select="child::element()">
-                                        <xsl:variable name="childPath" select="replace(replace(replace(replace(path(.),'Q\{http://www.tei-c.org/ns/1.0\}','tei:'),'tei:TEI','/'),'\[[0-9]+\]',''),'///','//')"/>
-                                        <xsl:call-template name="formElement">
-                                            <xsl:with-param select="$childPath" name="path"/>
-                                        </xsl:call-template>
-                                    </xsl:for-each>
-                                </xsl:if>
-                                -->
                     </xsl:for-each>
                     <xsl:call-template name="submission"/>
                 </div>
@@ -521,19 +665,13 @@
         </div>
     </xsl:template>
     <xsl:template name="controlledValues">
+        <xsl:param name="subform"/>
+        <xsl:variable name="localSchemaDoc" select="document($configDoc//subform[@formName = $subform]/localSchema/@src)"/>
         <!-- Build a template with all the controlled values, referenced by the xforms model -->
         <xsl:for-each select="$localSchemaDoc/child::*">
             <!-- <xsl:call-template name="buildXFormsElement"/> -->
             <TEI xmlns="http://www.tei-c.org/ns/1.0" xml:id="controlledValues" xml:lang="en">
                 <xsl:apply-templates mode="controlledValues"/>
-            </TEI>
-        </xsl:for-each>
-    </xsl:template>
-    <xsl:template name="template">
-        <!-- Build a template with all possible child elements and attributes, referenced by the xforms model -->
-        <xsl:for-each select="$template/element()">
-            <TEI xmlns="http://www.tei-c.org/ns/1.0" xml:id="controlledValues" xml:lang="en">
-                <xsl:apply-templates mode="template"/>
             </TEI>
         </xsl:for-each>
     </xsl:template>
@@ -555,32 +693,27 @@
     -->
     <xsl:template name="elementTemplate">
         <TEI xmlns="http://www.tei-c.org/ns/1.0">
-            <xsl:variable name="teiHeaderElements" select="local:elementRules('teiHeader')"/>
-            <xsl:variable name="textElements" select="local:elementRules('text')"/>
-            <xsl:for-each-group select="$localSchemaDoc//descendant-or-self::tei:elementSpec | $globalSchemaDoc//descendant-or-self::tei:elementSpec" group-by="@ident">
+            <!-- WS:NOTE this does not include local schemas, so if new elements are added they will not be picked up, 
+                I do not foresee this as an issue, but will re-evaluate as needed -->
+            <xsl:variable name="globalSchemaDoc" select="document($configDoc//subform[1]/globalSchema/@src)"/>
+            <xsl:for-each-group select="$globalSchemaDoc//descendant-or-self::tei:elementSpec" group-by="@ident">
                 <xsl:sort select="current-grouping-key()"/>
                 <xsl:element name="{current-grouping-key()}" namespace="http://www.tei-c.org/ns/1.0"/>
             </xsl:for-each-group>
-            <!--WS:Note 
-                This works, but it since it has all the children, whenever you insert an element, it insert the element and available children, 
-                I think what we want is a flat output of all available elements, not necessarily nested, just a list. 
-            
-            <xsl:for-each select="$configDoc//subform">
-                <xsl:call-template name="buildElementInstance">
-                    <xsl:with-param name="elementName" select="@formName"/>     
-                </xsl:call-template>
-            </xsl:for-each>
-            -->
         </TEI>
     </xsl:template>
 
     <xsl:template name="attributesTemplate">
+        <xsl:variable name="globalSchemaDoc" select="document($configDoc//globalSchema[1]/@src)"/>
+        <xsl:variable name="localSchemaDoc">
+            <xsl:for-each select="$configDoc//subform">
+                <xsl:copy-of select="document(globalSchema[1]/@src)"/>
+            </xsl:for-each>
+        </xsl:variable> 
         <TEI xmlns="http://www.tei-c.org/ns/1.0">
             <element>
                 <!-- Go through global and local schema, output one of every attribute -->
-                <xsl:for-each-group
-                    select="$globalSchemaDoc//tei:attDef | $localSchemaDoc//tei:attDef"
-                    group-by="@ident">
+                <xsl:for-each-group select="$globalSchemaDoc//tei:attDef | $localSchemaDoc//tei:attDef" group-by="@ident">
                     <xsl:sort select="@ident" order="ascending"/>
                     <xsl:variable name="attName" select="@ident"/>
                     <xsl:attribute name="{$attName}"/>
@@ -588,138 +721,18 @@
             </element>
         </TEI>
     </xsl:template>
-   
-    <xsl:template name="xformElementUITest">
-        <xsl:param name="elementName"/>
-        <xsl:param name="path"/>
-        <xsl:param name="min"/>
-        <xsl:param name="max"/>
-        <xsl:param name="level"/>
-        
-        <xsl:variable name="elementRules" select="local:elementRules($elementName)"/>
-        <xsl:variable name="allAttributes" select="local:allAttributes($elementName)"/>
-        <xsl:variable name="childElements" select="local:childElements($elementName)"/>
-        <xsl:variable name="path" select="concat($path, '/tei:', $elementName)"/>
-        <xsl:variable name="id" select="replace(replace(concat(replace($path,'/',''),generate-id(.)),' ',''),'tei:','')"/>
-        <xsl:variable name="elementLabel">
-            <xsl:choose>
-                <xsl:when test="$elementRules/descendant::tei:gloss[@xml:lang = $formLang]">
-                    <xsl:value-of select="$elementRules/descendant::tei:gloss[@xml:lang = $formLang][1]"/>
-                </xsl:when>
-                <xsl:when test="$elementRules/descendant::tei:gloss[@xml:lang = 'en']">
-                    <xsl:value-of select="$elementRules/descendant::tei:gloss[@xml:lang = 'en'][1]"/>
-                </xsl:when>
-                <xsl:otherwise>
-                    <xsl:value-of select="$elementName"/>
-                </xsl:otherwise>
-            </xsl:choose> 
-        </xsl:variable>
-        <xsl:variable name="maxOccur">
-            <xsl:choose>
-                <xsl:when test="$max != ''">
-                    <xsl:value-of select="$max"/>
-                </xsl:when>
-                <xsl:when test="$elementRules/tei:content/tei:sequence[@maxOccur]">
-                    <xsl:value-of select="string($elementRules/tei:content/tei:sequence/@maxOccur)"/>
-                </xsl:when>
-                <xsl:otherwise/>
-            </xsl:choose>
-        </xsl:variable>
-        <xsl:variable name="minOccur">
-            <xsl:choose>
-                <xsl:when test="$min != ''">
-                    <xsl:value-of select="$min"/>
-                </xsl:when>
-                <xsl:when test="$elementRules/tei:content/tei:sequence[@minOccur]">
-                    <xsl:value-of select="string($elementRules/tei:content/tei:sequence/@minOccur)"/>
-                </xsl:when>
-                <xsl:otherwise/>
-            </xsl:choose>
-        </xsl:variable>
-        <xsl:variable name="xformsElement">
-            <xsl:choose>
-                <xsl:when test="$maxOccur = 'unbounded' or $maxOccur = ''">repeat</xsl:when>
-                <xsl:otherwise>group</xsl:otherwise>
-            </xsl:choose>
-        </xsl:variable>
-        <!-- Build XForm element -->
-        <div class="childElements">
-            <xsl:copy-of select="local:childElements($elementName)"/>
-        </div>
-        <xsl:element name="{$xformsElement}" namespace="http://www.w3.org/2002/xforms">
-            <xsl:variable name="elementRef">
-                <xsl:choose>
-                    <xsl:when test="$level = 'root'">instance('i-rec')/<xsl:value-of select="$path"/></xsl:when>
-                    <xsl:otherwise>
-                        <xsl:value-of select="concat('tei:', $elementName)"/>
-                    </xsl:otherwise>
-                </xsl:choose>
-            </xsl:variable>
-            <xsl:attribute name="ref" select="$elementRef"/>
-            <xsl:attribute name="id" select="$id"/>
-            <xsl:attribute name="class">xformsGroup</xsl:attribute>
-            <div class="xformElement">
-                <!-- Element controls and label -->
-                <div class="inlineBlock">
-                    <xsl:choose>
-                        <xsl:when test="$minOccur">
-                            <xsl:choose>
-                                <xsl:when test="$minOccur castable as xs:integer">
-                                    <xsl:choose>
-                                        <xsl:when test="xs:integer($minOccur) &lt; 1">
-                                            <xf:trigger appearance="minimal" class="btn remove inline" xmlns="http://www.w3.org/2002/xforms">
-                                                <xf:label/>
-                                                <xf:delete ev:event="DOMActivate" ref="."/>
-                                            </xf:trigger>
-                                        </xsl:when>
-                                        <xsl:when test="xs:integer($minOccur) &gt; 0">
-                                            <xf:trigger appearance="minimal" class="btn remove inline" ref=".[count(../tei:{$elementName}) &gt; {$minOccur}]" xmlns="http://www.w3.org/2002/xforms">
-                                                <xf:label/>
-                                                <xf:delete ev:event="DOMActivate" ref="."/>
-                                            </xf:trigger>
-                                        </xsl:when>
-                                    </xsl:choose>
-                                </xsl:when>
-                                <xsl:otherwise>
-                                    <xf:trigger appearance="minimal" class="btn remove inline" xmlns="http://www.w3.org/2002/xforms">
-                                        <xf:label/>
-                                        <xf:delete ev:event="DOMActivate" ref="."/>
-                                    </xf:trigger>
-                                </xsl:otherwise>
-                            </xsl:choose>
-                        </xsl:when>
-                        <xsl:otherwise>
-                            <xf:trigger appearance="minimal" class="btn remove inline" xmlns="http://www.w3.org/2002/xforms">
-                                <xf:label/>
-                                <xf:delete ev:event="DOMActivate" ref="."/>
-                            </xf:trigger>
-                        </xsl:otherwise>
-                    </xsl:choose>
-                    <span class="elementLable {$xformsElement}"><xsl:value-of select="$elementLabel"/></span>
-                </div>
-                <!--  Include child elements inline, runs into nesting errors when generating -->
-                <xsl:if test="$childElements/descendant-or-self::*:element[not(@classRef = 'true')]">
-                    <xsl:for-each-group select="$childElements/descendant-or-self::*:element[not(@classRef = 'true')]" group-by="@ident">
-                        <div class="{current-grouping-key()}">
-                            <xsl:copy-of select="local:childElements(current-grouping-key())"/>
-                        </div>
-                    </xsl:for-each-group>
-                </xsl:if>
-            </div>
-        </xsl:element>
-        
-    </xsl:template>
  
     <xsl:template name="xformElementUI">
         <xsl:param name="elementName"/>
+        <xsl:param name="subform"/>
         <xsl:param name="path"/>
         <xsl:param name="min"/>
         <xsl:param name="max"/>
         <xsl:param name="level"/>
         
-        <xsl:variable name="elementRules" select="local:elementRules($elementName)"/>
-        <xsl:variable name="allAttributes" select="local:allAttributes($elementName)"/>
-        <xsl:variable name="childElements" select="local:childElements($elementName)"/>
+        <xsl:variable name="elementRules" select="local:elementRules($elementName,$subform)"/>
+        <xsl:variable name="allAttributes" select="local:allAttributes($elementName,$subform)"/>
+        <xsl:variable name="childElements" select="local:childElements($elementName,$subform)"/>
         <xsl:variable name="path" select="concat($path, '/tei:', $elementName)"/>
         <xsl:variable name="id" select="replace(replace(concat(replace($path,'/',''),generate-id(.)),' ',''),'tei:','')"/>
         <xsl:variable name="elementLabel">
@@ -764,6 +777,14 @@
             </xsl:choose>
         </xsl:variable>
         <!-- Build XForm element -->
+        <!-- This does not work as I want it to. templates must have all the parts pre coded. ?
+        <xsl:if test="$level = 'root'">
+            <xf:trigger appearance="minimal" class="btn remove inline" xmlns="http://www.w3.org/2002/xforms" ref=".[not(child::tei:{$elementName})] ">
+                <xf:label>Add <xsl:value-of select="$elementLabel"/></xf:label>
+                <xf:insert ev:event="DOMActivate" context="." at="." origin="instance('i-elementTemplate')//*[local-name(.) = '{$elementName}']" position="after"></xf:insert>
+            </xf:trigger>
+        </xsl:if>
+        -->
         <xsl:element name="{$xformsElement}" namespace="http://www.w3.org/2002/xforms">
             <xsl:variable name="elementRef">
                 <xsl:choose>
@@ -882,7 +903,7 @@
                                         </xsl:variable>
                                         <xf:trigger class="btn add" appearance="minimal" ref="{string($refXpath)}">
                                             <xf:label>
-                                                <xsl:variable name="childRules" select="local:elementRules(current-grouping-key())"/>
+                                                <xsl:variable name="childRules" select="local:elementRules(current-grouping-key(),$subform)"/>
                                                 <xsl:choose>
                                                     <xsl:when test="$childRules/descendant-or-self::tei:gloss[@xml:lang = $formLang]">
                                                         <xsl:value-of select="$childRules/descendant-or-self::tei:gloss[@xml:lang = $formLang][1]"/>
@@ -905,8 +926,15 @@
                     <xsl:if test="$elementRules/descendant::tei:desc">
                         <span class="elementDesc hint">
                             <xsl:choose>
-                                <xsl:when test="$elementRules/descendant::tei:desc[@xml:lang = $formLang]">
-                                    <xsl:value-of select="$elementRules/descendant::tei:desc[@xml:lang = $formLang][1]"/>
+                                <xsl:when test="$formLang != ''">
+                                    <xsl:choose>
+                                        <xsl:when test="$elementRules/descendant::tei:desc[@xml:lang = $formLang]">
+                                            <xsl:value-of select="$elementRules/descendant::tei:desc[@xml:lang = $formLang][1]"/>
+                                        </xsl:when>
+                                        <xsl:when test="$elementRules/descendant::tei:desc[@xml:lang = 'en']">
+                                            <xsl:value-of select="$elementRules/descendant::tei:desc[@xml:lang = 'en'][1]"/>
+                                        </xsl:when>
+                                    </xsl:choose>
                                 </xsl:when>
                                 <xsl:when test="$elementRules/descendant::tei:desc[@xml:lang = 'en']">
                                     <xsl:value-of select="$elementRules/descendant::tei:desc[@xml:lang = 'en'][1]"/>
@@ -979,13 +1007,6 @@
                                     <xf:label><xsl:value-of select="$elementLabel"/></xf:label> 
                                 </xf:textarea>
                             </xsl:when>
-                            <!--
-                            <xsl:when test="$elementName = 'p' or $elementName = 'desc' or $elementRules/tei:global/descendant-or-self::tei:content/descendant-or-self::tei:textNode">
-                                <xf:textarea ref="." xmlns="http://www.w3.org/2002/xforms">
-                                    <xf:label><xsl:value-of select="$elementLabel"/></xf:label>
-                                </xf:textarea>
-                            </xsl:when>
-                            -->
                             <xsl:otherwise>
                                 <xf:input ref="." xmlns="http://www.w3.org/2002/xforms">
                                     <xf:label><xsl:value-of select="$elementName"/></xf:label>
@@ -1000,6 +1021,7 @@
                         <xsl:if test="$elementName != current-grouping-key() and not(contains($path,'current-grouping-key()'))">
                             <xsl:call-template name="xformElementUI">
                                 <xsl:with-param name="elementName" select="current-grouping-key()"/>
+                                <xsl:with-param name="subform" select="$subform"/>
                                 <xsl:with-param name="path" select="$path"/>
                                 <xsl:with-param name="min" select="@minOccurs"/>
                                 <xsl:with-param name="max" select="@maxOccurs"/>
