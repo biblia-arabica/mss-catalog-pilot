@@ -391,11 +391,9 @@
                     </xf:instance>
                     <xf:instance id="i-selectTemplate">
                         <data>
+                            <template name="Generic MSS Template" src="/forms/templates/full-mss-template.xml"></template>
+                            <template name="Generic Persons Template" src="/forms/templates/persons-template.xml"></template>
                             <template name="Generic Template" src="/forms/templates/template.xml"></template>
-                            <template name="MSS Additions Template" src="/forms/templates/mss-additions-template.xml"></template>
-                            <template name="MSS Hand Template" src="/forms/templates/mss-hand-template.xml"></template>
-                            <template name="MSS History Template" src="/forms/templates/mss-history-template.xml"></template>
-                            <template name="MSS Layout Template" src="/forms/templates/mss-layout-template.xml"></template>
                         </data>
                     </xf:instance>
                     <xf:instance id="i-subforms">
@@ -447,13 +445,13 @@
                     <h1><xsl:value-of select="$configDoc//formTitle"/></h1> 
                     <!-- Form description -->
                     <xsl:if test="$configDoc//formDesc != ''">
-                        <p><xsl:value-of select="$configDoc//formDesc"/></p>
+                        <p class="hint warning"><xsl:value-of select="$configDoc//formDesc"/></p>
                     </xsl:if>
                     <div class="row tabbable">
                         <!-- Menu items, subforms -->
                         <ul class="nav nav-pills nav-stacked col-md-3">
                             <li>
-                                <xf:trigger appearance="minimal">
+                                <xf:trigger appearance="minimal" class="btn btn-default nav-pill btn-block">
                                     <xf:label>Main Page &#160;</xf:label>
                                     <xf:action ev:event="DOMActivate">
                                         <xf:toggle case="view-main-entry"/>
@@ -462,7 +460,7 @@
                             </li>
                             <xsl:for-each select="$configDoc//subform">
                                 <li> 
-                                    <xf:trigger appearance="minimal" ref="instance('i-subforms')//*:subform[@formName = '{string(@formName)}']">
+                                    <xf:trigger appearance="minimal" ref="instance('i-subforms')//*:subform[@formName = '{string(@formName)}']" class="btn btn-default nav-pill btn-block">
                                         <xf:label><xsl:value-of select="string(@formName)"/> &#160;</xf:label>
                                         <xf:action ev:event="DOMActivate">
                                             <xf:toggle case="view-data-entry"/>
@@ -650,9 +648,11 @@
     </xsl:template>
     <xsl:template name="submission">
         <div class="submission pull-right">
+            <!--
             <xf:submit class="btn btn-default" submission="s-github" appearance="minimal">
                 <xf:label><span class="glyphicon glyphicon-save-file"/> Submit to GitHub </xf:label>
             </xf:submit>
+            -->
             <xf:submit class="btn btn-default" submission="s-save" appearance="minimal">
                 <xf:label><span class="glyphicon glyphicon-save-file"/> Save to Database </xf:label>
             </xf:submit>
@@ -924,7 +924,7 @@
                         </div>
                     </xsl:if>
                     <xsl:if test="$elementRules/descendant::tei:desc">
-                        <span class="elementDesc hint">
+                        <span class="elementDesc hint warning">
                             <xsl:choose>
                                 <xsl:when test="$formLang != ''">
                                     <xsl:choose>
