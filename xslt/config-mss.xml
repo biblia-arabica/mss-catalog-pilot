@@ -5,7 +5,11 @@
     <formAuthor>Winona Salesky</formAuthor>
     <formDesc>Create and edit MSS records for MAJLIS: The Transformation of Jewish Literature in Arabic in the Islamicate World</formDesc>
     <!-- Language to output lables, hints etc, if empty defaults to English -->
-    <formLang>fr</formLang>
+    <formLang>en</formLang>
+    <blankTemplates>
+        <template name="Generic MSS Template" src="/forms/templates/full-mss-template.xml"></template>
+        <template name="Alternate Generic Template" src="/forms/templates/template.xml"></template>
+    </blankTemplates>
     <!--
         For better performance the TEI records are into sections. Each section will output a form. This will allow better load and response time for forms, 
         and a step-by-step method of editing records. In process records will be stored in the DB or downloaded to the file system, where they can be loaded 
@@ -15,19 +19,18 @@
         additions
     -->
     <subforms>
-        <!-- No schema yet
-        <subform xpath="/descendant::tei:title" formName="titleStmt" formLabel="Title">
+        <subform xpath="/descendant::tei:titleStmt" formName="titleStmt" formLabel="Title">
             <formDesc>Record title information</formDesc>
-            <localSchema src="../schemas/persons.xml"></localSchema>
+            <localSchema src="../schemas/titleStmt.xml"></localSchema>
             <globalSchema src="../schemas/mss-compiled.odd"></globalSchema>
             <xmlTemplate src="../schemas/persons-template.xml"></xmlTemplate>
         </subform>
-        -->
+        <!--
         <subform xpath="/tei:TEI/descendant::tei:msDesc/tei:msIdentifier" formName="msIdentifier" formLabel="MSS Identifier">
-<!--            <localSchema src="../schemas/mss-additions.xml"></localSchema>-->
             <globalSchema src="../schemas/mss-compiled.odd"></globalSchema>
             <xmlTemplate src="../schemas/full-mss-template.xml"></xmlTemplate>
         </subform>
+        -->
         <subform xpath="/tei:TEI/descendant::tei:msContents" formName="msContents" formLabel="MSS Contents">
             <localSchema src="../schemas/mss-msitem.xml"></localSchema>
             <globalSchema src="../schemas/mss-compiled.odd"></globalSchema>

@@ -210,7 +210,7 @@
                                     Available Elements <span class="caret"></span></button><ul class="dropdown-menu" role="menu" aria-labelledby="availElementslistPersonpersonpersNamed122e1">
                                     <li role="presentation">
                                        <xf:trigger class="btn add" appearance="minimal" ref=".">
-                                          <xf:label>additional name</xf:label>
+                                          <xf:label>追加的名称</xf:label>
                                           <xf:insert ev:event="DOMActivate" context="." at="." origin="instance('i-elementTemplate')//*[local-name(.) = 'addName']" position="after"></xf:insert>
                                        </xf:trigger>
                                     </li>
@@ -227,9 +227,7 @@
                                        </xf:trigger>
                                     </li>
                                  </ul>
-                              </div><span class="alert alert-warning hint">contains a proper noun or proper-noun
-                                 phrase referring to a person, possibly including one or more of the person's
-                                 forenames, surnames, honorifics, added names, etc.</span></div><span class="attribute-group">
+                              </div><span class="alert alert-warning hint">人物の固有名詞を示す．例えば，名，姓，敬称，追加名など．</span></div><span class="attribute-group">
                               <xf:input ref="@srophe-tags">
                                  <xf:label>srophe-tags</xf:label>
                               </xf:input>
@@ -265,8 +263,7 @@
                                     <xf:trigger xmlns="http://www.w3.org/2002/xforms" appearance="minimal" class="btn remove inline">
                                        <xf:label></xf:label>
                                        <xf:delete ev:event="DOMActivate" ref="."></xf:delete>
-                                    </xf:trigger><span class="elementLable repeat">forename</span><span class="alert alert-warning hint">contains a forename, given or baptismal
-                                       name.</span></div>
+                                    </xf:trigger><span class="elementLable repeat">forename</span><span class="alert alert-warning hint">人物に与えられた名前のうち，名の部分，すなわち個人を表す部分を示す．</span></div>
                                  <xf:input xmlns="http://www.w3.org/2002/xforms" ref=".">
                                     <xf:label>forename</xf:label>
                                  </xf:input>
@@ -287,15 +284,14 @@
                                              </xf:trigger>
                                           </li>
                                        </ul>
-                                    </div><span class="alert alert-warning hint">contains a family (inherited) name, as
-                                       opposed to a given, baptismal, or nick name.</span></div>
+                                    </div><span class="alert alert-warning hint">(継承される)苗字を示す．姓名中の名，洗礼名，愛称，別称とは異なる．</span></div>
                                  <repeat xmlns="http://www.w3.org/2002/xforms" ref="tei:p" id="listPersonpersonpersNamesurnamepd159e1" class="xformsGroup">
                                     <div xmlns="http://www.w3.org/1999/xhtml" class="xformElement">
                                        <div class="inlineBlock">
                                           <xf:trigger xmlns="http://www.w3.org/2002/xforms" appearance="minimal" class="btn remove inline">
                                              <xf:label></xf:label>
                                              <xf:delete ev:event="DOMActivate" ref="."></xf:delete>
-                                          </xf:trigger><span class="elementLable repeat">paragraph</span><span class="alert alert-warning hint">marks paragraphs in prose.</span></div>
+                                          </xf:trigger><span class="elementLable repeat">paragraph</span><span class="alert alert-warning hint">散文の段落を示す．</span></div>
                                        <xf:textarea xmlns="http://www.w3.org/2002/xforms" ref=".">
                                           <xf:label>paragraph</xf:label>
                                        </xf:textarea>
@@ -309,7 +305,7 @@
                                     <xf:trigger xmlns="http://www.w3.org/2002/xforms" appearance="minimal" class="btn remove inline">
                                        <xf:label></xf:label>
                                        <xf:delete ev:event="DOMActivate" ref="."></xf:delete>
-                                    </xf:trigger><span class="elementLable repeat">additional name</span> | 
+                                    </xf:trigger><span class="elementLable repeat">追加的名称</span> | 
                                     
                                     <div class="dropdown"><button class="btn btn-default dropdown-toggle" type="button" id="availAttributeslistPersonpersonpersNameaddNamed140e3" data-toggle="dropdown">
                                           Available Attributes <span class="caret"></span></button><ul class="dropdown-menu" role="menu" aria-labelledby="availAttributeslistPersonpersonpersNameaddNamed140e3">
@@ -320,9 +316,7 @@
                                              </xf:trigger>
                                           </li>
                                        </ul>
-                                    </div><span class="alert alert-warning hint">contains an additional name component, such
-                                       as a nickname, epithet, or alias, or any other descriptive phrase used within a
-                                       personal name.</span></div><span class="attribute-group">
+                                    </div><span class="alert alert-warning hint">付加的な名前要素を示す．例えば，愛称，渾名，別名などの個人名．</span></div><span class="attribute-group">
                                     <xf:select1 xmlns="http://www.w3.org/2002/xforms" ref="@type">
                                        <xf:label>type</xf:label>
                                        <xf:item>
@@ -422,7 +416,7 @@
                                              </xf:trigger>
                                           </li>
                                        </ul>
-                                    </div><span class="alert alert-warning hint">contains a date in any format.</span></div><span class="attribute-group">
+                                    </div><span class="alert alert-warning hint">日付を示す．</span></div><span class="attribute-group">
                                     <xf:select1 xmlns="http://www.w3.org/2002/xforms" ref="@calendar">
                                        <xf:label>calendar</xf:label>
                                        <xf:item>
@@ -552,8 +546,7 @@
                                              </xf:trigger>
                                           </li>
                                        </ul>
-                                    </div><span class="alert alert-warning hint">contains an absolute or relative place
-                                       name.</span></div><span class="attribute-group">
+                                    </div><span class="alert alert-warning hint">絶対的，相対的場所名を示す．</span></div><span class="attribute-group">
                                     <xf:input ref="@ref">
                                        <xf:label>ref</xf:label>
                                     </xf:input>
@@ -640,7 +633,7 @@
                                              </xf:trigger>
                                           </li>
                                        </ul>
-                                    </div><span class="alert alert-warning hint">contains a date in any format.</span></div><span class="attribute-group">
+                                    </div><span class="alert alert-warning hint">日付を示す．</span></div><span class="attribute-group">
                                     <xf:select1 xmlns="http://www.w3.org/2002/xforms" ref="@calendar">
                                        <xf:label>calendar</xf:label>
                                        <xf:item>
@@ -770,8 +763,7 @@
                                              </xf:trigger>
                                           </li>
                                        </ul>
-                                    </div><span class="alert alert-warning hint">contains an absolute or relative place
-                                       name.</span></div><span class="attribute-group">
+                                    </div><span class="alert alert-warning hint">絶対的，相対的場所名を示す．</span></div><span class="attribute-group">
                                     <xf:input ref="@ref">
                                        <xf:label>ref</xf:label>
                                     </xf:input>
@@ -900,8 +892,7 @@
                                              </xf:trigger>
                                           </li>
                                        </ul>
-                                    </div><span class="alert alert-warning hint">contains an absolute or relative place
-                                       name.</span></div><span class="attribute-group">
+                                    </div><span class="alert alert-warning hint">絶対的，相対的場所名を示す．</span></div><span class="attribute-group">
                                     <xf:input ref="@ref">
                                        <xf:label>ref</xf:label>
                                     </xf:input>
@@ -975,8 +966,8 @@
                                        </xf:trigger>
                                     </li>
                                  </ul>
-                              </div><span class="alert alert-warning hint">contains a loosely-structured bibliographic
-                                 citation of which the sub-components may or may not be explicitly tagged.</span></div><span class="attribute-group">
+                              </div><span class="alert alert-warning hint">厳密でない構造を持つ書誌情報の引用を含む．下位要素で明示されていたり，
+                                 いなかったりする．</span></div><span class="attribute-group">
                               <xf:select1 xmlns="http://www.w3.org/2002/xforms" ref="@type">
                                  <xf:label>type</xf:label>
                                  <xf:item>
@@ -1142,9 +1133,7 @@
                                        </xf:trigger>
                                     </li>
                                  </ul>
-                              </div><span class="alert alert-warning hint">supplies any form of identifier used to
-                                 identify some object, such as a bibliographic item, a person, a title, an
-                                 organization, etc. in a standardized way.</span></div><span class="attribute-group">
+                              </div><span class="alert alert-warning hint">書誌項目、人物、タイトル、組織など、何らかのオブジェクトを標準化された方法で識別するために使用される任意の形式の識別子を提供する。</span></div><span class="attribute-group">
                               <xf:select1 xmlns="http://www.w3.org/2002/xforms" ref="@subtype">
                                  <xf:label>subtype</xf:label>
                                  <xf:item>

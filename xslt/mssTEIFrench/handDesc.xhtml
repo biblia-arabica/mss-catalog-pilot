@@ -3,7 +3,7 @@
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
       <title>Edit MSS TEI records</title>
       <meta name="author" content="Winona Salesky" />
-      <meta name="description" content="Create and edit MSS records for MAJLIS: The Transformation of Jewish Literature in Arabic in the Islamicate World" />
+      <meta name="description" content="Create and edit MSS records for MAJLIS: The Transformation of Jewish Literature in Arabic in the Islamicate World Record title information" />
       <link rel="stylesheet" type="text/css" href="resources/bootstrap/css/bootstrap.min.css" />
       <link rel="stylesheet" type="text/css" href="resources/css/xforms.css" />
       <link href="resources/jquery-ui/jquery-ui.min.css" rel="stylesheet" /><script type="text/javascript" src="resources/js/jquery.min.js"></script><script type="text/javascript" src="resources/bootstrap/js/bootstrap.min.js"></script><xf:model id="m-mss">
@@ -67,7 +67,7 @@
             </xf:submit>
          </div>
          <h1>Hand Description</h1>
-         <repeat xmlns="http://www.w3.org/2002/xforms" ref="instance('i-rec')//tei:handDesc" id="handDescd1382e1" class="xformsGroup">
+         <repeat xmlns="http://www.w3.org/2002/xforms" ref="instance('i-rec')//tei:handDesc" id="handDescd1483e1" class="xformsGroup">
             <div xmlns="http://www.w3.org/1999/xhtml" class="xformElement">
                <div class="inlineBlock">
                   <xf:trigger xmlns="http://www.w3.org/2002/xforms" appearance="minimal" class="btn remove inline">
@@ -75,8 +75,8 @@
                      <xf:delete ev:event="DOMActivate" ref="."></xf:delete>
                   </xf:trigger><span class="elementLable repeat">description des écritures</span> | 
                   
-                  <div class="dropdown"><button class="btn btn-default dropdown-toggle" type="button" id="availAttributeshandDescd1382e1" data-toggle="dropdown">
-                        Available Attributes <span class="caret"></span></button><ul class="dropdown-menu" role="menu" aria-labelledby="availAttributeshandDescd1382e1">
+                  <div class="dropdown"><button class="btn btn-default dropdown-toggle" type="button" id="availAttributeshandDescd1483e1" data-toggle="dropdown">
+                        Available Attributes <span class="caret"></span></button><ul class="dropdown-menu" role="menu" aria-labelledby="availAttributeshandDescd1483e1">
                         <li role="presentation">
                            <xf:trigger class="btn add" appearance="minimal" ref=".[not(@hands)]">
                               <xf:label>hands</xf:label>
@@ -85,8 +85,8 @@
                         </li>
                      </ul>
                   </div>
-                  <div class="dropdown"><button class="btn btn-default dropdown-toggle" type="button" id="availElementshandDescd1382e1" data-toggle="dropdown">
-                        Available Elements <span class="caret"></span></button><ul class="dropdown-menu" role="menu" aria-labelledby="availElementshandDescd1382e1">
+                  <div class="dropdown"><button class="btn btn-default dropdown-toggle" type="button" id="availElementshandDescd1483e1" data-toggle="dropdown">
+                        Available Elements <span class="caret"></span></button><ul class="dropdown-menu" role="menu" aria-labelledby="availElementshandDescd1483e1">
                         <li role="presentation">
                            <xf:trigger class="btn add" appearance="minimal" ref="">
                               <xf:label>note sur une main</xf:label>
@@ -108,7 +108,7 @@
                   <xf:trigger appearance="minimal" class="btn remove" ref="@hands">
                      <xf:label></xf:label>
                      <xf:delete ev:event="DOMActivate" ref="."></xf:delete>
-                  </xf:trigger></span><repeat xmlns="http://www.w3.org/2002/xforms" ref="tei:summary" id="handDescsummaryd1392e1" class="xformsGroup">
+                  </xf:trigger></span><repeat xmlns="http://www.w3.org/2002/xforms" ref="tei:summary" id="handDescsummaryd1493e1" class="xformsGroup">
                   <div xmlns="http://www.w3.org/1999/xhtml" class="xformElement">
                      <div class="inlineBlock">
                         <xf:trigger xmlns="http://www.w3.org/2002/xforms" appearance="minimal" class="btn remove inline">
@@ -123,7 +123,7 @@
                      </xf:textarea>
                   </div>
                </repeat>
-               <repeat xmlns="http://www.w3.org/2002/xforms" ref="tei:handNote" id="handDeschandNoted1392e2" class="xformsGroup">
+               <repeat xmlns="http://www.w3.org/2002/xforms" ref="tei:handNote" id="handDeschandNoted1493e2" class="xformsGroup">
                   <div xmlns="http://www.w3.org/1999/xhtml" class="xformElement">
                      <div class="inlineBlock">
                         <xf:trigger xmlns="http://www.w3.org/2002/xforms" appearance="minimal" class="btn remove inline">
@@ -131,8 +131,8 @@
                            <xf:delete ev:event="DOMActivate" ref="."></xf:delete>
                         </xf:trigger><span class="elementLable repeat">note sur une main</span> | 
                         
-                        <div class="dropdown"><button class="btn btn-default dropdown-toggle" type="button" id="availAttributeshandDeschandNoted1392e2" data-toggle="dropdown">
-                              Available Attributes <span class="caret"></span></button><ul class="dropdown-menu" role="menu" aria-labelledby="availAttributeshandDeschandNoted1392e2">
+                        <div class="dropdown"><button class="btn btn-default dropdown-toggle" type="button" id="availAttributeshandDeschandNoted1493e2" data-toggle="dropdown">
+                              Available Attributes <span class="caret"></span></button><ul class="dropdown-menu" role="menu" aria-labelledby="availAttributeshandDeschandNoted1493e2">
                               <li role="presentation">
                                  <xf:trigger class="btn add" appearance="minimal" ref=".[not(@medium)]">
                                     <xf:label>medium</xf:label>
@@ -165,8 +165,8 @@
                               </li>
                            </ul>
                         </div>
-                        <div class="dropdown"><button class="btn btn-default dropdown-toggle" type="button" id="availElementshandDeschandNoted1392e2" data-toggle="dropdown">
-                              Available Elements <span class="caret"></span></button><ul class="dropdown-menu" role="menu" aria-labelledby="availElementshandDeschandNoted1392e2">
+                        <div class="dropdown"><button class="btn btn-default dropdown-toggle" type="button" id="availElementshandDeschandNoted1493e2" data-toggle="dropdown">
+                              Available Elements <span class="caret"></span></button><ul class="dropdown-menu" role="menu" aria-labelledby="availElementshandDeschandNoted1493e2">
                               <li role="presentation">
                                  <xf:trigger class="btn add" appearance="minimal" ref=".">
                                     <xf:label>locus</xf:label>
@@ -364,7 +364,7 @@
                         <xf:trigger appearance="minimal" class="btn remove" ref="@xml:id">
                            <xf:label></xf:label>
                            <xf:delete ev:event="DOMActivate" ref="."></xf:delete>
-                        </xf:trigger></span><repeat xmlns="http://www.w3.org/2002/xforms" ref="tei:p" id="handDeschandNotepd1410e1" class="xformsGroup">
+                        </xf:trigger></span><repeat xmlns="http://www.w3.org/2002/xforms" ref="tei:p" id="handDeschandNotepd1511e1" class="xformsGroup">
                         <div xmlns="http://www.w3.org/1999/xhtml" class="xformElement">
                            <div class="inlineBlock">
                               <xf:trigger xmlns="http://www.w3.org/2002/xforms" appearance="minimal" class="btn remove inline">
@@ -377,7 +377,7 @@
                            </xf:textarea>
                         </div>
                      </repeat>
-                     <repeat xmlns="http://www.w3.org/2002/xforms" ref="tei:persName" id="handDeschandNotepersNamed1410e2" class="xformsGroup">
+                     <repeat xmlns="http://www.w3.org/2002/xforms" ref="tei:persName" id="handDeschandNotepersNamed1511e2" class="xformsGroup">
                         <div xmlns="http://www.w3.org/1999/xhtml" class="xformElement">
                            <div class="inlineBlock">
                               <xf:trigger xmlns="http://www.w3.org/2002/xforms" appearance="minimal" class="btn remove inline">
@@ -385,8 +385,8 @@
                                  <xf:delete ev:event="DOMActivate" ref="."></xf:delete>
                               </xf:trigger><span class="elementLable repeat">nom de personne</span> | 
                               
-                              <div class="dropdown"><button class="btn btn-default dropdown-toggle" type="button" id="availAttributeshandDeschandNotepersNamed1410e2" data-toggle="dropdown">
-                                    Available Attributes <span class="caret"></span></button><ul class="dropdown-menu" role="menu" aria-labelledby="availAttributeshandDeschandNotepersNamed1410e2">
+                              <div class="dropdown"><button class="btn btn-default dropdown-toggle" type="button" id="availAttributeshandDeschandNotepersNamed1511e2" data-toggle="dropdown">
+                                    Available Attributes <span class="caret"></span></button><ul class="dropdown-menu" role="menu" aria-labelledby="availAttributeshandDeschandNotepersNamed1511e2">
                                     <li role="presentation">
                                        <xf:trigger class="btn add" appearance="minimal" ref=".[not(@ref)]">
                                           <xf:label>ref</xf:label>
@@ -510,7 +510,7 @@
                            </xf:input>
                         </div>
                      </repeat>
-                     <repeat xmlns="http://www.w3.org/2002/xforms" ref="tei:placeName" id="handDeschandNoteplaceNamed1410e3" class="xformsGroup">
+                     <repeat xmlns="http://www.w3.org/2002/xforms" ref="tei:placeName" id="handDeschandNoteplaceNamed1511e3" class="xformsGroup">
                         <div xmlns="http://www.w3.org/1999/xhtml" class="xformElement">
                            <div class="inlineBlock">
                               <xf:trigger xmlns="http://www.w3.org/2002/xforms" appearance="minimal" class="btn remove inline">
@@ -518,8 +518,8 @@
                                  <xf:delete ev:event="DOMActivate" ref="."></xf:delete>
                               </xf:trigger><span class="elementLable repeat">nom de lieu</span> | 
                               
-                              <div class="dropdown"><button class="btn btn-default dropdown-toggle" type="button" id="availAttributeshandDeschandNoteplaceNamed1410e3" data-toggle="dropdown">
-                                    Available Attributes <span class="caret"></span></button><ul class="dropdown-menu" role="menu" aria-labelledby="availAttributeshandDeschandNoteplaceNamed1410e3">
+                              <div class="dropdown"><button class="btn btn-default dropdown-toggle" type="button" id="availAttributeshandDeschandNoteplaceNamed1511e3" data-toggle="dropdown">
+                                    Available Attributes <span class="caret"></span></button><ul class="dropdown-menu" role="menu" aria-labelledby="availAttributeshandDeschandNoteplaceNamed1511e3">
                                     <li role="presentation">
                                        <xf:trigger class="btn add" appearance="minimal" ref=".[not(@ref)]">
                                           <xf:label>ref</xf:label>
@@ -573,7 +573,7 @@
                            </xf:input>
                         </div>
                      </repeat>
-                     <repeat xmlns="http://www.w3.org/2002/xforms" ref="tei:metamark" id="handDeschandNotemetamarkd1410e4" class="xformsGroup">
+                     <repeat xmlns="http://www.w3.org/2002/xforms" ref="tei:metamark" id="handDeschandNotemetamarkd1511e4" class="xformsGroup">
                         <div xmlns="http://www.w3.org/1999/xhtml" class="xformElement">
                            <div class="inlineBlock">
                               <xf:trigger xmlns="http://www.w3.org/2002/xforms" appearance="minimal" class="btn remove inline">
@@ -581,8 +581,8 @@
                                  <xf:delete ev:event="DOMActivate" ref="."></xf:delete>
                               </xf:trigger><span class="elementLable repeat">metamark</span> | 
                               
-                              <div class="dropdown"><button class="btn btn-default dropdown-toggle" type="button" id="availAttributeshandDeschandNotemetamarkd1410e4" data-toggle="dropdown">
-                                    Available Attributes <span class="caret"></span></button><ul class="dropdown-menu" role="menu" aria-labelledby="availAttributeshandDeschandNotemetamarkd1410e4">
+                              <div class="dropdown"><button class="btn btn-default dropdown-toggle" type="button" id="availAttributeshandDeschandNotemetamarkd1511e4" data-toggle="dropdown">
+                                    Available Attributes <span class="caret"></span></button><ul class="dropdown-menu" role="menu" aria-labelledby="availAttributeshandDeschandNotemetamarkd1511e4">
                                     <li role="presentation">
                                        <xf:trigger class="btn add" appearance="minimal" ref=".[not(@function)]">
                                           <xf:label>function</xf:label>
@@ -616,7 +616,7 @@
                            </xf:input>
                         </div>
                      </repeat>
-                     <repeat xmlns="http://www.w3.org/2002/xforms" ref="tei:origDate" id="handDeschandNoteorigDated1410e5" class="xformsGroup">
+                     <repeat xmlns="http://www.w3.org/2002/xforms" ref="tei:origDate" id="handDeschandNoteorigDated1511e5" class="xformsGroup">
                         <div xmlns="http://www.w3.org/1999/xhtml" class="xformElement">
                            <div class="inlineBlock">
                               <xf:trigger xmlns="http://www.w3.org/2002/xforms" appearance="minimal" class="btn remove inline">
@@ -624,8 +624,8 @@
                                  <xf:delete ev:event="DOMActivate" ref="."></xf:delete>
                               </xf:trigger><span class="elementLable repeat">date de la création</span> | 
                               
-                              <div class="dropdown"><button class="btn btn-default dropdown-toggle" type="button" id="availAttributeshandDeschandNoteorigDated1410e5" data-toggle="dropdown">
-                                    Available Attributes <span class="caret"></span></button><ul class="dropdown-menu" role="menu" aria-labelledby="availAttributeshandDeschandNoteorigDated1410e5">
+                              <div class="dropdown"><button class="btn btn-default dropdown-toggle" type="button" id="availAttributeshandDeschandNoteorigDated1511e5" data-toggle="dropdown">
+                                    Available Attributes <span class="caret"></span></button><ul class="dropdown-menu" role="menu" aria-labelledby="availAttributeshandDeschandNoteorigDated1511e5">
                                     <li role="presentation">
                                        <xf:trigger class="btn add" appearance="minimal" ref=".[not(@evidence)]">
                                           <xf:label>evidence</xf:label>
@@ -678,7 +678,7 @@
                            </xf:input>
                         </div>
                      </repeat>
-                     <repeat xmlns="http://www.w3.org/2002/xforms" ref="tei:locus" id="handDeschandNotelocusd1410e6" class="xformsGroup">
+                     <repeat xmlns="http://www.w3.org/2002/xforms" ref="tei:locus" id="handDeschandNotelocusd1511e6" class="xformsGroup">
                         <div xmlns="http://www.w3.org/1999/xhtml" class="xformElement">
                            <div class="inlineBlock">
                               <xf:trigger xmlns="http://www.w3.org/2002/xforms" appearance="minimal" class="btn remove inline">
@@ -686,8 +686,8 @@
                                  <xf:delete ev:event="DOMActivate" ref="."></xf:delete>
                               </xf:trigger><span class="elementLable repeat">locus</span> | 
                               
-                              <div class="dropdown"><button class="btn btn-default dropdown-toggle" type="button" id="availAttributeshandDeschandNotelocusd1410e6" data-toggle="dropdown">
-                                    Available Attributes <span class="caret"></span></button><ul class="dropdown-menu" role="menu" aria-labelledby="availAttributeshandDeschandNotelocusd1410e6">
+                              <div class="dropdown"><button class="btn btn-default dropdown-toggle" type="button" id="availAttributeshandDeschandNotelocusd1511e6" data-toggle="dropdown">
+                                    Available Attributes <span class="caret"></span></button><ul class="dropdown-menu" role="menu" aria-labelledby="availAttributeshandDeschandNotelocusd1511e6">
                                     <li role="presentation">
                                        <xf:trigger class="btn add" appearance="minimal" ref=".[not(@from)]">
                                           <xf:label>from</xf:label>

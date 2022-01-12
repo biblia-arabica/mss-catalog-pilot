@@ -3,7 +3,7 @@
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
       <title>Edit MSS TEI records</title>
       <meta name="author" content="Winona Salesky" />
-      <meta name="description" content="Create and edit MSS records for MAJLIS: The Transformation of Jewish Literature in Arabic in the Islamicate World" />
+      <meta name="description" content="Create and edit MSS records for MAJLIS: The Transformation of Jewish Literature in Arabic in the Islamicate World Record title information" />
       <link rel="stylesheet" type="text/css" href="resources/bootstrap/css/bootstrap.min.css" />
       <link rel="stylesheet" type="text/css" href="resources/css/xforms.css" />
       <link href="resources/jquery-ui/jquery-ui.min.css" rel="stylesheet" /><script type="text/javascript" src="resources/js/jquery.min.js"></script><script type="text/javascript" src="resources/bootstrap/js/bootstrap.min.js"></script><xf:model id="m-mss">
@@ -67,14 +67,14 @@
             </xf:submit>
          </div>
          <h1>MSS Contents</h1>
-         <repeat xmlns="http://www.w3.org/2002/xforms" ref="instance('i-rec')//tei:msContents" id="msContentsd2e1" class="xformsGroup">
+         <repeat xmlns="http://www.w3.org/2002/xforms" ref="instance('i-rec')//tei:msContents" id="msContentsd104e1" class="xformsGroup">
             <div xmlns="http://www.w3.org/1999/xhtml" class="xformElement">
                <div class="inlineBlock">
                   <xf:trigger xmlns="http://www.w3.org/2002/xforms" appearance="minimal" class="btn remove inline">
                      <xf:label></xf:label>
                      <xf:delete ev:event="DOMActivate" ref="."></xf:delete>
-                  </xf:trigger><span class="elementLable repeat">contenu du manuscrit</span><div class="dropdown"><button class="btn btn-default dropdown-toggle" type="button" id="availElementsmsContentsd2e1" data-toggle="dropdown">
-                        Available Elements <span class="caret"></span></button><ul class="dropdown-menu" role="menu" aria-labelledby="availElementsmsContentsd2e1">
+                  </xf:trigger><span class="elementLable repeat">contenu du manuscrit</span><div class="dropdown"><button class="btn btn-default dropdown-toggle" type="button" id="availElementsmsContentsd104e1" data-toggle="dropdown">
+                        Available Elements <span class="caret"></span></button><ul class="dropdown-menu" role="menu" aria-labelledby="availElementsmsContentsd104e1">
                         <li role="presentation">
                            <xf:trigger class="btn add" appearance="minimal" ref="">
                               <xf:label>item de manuscrit</xf:label>
@@ -92,7 +92,7 @@
                      manuscrit ou d'une partie d'un manuscrit, soit en une série de paragraphes
                      p, soit sous la forme d'une série d'éléments structurés
                      msItem concernant les items du manuscrit.</span></div>
-               <repeat xmlns="http://www.w3.org/2002/xforms" ref="tei:summary" id="msContentssummaryd13e1" class="xformsGroup">
+               <repeat xmlns="http://www.w3.org/2002/xforms" ref="tei:summary" id="msContentssummaryd114e1" class="xformsGroup">
                   <div xmlns="http://www.w3.org/1999/xhtml" class="xformElement">
                      <div class="inlineBlock">
                         <xf:trigger xmlns="http://www.w3.org/2002/xforms" appearance="minimal" class="btn remove inline">
@@ -107,7 +107,7 @@
                      </xf:textarea>
                   </div>
                </repeat>
-               <repeat xmlns="http://www.w3.org/2002/xforms" ref="tei:msItem" id="msContentsmsItemd13e2" class="xformsGroup">
+               <repeat xmlns="http://www.w3.org/2002/xforms" ref="tei:msItem" id="msContentsmsItemd114e2" class="xformsGroup">
                   <div xmlns="http://www.w3.org/1999/xhtml" class="xformElement">
                      <div class="inlineBlock">
                         <xf:trigger xmlns="http://www.w3.org/2002/xforms" appearance="minimal" class="btn remove inline">
@@ -115,8 +115,8 @@
                            <xf:delete ev:event="DOMActivate" ref="."></xf:delete>
                         </xf:trigger><span class="elementLable repeat">item de manuscrit</span> | 
                         
-                        <div class="dropdown"><button class="btn btn-default dropdown-toggle" type="button" id="availAttributesmsContentsmsItemd13e2" data-toggle="dropdown">
-                              Available Attributes <span class="caret"></span></button><ul class="dropdown-menu" role="menu" aria-labelledby="availAttributesmsContentsmsItemd13e2">
+                        <div class="dropdown"><button class="btn btn-default dropdown-toggle" type="button" id="availAttributesmsContentsmsItemd114e2" data-toggle="dropdown">
+                              Available Attributes <span class="caret"></span></button><ul class="dropdown-menu" role="menu" aria-labelledby="availAttributesmsContentsmsItemd114e2">
                               <li role="presentation">
                                  <xf:trigger class="btn add" appearance="minimal" ref=".[not(@xml:id)]">
                                     <xf:label>xml:id</xf:label>
@@ -125,8 +125,8 @@
                               </li>
                            </ul>
                         </div>
-                        <div class="dropdown"><button class="btn btn-default dropdown-toggle" type="button" id="availElementsmsContentsmsItemd13e2" data-toggle="dropdown">
-                              Available Elements <span class="caret"></span></button><ul class="dropdown-menu" role="menu" aria-labelledby="availElementsmsContentsmsItemd13e2">
+                        <div class="dropdown"><button class="btn btn-default dropdown-toggle" type="button" id="availElementsmsContentsmsItemd114e2" data-toggle="dropdown">
+                              Available Elements <span class="caret"></span></button><ul class="dropdown-menu" role="menu" aria-labelledby="availElementsmsContentsmsItemd114e2">
                               <li role="presentation">
                                  <xf:trigger class="btn add" appearance="minimal" ref=".">
                                     <xf:label>auteur</xf:label>
@@ -196,7 +196,7 @@
                         <xf:trigger appearance="minimal" class="btn remove" ref="@xml:id">
                            <xf:label></xf:label>
                            <xf:delete ev:event="DOMActivate" ref="."></xf:delete>
-                        </xf:trigger></span><repeat xmlns="http://www.w3.org/2002/xforms" ref="tei:locus" id="msContentsmsItemlocusd31e1" class="xformsGroup">
+                        </xf:trigger></span><repeat xmlns="http://www.w3.org/2002/xforms" ref="tei:locus" id="msContentsmsItemlocusd132e1" class="xformsGroup">
                         <div xmlns="http://www.w3.org/1999/xhtml" class="xformElement">
                            <div class="inlineBlock">
                               <xf:trigger xmlns="http://www.w3.org/2002/xforms" appearance="minimal" class="btn remove inline">
@@ -204,8 +204,8 @@
                                  <xf:delete ev:event="DOMActivate" ref="."></xf:delete>
                               </xf:trigger><span class="elementLable repeat">locus</span> | 
                               
-                              <div class="dropdown"><button class="btn btn-default dropdown-toggle" type="button" id="availAttributesmsContentsmsItemlocusd31e1" data-toggle="dropdown">
-                                    Available Attributes <span class="caret"></span></button><ul class="dropdown-menu" role="menu" aria-labelledby="availAttributesmsContentsmsItemlocusd31e1">
+                              <div class="dropdown"><button class="btn btn-default dropdown-toggle" type="button" id="availAttributesmsContentsmsItemlocusd132e1" data-toggle="dropdown">
+                                    Available Attributes <span class="caret"></span></button><ul class="dropdown-menu" role="menu" aria-labelledby="availAttributesmsContentsmsItemlocusd132e1">
                                     <li role="presentation">
                                        <xf:trigger class="btn add" appearance="minimal" ref=".[not(@from)]">
                                           <xf:label>from</xf:label>
@@ -253,7 +253,7 @@
                            </xf:input>
                         </div>
                      </repeat>
-                     <repeat xmlns="http://www.w3.org/2002/xforms" ref="tei:title" id="msContentsmsItemtitled31e2" class="xformsGroup">
+                     <repeat xmlns="http://www.w3.org/2002/xforms" ref="tei:title" id="msContentsmsItemtitled132e2" class="xformsGroup">
                         <div xmlns="http://www.w3.org/1999/xhtml" class="xformElement">
                            <div class="inlineBlock">
                               <xf:trigger xmlns="http://www.w3.org/2002/xforms" appearance="minimal" class="btn remove inline">
@@ -261,8 +261,8 @@
                                  <xf:delete ev:event="DOMActivate" ref="."></xf:delete>
                               </xf:trigger><span class="elementLable repeat">titre</span> | 
                               
-                              <div class="dropdown"><button class="btn btn-default dropdown-toggle" type="button" id="availAttributesmsContentsmsItemtitled31e2" data-toggle="dropdown">
-                                    Available Attributes <span class="caret"></span></button><ul class="dropdown-menu" role="menu" aria-labelledby="availAttributesmsContentsmsItemtitled31e2">
+                              <div class="dropdown"><button class="btn btn-default dropdown-toggle" type="button" id="availAttributesmsContentsmsItemtitled132e2" data-toggle="dropdown">
+                                    Available Attributes <span class="caret"></span></button><ul class="dropdown-menu" role="menu" aria-labelledby="availAttributesmsContentsmsItemtitled132e2">
                                     <li role="presentation">
                                        <xf:trigger class="btn add" appearance="minimal" ref=".[not(@evidence)]">
                                           <xf:label>evidence</xf:label>
@@ -380,14 +380,14 @@
                            </xf:input>
                         </div>
                      </repeat>
-                     <repeat xmlns="http://www.w3.org/2002/xforms" ref="tei:author" id="msContentsmsItemauthord31e3" class="xformsGroup">
+                     <repeat xmlns="http://www.w3.org/2002/xforms" ref="tei:author" id="msContentsmsItemauthord132e3" class="xformsGroup">
                         <div xmlns="http://www.w3.org/1999/xhtml" class="xformElement">
                            <div class="inlineBlock">
                               <xf:trigger xmlns="http://www.w3.org/2002/xforms" appearance="minimal" class="btn remove inline">
                                  <xf:label></xf:label>
                                  <xf:delete ev:event="DOMActivate" ref="."></xf:delete>
-                              </xf:trigger><span class="elementLable repeat">auteur</span><div class="dropdown"><button class="btn btn-default dropdown-toggle" type="button" id="availElementsmsContentsmsItemauthord31e3" data-toggle="dropdown">
-                                    Available Elements <span class="caret"></span></button><ul class="dropdown-menu" role="menu" aria-labelledby="availElementsmsContentsmsItemauthord31e3">
+                              </xf:trigger><span class="elementLable repeat">auteur</span><div class="dropdown"><button class="btn btn-default dropdown-toggle" type="button" id="availElementsmsContentsmsItemauthord132e3" data-toggle="dropdown">
+                                    Available Elements <span class="caret"></span></button><ul class="dropdown-menu" role="menu" aria-labelledby="availElementsmsContentsmsItemauthord132e3">
                                     <li role="presentation">
                                        <xf:trigger class="btn add" appearance="minimal" ref=".">
                                           <xf:label>paragraphe</xf:label>
@@ -400,7 +400,7 @@
                                  ;
                                  par exemple dans la même forme que celle utilisée par une référence bibliographique
                                  reconnue.</span></div>
-                           <repeat xmlns="http://www.w3.org/2002/xforms" ref="tei:p" id="msContentsmsItemauthorpd65e1" class="xformsGroup">
+                           <repeat xmlns="http://www.w3.org/2002/xforms" ref="tei:p" id="msContentsmsItemauthorpd166e1" class="xformsGroup">
                               <div xmlns="http://www.w3.org/1999/xhtml" class="xformElement">
                                  <div class="inlineBlock">
                                     <xf:trigger xmlns="http://www.w3.org/2002/xforms" appearance="minimal" class="btn remove inline">
@@ -415,7 +415,7 @@
                            </repeat>
                         </div>
                      </repeat>
-                     <repeat xmlns="http://www.w3.org/2002/xforms" ref="tei:textLang" id="msContentsmsItemtextLangd31e4" class="xformsGroup">
+                     <repeat xmlns="http://www.w3.org/2002/xforms" ref="tei:textLang" id="msContentsmsItemtextLangd132e4" class="xformsGroup">
                         <div xmlns="http://www.w3.org/1999/xhtml" class="xformElement">
                            <div class="inlineBlock">
                               <xf:trigger xmlns="http://www.w3.org/2002/xforms" appearance="minimal" class="btn remove inline">
@@ -423,8 +423,8 @@
                                  <xf:delete ev:event="DOMActivate" ref="."></xf:delete>
                               </xf:trigger><span class="elementLable repeat">langues du texte</span> | 
                               
-                              <div class="dropdown"><button class="btn btn-default dropdown-toggle" type="button" id="availAttributesmsContentsmsItemtextLangd31e4" data-toggle="dropdown">
-                                    Available Attributes <span class="caret"></span></button><ul class="dropdown-menu" role="menu" aria-labelledby="availAttributesmsContentsmsItemtextLangd31e4">
+                              <div class="dropdown"><button class="btn btn-default dropdown-toggle" type="button" id="availAttributesmsContentsmsItemtextLangd132e4" data-toggle="dropdown">
+                                    Available Attributes <span class="caret"></span></button><ul class="dropdown-menu" role="menu" aria-labelledby="availAttributesmsContentsmsItemtextLangd132e4">
                                     <li role="presentation">
                                        <xf:trigger class="btn add" appearance="minimal" ref=".[not(@mainLang)]">
                                           <xf:label>mainLang</xf:label>
@@ -439,8 +439,8 @@
                                     </li>
                                  </ul>
                               </div>
-                              <div class="dropdown"><button class="btn btn-default dropdown-toggle" type="button" id="availElementsmsContentsmsItemtextLangd31e4" data-toggle="dropdown">
-                                    Available Elements <span class="caret"></span></button><ul class="dropdown-menu" role="menu" aria-labelledby="availElementsmsContentsmsItemtextLangd31e4">
+                              <div class="dropdown"><button class="btn btn-default dropdown-toggle" type="button" id="availElementsmsContentsmsItemtextLangd132e4" data-toggle="dropdown">
+                                    Available Elements <span class="caret"></span></button><ul class="dropdown-menu" role="menu" aria-labelledby="availElementsmsContentsmsItemtextLangd132e4">
                                     <li role="presentation">
                                        <xf:trigger class="btn add" appearance="minimal" ref=".">
                                           <xf:label>paragraphe</xf:label>
@@ -464,7 +464,7 @@
                               <xf:trigger appearance="minimal" class="btn remove" ref="@otherLangs">
                                  <xf:label></xf:label>
                                  <xf:delete ev:event="DOMActivate" ref="."></xf:delete>
-                              </xf:trigger></span><repeat xmlns="http://www.w3.org/2002/xforms" ref="tei:p" id="msContentsmsItemtextLangpd194e1" class="xformsGroup">
+                              </xf:trigger></span><repeat xmlns="http://www.w3.org/2002/xforms" ref="tei:p" id="msContentsmsItemtextLangpd295e1" class="xformsGroup">
                               <div xmlns="http://www.w3.org/1999/xhtml" class="xformElement">
                                  <div class="inlineBlock">
                                     <xf:trigger xmlns="http://www.w3.org/2002/xforms" appearance="minimal" class="btn remove inline">
@@ -479,14 +479,14 @@
                            </repeat>
                         </div>
                      </repeat>
-                     <repeat xmlns="http://www.w3.org/2002/xforms" ref="tei:rubric" id="msContentsmsItemrubricd31e5" class="xformsGroup">
+                     <repeat xmlns="http://www.w3.org/2002/xforms" ref="tei:rubric" id="msContentsmsItemrubricd132e5" class="xformsGroup">
                         <div xmlns="http://www.w3.org/1999/xhtml" class="xformElement">
                            <div class="inlineBlock">
                               <xf:trigger xmlns="http://www.w3.org/2002/xforms" appearance="minimal" class="btn remove inline">
                                  <xf:label></xf:label>
                                  <xf:delete ev:event="DOMActivate" ref="."></xf:delete>
-                              </xf:trigger><span class="elementLable repeat">rubrique</span><div class="dropdown"><button class="btn btn-default dropdown-toggle" type="button" id="availElementsmsContentsmsItemrubricd31e5" data-toggle="dropdown">
-                                    Available Elements <span class="caret"></span></button><ul class="dropdown-menu" role="menu" aria-labelledby="availElementsmsContentsmsItemrubricd31e5">
+                              </xf:trigger><span class="elementLable repeat">rubrique</span><div class="dropdown"><button class="btn btn-default dropdown-toggle" type="button" id="availElementsmsContentsmsItemrubricd132e5" data-toggle="dropdown">
+                                    Available Elements <span class="caret"></span></button><ul class="dropdown-menu" role="menu" aria-labelledby="availElementsmsContentsmsItemrubricd132e5">
                                     <li role="presentation">
                                        <xf:trigger class="btn add" appearance="minimal" ref=".">
                                           <xf:label>locus</xf:label>
@@ -508,7 +508,7 @@
                                  titre, et qui sont différenciés du texte lui-même, généralement à l'encre rouge, par
                                  une taille ou un style d'écriture particuliers, ou par tout autre procédé de ce
                                  genre.</span></div>
-                           <repeat xmlns="http://www.w3.org/2002/xforms" ref="tei:locus" id="msContentsmsItemrubriclocusd323e1" class="xformsGroup">
+                           <repeat xmlns="http://www.w3.org/2002/xforms" ref="tei:locus" id="msContentsmsItemrubriclocusd424e1" class="xformsGroup">
                               <div xmlns="http://www.w3.org/1999/xhtml" class="xformElement">
                                  <div class="inlineBlock">
                                     <xf:trigger xmlns="http://www.w3.org/2002/xforms" appearance="minimal" class="btn remove inline">
@@ -516,8 +516,8 @@
                                        <xf:delete ev:event="DOMActivate" ref="."></xf:delete>
                                     </xf:trigger><span class="elementLable repeat">locus</span> | 
                                     
-                                    <div class="dropdown"><button class="btn btn-default dropdown-toggle" type="button" id="availAttributesmsContentsmsItemrubriclocusd323e1" data-toggle="dropdown">
-                                          Available Attributes <span class="caret"></span></button><ul class="dropdown-menu" role="menu" aria-labelledby="availAttributesmsContentsmsItemrubriclocusd323e1">
+                                    <div class="dropdown"><button class="btn btn-default dropdown-toggle" type="button" id="availAttributesmsContentsmsItemrubriclocusd424e1" data-toggle="dropdown">
+                                          Available Attributes <span class="caret"></span></button><ul class="dropdown-menu" role="menu" aria-labelledby="availAttributesmsContentsmsItemrubriclocusd424e1">
                                           <li role="presentation">
                                              <xf:trigger class="btn add" appearance="minimal" ref=".[not(@from)]">
                                                 <xf:label>from</xf:label>
@@ -565,7 +565,7 @@
                                  </xf:input>
                               </div>
                            </repeat>
-                           <repeat xmlns="http://www.w3.org/2002/xforms" ref="tei:q" id="msContentsmsItemrubricqd323e2" class="xformsGroup">
+                           <repeat xmlns="http://www.w3.org/2002/xforms" ref="tei:q" id="msContentsmsItemrubricqd424e2" class="xformsGroup">
                               <div xmlns="http://www.w3.org/1999/xhtml" class="xformElement">
                                  <div class="inlineBlock">
                                     <xf:trigger xmlns="http://www.w3.org/2002/xforms" appearance="minimal" class="btn remove inline">
@@ -574,8 +574,8 @@
                                     </xf:trigger><span class="elementLable repeat">séparé du texte environnant par des
                                        guillemets</span> | 
                                     
-                                    <div class="dropdown"><button class="btn btn-default dropdown-toggle" type="button" id="availAttributesmsContentsmsItemrubricqd323e2" data-toggle="dropdown">
-                                          Available Attributes <span class="caret"></span></button><ul class="dropdown-menu" role="menu" aria-labelledby="availAttributesmsContentsmsItemrubricqd323e2">
+                                    <div class="dropdown"><button class="btn btn-default dropdown-toggle" type="button" id="availAttributesmsContentsmsItemrubricqd424e2" data-toggle="dropdown">
+                                          Available Attributes <span class="caret"></span></button><ul class="dropdown-menu" role="menu" aria-labelledby="availAttributesmsContentsmsItemrubricqd424e2">
                                           <li role="presentation">
                                              <xf:trigger class="btn add" appearance="minimal" ref=".[not(@type)]">
                                                 <xf:label>type</xf:label>
@@ -584,8 +584,8 @@
                                           </li>
                                        </ul>
                                     </div>
-                                    <div class="dropdown"><button class="btn btn-default dropdown-toggle" type="button" id="availElementsmsContentsmsItemrubricqd323e2" data-toggle="dropdown">
-                                          Available Elements <span class="caret"></span></button><ul class="dropdown-menu" role="menu" aria-labelledby="availElementsmsContentsmsItemrubricqd323e2">
+                                    <div class="dropdown"><button class="btn btn-default dropdown-toggle" type="button" id="availElementsmsContentsmsItemrubricqd424e2" data-toggle="dropdown">
+                                          Available Elements <span class="caret"></span></button><ul class="dropdown-menu" role="menu" aria-labelledby="availElementsmsContentsmsItemrubricqd424e2">
                                           <li role="presentation">
                                              <xf:trigger class="btn add" appearance="minimal" ref=".">
                                                 <xf:label>paragraphe</xf:label>
@@ -644,7 +644,7 @@
                                     <xf:trigger appearance="minimal" class="btn remove" ref="@type">
                                        <xf:label></xf:label>
                                        <xf:delete ev:event="DOMActivate" ref="."></xf:delete>
-                                    </xf:trigger></span><repeat xmlns="http://www.w3.org/2002/xforms" ref="tei:p" id="msContentsmsItemrubricqpd341e1" class="xformsGroup">
+                                    </xf:trigger></span><repeat xmlns="http://www.w3.org/2002/xforms" ref="tei:p" id="msContentsmsItemrubricqpd442e1" class="xformsGroup">
                                     <div xmlns="http://www.w3.org/1999/xhtml" class="xformElement">
                                        <div class="inlineBlock">
                                           <xf:trigger xmlns="http://www.w3.org/2002/xforms" appearance="minimal" class="btn remove inline">
@@ -661,7 +661,7 @@
                            </repeat>
                         </div>
                      </repeat>
-                     <repeat xmlns="http://www.w3.org/2002/xforms" ref="tei:incipit" id="msContentsmsItemincipitd31e6" class="xformsGroup">
+                     <repeat xmlns="http://www.w3.org/2002/xforms" ref="tei:incipit" id="msContentsmsItemincipitd132e6" class="xformsGroup">
                         <div xmlns="http://www.w3.org/1999/xhtml" class="xformElement">
                            <div class="inlineBlock">
                               <xf:trigger xmlns="http://www.w3.org/2002/xforms" appearance="minimal" class="btn remove inline">
@@ -669,8 +669,8 @@
                                  <xf:delete ev:event="DOMActivate" ref="."></xf:delete>
                               </xf:trigger><span class="elementLable repeat">incipit</span> | 
                               
-                              <div class="dropdown"><button class="btn btn-default dropdown-toggle" type="button" id="availAttributesmsContentsmsItemincipitd31e6" data-toggle="dropdown">
-                                    Available Attributes <span class="caret"></span></button><ul class="dropdown-menu" role="menu" aria-labelledby="availAttributesmsContentsmsItemincipitd31e6">
+                              <div class="dropdown"><button class="btn btn-default dropdown-toggle" type="button" id="availAttributesmsContentsmsItemincipitd132e6" data-toggle="dropdown">
+                                    Available Attributes <span class="caret"></span></button><ul class="dropdown-menu" role="menu" aria-labelledby="availAttributesmsContentsmsItemincipitd132e6">
                                     <li role="presentation">
                                        <xf:trigger class="btn add" appearance="minimal" ref=".[not(@type)]">
                                           <xf:label>type</xf:label>
@@ -679,8 +679,8 @@
                                     </li>
                                  </ul>
                               </div>
-                              <div class="dropdown"><button class="btn btn-default dropdown-toggle" type="button" id="availElementsmsContentsmsItemincipitd31e6" data-toggle="dropdown">
-                                    Available Elements <span class="caret"></span></button><ul class="dropdown-menu" role="menu" aria-labelledby="availElementsmsContentsmsItemincipitd31e6">
+                              <div class="dropdown"><button class="btn btn-default dropdown-toggle" type="button" id="availElementsmsContentsmsItemincipitd132e6" data-toggle="dropdown">
+                                    Available Elements <span class="caret"></span></button><ul class="dropdown-menu" role="menu" aria-labelledby="availElementsmsContentsmsItemincipitd132e6">
                                     <li role="presentation">
                                        <xf:trigger class="btn add" appearance="minimal" ref=".">
                                           <xf:label>locus</xf:label>
@@ -737,7 +737,7 @@
                               <xf:trigger appearance="minimal" class="btn remove" ref="@type">
                                  <xf:label></xf:label>
                                  <xf:delete ev:event="DOMActivate" ref="."></xf:delete>
-                              </xf:trigger></span><repeat xmlns="http://www.w3.org/2002/xforms" ref="tei:locus" id="msContentsmsItemincipitlocusd470e1" class="xformsGroup">
+                              </xf:trigger></span><repeat xmlns="http://www.w3.org/2002/xforms" ref="tei:locus" id="msContentsmsItemincipitlocusd571e1" class="xformsGroup">
                               <div xmlns="http://www.w3.org/1999/xhtml" class="xformElement">
                                  <div class="inlineBlock">
                                     <xf:trigger xmlns="http://www.w3.org/2002/xforms" appearance="minimal" class="btn remove inline">
@@ -745,8 +745,8 @@
                                        <xf:delete ev:event="DOMActivate" ref="."></xf:delete>
                                     </xf:trigger><span class="elementLable repeat">locus</span> | 
                                     
-                                    <div class="dropdown"><button class="btn btn-default dropdown-toggle" type="button" id="availAttributesmsContentsmsItemincipitlocusd470e1" data-toggle="dropdown">
-                                          Available Attributes <span class="caret"></span></button><ul class="dropdown-menu" role="menu" aria-labelledby="availAttributesmsContentsmsItemincipitlocusd470e1">
+                                    <div class="dropdown"><button class="btn btn-default dropdown-toggle" type="button" id="availAttributesmsContentsmsItemincipitlocusd571e1" data-toggle="dropdown">
+                                          Available Attributes <span class="caret"></span></button><ul class="dropdown-menu" role="menu" aria-labelledby="availAttributesmsContentsmsItemincipitlocusd571e1">
                                           <li role="presentation">
                                              <xf:trigger class="btn add" appearance="minimal" ref=".[not(@from)]">
                                                 <xf:label>from</xf:label>
@@ -794,7 +794,7 @@
                                  </xf:input>
                               </div>
                            </repeat>
-                           <repeat xmlns="http://www.w3.org/2002/xforms" ref="tei:q" id="msContentsmsItemincipitqd470e2" class="xformsGroup">
+                           <repeat xmlns="http://www.w3.org/2002/xforms" ref="tei:q" id="msContentsmsItemincipitqd571e2" class="xformsGroup">
                               <div xmlns="http://www.w3.org/1999/xhtml" class="xformElement">
                                  <div class="inlineBlock">
                                     <xf:trigger xmlns="http://www.w3.org/2002/xforms" appearance="minimal" class="btn remove inline">
@@ -803,8 +803,8 @@
                                     </xf:trigger><span class="elementLable repeat">séparé du texte environnant par des
                                        guillemets</span> | 
                                     
-                                    <div class="dropdown"><button class="btn btn-default dropdown-toggle" type="button" id="availAttributesmsContentsmsItemincipitqd470e2" data-toggle="dropdown">
-                                          Available Attributes <span class="caret"></span></button><ul class="dropdown-menu" role="menu" aria-labelledby="availAttributesmsContentsmsItemincipitqd470e2">
+                                    <div class="dropdown"><button class="btn btn-default dropdown-toggle" type="button" id="availAttributesmsContentsmsItemincipitqd571e2" data-toggle="dropdown">
+                                          Available Attributes <span class="caret"></span></button><ul class="dropdown-menu" role="menu" aria-labelledby="availAttributesmsContentsmsItemincipitqd571e2">
                                           <li role="presentation">
                                              <xf:trigger class="btn add" appearance="minimal" ref=".[not(@type)]">
                                                 <xf:label>type</xf:label>
@@ -813,8 +813,8 @@
                                           </li>
                                        </ul>
                                     </div>
-                                    <div class="dropdown"><button class="btn btn-default dropdown-toggle" type="button" id="availElementsmsContentsmsItemincipitqd470e2" data-toggle="dropdown">
-                                          Available Elements <span class="caret"></span></button><ul class="dropdown-menu" role="menu" aria-labelledby="availElementsmsContentsmsItemincipitqd470e2">
+                                    <div class="dropdown"><button class="btn btn-default dropdown-toggle" type="button" id="availElementsmsContentsmsItemincipitqd571e2" data-toggle="dropdown">
+                                          Available Elements <span class="caret"></span></button><ul class="dropdown-menu" role="menu" aria-labelledby="availElementsmsContentsmsItemincipitqd571e2">
                                           <li role="presentation">
                                              <xf:trigger class="btn add" appearance="minimal" ref=".">
                                                 <xf:label>paragraphe</xf:label>
@@ -873,7 +873,7 @@
                                     <xf:trigger appearance="minimal" class="btn remove" ref="@type">
                                        <xf:label></xf:label>
                                        <xf:delete ev:event="DOMActivate" ref="."></xf:delete>
-                                    </xf:trigger></span><repeat xmlns="http://www.w3.org/2002/xforms" ref="tei:p" id="msContentsmsItemincipitqpd488e1" class="xformsGroup">
+                                    </xf:trigger></span><repeat xmlns="http://www.w3.org/2002/xforms" ref="tei:p" id="msContentsmsItemincipitqpd589e1" class="xformsGroup">
                                     <div xmlns="http://www.w3.org/1999/xhtml" class="xformElement">
                                        <div class="inlineBlock">
                                           <xf:trigger xmlns="http://www.w3.org/2002/xforms" appearance="minimal" class="btn remove inline">
@@ -890,7 +890,7 @@
                            </repeat>
                         </div>
                      </repeat>
-                     <repeat xmlns="http://www.w3.org/2002/xforms" ref="tei:explicit" id="msContentsmsItemexplicitd31e7" class="xformsGroup">
+                     <repeat xmlns="http://www.w3.org/2002/xforms" ref="tei:explicit" id="msContentsmsItemexplicitd132e7" class="xformsGroup">
                         <div xmlns="http://www.w3.org/1999/xhtml" class="xformElement">
                            <div class="inlineBlock">
                               <xf:trigger xmlns="http://www.w3.org/2002/xforms" appearance="minimal" class="btn remove inline">
@@ -898,8 +898,8 @@
                                  <xf:delete ev:event="DOMActivate" ref="."></xf:delete>
                               </xf:trigger><span class="elementLable repeat">explicit</span> | 
                               
-                              <div class="dropdown"><button class="btn btn-default dropdown-toggle" type="button" id="availAttributesmsContentsmsItemexplicitd31e7" data-toggle="dropdown">
-                                    Available Attributes <span class="caret"></span></button><ul class="dropdown-menu" role="menu" aria-labelledby="availAttributesmsContentsmsItemexplicitd31e7">
+                              <div class="dropdown"><button class="btn btn-default dropdown-toggle" type="button" id="availAttributesmsContentsmsItemexplicitd132e7" data-toggle="dropdown">
+                                    Available Attributes <span class="caret"></span></button><ul class="dropdown-menu" role="menu" aria-labelledby="availAttributesmsContentsmsItemexplicitd132e7">
                                     <li role="presentation">
                                        <xf:trigger class="btn add" appearance="minimal" ref=".[not(@type)]">
                                           <xf:label>type</xf:label>
@@ -908,8 +908,8 @@
                                     </li>
                                  </ul>
                               </div>
-                              <div class="dropdown"><button class="btn btn-default dropdown-toggle" type="button" id="availElementsmsContentsmsItemexplicitd31e7" data-toggle="dropdown">
-                                    Available Elements <span class="caret"></span></button><ul class="dropdown-menu" role="menu" aria-labelledby="availElementsmsContentsmsItemexplicitd31e7">
+                              <div class="dropdown"><button class="btn btn-default dropdown-toggle" type="button" id="availElementsmsContentsmsItemexplicitd132e7" data-toggle="dropdown">
+                                    Available Elements <span class="caret"></span></button><ul class="dropdown-menu" role="menu" aria-labelledby="availElementsmsContentsmsItemexplicitd132e7">
                                     <li role="presentation">
                                        <xf:trigger class="btn add" appearance="minimal" ref=".">
                                           <xf:label>locus</xf:label>
@@ -962,7 +962,7 @@
                               <xf:trigger appearance="minimal" class="btn remove" ref="@type">
                                  <xf:label></xf:label>
                                  <xf:delete ev:event="DOMActivate" ref="."></xf:delete>
-                              </xf:trigger></span><repeat xmlns="http://www.w3.org/2002/xforms" ref="tei:locus" id="msContentsmsItemexplicitlocusd617e1" class="xformsGroup">
+                              </xf:trigger></span><repeat xmlns="http://www.w3.org/2002/xforms" ref="tei:locus" id="msContentsmsItemexplicitlocusd718e1" class="xformsGroup">
                               <div xmlns="http://www.w3.org/1999/xhtml" class="xformElement">
                                  <div class="inlineBlock">
                                     <xf:trigger xmlns="http://www.w3.org/2002/xforms" appearance="minimal" class="btn remove inline">
@@ -970,8 +970,8 @@
                                        <xf:delete ev:event="DOMActivate" ref="."></xf:delete>
                                     </xf:trigger><span class="elementLable repeat">locus</span> | 
                                     
-                                    <div class="dropdown"><button class="btn btn-default dropdown-toggle" type="button" id="availAttributesmsContentsmsItemexplicitlocusd617e1" data-toggle="dropdown">
-                                          Available Attributes <span class="caret"></span></button><ul class="dropdown-menu" role="menu" aria-labelledby="availAttributesmsContentsmsItemexplicitlocusd617e1">
+                                    <div class="dropdown"><button class="btn btn-default dropdown-toggle" type="button" id="availAttributesmsContentsmsItemexplicitlocusd718e1" data-toggle="dropdown">
+                                          Available Attributes <span class="caret"></span></button><ul class="dropdown-menu" role="menu" aria-labelledby="availAttributesmsContentsmsItemexplicitlocusd718e1">
                                           <li role="presentation">
                                              <xf:trigger class="btn add" appearance="minimal" ref=".[not(@from)]">
                                                 <xf:label>from</xf:label>
@@ -1019,7 +1019,7 @@
                                  </xf:input>
                               </div>
                            </repeat>
-                           <repeat xmlns="http://www.w3.org/2002/xforms" ref="tei:q" id="msContentsmsItemexplicitqd617e2" class="xformsGroup">
+                           <repeat xmlns="http://www.w3.org/2002/xforms" ref="tei:q" id="msContentsmsItemexplicitqd718e2" class="xformsGroup">
                               <div xmlns="http://www.w3.org/1999/xhtml" class="xformElement">
                                  <div class="inlineBlock">
                                     <xf:trigger xmlns="http://www.w3.org/2002/xforms" appearance="minimal" class="btn remove inline">
@@ -1028,8 +1028,8 @@
                                     </xf:trigger><span class="elementLable repeat">séparé du texte environnant par des
                                        guillemets</span> | 
                                     
-                                    <div class="dropdown"><button class="btn btn-default dropdown-toggle" type="button" id="availAttributesmsContentsmsItemexplicitqd617e2" data-toggle="dropdown">
-                                          Available Attributes <span class="caret"></span></button><ul class="dropdown-menu" role="menu" aria-labelledby="availAttributesmsContentsmsItemexplicitqd617e2">
+                                    <div class="dropdown"><button class="btn btn-default dropdown-toggle" type="button" id="availAttributesmsContentsmsItemexplicitqd718e2" data-toggle="dropdown">
+                                          Available Attributes <span class="caret"></span></button><ul class="dropdown-menu" role="menu" aria-labelledby="availAttributesmsContentsmsItemexplicitqd718e2">
                                           <li role="presentation">
                                              <xf:trigger class="btn add" appearance="minimal" ref=".[not(@type)]">
                                                 <xf:label>type</xf:label>
@@ -1038,8 +1038,8 @@
                                           </li>
                                        </ul>
                                     </div>
-                                    <div class="dropdown"><button class="btn btn-default dropdown-toggle" type="button" id="availElementsmsContentsmsItemexplicitqd617e2" data-toggle="dropdown">
-                                          Available Elements <span class="caret"></span></button><ul class="dropdown-menu" role="menu" aria-labelledby="availElementsmsContentsmsItemexplicitqd617e2">
+                                    <div class="dropdown"><button class="btn btn-default dropdown-toggle" type="button" id="availElementsmsContentsmsItemexplicitqd718e2" data-toggle="dropdown">
+                                          Available Elements <span class="caret"></span></button><ul class="dropdown-menu" role="menu" aria-labelledby="availElementsmsContentsmsItemexplicitqd718e2">
                                           <li role="presentation">
                                              <xf:trigger class="btn add" appearance="minimal" ref=".">
                                                 <xf:label>paragraphe</xf:label>
@@ -1098,7 +1098,7 @@
                                     <xf:trigger appearance="minimal" class="btn remove" ref="@type">
                                        <xf:label></xf:label>
                                        <xf:delete ev:event="DOMActivate" ref="."></xf:delete>
-                                    </xf:trigger></span><repeat xmlns="http://www.w3.org/2002/xforms" ref="tei:p" id="msContentsmsItemexplicitqpd635e1" class="xformsGroup">
+                                    </xf:trigger></span><repeat xmlns="http://www.w3.org/2002/xforms" ref="tei:p" id="msContentsmsItemexplicitqpd736e1" class="xformsGroup">
                                     <div xmlns="http://www.w3.org/1999/xhtml" class="xformElement">
                                        <div class="inlineBlock">
                                           <xf:trigger xmlns="http://www.w3.org/2002/xforms" appearance="minimal" class="btn remove inline">
@@ -1115,14 +1115,14 @@
                            </repeat>
                         </div>
                      </repeat>
-                     <repeat xmlns="http://www.w3.org/2002/xforms" ref="tei:finalRubric" id="msContentsmsItemfinalRubricd31e8" class="xformsGroup">
+                     <repeat xmlns="http://www.w3.org/2002/xforms" ref="tei:finalRubric" id="msContentsmsItemfinalRubricd132e8" class="xformsGroup">
                         <div xmlns="http://www.w3.org/1999/xhtml" class="xformElement">
                            <div class="inlineBlock">
                               <xf:trigger xmlns="http://www.w3.org/2002/xforms" appearance="minimal" class="btn remove inline">
                                  <xf:label></xf:label>
                                  <xf:delete ev:event="DOMActivate" ref="."></xf:delete>
-                              </xf:trigger><span class="elementLable repeat">rubrique de fin</span><div class="dropdown"><button class="btn btn-default dropdown-toggle" type="button" id="availElementsmsContentsmsItemfinalRubricd31e8" data-toggle="dropdown">
-                                    Available Elements <span class="caret"></span></button><ul class="dropdown-menu" role="menu" aria-labelledby="availElementsmsContentsmsItemfinalRubricd31e8">
+                              </xf:trigger><span class="elementLable repeat">rubrique de fin</span><div class="dropdown"><button class="btn btn-default dropdown-toggle" type="button" id="availElementsmsContentsmsItemfinalRubricd132e8" data-toggle="dropdown">
+                                    Available Elements <span class="caret"></span></button><ul class="dropdown-menu" role="menu" aria-labelledby="availElementsmsContentsmsItemfinalRubricd132e8">
                                     <li role="presentation">
                                        <xf:trigger class="btn add" appearance="minimal" ref=".">
                                           <xf:label>locus</xf:label>
@@ -1142,7 +1142,7 @@
                                  texte, qui incluent souvent la mention de son auteur et de son titre, et sont
                                  généralement différenciés du texte lui-même par l'utilisation d'une encre rouge, par
                                  une taille ou un style d'écriture particuliers, ou par tout autre moyen visuel.</span></div>
-                           <repeat xmlns="http://www.w3.org/2002/xforms" ref="tei:locus" id="msContentsmsItemfinalRubriclocusd764e1" class="xformsGroup">
+                           <repeat xmlns="http://www.w3.org/2002/xforms" ref="tei:locus" id="msContentsmsItemfinalRubriclocusd865e1" class="xformsGroup">
                               <div xmlns="http://www.w3.org/1999/xhtml" class="xformElement">
                                  <div class="inlineBlock">
                                     <xf:trigger xmlns="http://www.w3.org/2002/xforms" appearance="minimal" class="btn remove inline">
@@ -1150,8 +1150,8 @@
                                        <xf:delete ev:event="DOMActivate" ref="."></xf:delete>
                                     </xf:trigger><span class="elementLable repeat">locus</span> | 
                                     
-                                    <div class="dropdown"><button class="btn btn-default dropdown-toggle" type="button" id="availAttributesmsContentsmsItemfinalRubriclocusd764e1" data-toggle="dropdown">
-                                          Available Attributes <span class="caret"></span></button><ul class="dropdown-menu" role="menu" aria-labelledby="availAttributesmsContentsmsItemfinalRubriclocusd764e1">
+                                    <div class="dropdown"><button class="btn btn-default dropdown-toggle" type="button" id="availAttributesmsContentsmsItemfinalRubriclocusd865e1" data-toggle="dropdown">
+                                          Available Attributes <span class="caret"></span></button><ul class="dropdown-menu" role="menu" aria-labelledby="availAttributesmsContentsmsItemfinalRubriclocusd865e1">
                                           <li role="presentation">
                                              <xf:trigger class="btn add" appearance="minimal" ref=".[not(@from)]">
                                                 <xf:label>from</xf:label>
@@ -1199,7 +1199,7 @@
                                  </xf:input>
                               </div>
                            </repeat>
-                           <repeat xmlns="http://www.w3.org/2002/xforms" ref="tei:q" id="msContentsmsItemfinalRubricqd764e2" class="xformsGroup">
+                           <repeat xmlns="http://www.w3.org/2002/xforms" ref="tei:q" id="msContentsmsItemfinalRubricqd865e2" class="xformsGroup">
                               <div xmlns="http://www.w3.org/1999/xhtml" class="xformElement">
                                  <div class="inlineBlock">
                                     <xf:trigger xmlns="http://www.w3.org/2002/xforms" appearance="minimal" class="btn remove inline">
@@ -1208,8 +1208,8 @@
                                     </xf:trigger><span class="elementLable repeat">séparé du texte environnant par des
                                        guillemets</span> | 
                                     
-                                    <div class="dropdown"><button class="btn btn-default dropdown-toggle" type="button" id="availAttributesmsContentsmsItemfinalRubricqd764e2" data-toggle="dropdown">
-                                          Available Attributes <span class="caret"></span></button><ul class="dropdown-menu" role="menu" aria-labelledby="availAttributesmsContentsmsItemfinalRubricqd764e2">
+                                    <div class="dropdown"><button class="btn btn-default dropdown-toggle" type="button" id="availAttributesmsContentsmsItemfinalRubricqd865e2" data-toggle="dropdown">
+                                          Available Attributes <span class="caret"></span></button><ul class="dropdown-menu" role="menu" aria-labelledby="availAttributesmsContentsmsItemfinalRubricqd865e2">
                                           <li role="presentation">
                                              <xf:trigger class="btn add" appearance="minimal" ref=".[not(@type)]">
                                                 <xf:label>type</xf:label>
@@ -1218,8 +1218,8 @@
                                           </li>
                                        </ul>
                                     </div>
-                                    <div class="dropdown"><button class="btn btn-default dropdown-toggle" type="button" id="availElementsmsContentsmsItemfinalRubricqd764e2" data-toggle="dropdown">
-                                          Available Elements <span class="caret"></span></button><ul class="dropdown-menu" role="menu" aria-labelledby="availElementsmsContentsmsItemfinalRubricqd764e2">
+                                    <div class="dropdown"><button class="btn btn-default dropdown-toggle" type="button" id="availElementsmsContentsmsItemfinalRubricqd865e2" data-toggle="dropdown">
+                                          Available Elements <span class="caret"></span></button><ul class="dropdown-menu" role="menu" aria-labelledby="availElementsmsContentsmsItemfinalRubricqd865e2">
                                           <li role="presentation">
                                              <xf:trigger class="btn add" appearance="minimal" ref=".">
                                                 <xf:label>paragraphe</xf:label>
@@ -1278,7 +1278,7 @@
                                     <xf:trigger appearance="minimal" class="btn remove" ref="@type">
                                        <xf:label></xf:label>
                                        <xf:delete ev:event="DOMActivate" ref="."></xf:delete>
-                                    </xf:trigger></span><repeat xmlns="http://www.w3.org/2002/xforms" ref="tei:p" id="msContentsmsItemfinalRubricqpd782e1" class="xformsGroup">
+                                    </xf:trigger></span><repeat xmlns="http://www.w3.org/2002/xforms" ref="tei:p" id="msContentsmsItemfinalRubricqpd883e1" class="xformsGroup">
                                     <div xmlns="http://www.w3.org/1999/xhtml" class="xformElement">
                                        <div class="inlineBlock">
                                           <xf:trigger xmlns="http://www.w3.org/2002/xforms" appearance="minimal" class="btn remove inline">
@@ -1295,7 +1295,7 @@
                            </repeat>
                         </div>
                      </repeat>
-                     <repeat xmlns="http://www.w3.org/2002/xforms" ref="tei:colophon" id="msContentsmsItemcolophond31e9" class="xformsGroup">
+                     <repeat xmlns="http://www.w3.org/2002/xforms" ref="tei:colophon" id="msContentsmsItemcolophond132e9" class="xformsGroup">
                         <div xmlns="http://www.w3.org/1999/xhtml" class="xformElement">
                            <div class="inlineBlock">
                               <xf:trigger xmlns="http://www.w3.org/2002/xforms" appearance="minimal" class="btn remove inline">
@@ -1303,8 +1303,8 @@
                                  <xf:delete ev:event="DOMActivate" ref="."></xf:delete>
                               </xf:trigger><span class="elementLable repeat">colophon</span> | 
                               
-                              <div class="dropdown"><button class="btn btn-default dropdown-toggle" type="button" id="availAttributesmsContentsmsItemcolophond31e9" data-toggle="dropdown">
-                                    Available Attributes <span class="caret"></span></button><ul class="dropdown-menu" role="menu" aria-labelledby="availAttributesmsContentsmsItemcolophond31e9">
+                              <div class="dropdown"><button class="btn btn-default dropdown-toggle" type="button" id="availAttributesmsContentsmsItemcolophond132e9" data-toggle="dropdown">
+                                    Available Attributes <span class="caret"></span></button><ul class="dropdown-menu" role="menu" aria-labelledby="availAttributesmsContentsmsItemcolophond132e9">
                                     <li role="presentation">
                                        <xf:trigger class="btn add" appearance="minimal" ref=".[not(@type)]">
                                           <xf:label>type</xf:label>
@@ -1319,8 +1319,8 @@
                                     </li>
                                  </ul>
                               </div>
-                              <div class="dropdown"><button class="btn btn-default dropdown-toggle" type="button" id="availElementsmsContentsmsItemcolophond31e9" data-toggle="dropdown">
-                                    Available Elements <span class="caret"></span></button><ul class="dropdown-menu" role="menu" aria-labelledby="availElementsmsContentsmsItemcolophond31e9">
+                              <div class="dropdown"><button class="btn btn-default dropdown-toggle" type="button" id="availElementsmsContentsmsItemcolophond132e9" data-toggle="dropdown">
+                                    Available Elements <span class="caret"></span></button><ul class="dropdown-menu" role="menu" aria-labelledby="availElementsmsContentsmsItemcolophond132e9">
                                     <li role="presentation">
                                        <xf:trigger class="btn add" appearance="minimal" ref=".">
                                           <xf:label>locus</xf:label>
@@ -1382,7 +1382,7 @@
                               <xf:trigger appearance="minimal" class="btn remove" ref="@xml:id">
                                  <xf:label></xf:label>
                                  <xf:delete ev:event="DOMActivate" ref="."></xf:delete>
-                              </xf:trigger></span><repeat xmlns="http://www.w3.org/2002/xforms" ref="tei:locus" id="msContentsmsItemcolophonlocusd911e1" class="xformsGroup">
+                              </xf:trigger></span><repeat xmlns="http://www.w3.org/2002/xforms" ref="tei:locus" id="msContentsmsItemcolophonlocusd1012e1" class="xformsGroup">
                               <div xmlns="http://www.w3.org/1999/xhtml" class="xformElement">
                                  <div class="inlineBlock">
                                     <xf:trigger xmlns="http://www.w3.org/2002/xforms" appearance="minimal" class="btn remove inline">
@@ -1390,8 +1390,8 @@
                                        <xf:delete ev:event="DOMActivate" ref="."></xf:delete>
                                     </xf:trigger><span class="elementLable repeat">locus</span> | 
                                     
-                                    <div class="dropdown"><button class="btn btn-default dropdown-toggle" type="button" id="availAttributesmsContentsmsItemcolophonlocusd911e1" data-toggle="dropdown">
-                                          Available Attributes <span class="caret"></span></button><ul class="dropdown-menu" role="menu" aria-labelledby="availAttributesmsContentsmsItemcolophonlocusd911e1">
+                                    <div class="dropdown"><button class="btn btn-default dropdown-toggle" type="button" id="availAttributesmsContentsmsItemcolophonlocusd1012e1" data-toggle="dropdown">
+                                          Available Attributes <span class="caret"></span></button><ul class="dropdown-menu" role="menu" aria-labelledby="availAttributesmsContentsmsItemcolophonlocusd1012e1">
                                           <li role="presentation">
                                              <xf:trigger class="btn add" appearance="minimal" ref=".[not(@from)]">
                                                 <xf:label>from</xf:label>
@@ -1439,7 +1439,7 @@
                                  </xf:input>
                               </div>
                            </repeat>
-                           <repeat xmlns="http://www.w3.org/2002/xforms" ref="tei:q" id="msContentsmsItemcolophonqd911e2" class="xformsGroup">
+                           <repeat xmlns="http://www.w3.org/2002/xforms" ref="tei:q" id="msContentsmsItemcolophonqd1012e2" class="xformsGroup">
                               <div xmlns="http://www.w3.org/1999/xhtml" class="xformElement">
                                  <div class="inlineBlock">
                                     <xf:trigger xmlns="http://www.w3.org/2002/xforms" appearance="minimal" class="btn remove inline">
@@ -1448,8 +1448,8 @@
                                     </xf:trigger><span class="elementLable repeat">séparé du texte environnant par des
                                        guillemets</span> | 
                                     
-                                    <div class="dropdown"><button class="btn btn-default dropdown-toggle" type="button" id="availAttributesmsContentsmsItemcolophonqd911e2" data-toggle="dropdown">
-                                          Available Attributes <span class="caret"></span></button><ul class="dropdown-menu" role="menu" aria-labelledby="availAttributesmsContentsmsItemcolophonqd911e2">
+                                    <div class="dropdown"><button class="btn btn-default dropdown-toggle" type="button" id="availAttributesmsContentsmsItemcolophonqd1012e2" data-toggle="dropdown">
+                                          Available Attributes <span class="caret"></span></button><ul class="dropdown-menu" role="menu" aria-labelledby="availAttributesmsContentsmsItemcolophonqd1012e2">
                                           <li role="presentation">
                                              <xf:trigger class="btn add" appearance="minimal" ref=".[not(@type)]">
                                                 <xf:label>type</xf:label>
@@ -1458,8 +1458,8 @@
                                           </li>
                                        </ul>
                                     </div>
-                                    <div class="dropdown"><button class="btn btn-default dropdown-toggle" type="button" id="availElementsmsContentsmsItemcolophonqd911e2" data-toggle="dropdown">
-                                          Available Elements <span class="caret"></span></button><ul class="dropdown-menu" role="menu" aria-labelledby="availElementsmsContentsmsItemcolophonqd911e2">
+                                    <div class="dropdown"><button class="btn btn-default dropdown-toggle" type="button" id="availElementsmsContentsmsItemcolophonqd1012e2" data-toggle="dropdown">
+                                          Available Elements <span class="caret"></span></button><ul class="dropdown-menu" role="menu" aria-labelledby="availElementsmsContentsmsItemcolophonqd1012e2">
                                           <li role="presentation">
                                              <xf:trigger class="btn add" appearance="minimal" ref=".">
                                                 <xf:label>paragraphe</xf:label>
@@ -1518,7 +1518,7 @@
                                     <xf:trigger appearance="minimal" class="btn remove" ref="@type">
                                        <xf:label></xf:label>
                                        <xf:delete ev:event="DOMActivate" ref="."></xf:delete>
-                                    </xf:trigger></span><repeat xmlns="http://www.w3.org/2002/xforms" ref="tei:p" id="msContentsmsItemcolophonqpd929e1" class="xformsGroup">
+                                    </xf:trigger></span><repeat xmlns="http://www.w3.org/2002/xforms" ref="tei:p" id="msContentsmsItemcolophonqpd1030e1" class="xformsGroup">
                                     <div xmlns="http://www.w3.org/1999/xhtml" class="xformElement">
                                        <div class="inlineBlock">
                                           <xf:trigger xmlns="http://www.w3.org/2002/xforms" appearance="minimal" class="btn remove inline">
@@ -1535,7 +1535,7 @@
                            </repeat>
                         </div>
                      </repeat>
-                     <repeat xmlns="http://www.w3.org/2002/xforms" ref="tei:note" id="msContentsmsItemnoted31e10" class="xformsGroup">
+                     <repeat xmlns="http://www.w3.org/2002/xforms" ref="tei:note" id="msContentsmsItemnoted132e10" class="xformsGroup">
                         <div xmlns="http://www.w3.org/1999/xhtml" class="xformElement">
                            <div class="inlineBlock">
                               <xf:trigger xmlns="http://www.w3.org/2002/xforms" appearance="minimal" class="btn remove inline">
@@ -1543,8 +1543,8 @@
                                  <xf:delete ev:event="DOMActivate" ref="."></xf:delete>
                               </xf:trigger><span class="elementLable repeat">note</span> | 
                               
-                              <div class="dropdown"><button class="btn btn-default dropdown-toggle" type="button" id="availAttributesmsContentsmsItemnoted31e10" data-toggle="dropdown">
-                                    Available Attributes <span class="caret"></span></button><ul class="dropdown-menu" role="menu" aria-labelledby="availAttributesmsContentsmsItemnoted31e10">
+                              <div class="dropdown"><button class="btn btn-default dropdown-toggle" type="button" id="availAttributesmsContentsmsItemnoted132e10" data-toggle="dropdown">
+                                    Available Attributes <span class="caret"></span></button><ul class="dropdown-menu" role="menu" aria-labelledby="availAttributesmsContentsmsItemnoted132e10">
                                     <li role="presentation">
                                        <xf:trigger class="btn add" appearance="minimal" ref=".[not(@type)]">
                                           <xf:label>type</xf:label>
@@ -1553,8 +1553,8 @@
                                     </li>
                                  </ul>
                               </div>
-                              <div class="dropdown"><button class="btn btn-default dropdown-toggle" type="button" id="availElementsmsContentsmsItemnoted31e10" data-toggle="dropdown">
-                                    Available Elements <span class="caret"></span></button><ul class="dropdown-menu" role="menu" aria-labelledby="availElementsmsContentsmsItemnoted31e10">
+                              <div class="dropdown"><button class="btn btn-default dropdown-toggle" type="button" id="availElementsmsContentsmsItemnoted132e10" data-toggle="dropdown">
+                                    Available Elements <span class="caret"></span></button><ul class="dropdown-menu" role="menu" aria-labelledby="availElementsmsContentsmsItemnoted132e10">
                                     <li role="presentation">
                                        <xf:trigger class="btn add" appearance="minimal" ref=".">
                                           <xf:label>locus</xf:label>
@@ -1599,7 +1599,7 @@
                               <xf:trigger appearance="minimal" class="btn remove" ref="@type">
                                  <xf:label></xf:label>
                                  <xf:delete ev:event="DOMActivate" ref="."></xf:delete>
-                              </xf:trigger></span><repeat xmlns="http://www.w3.org/2002/xforms" ref="tei:p" id="msContentsmsItemnotepd1058e1" class="xformsGroup">
+                              </xf:trigger></span><repeat xmlns="http://www.w3.org/2002/xforms" ref="tei:p" id="msContentsmsItemnotepd1159e1" class="xformsGroup">
                               <div xmlns="http://www.w3.org/1999/xhtml" class="xformElement">
                                  <div class="inlineBlock">
                                     <xf:trigger xmlns="http://www.w3.org/2002/xforms" appearance="minimal" class="btn remove inline">
@@ -1612,7 +1612,7 @@
                                  </xf:textarea>
                               </div>
                            </repeat>
-                           <repeat xmlns="http://www.w3.org/2002/xforms" ref="tei:locus" id="msContentsmsItemnotelocusd1058e2" class="xformsGroup">
+                           <repeat xmlns="http://www.w3.org/2002/xforms" ref="tei:locus" id="msContentsmsItemnotelocusd1159e2" class="xformsGroup">
                               <div xmlns="http://www.w3.org/1999/xhtml" class="xformElement">
                                  <div class="inlineBlock">
                                     <xf:trigger xmlns="http://www.w3.org/2002/xforms" appearance="minimal" class="btn remove inline">
@@ -1620,8 +1620,8 @@
                                        <xf:delete ev:event="DOMActivate" ref="."></xf:delete>
                                     </xf:trigger><span class="elementLable repeat">locus</span> | 
                                     
-                                    <div class="dropdown"><button class="btn btn-default dropdown-toggle" type="button" id="availAttributesmsContentsmsItemnotelocusd1058e2" data-toggle="dropdown">
-                                          Available Attributes <span class="caret"></span></button><ul class="dropdown-menu" role="menu" aria-labelledby="availAttributesmsContentsmsItemnotelocusd1058e2">
+                                    <div class="dropdown"><button class="btn btn-default dropdown-toggle" type="button" id="availAttributesmsContentsmsItemnotelocusd1159e2" data-toggle="dropdown">
+                                          Available Attributes <span class="caret"></span></button><ul class="dropdown-menu" role="menu" aria-labelledby="availAttributesmsContentsmsItemnotelocusd1159e2">
                                           <li role="presentation">
                                              <xf:trigger class="btn add" appearance="minimal" ref=".[not(@from)]">
                                                 <xf:label>from</xf:label>

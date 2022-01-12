@@ -318,7 +318,7 @@
             Allow paging? 
         -->
         <xsl:variable name="mainFormName" select="$configDoc//formName"/>
-        <xsl:result-document href="{concat($mainFormName,'/',$mainFormName)}.xhtml" format="xform">
+        <xsl:result-document href="{concat($mainFormName,'/index.xhtml')}" format="xform">
             <xsl:call-template name="formMainPage"/>
         </xsl:result-document>
         <!-- Output an XForm for each subform listed in the config.xml subforms section -->
@@ -377,10 +377,14 @@
                         <attachment xsi:type="xsd:anyURI"></attachment>
                     </xf:instance>
                     <xf:instance id="i-search">
-                        <data></data>
+                        <data><q></q></data>
                     </xf:instance>
                     <xf:instance id="i-search-results">
                         <data></data>
+                    </xf:instance>
+                    <xf:instance id="i-selected-search">
+                        <data>
+                        </data>
                     </xf:instance>
                     <xf:instance id="i-selected">
                         <data>
@@ -388,9 +392,9 @@
                     </xf:instance>
                     <xf:instance id="i-selectTemplate">
                         <data>
-                            <template name="Generic MSS Template" src="/forms/templates/full-mss-template.xml"></template>
-                            <template name="Generic Persons Template" src="/forms/templates/persons-template.xml"></template>
-                            <template name="Generic Template" src="/forms/templates/template.xml"></template>
+                            <xsl:for-each select="$configDoc//template">
+                                <template name="{@name}" src="{@src}"></template>
+                            </xsl:for-each>
                         </data>
                     </xf:instance>
                     <xf:instance id="i-subforms">
@@ -409,13 +413,21 @@
                         <xf:message level="modeless" ev:event="xforms-submit-done"> Data Loaded! </xf:message>
                         <xf:message level="modeless" ev:event="xforms-submit-error"> Submit error. </xf:message>
                     </xf:submission>
+                    <xf:submission id="s-load-template-search" 
+                        method="post" ref="instance('i-selected-search')" 
+                        replace="instance" 
+                        instance="i-rec" 
+                        serialization="none" mode="synchronous">
+                        <xf:resource value="concat('services/get-rec.xql?template=true&amp;path=',instance('i-selected-search'))"/>
+                        <xf:message level="modeless" ev:event="xforms-submit-done"> Data Loaded! </xf:message>
+                        <xf:message level="modeless" ev:event="xforms-submit-error"> Submit error. </xf:message>
+                    </xf:submission>
                     <xf:submission id="s-search-saved" 
                         method="post" ref="instance('i-search')" 
                         replace="instance" 
                         instance="i-search-results" 
-                        serialization="none" mode="synchronous" action="services/get-rec.xql?search=true" >
-<!--                        <xf:resource value="concat('services/get-rec.xql?template=true&amp;path=',instance('i-selected'))"/>-->
-                        <xf:message level="modeless" ev:event="xforms-submit-done"> Data Loaded! </xf:message>
+                        serialization="none" mode="synchronous">
+                        <xf:resource value="concat('services/get-rec.xql?search=true&amp;q=',instance('i-search'))"/>
                         <xf:message level="modeless" ev:event="xforms-submit-error"> Submit error. </xf:message>
                     </xf:submission>
                     <xf:submission id="s-browse-saved" 
@@ -477,7 +489,7 @@
                                     <!-- Load an existing template -->
                                     <div class="fileLoading">
                                         <xf:select1 xmlns="http://www.w3.org/2002/xforms" ref="instance('i-selected')">
-                                            <xf:label>Search saved TEI records</xf:label>
+                                            <xf:label>Select a TEI template</xf:label>
                                             <xf:itemset ref="instance('i-selectTemplate')//*:template">
                                                 <xf:label ref="@name"/>
                                                 <xf:value ref="@src"/>
@@ -489,7 +501,7 @@
                                     </div>
                                     <div class="fileLoading">
                                         <xf:input ref="instance('i-search')" incremental="true">
-                                            <xf:label>Select a saved TEI XML record: </xf:label>
+                                            <xf:label>Find a saved TEI XML record: </xf:label>
                                         </xf:input>
                                         <xf:submit class="btn btn-default" submission="s-search-saved" appearance="minimal">
                                             <xf:label> Search </xf:label>
@@ -499,14 +511,14 @@
                                         </xf:submit>
                                     </div>
                                     <div class="fileLoading">
-                                        <xf:select1 xmlns="http://www.w3.org/2002/xforms" ref="instance('i-selected')">
+                                        <xf:select1 xmlns="http://www.w3.org/2002/xforms" ref="instance('i-selected-search')">
                                             <xf:label>Select a TEI XML record to edit</xf:label>
                                             <xf:itemset ref="instance('i-search-results')//*:record">
                                                 <xf:label ref="@name"/>
                                                 <xf:value ref="@src"/>
                                             </xf:itemset>
                                         </xf:select1>
-                                        <xf:submit class="btn btn-default" submission="s-load-search" appearance="minimal">
+                                        <xf:submit class="btn btn-default" submission="s-load-template-search" appearance="minimal">
                                             <xf:label> Load selected record </xf:label>
                                         </xf:submit>
                                     </div>

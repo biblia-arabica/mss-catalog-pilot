@@ -3,7 +3,7 @@
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
       <title>Edit MSS TEI records</title>
       <meta name="author" content="Winona Salesky" />
-      <meta name="description" content="Create and edit MSS records for MAJLIS: The Transformation of Jewish Literature in Arabic in the Islamicate World" />
+      <meta name="description" content="Create and edit MSS records for MAJLIS: The Transformation of Jewish Literature in Arabic in the Islamicate World Record title information" />
       <link rel="stylesheet" type="text/css" href="resources/bootstrap/css/bootstrap.min.css" />
       <link rel="stylesheet" type="text/css" href="resources/css/xforms.css" />
       <link href="resources/jquery-ui/jquery-ui.min.css" rel="stylesheet" /><script type="text/javascript" src="resources/js/jquery.min.js"></script><script type="text/javascript" src="resources/bootstrap/js/bootstrap.min.js"></script><xf:model id="m-mss">
@@ -14,9 +14,12 @@
             <attachment xsi:type="xsd:anyURI"></attachment>
          </xf:instance>
          <xf:instance id="i-search">
-            <data></data>
+            <data><q></q></data>
          </xf:instance>
          <xf:instance id="i-search-results">
+            <data></data>
+         </xf:instance>
+         <xf:instance id="i-selected-search">
             <data></data>
          </xf:instance>
          <xf:instance id="i-selected">
@@ -25,12 +28,12 @@
          <xf:instance id="i-selectTemplate">
             <data>
                <template name="Generic MSS Template" src="/forms/templates/full-mss-template.xml"></template>
-               <template name="Generic Persons Template" src="/forms/templates/persons-template.xml"></template>
-               <template name="Generic Template" src="/forms/templates/template.xml"></template>
+               <template name="Alternate Generic Template" src="/forms/templates/template.xml"></template>
             </data>
          </xf:instance>
          <xf:instance id="i-subforms">
             <data>
+               <subform formName="titleStmt"></subform>
                <subform formName="msContents"></subform>
                <subform formName="mssSupport"></subform>
                <subform formName="layoutDesc"></subform>
@@ -44,8 +47,13 @@
             <xf:message level="modeless" ev:event="xforms-submit-done"> Data Loaded! </xf:message>
             <xf:message level="modeless" ev:event="xforms-submit-error"> Submit error. </xf:message>
          </xf:submission>
-         <xf:submission id="s-search-saved" method="post" ref="instance('i-search')" replace="instance" instance="i-search-results" serialization="none" mode="synchronous" action="services/get-rec.xql?search=true">
+         <xf:submission id="s-load-template-search" method="post" ref="instance('i-selected-search')" replace="instance" instance="i-rec" serialization="none" mode="synchronous">
+            <xf:resource value="concat('services/get-rec.xql?template=true&amp;path=',instance('i-selected-search'))"></xf:resource>
             <xf:message level="modeless" ev:event="xforms-submit-done"> Data Loaded! </xf:message>
+            <xf:message level="modeless" ev:event="xforms-submit-error"> Submit error. </xf:message>
+         </xf:submission>
+         <xf:submission id="s-search-saved" method="post" ref="instance('i-search')" replace="instance" instance="i-search-results" serialization="none" mode="synchronous">
+            <xf:resource value="concat('services/get-rec.xql?search=true&amp;q=',instance('i-search'))"></xf:resource>
             <xf:message level="modeless" ev:event="xforms-submit-error"> Submit error. </xf:message>
          </xf:submission>
          <xf:submission id="s-browse-saved" method="post" ref="instance('i-search')" replace="instance" instance="i-search-results" serialization="none" mode="synchronous" action="services/get-rec.xql?search=true&amp;view=all">
@@ -57,7 +65,7 @@
       <div class="section xforms">
          <h1>Edit MSS TEI records</h1>
          <p class="alert alert-warning hint">Create and edit MSS records for MAJLIS: The Transformation of Jewish Literature in
-            Arabic in the Islamicate World
+            Arabic in the Islamicate World Record title information
          </p>
          <div class="row tabbable">
             <ul class="nav nav-pills nav-stacked col-md-3">
@@ -70,8 +78,19 @@
                   </xf:trigger>
                </li>
                <li>
+                  <xf:trigger appearance="minimal" ref="instance('i-subforms')//*:subform[@formName = 'titleStmt']" class="btn btn-default nav-pill btn-block">
+                     <xf:label>Title  </xf:label>
+                     <xf:action ev:event="DOMActivate">
+                        <xf:toggle case="view-data-entry"></xf:toggle>
+                        <xf:load if="@selected != 'true'" show="embed" targetid="subform" resource="form.xq?form=forms/mssTEI/titleStmt.xhtml"></xf:load>
+                        <xf:unload if="@selected = 'true'" targetid="subform"></xf:unload>
+                        <xf:setvalue ref="@selected" value=". != 'true'"></xf:setvalue>
+                     </xf:action>
+                  </xf:trigger>
+               </li>
+               <li>
                   <xf:trigger appearance="minimal" ref="instance('i-subforms')//*:subform[@formName = 'msContents']" class="btn btn-default nav-pill btn-block">
-                     <xf:label>msContents  </xf:label>
+                     <xf:label>MSS Contents  </xf:label>
                      <xf:action ev:event="DOMActivate">
                         <xf:toggle case="view-data-entry"></xf:toggle>
                         <xf:load if="@selected != 'true'" show="embed" targetid="subform" resource="form.xq?form=forms/mssTEI/msContents.xhtml"></xf:load>
@@ -82,7 +101,7 @@
                </li>
                <li>
                   <xf:trigger appearance="minimal" ref="instance('i-subforms')//*:subform[@formName = 'mssSupport']" class="btn btn-default nav-pill btn-block">
-                     <xf:label>mssSupport  </xf:label>
+                     <xf:label>MSS Support  </xf:label>
                      <xf:action ev:event="DOMActivate">
                         <xf:toggle case="view-data-entry"></xf:toggle>
                         <xf:load if="@selected != 'true'" show="embed" targetid="subform" resource="form.xq?form=forms/mssTEI/mssSupport.xhtml"></xf:load>
@@ -93,7 +112,7 @@
                </li>
                <li>
                   <xf:trigger appearance="minimal" ref="instance('i-subforms')//*:subform[@formName = 'layoutDesc']" class="btn btn-default nav-pill btn-block">
-                     <xf:label>layoutDesc  </xf:label>
+                     <xf:label>Layout Description  </xf:label>
                      <xf:action ev:event="DOMActivate">
                         <xf:toggle case="view-data-entry"></xf:toggle>
                         <xf:load if="@selected != 'true'" show="embed" targetid="subform" resource="form.xq?form=forms/mssTEI/layoutDesc.xhtml"></xf:load>
@@ -104,7 +123,7 @@
                </li>
                <li>
                   <xf:trigger appearance="minimal" ref="instance('i-subforms')//*:subform[@formName = 'handDesc']" class="btn btn-default nav-pill btn-block">
-                     <xf:label>handDesc  </xf:label>
+                     <xf:label>Hand Description  </xf:label>
                      <xf:action ev:event="DOMActivate">
                         <xf:toggle case="view-data-entry"></xf:toggle>
                         <xf:load if="@selected != 'true'" show="embed" targetid="subform" resource="form.xq?form=forms/mssTEI/handDesc.xhtml"></xf:load>
@@ -115,7 +134,7 @@
                </li>
                <li>
                   <xf:trigger appearance="minimal" ref="instance('i-subforms')//*:subform[@formName = 'additions']" class="btn btn-default nav-pill btn-block">
-                     <xf:label>additions  </xf:label>
+                     <xf:label>Additions  </xf:label>
                      <xf:action ev:event="DOMActivate">
                         <xf:toggle case="view-data-entry"></xf:toggle>
                         <xf:load if="@selected != 'true'" show="embed" targetid="subform" resource="form.xq?form=forms/mssTEI/additions.xhtml"></xf:load>
@@ -126,7 +145,7 @@
                </li>
                <li>
                   <xf:trigger appearance="minimal" ref="instance('i-subforms')//*:subform[@formName = 'history']" class="btn btn-default nav-pill btn-block">
-                     <xf:label>history  </xf:label>
+                     <xf:label>History  </xf:label>
                      <xf:action ev:event="DOMActivate">
                         <xf:toggle case="view-data-entry"></xf:toggle>
                         <xf:load if="@selected != 'true'" show="embed" targetid="subform" resource="form.xq?form=forms/mssTEI/history.xhtml"></xf:load>
@@ -142,7 +161,7 @@
                      <h2>Find your data</h2>
                      <div class="fileLoading">
                         <xf:select1 xmlns="http://www.w3.org/2002/xforms" ref="instance('i-selected')">
-                           <xf:label>Search saved TEI records</xf:label>
+                           <xf:label>Select a TEI template</xf:label>
                            <xf:itemset ref="instance('i-selectTemplate')//*:template">
                               <xf:label ref="@name"></xf:label>
                               <xf:value ref="@src"></xf:value>
@@ -154,7 +173,7 @@
                      </div>
                      <div class="fileLoading">
                         <xf:input ref="instance('i-search')" incremental="true">
-                           <xf:label>Select a saved TEI XML record: </xf:label>
+                           <xf:label>Find a saved TEI XML record: </xf:label>
                         </xf:input>
                         <xf:submit class="btn btn-default" submission="s-search-saved" appearance="minimal">
                            <xf:label> Search </xf:label>
@@ -164,14 +183,14 @@
                         </xf:submit>
                      </div>
                      <div class="fileLoading">
-                        <xf:select1 xmlns="http://www.w3.org/2002/xforms" ref="instance('i-selected')">
+                        <xf:select1 xmlns="http://www.w3.org/2002/xforms" ref="instance('i-selected-search')">
                            <xf:label>Select a TEI XML record to edit</xf:label>
                            <xf:itemset ref="instance('i-search-results')//*:record">
                               <xf:label ref="@name"></xf:label>
                               <xf:value ref="@src"></xf:value>
                            </xf:itemset>
                         </xf:select1>
-                        <xf:submit class="btn btn-default" submission="s-load-search" appearance="minimal">
+                        <xf:submit class="btn btn-default" submission="s-load-template-search" appearance="minimal">
                            <xf:label> Load selected record </xf:label>
                         </xf:submit>
                      </div>
