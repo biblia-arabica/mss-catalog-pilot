@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <formTitle>Edit Person TEI records</formTitle>
+    <formName>personTEI</formName>
+    <formAuthor>Winona Salesky</formAuthor>
+    <formDesc>Create and edit person records for MAJLIS: The Transformation of Jewish Literature in Arabic in the Islamicate World</formDesc>
+    <!-- Language to output lables, hints etc, if empty defaults to English -->
+    <formLang>en</formLang>
+    <!--
+        For better performance the TEI records are into sections. Each section will output a form. This will allow better load and response time for forms, 
+        and a step-by-step method of editing records. In process records will be stored in the DB or downloaded to the file system, where they can be loaded 
+        into the form again as needed. 
+        
+        List forms in order of editing preference.
+        additions
+    -->
+    <subforms>
+        <!--
+        <subform xpath="/descendant::tei:title" formName="titleStmt" formLabel="Title">
+            <formDesc>Record title information</formDesc>
+            <localSchema src="../schemas/persons.xml"></localSchema>
+            <globalSchema src="../schemas/mss-compiled.odd"></globalSchema>
+            <xmlTemplate src="../schemas/persons-template.xml"></xmlTemplate>
+        </subform>
+        -->
+        <subform xpath="/tei:TEI/descendant::tei:listPerson" formName="listPersons" formLabel="Persons">
+            <formDesc>Person description.</formDesc>
+            <localSchema src="../schemas/persons.xml"></localSchema>
+            <globalSchema src="../schemas/mss-compiled.odd"></globalSchema>
+            <xmlTemplate src="../schemas/persons-template.xml"></xmlTemplate>
+        </subform>    
+    </subforms>
+</config>

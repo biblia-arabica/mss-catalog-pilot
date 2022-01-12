@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0"
+     xmlns:tei="http://www.tei-c.org/ns/1.0"
+     xmlns:sc="http://www.ascc.net/xml/schematron"
+     xmlns:xf="http://www.w3.org/2002/xforms"
+     xmlns:ev="http://www.w3.org/2001/xml-events"
+     xmlns:xs="http://www.w3.org/2001/XMLSchema"
+     xmlns:xi="http://www.w3.org/2001/XInclude"
+     xmlns:local="http://syriaca.org/ns"
+     xml:id="controlledValues"
+     xml:lang="en">
+   <persName>
+      <type>
+         <valList xmlns:rng="http://relaxng.org/ns/structure/1.0"
+                  xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                  type="closed">
+                                    <valItem ident="attested"/>
+                                    <valItem ident="alternate"/>
+                                    <valItem ident="canon"/>
+                                </valList>
+      </type>
+   </persName>
+   <person>
+      <role>
+         <valList xmlns:rng="http://relaxng.org/ns/structure/1.0"
+                  xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                  type="closed"
+                  mode="change">
+                                    <valItem mode="add" ident="author"/>
+                                </valList>
+      </role>
+   </person>
+   <addName>
+      <type>
+         <valList xmlns:rng="http://relaxng.org/ns/structure/1.0"
+                  xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                  type="closed">
+                                    <valItem ident="shuhra"/>
+                                    <valItem ident="ism"/>
+                                    <valItem ident="nasab"/>
+                                    <valItem ident="nisbah"/>
+                                    <valItem ident="kunya"/>
+                                    <valItem ident="laqab"/>
+                                    <valItem ident="patronym"/>
+                                    <valItem ident="epithet"/>
+                                    <valItem ident="acronym"/>
+                                </valList>
+      </type>
+   </addName>
+   <idno>
+      <subtype>
+         <valList xmlns:rng="http://relaxng.org/ns/structure/1.0"
+                  xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                  type="closed"
+                  mode="change">
+                                    <valItem mode="add" ident="isni"/>
+                                    <valItem mode="add" ident="viaf"/>
+                                    <valItem mode="add" ident="wiki"/>
+                                    <valItem mode="add" ident="gnd"/>
+                                    <valItem mode="add" ident="merhav"/>
+                                    <valItem mode="add" ident="rambi"/>
+                                    <valItem mode="add" ident="imhm"/>
+                                    <valItem mode="add" ident="ktiv"/>
+                                </valList>
+      </subtype>
+   </idno>
+</TEI>

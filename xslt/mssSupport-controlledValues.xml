@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0"
+     xmlns:tei="http://www.tei-c.org/ns/1.0"
+     xmlns:sc="http://www.ascc.net/xml/schematron"
+     xmlns:xf="http://www.w3.org/2002/xforms"
+     xmlns:ev="http://www.w3.org/2001/xml-events"
+     xmlns:xs="http://www.w3.org/2001/XMLSchema"
+     xmlns:xi="http://www.w3.org/2001/XInclude"
+     xmlns:local="http://syriaca.org/ns"
+     xml:id="controlledValues"
+     xml:lang="en">
+   <condition>
+      <key>
+         <valList xmlns:rng="http://relaxng.org/ns/structure/1.0"
+                  xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                  type="closed">
+                                    <valItem ident="deficient">
+                                        <desc>The item is badly preserved and severely
+                                            damaged.</desc>
+                                    </valItem>
+                                    <valItem ident="good">
+                                        <desc>The item is preserved with minimal damages.</desc>
+                                    </valItem>
+                                    <valItem ident="intact">
+                                        <desc>The item is preserved completely undamaged.</desc>
+                                    </valItem>
+                                    <valItem ident="other">
+                                        <desc>If you use this value, please provide in the
+                                            description a proper motivation, otherwise avoid
+                                            it.</desc>
+                                    </valItem>
+                                </valList>
+      </key>
+   </condition>
+   <foliation>
+      <rendition>
+         <valList xmlns:rng="http://relaxng.org/ns/structure/1.0"
+                  xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                  type="closed">
+                                    <valItem ident="original"/>
+                                    <valItem ident="modern"/>
+                                </valList>
+      </rendition>
+   </foliation>
+   <material>
+      <key>
+         <valList xmlns:rng="http://relaxng.org/ns/structure/1.0"
+                  xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                  type="closed">
+                                    <valItem ident="wood"/>
+                                    <valItem ident="papyrus"/>
+                                    <valItem ident="cardboard"/>
+                                    <valItem ident="leather"/>
+                                    <valItem ident="metal"/>
+                                    <valItem ident="paper"/>
+                                    <valItem ident="textile"/>
+                                    <valItem ident="other"/>
+                                    <valItem ident="parchment"/>
+                                    <valItem ident="silk"/>
+                                    <valItem ident="stone"/>
+                                    <valItem ident="bronze"/>
+                                    <valItem ident="alabaster"/>
+                                    <valItem ident="cotton"/>
+                                </valList>
+      </key>
+   </material>
+   <objectDesc>
+      <form>
+         <valList xmlns:rng="http://relaxng.org/ns/structure/1.0"
+                  xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                  type="closed"
+                  mode="change">
+                                    <valItem mode="add" ident="single">
+                                        <desc xml:lang="en">used for Single manuscript</desc>
+                                    </valItem>
+                                    <valItem mode="add" ident="composite">
+                                        <desc xml:lang="en">used for Composite manuscript</desc>
+                                    </valItem>
+                                    <valItem mode="add" ident="multiple">
+                                        <desc xml:lang="en">used for Multiple Text Manuscript</desc>
+                                    </valItem>
+                                </valList>
+      </form>
+   </objectDesc>
+   <measure>
+      <unit>
+         <valList xmlns:rng="http://relaxng.org/ns/structure/1.0"
+                  xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                  type="closed"
+                  mode="change">
+                                    <valItem mode="add" ident="leaf">
+                                        <desc xml:lang="en">used for leafs.</desc>
+                                    </valItem>
+                                    <valItem mode="add" ident="quire">
+                                        <desc xml:lang="en">used to describe the quires.</desc>
+                                    </valItem>
+                                </valList>
+      </unit>
+   </measure>
+</TEI>

@@ -317,13 +317,14 @@
             List sections in order
             Allow paging? 
         -->
-        <xsl:result-document href="{$configDoc//formName}.xhtml" format="xform">
+        <xsl:variable name="mainFormName" select="$configDoc//formName"/>
+        <xsl:result-document href="{concat($mainFormName,'/',$mainFormName)}.xhtml" format="xform">
             <xsl:call-template name="formMainPage"/>
         </xsl:result-document>
         <!-- Output an XForm for each subform listed in the config.xml subforms section -->
         <xsl:for-each select="$configDoc//subform">
             <xsl:variable name="formName" select="@formName"/>
-            <xsl:result-document href="{$formName}.xhtml" format="xform">
+            <xsl:result-document href="{concat($mainFormName,'/',$formName)}.xhtml" format="xform">
                 <xsl:call-template name="xform">
                     <xsl:with-param name="subform" select="."/>
                 </xsl:call-template>
@@ -332,28 +333,24 @@
         <!-- Output controlled values for each custom schema -->
         <xsl:for-each select="$configDoc//subform">
             <xsl:variable name="formName" select="@formName"/>
-            <xsl:result-document href="{$formName}-controlledValues.xml" format="tei">
+            <xsl:result-document href="templates/{$formName}-controlledValues.xml" format="tei">
                 <xsl:call-template name="controlledValues">
                     <xsl:with-param name="subform" select="$formName"/>
                 </xsl:call-template>
             </xsl:result-document>
         </xsl:for-each>
-        <!-- WS:NOTE Not needed any more? Test
-        <xsl:result-document href="controlledValues.xml" format="tei">
-            <xsl:call-template name="controlledValues"/>
-        </xsl:result-document>
-        -->
         <!-- Output an XForm with all possible elements, used to add elements -->
-        <xsl:result-document href="elementTemplate.xml" format="tei">
+        <xsl:result-document href="templates/elementTemplate.xml" format="tei">
             <xsl:call-template name="elementTemplate"/>
         </xsl:result-document>
         <!-- Output an XForm with all possible attributes, used to add attributes -->
-        <xsl:result-document href="attributesTemplate.xml" format="tei">
+        <xsl:result-document href="templates/attributesTemplate.xml" format="tei">
             <xsl:call-template name="attributesTemplate"/>
         </xsl:result-document>
     </xsl:template>
     
     <xsl:template name="formMainPage">
+        <xsl:variable name="mainFormName" select="$configDoc//formName"/>
         <xsl:text disable-output-escaping="yes">&lt;!DOCTYPE html&gt;</xsl:text>
         <html xmlns="http://www.w3.org/1999/xhtml" 
             xmlns:xi="http://www.w3.org/2001/XInclude"
@@ -445,7 +442,7 @@
                     <h1><xsl:value-of select="$configDoc//formTitle"/></h1> 
                     <!-- Form description -->
                     <xsl:if test="$configDoc//formDesc != ''">
-                        <p class="hint warning"><xsl:value-of select="$configDoc//formDesc"/></p>
+                        <p class="alert alert-warning hint"><xsl:value-of select="$configDoc//formDesc"/></p>
                     </xsl:if>
                     <div class="row tabbable">
                         <!-- Menu items, subforms -->
@@ -461,10 +458,10 @@
                             <xsl:for-each select="$configDoc//subform">
                                 <li> 
                                     <xf:trigger appearance="minimal" ref="instance('i-subforms')//*:subform[@formName = '{string(@formName)}']" class="btn btn-default nav-pill btn-block">
-                                        <xf:label><xsl:value-of select="string(@formName)"/> &#160;</xf:label>
+                                        <xf:label><xsl:value-of select="string(@formLabel)"/> &#160;</xf:label>
                                         <xf:action ev:event="DOMActivate">
                                             <xf:toggle case="view-data-entry"/>
-                                            <xf:load if="@selected != 'true'" show="embed" targetid="subform" resource="{concat('form.xq?form=forms/',@formName,'.xhtml')}"/>
+                                            <xf:load if="@selected != 'true'" show="embed" targetid="subform" resource="{concat('form.xq?form=forms/',$mainFormName,'/',@formName,'.xhtml')}"/>
                                             <xf:unload if="@selected = 'true'" targetid="subform"/>
                                             <xf:setvalue ref="@selected" value=". != 'true'"/>
                                         </xf:action>
@@ -542,6 +539,7 @@
     
     <xsl:template name="xform">
         <xsl:param name="subform"/>
+        <xsl:variable name="mainFormName" select="$configDoc//formName"/>
         <xsl:variable name="template" select="document($subform/xmlTemplate/@src)"/>  
         <xsl:text disable-output-escaping="yes">&lt;!DOCTYPE html&gt;</xsl:text>
         <html xmlns="http://www.w3.org/1999/xhtml" xmlns:xi="http://www.w3.org/2001/XInclude"
@@ -622,9 +620,10 @@
             <body>
                 <div class="section xforms">
                     <xsl:call-template name="submission"/>
-                    <h1>
-                        <xsl:value-of select="$subform/@formName"/>
-                    </h1>
+                    <h1><xsl:value-of select="$subform/@formLabel"/></h1>
+                    <xsl:if test="$subform/formDesc">
+                        <p class="alert alert-warning hint"><xsl:value-of select="$subform/formDesc"/></p>
+                    </xsl:if>
                     <xsl:variable name="xpath" select="string($subform/@xpath)"/>
                     <xsl:variable name="subsequence">
                         <xsl:evaluate xpath="$xpath" context-item="$template"/>
@@ -924,7 +923,7 @@
                         </div>
                     </xsl:if>
                     <xsl:if test="$elementRules/descendant::tei:desc">
-                        <span class="elementDesc hint warning">
+                        <span class="alert alert-warning hint">
                             <xsl:choose>
                                 <xsl:when test="$formLang != ''">
                                     <xsl:choose>

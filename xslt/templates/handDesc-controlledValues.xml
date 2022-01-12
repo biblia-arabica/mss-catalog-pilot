@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0"
+     xmlns:tei="http://www.tei-c.org/ns/1.0"
+     xmlns:sc="http://www.ascc.net/xml/schematron"
+     xmlns:xf="http://www.w3.org/2002/xforms"
+     xmlns:ev="http://www.w3.org/2001/xml-events"
+     xmlns:xs="http://www.w3.org/2001/XMLSchema"
+     xmlns:xi="http://www.w3.org/2001/XInclude"
+     xmlns:local="http://syriaca.org/ns"
+     xml:id="controlledValues"
+     xml:lang="en">
+   <metamark>
+      <function>
+         <valList xmlns:rng="http://relaxng.org/ns/structure/1.0"
+                  xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                  type="closed"
+                  mode="change">
+                                    <valItem mode="add" ident="vocalization"/>
+                                    <valItem mode="add" ident="recitation"/>
+                                </valList>
+      </function>
+   </metamark>
+   <persName>
+      <role>
+         <valList xmlns:rng="http://relaxng.org/ns/structure/1.0"
+                  xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                  type="closed">
+                                    <valItem ident="scribe"/>
+                                    <valItem ident="vocalizer"/>
+                                    <valItem ident="masorator"/>
+                                </valList>
+      </role>
+   </persName>
+   <handNote>
+      <script>
+         <valList xmlns:rng="http://relaxng.org/ns/structure/1.0"
+                  xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                  type="closed">
+                                    <valItem ident="oriental"/>
+                                    <valItem ident="yemenite"/>
+                                    <valItem ident="sephardi"/>
+                                    <valItem ident="byzantine"/>
+                                    <valItem ident="italian"/>
+                                    <valItem ident="ashkenazi"/>
+                                    <valItem ident="unidentified"/>
+                                    <valItem ident="abbasidBookHand"/>
+                                    <valItem ident="newStyle"/>
+                                    <valItem ident="naskh"/>
+                                </valList>
+      </script>
+      <medium>
+         <valList xmlns:rng="http://relaxng.org/ns/structure/1.0"
+                  xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                  type="closed">
+                                    <valItem ident="brown"/>
+                                    <valItem ident="black"/>
+                                    <valItem ident="pigments"/>
+                                    <valItem ident="mixed"/>
+                                    <valItem ident="plantBased"/>
+                                    <valItem ident="unidentified"/>
+                                </valList>
+      </medium>
+      <mode>
+         <valList xmlns:rng="http://relaxng.org/ns/structure/1.0"
+                  xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                  type="closed">
+                                    <valItem ident=""/>
+                                    <valItem ident="square"/>
+                                    <valItem ident="nonSquare"/>
+                                    <valItem ident="cursive"/>
+                                    <valItem ident="unidentified"/>
+                                </valList>
+      </mode>
+      <quality>
+         <valList xmlns:rng="http://relaxng.org/ns/structure/1.0"
+                  xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                  type="closed">
+                                    <valItem ident="unidentified"/>
+                                    <valItem ident="untrained"/>
+                                    <valItem ident="careless"/>
+                                    <valItem ident="current"/>
+                                    <valItem ident="calligraphic"/>
+                                    <valItem ident="monumental"/>
+                                </valList>
+      </quality>
+   </handNote>
+</TEI>

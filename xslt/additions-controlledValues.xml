@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0"
+     xmlns:tei="http://www.tei-c.org/ns/1.0"
+     xmlns:sc="http://www.ascc.net/xml/schematron"
+     xmlns:xf="http://www.w3.org/2002/xforms"
+     xmlns:ev="http://www.w3.org/2001/xml-events"
+     xmlns:xs="http://www.w3.org/2001/XMLSchema"
+     xmlns:xi="http://www.w3.org/2001/XInclude"
+     xmlns:local="http://syriaca.org/ns"
+     xml:id="controlledValues"
+     xml:lang="en">
+   <objectDesc>
+      <form>
+         <valList xmlns:rng="http://relaxng.org/ns/structure/1.0"
+                  xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                  type="closed"
+                  mode="change">
+                                    <valItem mode="add" ident="single">
+                                        <desc xml:lang="en">used for Single manuscript</desc>
+                                    </valItem>
+                                    <valItem mode="add" ident="composite">
+                                        <desc xml:lang="en">used for Composite manuscript</desc>
+                                    </valItem>
+                                    <valItem mode="add" ident="multiple">
+                                        <desc xml:lang="en">used for Multiple Text Manuscript</desc>
+                                    </valItem>
+                                </valList>
+      </form>
+   </objectDesc>
+   <desc>
+      <type>
+         <valList xmlns:rng="http://relaxng.org/ns/structure/1.0"
+                  xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                  type="closed"
+                  mode="change">
+                                    <valItem mode="add" ident="ownershipNote">
+                                        <desc xml:lang="en">Indicating that the book belongs to 1)
+                                            an institution; 2) an individual.</desc>
+                                    </valItem>
+                                    <valItem mode="add" ident="purchaseNote">
+                                        <desc xml:lang="en">note stating that the book has been
+                                            purchased for money by an individual or an
+                                            institution</desc>
+                                    </valItem>
+                                    <valItem mode="add" ident="acquisitionNote">
+                                        <desc xml:lang="en">Points only to the fact of the
+                                            acquisition of the book or transaction with the
+                                            book.</desc>
+                                    </valItem>
+                                    <valItem mode="add" ident="receiptNote">
+                                        <desc xml:lang="en">note written down as a receipt of a
+                                            transaction of goods.</desc>
+                                    </valItem>
+                                    <valItem mode="add" ident="genealogy">
+                                        <desc xml:lang="en">genealogy of local lineages or ruling
+                                            families or individual rulers; it can be a genealogy of
+                                            the owner/donor of the book, independent or included
+                                            into another note.</desc>
+                                    </valItem>
+                                    <valItem mode="add" ident="scribalSignature">
+                                        <desc xml:lang="en">The name of the scribe written
+                                            down.</desc>
+                                    </valItem>
+                                    <valItem mode="add" ident="supplication">
+                                        <desc xml:lang="en">A short prayer for (the souls) of
+                                            individuals.</desc>
+                                    </valItem>
+                                    <valItem mode="add" ident="subscription">
+                                        <desc xml:lang="en">note added at the end of the main text
+                                            concerning its completion.</desc>
+                                    </valItem>
+                                    <valItem mode="add" ident="doxology">
+                                        <desc xml:lang="en">hymn or praise to God or other
+                                            entities.</desc>
+                                    </valItem>
+                                    <valItem mode="add" ident="invocation">
+                                        <desc xml:lang="en">invocation against those who stole or
+                                            erased the book or against other individuals.</desc>
+                                    </valItem>
+                                    <valItem mode="add" ident="inventory">
+                                        <desc xml:lang="en">Lists of books or other objects.</desc>
+                                    </valItem>
+                                    <valItem mode="add" ident="scribalNoteCommencing">
+                                        <desc xml:lang="en">scribe’s note on commencing the
+                                            work.</desc>
+                                    </valItem>
+                                    <valItem mode="add" ident="scribalNoteOrdering">
+                                        <desc xml:lang="en">scribe’s note on ordering of the
+                                            copying.</desc>
+                                    </valItem>
+                                    <valItem mode="add" ident="scribalNoteCommissioning">
+                                        <desc xml:lang="en">scribe’s note on commissioning of the
+                                            writing.</desc>
+                                    </valItem>
+                                    <valItem mode="add" ident="scribalNoteCompleting">
+                                        <desc xml:lang="en">scribe’s note on completing the
+                                            writing.</desc>
+                                    </valItem>
+                                    <valItem mode="add" ident="scribalNoteBequeathing">
+                                        <desc xml:lang="en">scribe’s note on bequeathing.</desc>
+                                    </valItem>
+                                    <valItem mode="add" ident="recordTransaction">
+                                        <desc xml:lang="en">text documenting an act of selling or
+                                            buying something, in many cases a house and land,
+                                            sometimes a book.</desc>
+                                    </valItem>
+                                    <valItem mode="add" ident="recordGuarantors">
+                                        <desc xml:lang="en">documentary record concerning the
+                                            guarantors of a transaction or a loan.</desc>
+                                    </valItem>
+                                    <valItem mode="add" ident="record">
+                                        <desc xml:lang="en">generic note of a documentary, official
+                                            character.</desc>
+                                    </valItem>
+                                    <valItem mode="add" ident="scribalSupplication">
+                                        <desc xml:lang="en">scribe’s entreat to God.</desc>
+                                    </valItem>
+                                    <valItem mode="add" ident="unclear">
+                                        <desc xml:lang="en">Content is too vague to assign another
+                                            category or resists any interpretation.</desc>
+                                    </valItem>
+                                    <valItem mode="add" ident="poem">
+                                        <desc xml:lang="en">Poem.</desc>
+                                    </valItem>
+                                    <valItem mode="add" ident="stampExlibris">
+                                        <desc xml:lang="en">stamp affixed by the owning institution,
+                                            e.g., a library. </desc>
+                                    </valItem>
+                                    <valItem mode="add" ident="letter">
+                                        <desc xml:lang="en">Written message looking like a sample of
+                                            the epistolary genre copied into a manuscript.</desc>
+                                    </valItem>
+                                    <valItem mode="add" ident="comment">
+                                        <desc xml:lang="en">note added at a later stage in order to
+                                            comment word or passages of the main text.</desc>
+                                    </valItem>
+                                    <valItem mode="add" ident="correction">
+                                        <desc xml:lang="en">Addition of omitted passages, words or
+                                            letters and the like.</desc>
+                                    </valItem>
+                                    <valItem mode="add" ident="gloss">
+                                        <desc xml:lang="en">Refers to a note aimed to solve a purely
+                                            language difficulty.</desc>
+                                    </valItem>
+                                </valList>
+      </type>
+   </desc>
+</TEI>

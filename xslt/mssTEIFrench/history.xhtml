@@ -1,0 +1,1209 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:xf="http://www.w3.org/2002/xforms" xmlns:sc="http://www.ascc.net/xml/schematron" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:local="http://syriaca.org/ns">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <title>Edit MSS TEI records</title>
+      <meta name="author" content="Winona Salesky" />
+      <meta name="description" content="Create and edit MSS records for MAJLIS: The Transformation of Jewish Literature in Arabic in the Islamicate World" />
+      <link rel="stylesheet" type="text/css" href="resources/bootstrap/css/bootstrap.min.css" />
+      <link rel="stylesheet" type="text/css" href="resources/css/xforms.css" />
+      <link href="resources/jquery-ui/jquery-ui.min.css" rel="stylesheet" /><script type="text/javascript" src="resources/js/jquery.min.js"></script><script type="text/javascript" src="resources/bootstrap/js/bootstrap.min.js"></script><xf:model id="m-mss">
+         <xf:instance id="i-rec" src="forms/templates/../schemas/mss-history-template.xml"></xf:instance>
+         <xf:instance id="i-template" src="forms/templates/template.xml"></xf:instance>
+         <xf:instance id="i-ctr-vals" src="forms/templates/history-controlledValues.xml"></xf:instance>
+         <xf:instance id="i-elementTemplate" src="forms/templates/elementTemplate.xml"></xf:instance>
+         <xf:instance id="i-attributeTemplate" src="forms/templates/attributesTemplate.xml"></xf:instance>
+         <xf:instance id="i-insert-elements">
+            <TEI xmlns="http://www.tei-c.org/ns/1.0">
+               <element></element>
+            </TEI>
+         </xf:instance>
+         <xf:instance id="i-insert-attributes">
+            <TEI xmlns="http://www.tei-c.org/ns/1.0">
+               <attribute></attribute>
+            </TEI>
+         </xf:instance>
+         <xf:instance id="i-submission">
+            <response status="success">
+               <message>Submission result</message>
+            </response>
+         </xf:instance>
+         <xf:submission id="s-download-xml" ref="instance('i-rec')" show="new" method="post" replace="all" action="form.xq?form=forms/download.xml?type=download"></xf:submission>
+         <xf:submission id="s-view-xml" ref="instance('i-rec')" show="new" method="post" replace="all" action="services/submit.xql?type=view"></xf:submission>
+         <xf:submission id="s-save" ref="instance('i-rec')" replace="instance" instance="i-submission" action="services/submit.xql?type=save" method="post">
+            <xf:action ev:event="xforms-submit-done">
+               <xf:message ref="instance('i-submission')//*:message"></xf:message>
+            </xf:action>
+            <xf:action ev:event="xforms-submit-error">
+               <xf:message ref="instance('i-submission')//*:message"></xf:message>
+            </xf:action>
+         </xf:submission>
+         <xf:submission id="s-github" ref="instance('i-rec')" replace="instance" instance="i-submission" action="services/submit.xql?type=github" method="post">
+            <xf:action ev:event="xforms-submit-done">
+               <xf:message ref="instance('i-submission')//*:message"></xf:message>
+            </xf:action>
+            <xf:action ev:event="xforms-submit-error">
+               <xf:message ev:event="xforms-submit-error" level="modal">Unable to
+                  submit your additions at this time, you may download your changes
+                  and email them to us.
+               </xf:message>
+            </xf:action>
+         </xf:submission>
+      </xf:model>
+   </head>
+   <body>
+      <div class="section xforms">
+         <div class="submission pull-right">
+            <xf:submit class="btn btn-default" submission="s-save" appearance="minimal">
+               <xf:label><span class="glyphicon glyphicon-save-file"></span> Save to Database 
+               </xf:label>
+            </xf:submit>
+            <xf:submit class="btn btn-default" submission="s-download-xml" appearance="minimal">
+               <xf:label><span class="glyphicon glyphicon-save-file"></span> Download XML 
+               </xf:label>
+            </xf:submit>
+            <xf:submit class="btn btn-default" submission="s-view-xml" appearance="minimal">
+               <xf:label><span class="glyphicon glyphicon-save-file"></span> View XML 
+               </xf:label>
+            </xf:submit>
+         </div>
+         <h1>History</h1>
+         <repeat xmlns="http://www.w3.org/2002/xforms" ref="instance('i-rec')//tei:history" id="historyd1530e1" class="xformsGroup">
+            <div xmlns="http://www.w3.org/1999/xhtml" class="xformElement">
+               <div class="inlineBlock">
+                  <xf:trigger xmlns="http://www.w3.org/2002/xforms" appearance="minimal" class="btn remove inline">
+                     <xf:label></xf:label>
+                     <xf:delete ev:event="DOMActivate" ref="."></xf:delete>
+                  </xf:trigger><span class="elementLable repeat">histoire</span><div class="dropdown"><button class="btn btn-default dropdown-toggle" type="button" id="availElementshistoryd1530e1" data-toggle="dropdown">
+                        Available Elements <span class="caret"></span></button><ul class="dropdown-menu" role="menu" aria-labelledby="availElementshistoryd1530e1">
+                        <li role="presentation">
+                           <xf:trigger class="btn add" appearance="minimal" ref="">
+                              <xf:label>origine</xf:label>
+                              <xf:insert ev:event="DOMActivate" context="." at="." origin="instance('i-elementTemplate')//*[local-name(.) = 'origin']" position="after"></xf:insert>
+                           </xf:trigger>
+                        </li>
+                        <li role="presentation">
+                           <xf:trigger class="btn add" appearance="minimal" ref="">
+                              <xf:label>provenance</xf:label>
+                              <xf:insert ev:event="DOMActivate" context="." at="." origin="instance('i-elementTemplate')//*[local-name(.) = 'provenance']" position="after"></xf:insert>
+                           </xf:trigger>
+                        </li>
+                        <li role="presentation">
+                           <xf:trigger class="btn add" appearance="minimal" ref="">
+                              <xf:label>summary</xf:label>
+                              <xf:insert ev:event="DOMActivate" context="." at="." origin="instance('i-elementTemplate')//*[local-name(.) = 'summary']" position="after"></xf:insert>
+                           </xf:trigger>
+                        </li>
+                     </ul>
+                  </div><span class="alert alert-warning hint">rassemble les éléments servant à donner un
+                     historique complet du manuscrit ou d'une partie du manuscrit.</span></div>
+               <repeat xmlns="http://www.w3.org/2002/xforms" ref="tei:summary" id="historysummaryd1540e1" class="xformsGroup">
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="xformElement">
+                     <div class="inlineBlock">
+                        <xf:trigger xmlns="http://www.w3.org/2002/xforms" appearance="minimal" class="btn remove inline">
+                           <xf:label></xf:label>
+                           <xf:delete ev:event="DOMActivate" ref="."></xf:delete>
+                        </xf:trigger><span class="elementLable repeat">summary</span><span class="alert alert-warning hint">contains an overview
+                           of the available information concerning some aspect of an item or object (for example,
+                           its intellectual content, history, layout, typography etc.) as a complement or
+                           alternative to the more detailed information carried by more specific elements.</span></div>
+                     <xf:textarea xmlns="http://www.w3.org/2002/xforms" ref=".">
+                        <xf:label>summary</xf:label>
+                     </xf:textarea>
+                  </div>
+               </repeat>
+               <repeat xmlns="http://www.w3.org/2002/xforms" ref="tei:origin" id="historyorigind1540e2" class="xformsGroup">
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="xformElement">
+                     <div class="inlineBlock">
+                        <xf:trigger xmlns="http://www.w3.org/2002/xforms" appearance="minimal" class="btn remove inline">
+                           <xf:label></xf:label>
+                           <xf:delete ev:event="DOMActivate" ref="."></xf:delete>
+                        </xf:trigger><span class="elementLable repeat">origine</span><div class="dropdown"><button class="btn btn-default dropdown-toggle" type="button" id="availElementshistoryorigind1540e2" data-toggle="dropdown">
+                              Available Elements <span class="caret"></span></button><ul class="dropdown-menu" role="menu" aria-labelledby="availElementshistoryorigind1540e2">
+                              <li role="presentation">
+                                 <xf:trigger class="btn add" appearance="minimal" ref=".">
+                                    <xf:label>locus</xf:label>
+                                    <xf:insert ev:event="DOMActivate" context="." at="." origin="instance('i-elementTemplate')//*[local-name(.) = 'locus']" position="after"></xf:insert>
+                                 </xf:trigger>
+                              </li>
+                              <li role="presentation">
+                                 <xf:trigger class="btn add" appearance="minimal" ref=".">
+                                    <xf:label>date de la création</xf:label>
+                                    <xf:insert ev:event="DOMActivate" context="." at="." origin="instance('i-elementTemplate')//*[local-name(.) = 'origDate']" position="after"></xf:insert>
+                                 </xf:trigger>
+                              </li>
+                              <li role="presentation">
+                                 <xf:trigger class="btn add" appearance="minimal" ref=".">
+                                    <xf:label>lieu de création</xf:label>
+                                    <xf:insert ev:event="DOMActivate" context="." at="." origin="instance('i-elementTemplate')//*[local-name(.) = 'origPlace']" position="after"></xf:insert>
+                                 </xf:trigger>
+                              </li>
+                              <li role="presentation">
+                                 <xf:trigger class="btn add" appearance="minimal" ref=".">
+                                    <xf:label>paragraphe</xf:label>
+                                    <xf:insert ev:event="DOMActivate" context="." at="." origin="instance('i-elementTemplate')//*[local-name(.) = 'p']" position="after"></xf:insert>
+                                 </xf:trigger>
+                              </li>
+                              <li role="presentation">
+                                 <xf:trigger class="btn add" appearance="minimal" ref=".">
+                                    <xf:label>nom de personne</xf:label>
+                                    <xf:insert ev:event="DOMActivate" context="." at="." origin="instance('i-elementTemplate')//*[local-name(.) = 'persName']" position="after"></xf:insert>
+                                 </xf:trigger>
+                              </li>
+                              <li role="presentation">
+                                 <xf:trigger class="btn add" appearance="minimal" ref=".">
+                                    <xf:label>séparé du texte environnant par des
+                                       guillemets
+                                    </xf:label>
+                                    <xf:insert ev:event="DOMActivate" context="." at="." origin="instance('i-elementTemplate')//*[local-name(.) = 'q']" position="after"></xf:insert>
+                                 </xf:trigger>
+                              </li>
+                           </ul>
+                        </div><span class="alert alert-warning hint">contient des informations sur l'origine du
+                           manuscrit ou de la partie de manuscrit.</span></div>
+                     <repeat xmlns="http://www.w3.org/2002/xforms" ref="tei:p" id="historyoriginpd1559e1" class="xformsGroup">
+                        <div xmlns="http://www.w3.org/1999/xhtml" class="xformElement">
+                           <div class="inlineBlock">
+                              <xf:trigger xmlns="http://www.w3.org/2002/xforms" appearance="minimal" class="btn remove inline">
+                                 <xf:label></xf:label>
+                                 <xf:delete ev:event="DOMActivate" ref="."></xf:delete>
+                              </xf:trigger><span class="elementLable repeat">paragraphe</span><span class="alert alert-warning hint">marque les paragraphes dans un texte en
+                                 prose.</span></div>
+                           <xf:textarea xmlns="http://www.w3.org/2002/xforms" ref=".">
+                              <xf:label>paragraphe</xf:label>
+                           </xf:textarea>
+                        </div>
+                     </repeat>
+                     <repeat xmlns="http://www.w3.org/2002/xforms" ref="tei:q" id="historyoriginqd1559e2" class="xformsGroup">
+                        <div xmlns="http://www.w3.org/1999/xhtml" class="xformElement">
+                           <div class="inlineBlock">
+                              <xf:trigger xmlns="http://www.w3.org/2002/xforms" appearance="minimal" class="btn remove inline">
+                                 <xf:label></xf:label>
+                                 <xf:delete ev:event="DOMActivate" ref="."></xf:delete>
+                              </xf:trigger><span class="elementLable repeat">séparé du texte environnant par des
+                                 guillemets</span> | 
+                              
+                              <div class="dropdown"><button class="btn btn-default dropdown-toggle" type="button" id="availAttributeshistoryoriginqd1559e2" data-toggle="dropdown">
+                                    Available Attributes <span class="caret"></span></button><ul class="dropdown-menu" role="menu" aria-labelledby="availAttributeshistoryoriginqd1559e2">
+                                    <li role="presentation">
+                                       <xf:trigger class="btn add" appearance="minimal" ref=".[not(@type)]">
+                                          <xf:label>type</xf:label>
+                                          <xf:insert ev:event="DOMActivate" context="." at="." origin="instance('i-attributeTemplate')//@*[name(.) = 'type']"></xf:insert>
+                                       </xf:trigger>
+                                    </li>
+                                 </ul>
+                              </div><span class="alert alert-warning hint">contient un fragment qui est marqué
+                                 (visiblement) comme étant d’une manière ou d'une autre différent du texte environnant,
+                                 pour diverses raisons telles que, par exemple, un discours direct ou une pensée, des
+                                 termes techniques ou du jargon, une mise à distance par rapport à l’auteur, des
+                                 citations empruntées et des passages qui sont mentionnés mais non employés.</span></div><span class="attribute-group">
+                              <xf:select1 xmlns="http://www.w3.org/2002/xforms" ref="@type">
+                                 <xf:label>type</xf:label>
+                                 <xf:item>
+                                    <xf:label>- Select -</xf:label>
+                                    <xf:value></xf:value>
+                                 </xf:item>
+                                 <xf:item>
+                                    <xf:label>colophon</xf:label>
+                                    <xf:value>colophon</xf:value>
+                                 </xf:item>
+                                 <xf:item>
+                                    <xf:label>spoken</xf:label>
+                                    <xf:value>spoken</xf:value>
+                                 </xf:item>
+                                 <xf:item>
+                                    <xf:label>thought</xf:label>
+                                    <xf:value>thought</xf:value>
+                                 </xf:item>
+                                 <xf:item>
+                                    <xf:label>written</xf:label>
+                                    <xf:value>written</xf:value>
+                                 </xf:item>
+                                 <xf:item>
+                                    <xf:label>soCalled</xf:label>
+                                    <xf:value>soCalled</xf:value>
+                                 </xf:item>
+                                 <xf:item>
+                                    <xf:label>foreign</xf:label>
+                                    <xf:value>foreign</xf:value>
+                                 </xf:item>
+                                 <xf:item>
+                                    <xf:label>distinct</xf:label>
+                                    <xf:value>distinct</xf:value>
+                                 </xf:item>
+                                 <xf:item>
+                                    <xf:label>term</xf:label>
+                                    <xf:value>term</xf:value>
+                                 </xf:item>
+                                 <xf:item>
+                                    <xf:label>emph</xf:label>
+                                    <xf:value>emph</xf:value>
+                                 </xf:item>
+                                 <xf:item>
+                                    <xf:label>mentioned</xf:label>
+                                    <xf:value>mentioned</xf:value>
+                                 </xf:item>
+                              </xf:select1>
+                              <xf:trigger appearance="minimal" class="btn remove" ref="@type">
+                                 <xf:label></xf:label>
+                                 <xf:delete ev:event="DOMActivate" ref="."></xf:delete>
+                              </xf:trigger></span><xf:input xmlns="http://www.w3.org/2002/xforms" ref=".">
+                              <xf:label>q</xf:label>
+                           </xf:input>
+                        </div>
+                     </repeat>
+                     <repeat xmlns="http://www.w3.org/2002/xforms" ref="tei:origPlace" id="historyoriginorigPlaced1559e3" class="xformsGroup">
+                        <div xmlns="http://www.w3.org/1999/xhtml" class="xformElement">
+                           <div class="inlineBlock">
+                              <xf:trigger xmlns="http://www.w3.org/2002/xforms" appearance="minimal" class="btn remove inline">
+                                 <xf:label></xf:label>
+                                 <xf:delete ev:event="DOMActivate" ref="."></xf:delete>
+                              </xf:trigger><span class="elementLable repeat">lieu de création</span><div class="dropdown"><button class="btn btn-default dropdown-toggle" type="button" id="availElementshistoryoriginorigPlaced1559e3" data-toggle="dropdown">
+                                    Available Elements <span class="caret"></span></button><ul class="dropdown-menu" role="menu" aria-labelledby="availElementshistoryoriginorigPlaced1559e3">
+                                    <li role="presentation">
+                                       <xf:trigger class="btn add" appearance="minimal" ref=".">
+                                          <xf:label>paragraphe</xf:label>
+                                          <xf:insert ev:event="DOMActivate" context="." at="." origin="instance('i-elementTemplate')//*[local-name(.) = 'p']" position="after"></xf:insert>
+                                       </xf:trigger>
+                                    </li>
+                                 </ul>
+                              </div><span class="alert alert-warning hint">Contient un nom de lieu, dans une forme
+                                 libre, utilisé pour désigner l'endroit où a été produit un manuscrit ou une partie
+                                 d'un manuscrit.</span></div>
+                           <repeat xmlns="http://www.w3.org/2002/xforms" ref="tei:p" id="historyoriginorigPlacepd1589e1" class="xformsGroup">
+                              <div xmlns="http://www.w3.org/1999/xhtml" class="xformElement">
+                                 <div class="inlineBlock">
+                                    <xf:trigger xmlns="http://www.w3.org/2002/xforms" appearance="minimal" class="btn remove inline">
+                                       <xf:label></xf:label>
+                                       <xf:delete ev:event="DOMActivate" ref="."></xf:delete>
+                                    </xf:trigger><span class="elementLable repeat">paragraphe</span><span class="alert alert-warning hint">marque les paragraphes dans un texte en
+                                       prose.</span></div>
+                                 <xf:textarea xmlns="http://www.w3.org/2002/xforms" ref=".">
+                                    <xf:label>paragraphe</xf:label>
+                                 </xf:textarea>
+                              </div>
+                           </repeat>
+                        </div>
+                     </repeat>
+                     <repeat xmlns="http://www.w3.org/2002/xforms" ref="tei:origDate" id="historyoriginorigDated1559e4" class="xformsGroup">
+                        <div xmlns="http://www.w3.org/1999/xhtml" class="xformElement">
+                           <div class="inlineBlock">
+                              <xf:trigger xmlns="http://www.w3.org/2002/xforms" appearance="minimal" class="btn remove inline">
+                                 <xf:label></xf:label>
+                                 <xf:delete ev:event="DOMActivate" ref="."></xf:delete>
+                              </xf:trigger><span class="elementLable repeat">date de la création</span> | 
+                              
+                              <div class="dropdown"><button class="btn btn-default dropdown-toggle" type="button" id="availAttributeshistoryoriginorigDated1559e4" data-toggle="dropdown">
+                                    Available Attributes <span class="caret"></span></button><ul class="dropdown-menu" role="menu" aria-labelledby="availAttributeshistoryoriginorigDated1559e4">
+                                    <li role="presentation">
+                                       <xf:trigger class="btn add" appearance="minimal" ref=".[not(@evidence)]">
+                                          <xf:label>evidence</xf:label>
+                                          <xf:insert ev:event="DOMActivate" context="." at="." origin="instance('i-attributeTemplate')//@*[name(.) = 'evidence']"></xf:insert>
+                                       </xf:trigger>
+                                    </li>
+                                 </ul>
+                              </div><span class="alert alert-warning hint">Contient une date, dans une forme libre,
+                                 utilisée pour dater la création d'un manuscrit ou d'une partie d'un manuscrit.</span></div><span class="attribute-group">
+                              <xf:select1 xmlns="http://www.w3.org/2002/xforms" ref="@evidence">
+                                 <xf:label>evidence</xf:label>
+                                 <xf:item>
+                                    <xf:label>- Select -</xf:label>
+                                    <xf:value></xf:value>
+                                 </xf:item>
+                                 <xf:item>
+                                    <xf:label>lettering</xf:label>
+                                    <xf:value>lettering</xf:value>
+                                 </xf:item>
+                                 <xf:item>
+                                    <xf:label>nomenclature</xf:label>
+                                    <xf:value>nomenclature</xf:value>
+                                 </xf:item>
+                                 <xf:item>
+                                    <xf:label>prosopography</xf:label>
+                                    <xf:value>prosopography</xf:value>
+                                 </xf:item>
+                                 <xf:item>
+                                    <xf:label>reign</xf:label>
+                                    <xf:value>reign</xf:value>
+                                 </xf:item>
+                                 <xf:item>
+                                    <xf:label>titulature</xf:label>
+                                    <xf:value>titulature</xf:value>
+                                 </xf:item>
+                                 <xf:item>
+                                    <xf:label>internal-date</xf:label>
+                                    <xf:value>internal-date</xf:value>
+                                 </xf:item>
+                                 <xf:item>
+                                    <xf:label>context</xf:label>
+                                    <xf:value>context</xf:value>
+                                 </xf:item>
+                              </xf:select1>
+                              <xf:trigger appearance="minimal" class="btn remove" ref="@evidence">
+                                 <xf:label></xf:label>
+                                 <xf:delete ev:event="DOMActivate" ref="."></xf:delete>
+                              </xf:trigger></span><xf:input xmlns="http://www.w3.org/2002/xforms" ref=".">
+                              <xf:label>origDate</xf:label>
+                           </xf:input>
+                        </div>
+                     </repeat>
+                     <repeat xmlns="http://www.w3.org/2002/xforms" ref="tei:locus" id="historyoriginlocusd1559e5" class="xformsGroup">
+                        <div xmlns="http://www.w3.org/1999/xhtml" class="xformElement">
+                           <div class="inlineBlock">
+                              <xf:trigger xmlns="http://www.w3.org/2002/xforms" appearance="minimal" class="btn remove inline">
+                                 <xf:label></xf:label>
+                                 <xf:delete ev:event="DOMActivate" ref="."></xf:delete>
+                              </xf:trigger><span class="elementLable repeat">locus</span> | 
+                              
+                              <div class="dropdown"><button class="btn btn-default dropdown-toggle" type="button" id="availAttributeshistoryoriginlocusd1559e5" data-toggle="dropdown">
+                                    Available Attributes <span class="caret"></span></button><ul class="dropdown-menu" role="menu" aria-labelledby="availAttributeshistoryoriginlocusd1559e5">
+                                    <li role="presentation">
+                                       <xf:trigger class="btn add" appearance="minimal" ref=".[not(@from)]">
+                                          <xf:label>from</xf:label>
+                                          <xf:insert ev:event="DOMActivate" context="." at="." origin="instance('i-attributeTemplate')//@*[name(.) = 'from']"></xf:insert>
+                                       </xf:trigger>
+                                    </li>
+                                    <li role="presentation">
+                                       <xf:trigger class="btn add" appearance="minimal" ref=".[not(@scheme)]">
+                                          <xf:label>scheme</xf:label>
+                                          <xf:insert ev:event="DOMActivate" context="." at="." origin="instance('i-attributeTemplate')//@*[name(.) = 'scheme']"></xf:insert>
+                                       </xf:trigger>
+                                    </li>
+                                    <li role="presentation">
+                                       <xf:trigger class="btn add" appearance="minimal" ref=".[not(@to)]">
+                                          <xf:label>to</xf:label>
+                                          <xf:insert ev:event="DOMActivate" context="." at="." origin="instance('i-attributeTemplate')//@*[name(.) = 'to']"></xf:insert>
+                                       </xf:trigger>
+                                    </li>
+                                 </ul>
+                              </div><span class="alert alert-warning hint">définit un emplacement au sein d'un
+                                 manuscrit ou d'une partie de manuscrit, souvent une séquence, éventuellement
+                                 discontinue, de références de feuillets.</span></div><span class="attribute-group">
+                              <xf:input ref="@from">
+                                 <xf:label>from</xf:label>
+                              </xf:input>
+                              <xf:trigger appearance="minimal" class="btn remove" ref="@from">
+                                 <xf:label></xf:label>
+                                 <xf:delete ev:event="DOMActivate" ref="."></xf:delete>
+                              </xf:trigger></span><span class="attribute-group">
+                              <xf:input ref="@scheme">
+                                 <xf:label>scheme</xf:label>
+                              </xf:input>
+                              <xf:trigger appearance="minimal" class="btn remove" ref="@scheme">
+                                 <xf:label></xf:label>
+                                 <xf:delete ev:event="DOMActivate" ref="."></xf:delete>
+                              </xf:trigger></span><span class="attribute-group">
+                              <xf:input ref="@to">
+                                 <xf:label>to</xf:label>
+                              </xf:input>
+                              <xf:trigger appearance="minimal" class="btn remove" ref="@to">
+                                 <xf:label></xf:label>
+                                 <xf:delete ev:event="DOMActivate" ref="."></xf:delete>
+                              </xf:trigger></span><xf:input xmlns="http://www.w3.org/2002/xforms" ref=".">
+                              <xf:label>locus</xf:label>
+                           </xf:input>
+                        </div>
+                     </repeat>
+                     <repeat xmlns="http://www.w3.org/2002/xforms" ref="tei:persName" id="historyoriginpersNamed1559e6" class="xformsGroup">
+                        <div xmlns="http://www.w3.org/1999/xhtml" class="xformElement">
+                           <div class="inlineBlock">
+                              <xf:trigger xmlns="http://www.w3.org/2002/xforms" appearance="minimal" class="btn remove inline">
+                                 <xf:label></xf:label>
+                                 <xf:delete ev:event="DOMActivate" ref="."></xf:delete>
+                              </xf:trigger><span class="elementLable repeat">nom de personne</span> | 
+                              
+                              <div class="dropdown"><button class="btn btn-default dropdown-toggle" type="button" id="availAttributeshistoryoriginpersNamed1559e6" data-toggle="dropdown">
+                                    Available Attributes <span class="caret"></span></button><ul class="dropdown-menu" role="menu" aria-labelledby="availAttributeshistoryoriginpersNamed1559e6">
+                                    <li role="presentation">
+                                       <xf:trigger class="btn add" appearance="minimal" ref=".[not(@ref)]">
+                                          <xf:label>ref</xf:label>
+                                          <xf:insert ev:event="DOMActivate" context="." at="." origin="instance('i-attributeTemplate')//@*[name(.) = 'ref']"></xf:insert>
+                                       </xf:trigger>
+                                    </li>
+                                    <li role="presentation">
+                                       <xf:trigger class="btn add" appearance="minimal" ref=".[not(@role)]">
+                                          <xf:label>role</xf:label>
+                                          <xf:insert ev:event="DOMActivate" context="." at="." origin="instance('i-attributeTemplate')//@*[name(.) = 'role']"></xf:insert>
+                                       </xf:trigger>
+                                    </li>
+                                    <li role="presentation">
+                                       <xf:trigger class="btn add" appearance="minimal" ref=".[not(@type)]">
+                                          <xf:label>type</xf:label>
+                                          <xf:insert ev:event="DOMActivate" context="." at="." origin="instance('i-attributeTemplate')//@*[name(.) = 'type']"></xf:insert>
+                                       </xf:trigger>
+                                    </li>
+                                 </ul>
+                              </div>
+                              <div class="dropdown"><button class="btn btn-default dropdown-toggle" type="button" id="availElementshistoryoriginpersNamed1559e6" data-toggle="dropdown">
+                                    Available Elements <span class="caret"></span></button><ul class="dropdown-menu" role="menu" aria-labelledby="availElementshistoryoriginpersNamed1559e6">
+                                    <li role="presentation">
+                                       <xf:trigger class="btn add" appearance="minimal" ref=".">
+                                          <xf:label>paragraphe</xf:label>
+                                          <xf:insert ev:event="DOMActivate" context="." at="." origin="instance('i-elementTemplate')//*[local-name(.) = 'p']" position="after"></xf:insert>
+                                       </xf:trigger>
+                                    </li>
+                                 </ul>
+                              </div><span class="alert alert-warning hint">contient un nom propre ou une expression
+                                 nominale se référant à une personne, pouvant inclure tout ou partie de ses prénoms,
+                                 noms de famille, titres honorifiques, noms ajoutés, etc.</span></div><span class="attribute-group">
+                              <xf:input ref="@ref">
+                                 <xf:label>ref</xf:label>
+                              </xf:input>
+                              <xf:trigger appearance="minimal" class="btn remove" ref="@ref">
+                                 <xf:label></xf:label>
+                                 <xf:delete ev:event="DOMActivate" ref="."></xf:delete>
+                              </xf:trigger></span><span class="attribute-group">
+                              <xf:select1 xmlns="http://www.w3.org/2002/xforms" ref="@role">
+                                 <xf:label>role</xf:label>
+                                 <xf:item>
+                                    <xf:label>- Select -</xf:label>
+                                    <xf:value></xf:value>
+                                 </xf:item>
+                                 <xf:item>
+                                    <xf:label>illustrator</xf:label>
+                                    <xf:value>illustrator</xf:value>
+                                 </xf:item>
+                                 <xf:item>
+                                    <xf:label>scribe</xf:label>
+                                    <xf:value>scribe</xf:value>
+                                 </xf:item>
+                                 <xf:item>
+                                    <xf:label>donor</xf:label>
+                                    <xf:value>donor</xf:value>
+                                 </xf:item>
+                                 <xf:item>
+                                    <xf:label>bequeather</xf:label>
+                                    <xf:value>bequeather</xf:value>
+                                 </xf:item>
+                                 <xf:item>
+                                    <xf:label>author</xf:label>
+                                    <xf:value>author</xf:value>
+                                 </xf:item>
+                                 <xf:item>
+                                    <xf:label>translator</xf:label>
+                                    <xf:value>translator</xf:value>
+                                 </xf:item>
+                                 <xf:item>
+                                    <xf:label>binder</xf:label>
+                                    <xf:value>binder</xf:value>
+                                 </xf:item>
+                                 <xf:item>
+                                    <xf:label>parchmentMaker</xf:label>
+                                    <xf:value>parchmentMaker</xf:value>
+                                 </xf:item>
+                                 <xf:item>
+                                    <xf:label>owner</xf:label>
+                                    <xf:value>owner</xf:value>
+                                 </xf:item>
+                                 <xf:item>
+                                    <xf:label>patron</xf:label>
+                                    <xf:value>patron</xf:value>
+                                 </xf:item>
+                                 <xf:item>
+                                    <xf:label>sponsor</xf:label>
+                                    <xf:value>sponsor</xf:value>
+                                 </xf:item>
+                                 <xf:item>
+                                    <xf:label>other</xf:label>
+                                    <xf:value>other</xf:value>
+                                 </xf:item>
+                              </xf:select1>
+                              <xf:trigger appearance="minimal" class="btn remove" ref="@role">
+                                 <xf:label></xf:label>
+                                 <xf:delete ev:event="DOMActivate" ref="."></xf:delete>
+                              </xf:trigger></span><span class="attribute-group">
+                              <xf:select1 xmlns="http://www.w3.org/2002/xforms" ref="@type">
+                                 <xf:label>type</xf:label>
+                                 <xf:item>
+                                    <xf:label>- Select -</xf:label>
+                                    <xf:value></xf:value>
+                                 </xf:item>
+                                 <xf:item>
+                                    <xf:label>main</xf:label>
+                                    <xf:value>main</xf:value>
+                                 </xf:item>
+                                 <xf:item>
+                                    <xf:label>normalized</xf:label>
+                                    <xf:value>normalized</xf:value>
+                                 </xf:item>
+                                 <xf:item>
+                                    <xf:label>given</xf:label>
+                                    <xf:value>given</xf:value>
+                                 </xf:item>
+                                 <xf:item>
+                                    <xf:label>birth</xf:label>
+                                    <xf:value>birth</xf:value>
+                                 </xf:item>
+                                 <xf:item>
+                                    <xf:label>baptismal</xf:label>
+                                    <xf:value>baptismal</xf:value>
+                                 </xf:item>
+                                 <xf:item>
+                                    <xf:label>regnal</xf:label>
+                                    <xf:value>regnal</xf:value>
+                                 </xf:item>
+                                 <xf:item>
+                                    <xf:label>monastic</xf:label>
+                                    <xf:value>monastic</xf:value>
+                                 </xf:item>
+                                 <xf:item>
+                                    <xf:label>horse</xf:label>
+                                    <xf:value>horse</xf:value>
+                                 </xf:item>
+                                 <xf:item>
+                                    <xf:label>nick</xf:label>
+                                    <xf:value>nick</xf:value>
+                                 </xf:item>
+                                 <xf:item>
+                                    <xf:label>war</xf:label>
+                                    <xf:value>war</xf:value>
+                                 </xf:item>
+                                 <xf:item>
+                                    <xf:label>hypocoristic</xf:label>
+                                    <xf:value>hypocoristic</xf:value>
+                                 </xf:item>
+                                 <xf:item>
+                                    <xf:label>patronymic</xf:label>
+                                    <xf:value>patronymic</xf:value>
+                                 </xf:item>
+                                 <xf:item>
+                                    <xf:label>alt</xf:label>
+                                    <xf:value>alt</xf:value>
+                                 </xf:item>
+                                 <xf:item>
+                                    <xf:label>tabot</xf:label>
+                                    <xf:value>tabot</xf:value>
+                                 </xf:item>
+                              </xf:select1>
+                              <xf:trigger appearance="minimal" class="btn remove" ref="@type">
+                                 <xf:label></xf:label>
+                                 <xf:delete ev:event="DOMActivate" ref="."></xf:delete>
+                              </xf:trigger></span><repeat xmlns="http://www.w3.org/2002/xforms" ref="tei:p" id="historyoriginpersNamepd1622e1" class="xformsGroup">
+                              <div xmlns="http://www.w3.org/1999/xhtml" class="xformElement">
+                                 <div class="inlineBlock">
+                                    <xf:trigger xmlns="http://www.w3.org/2002/xforms" appearance="minimal" class="btn remove inline">
+                                       <xf:label></xf:label>
+                                       <xf:delete ev:event="DOMActivate" ref="."></xf:delete>
+                                    </xf:trigger><span class="elementLable repeat">paragraphe</span><span class="alert alert-warning hint">marque les paragraphes dans un texte en
+                                       prose.</span></div>
+                                 <xf:textarea xmlns="http://www.w3.org/2002/xforms" ref=".">
+                                    <xf:label>paragraphe</xf:label>
+                                 </xf:textarea>
+                              </div>
+                           </repeat>
+                        </div>
+                     </repeat>
+                  </div>
+               </repeat>
+               <repeat xmlns="http://www.w3.org/2002/xforms" ref="tei:provenance" id="historyprovenanced1540e3" class="xformsGroup">
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="xformElement">
+                     <div class="inlineBlock">
+                        <xf:trigger xmlns="http://www.w3.org/2002/xforms" appearance="minimal" class="btn remove inline">
+                           <xf:label></xf:label>
+                           <xf:delete ev:event="DOMActivate" ref="."></xf:delete>
+                        </xf:trigger><span class="elementLable repeat">provenance</span><div class="dropdown"><button class="btn btn-default dropdown-toggle" type="button" id="availElementshistoryprovenanced1540e3" data-toggle="dropdown">
+                              Available Elements <span class="caret"></span></button><ul class="dropdown-menu" role="menu" aria-labelledby="availElementshistoryprovenanced1540e3">
+                              <li role="presentation">
+                                 <xf:trigger class="btn add" appearance="minimal" ref=".">
+                                    <xf:label>date</xf:label>
+                                    <xf:insert ev:event="DOMActivate" context="." at="." origin="instance('i-elementTemplate')//*[local-name(.) = 'date']" position="after"></xf:insert>
+                                 </xf:trigger>
+                              </li>
+                              <li role="presentation">
+                                 <xf:trigger class="btn add" appearance="minimal" ref=".">
+                                    <xf:label>locus</xf:label>
+                                    <xf:insert ev:event="DOMActivate" context="." at="." origin="instance('i-elementTemplate')//*[local-name(.) = 'locus']" position="after"></xf:insert>
+                                 </xf:trigger>
+                              </li>
+                              <li role="presentation">
+                                 <xf:trigger class="btn add" appearance="minimal" ref=".">
+                                    <xf:label>paragraphe</xf:label>
+                                    <xf:insert ev:event="DOMActivate" context="." at="." origin="instance('i-elementTemplate')//*[local-name(.) = 'p']" position="after"></xf:insert>
+                                 </xf:trigger>
+                              </li>
+                              <li role="presentation">
+                                 <xf:trigger class="btn add" appearance="minimal" ref=".">
+                                    <xf:label>nom de personne</xf:label>
+                                    <xf:insert ev:event="DOMActivate" context="." at="." origin="instance('i-elementTemplate')//*[local-name(.) = 'persName']" position="after"></xf:insert>
+                                 </xf:trigger>
+                              </li>
+                              <li role="presentation">
+                                 <xf:trigger class="btn add" appearance="minimal" ref=".">
+                                    <xf:label>nom de lieu</xf:label>
+                                    <xf:insert ev:event="DOMActivate" context="." at="." origin="instance('i-elementTemplate')//*[local-name(.) = 'placeName']" position="after"></xf:insert>
+                                 </xf:trigger>
+                              </li>
+                              <li role="presentation">
+                                 <xf:trigger class="btn add" appearance="minimal" ref=".">
+                                    <xf:label>signatures</xf:label>
+                                    <xf:insert ev:event="DOMActivate" context="." at="." origin="instance('i-elementTemplate')//*[local-name(.) = 'signatures']" position="after"></xf:insert>
+                                 </xf:trigger>
+                              </li>
+                              <li role="presentation">
+                                 <xf:trigger class="btn add" appearance="minimal" ref=".">
+                                    <xf:label>cachet</xf:label>
+                                    <xf:insert ev:event="DOMActivate" context="." at="." origin="instance('i-elementTemplate')//*[local-name(.) = 'stamp']" position="after"></xf:insert>
+                                 </xf:trigger>
+                              </li>
+                           </ul>
+                        </div><span class="alert alert-warning hint">contient des informations sur un épisode
+                           précis de l'histoire du manuscrit ou de la partie du manuscrit, après sa création
+                           et
+                           avant son acquisition</span></div>
+                     <repeat xmlns="http://www.w3.org/2002/xforms" ref="tei:date" id="historyprovenancedated1639e1" class="xformsGroup">
+                        <div xmlns="http://www.w3.org/1999/xhtml" class="xformElement">
+                           <div class="inlineBlock">
+                              <xf:trigger xmlns="http://www.w3.org/2002/xforms" appearance="minimal" class="btn remove inline">
+                                 <xf:label></xf:label>
+                                 <xf:delete ev:event="DOMActivate" ref="."></xf:delete>
+                              </xf:trigger><span class="elementLable repeat">date</span> | 
+                              
+                              <div class="dropdown"><button class="btn btn-default dropdown-toggle" type="button" id="availAttributeshistoryprovenancedated1639e1" data-toggle="dropdown">
+                                    Available Attributes <span class="caret"></span></button><ul class="dropdown-menu" role="menu" aria-labelledby="availAttributeshistoryprovenancedated1639e1">
+                                    <li role="presentation">
+                                       <xf:trigger class="btn add" appearance="minimal" ref=".[not(@calendar)]">
+                                          <xf:label>calendar</xf:label>
+                                          <xf:insert ev:event="DOMActivate" context="." at="." origin="instance('i-attributeTemplate')//@*[name(.) = 'calendar']"></xf:insert>
+                                       </xf:trigger>
+                                    </li>
+                                    <li role="presentation">
+                                       <xf:trigger class="btn add" appearance="minimal" ref=".[not(@type)]">
+                                          <xf:label>type</xf:label>
+                                          <xf:insert ev:event="DOMActivate" context="." at="." origin="instance('i-attributeTemplate')//@*[name(.) = 'type']"></xf:insert>
+                                       </xf:trigger>
+                                    </li>
+                                 </ul>
+                              </div><span class="alert alert-warning hint">contient une date exprimée dans n'importe
+                                 quel format.</span></div><span class="attribute-group">
+                              <xf:select1 xmlns="http://www.w3.org/2002/xforms" ref="@calendar">
+                                 <xf:label>calendar</xf:label>
+                                 <xf:item>
+                                    <xf:label>- Select -</xf:label>
+                                    <xf:value></xf:value>
+                                 </xf:item>
+                                 <xf:item>
+                                    <xf:label>hebrew</xf:label>
+                                    <xf:value>hebrew</xf:value>
+                                 </xf:item>
+                                 <xf:item>
+                                    <xf:label>alexander</xf:label>
+                                    <xf:value>alexander</xf:value>
+                                 </xf:item>
+                                 <xf:item>
+                                    <xf:label>islamic</xf:label>
+                                    <xf:value>islamic</xf:value>
+                                 </xf:item>
+                                 <xf:item>
+                                    <xf:label>julian</xf:label>
+                                    <xf:value>julian</xf:value>
+                                 </xf:item>
+                              </xf:select1>
+                              <xf:trigger appearance="minimal" class="btn remove" ref="@calendar">
+                                 <xf:label></xf:label>
+                                 <xf:delete ev:event="DOMActivate" ref="."></xf:delete>
+                              </xf:trigger></span><span class="attribute-group">
+                              <xf:select1 xmlns="http://www.w3.org/2002/xforms" ref="@type">
+                                 <xf:label>type</xf:label>
+                                 <xf:item>
+                                    <xf:label>- Select -</xf:label>
+                                    <xf:value></xf:value>
+                                 </xf:item>
+                                 <xf:item>
+                                    <xf:label>age</xf:label>
+                                    <xf:value>age</xf:value>
+                                 </xf:item>
+                                 <xf:item>
+                                    <xf:label>reign</xf:label>
+                                    <xf:value>reign</xf:value>
+                                 </xf:item>
+                                 <xf:item>
+                                    <xf:label>life</xf:label>
+                                    <xf:value>life</xf:value>
+                                 </xf:item>
+                                 <xf:item>
+                                    <xf:label>marriage</xf:label>
+                                    <xf:value>marriage</xf:value>
+                                 </xf:item>
+                                 <xf:item>
+                                    <xf:label>generic-duration</xf:label>
+                                    <xf:value>generic-duration</xf:value>
+                                 </xf:item>
+                                 <xf:item>
+                                    <xf:label>foundation</xf:label>
+                                    <xf:value>foundation</xf:value>
+                                 </xf:item>
+                                 <xf:item>
+                                    <xf:label>composition</xf:label>
+                                    <xf:value>composition</xf:value>
+                                 </xf:item>
+                                 <xf:item>
+                                    <xf:label>translation</xf:label>
+                                    <xf:value>translation</xf:value>
+                                 </xf:item>
+                                 <xf:item>
+                                    <xf:label>revision</xf:label>
+                                    <xf:value>revision</xf:value>
+                                 </xf:item>
+                                 <xf:item>
+                                    <xf:label>recension</xf:label>
+                                    <xf:value>recension</xf:value>
+                                 </xf:item>
+                                 <xf:item>
+                                    <xf:label>diesNatalis</xf:label>
+                                    <xf:value>diesNatalis</xf:value>
+                                 </xf:item>
+                                 <xf:item>
+                                    <xf:label>birth</xf:label>
+                                    <xf:value>birth</xf:value>
+                                 </xf:item>
+                                 <xf:item>
+                                    <xf:label>ascension</xf:label>
+                                    <xf:value>ascension</xf:value>
+                                 </xf:item>
+                                 <xf:item>
+                                    <xf:label>death</xf:label>
+                                    <xf:value>death</xf:value>
+                                 </xf:item>
+                                 <xf:item>
+                                    <xf:label>production</xf:label>
+                                    <xf:value>production</xf:value>
+                                 </xf:item>
+                                 <xf:item>
+                                    <xf:label>repeated</xf:label>
+                                    <xf:value>repeated</xf:value>
+                                 </xf:item>
+                              </xf:select1>
+                              <xf:trigger appearance="minimal" class="btn remove" ref="@type">
+                                 <xf:label></xf:label>
+                                 <xf:delete ev:event="DOMActivate" ref="."></xf:delete>
+                              </xf:trigger></span><xf:input xmlns="http://www.w3.org/2002/xforms" ref=".">
+                              <xf:label>date</xf:label>
+                           </xf:input>
+                        </div>
+                     </repeat>
+                     <repeat xmlns="http://www.w3.org/2002/xforms" ref="tei:p" id="historyprovenancepd1639e2" class="xformsGroup">
+                        <div xmlns="http://www.w3.org/1999/xhtml" class="xformElement">
+                           <div class="inlineBlock">
+                              <xf:trigger xmlns="http://www.w3.org/2002/xforms" appearance="minimal" class="btn remove inline">
+                                 <xf:label></xf:label>
+                                 <xf:delete ev:event="DOMActivate" ref="."></xf:delete>
+                              </xf:trigger><span class="elementLable repeat">paragraphe</span><span class="alert alert-warning hint">marque les paragraphes dans un texte en
+                                 prose.</span></div>
+                           <xf:textarea xmlns="http://www.w3.org/2002/xforms" ref=".">
+                              <xf:label>paragraphe</xf:label>
+                           </xf:textarea>
+                        </div>
+                     </repeat>
+                     <repeat xmlns="http://www.w3.org/2002/xforms" ref="tei:locus" id="historyprovenancelocusd1639e3" class="xformsGroup">
+                        <div xmlns="http://www.w3.org/1999/xhtml" class="xformElement">
+                           <div class="inlineBlock">
+                              <xf:trigger xmlns="http://www.w3.org/2002/xforms" appearance="minimal" class="btn remove inline">
+                                 <xf:label></xf:label>
+                                 <xf:delete ev:event="DOMActivate" ref="."></xf:delete>
+                              </xf:trigger><span class="elementLable repeat">locus</span> | 
+                              
+                              <div class="dropdown"><button class="btn btn-default dropdown-toggle" type="button" id="availAttributeshistoryprovenancelocusd1639e3" data-toggle="dropdown">
+                                    Available Attributes <span class="caret"></span></button><ul class="dropdown-menu" role="menu" aria-labelledby="availAttributeshistoryprovenancelocusd1639e3">
+                                    <li role="presentation">
+                                       <xf:trigger class="btn add" appearance="minimal" ref=".[not(@from)]">
+                                          <xf:label>from</xf:label>
+                                          <xf:insert ev:event="DOMActivate" context="." at="." origin="instance('i-attributeTemplate')//@*[name(.) = 'from']"></xf:insert>
+                                       </xf:trigger>
+                                    </li>
+                                    <li role="presentation">
+                                       <xf:trigger class="btn add" appearance="minimal" ref=".[not(@scheme)]">
+                                          <xf:label>scheme</xf:label>
+                                          <xf:insert ev:event="DOMActivate" context="." at="." origin="instance('i-attributeTemplate')//@*[name(.) = 'scheme']"></xf:insert>
+                                       </xf:trigger>
+                                    </li>
+                                    <li role="presentation">
+                                       <xf:trigger class="btn add" appearance="minimal" ref=".[not(@to)]">
+                                          <xf:label>to</xf:label>
+                                          <xf:insert ev:event="DOMActivate" context="." at="." origin="instance('i-attributeTemplate')//@*[name(.) = 'to']"></xf:insert>
+                                       </xf:trigger>
+                                    </li>
+                                 </ul>
+                              </div><span class="alert alert-warning hint">définit un emplacement au sein d'un
+                                 manuscrit ou d'une partie de manuscrit, souvent une séquence, éventuellement
+                                 discontinue, de références de feuillets.</span></div><span class="attribute-group">
+                              <xf:input ref="@from">
+                                 <xf:label>from</xf:label>
+                              </xf:input>
+                              <xf:trigger appearance="minimal" class="btn remove" ref="@from">
+                                 <xf:label></xf:label>
+                                 <xf:delete ev:event="DOMActivate" ref="."></xf:delete>
+                              </xf:trigger></span><span class="attribute-group">
+                              <xf:input ref="@scheme">
+                                 <xf:label>scheme</xf:label>
+                              </xf:input>
+                              <xf:trigger appearance="minimal" class="btn remove" ref="@scheme">
+                                 <xf:label></xf:label>
+                                 <xf:delete ev:event="DOMActivate" ref="."></xf:delete>
+                              </xf:trigger></span><span class="attribute-group">
+                              <xf:input ref="@to">
+                                 <xf:label>to</xf:label>
+                              </xf:input>
+                              <xf:trigger appearance="minimal" class="btn remove" ref="@to">
+                                 <xf:label></xf:label>
+                                 <xf:delete ev:event="DOMActivate" ref="."></xf:delete>
+                              </xf:trigger></span><xf:input xmlns="http://www.w3.org/2002/xforms" ref=".">
+                              <xf:label>locus</xf:label>
+                           </xf:input>
+                        </div>
+                     </repeat>
+                     <repeat xmlns="http://www.w3.org/2002/xforms" ref="tei:persName" id="historyprovenancepersNamed1639e4" class="xformsGroup">
+                        <div xmlns="http://www.w3.org/1999/xhtml" class="xformElement">
+                           <div class="inlineBlock">
+                              <xf:trigger xmlns="http://www.w3.org/2002/xforms" appearance="minimal" class="btn remove inline">
+                                 <xf:label></xf:label>
+                                 <xf:delete ev:event="DOMActivate" ref="."></xf:delete>
+                              </xf:trigger><span class="elementLable repeat">nom de personne</span> | 
+                              
+                              <div class="dropdown"><button class="btn btn-default dropdown-toggle" type="button" id="availAttributeshistoryprovenancepersNamed1639e4" data-toggle="dropdown">
+                                    Available Attributes <span class="caret"></span></button><ul class="dropdown-menu" role="menu" aria-labelledby="availAttributeshistoryprovenancepersNamed1639e4">
+                                    <li role="presentation">
+                                       <xf:trigger class="btn add" appearance="minimal" ref=".[not(@ref)]">
+                                          <xf:label>ref</xf:label>
+                                          <xf:insert ev:event="DOMActivate" context="." at="." origin="instance('i-attributeTemplate')//@*[name(.) = 'ref']"></xf:insert>
+                                       </xf:trigger>
+                                    </li>
+                                    <li role="presentation">
+                                       <xf:trigger class="btn add" appearance="minimal" ref=".[not(@role)]">
+                                          <xf:label>role</xf:label>
+                                          <xf:insert ev:event="DOMActivate" context="." at="." origin="instance('i-attributeTemplate')//@*[name(.) = 'role']"></xf:insert>
+                                       </xf:trigger>
+                                    </li>
+                                    <li role="presentation">
+                                       <xf:trigger class="btn add" appearance="minimal" ref=".[not(@type)]">
+                                          <xf:label>type</xf:label>
+                                          <xf:insert ev:event="DOMActivate" context="." at="." origin="instance('i-attributeTemplate')//@*[name(.) = 'type']"></xf:insert>
+                                       </xf:trigger>
+                                    </li>
+                                 </ul>
+                              </div>
+                              <div class="dropdown"><button class="btn btn-default dropdown-toggle" type="button" id="availElementshistoryprovenancepersNamed1639e4" data-toggle="dropdown">
+                                    Available Elements <span class="caret"></span></button><ul class="dropdown-menu" role="menu" aria-labelledby="availElementshistoryprovenancepersNamed1639e4">
+                                    <li role="presentation">
+                                       <xf:trigger class="btn add" appearance="minimal" ref=".">
+                                          <xf:label>paragraphe</xf:label>
+                                          <xf:insert ev:event="DOMActivate" context="." at="." origin="instance('i-elementTemplate')//*[local-name(.) = 'p']" position="after"></xf:insert>
+                                       </xf:trigger>
+                                    </li>
+                                 </ul>
+                              </div><span class="alert alert-warning hint">contient un nom propre ou une expression
+                                 nominale se référant à une personne, pouvant inclure tout ou partie de ses prénoms,
+                                 noms de famille, titres honorifiques, noms ajoutés, etc.</span></div><span class="attribute-group">
+                              <xf:input ref="@ref">
+                                 <xf:label>ref</xf:label>
+                              </xf:input>
+                              <xf:trigger appearance="minimal" class="btn remove" ref="@ref">
+                                 <xf:label></xf:label>
+                                 <xf:delete ev:event="DOMActivate" ref="."></xf:delete>
+                              </xf:trigger></span><span class="attribute-group">
+                              <xf:select1 xmlns="http://www.w3.org/2002/xforms" ref="@role">
+                                 <xf:label>role</xf:label>
+                                 <xf:item>
+                                    <xf:label>- Select -</xf:label>
+                                    <xf:value></xf:value>
+                                 </xf:item>
+                                 <xf:item>
+                                    <xf:label>illustrator</xf:label>
+                                    <xf:value>illustrator</xf:value>
+                                 </xf:item>
+                                 <xf:item>
+                                    <xf:label>scribe</xf:label>
+                                    <xf:value>scribe</xf:value>
+                                 </xf:item>
+                                 <xf:item>
+                                    <xf:label>donor</xf:label>
+                                    <xf:value>donor</xf:value>
+                                 </xf:item>
+                                 <xf:item>
+                                    <xf:label>bequeather</xf:label>
+                                    <xf:value>bequeather</xf:value>
+                                 </xf:item>
+                                 <xf:item>
+                                    <xf:label>author</xf:label>
+                                    <xf:value>author</xf:value>
+                                 </xf:item>
+                                 <xf:item>
+                                    <xf:label>translator</xf:label>
+                                    <xf:value>translator</xf:value>
+                                 </xf:item>
+                                 <xf:item>
+                                    <xf:label>binder</xf:label>
+                                    <xf:value>binder</xf:value>
+                                 </xf:item>
+                                 <xf:item>
+                                    <xf:label>parchmentMaker</xf:label>
+                                    <xf:value>parchmentMaker</xf:value>
+                                 </xf:item>
+                                 <xf:item>
+                                    <xf:label>owner</xf:label>
+                                    <xf:value>owner</xf:value>
+                                 </xf:item>
+                                 <xf:item>
+                                    <xf:label>patron</xf:label>
+                                    <xf:value>patron</xf:value>
+                                 </xf:item>
+                                 <xf:item>
+                                    <xf:label>sponsor</xf:label>
+                                    <xf:value>sponsor</xf:value>
+                                 </xf:item>
+                                 <xf:item>
+                                    <xf:label>other</xf:label>
+                                    <xf:value>other</xf:value>
+                                 </xf:item>
+                              </xf:select1>
+                              <xf:trigger appearance="minimal" class="btn remove" ref="@role">
+                                 <xf:label></xf:label>
+                                 <xf:delete ev:event="DOMActivate" ref="."></xf:delete>
+                              </xf:trigger></span><span class="attribute-group">
+                              <xf:select1 xmlns="http://www.w3.org/2002/xforms" ref="@type">
+                                 <xf:label>type</xf:label>
+                                 <xf:item>
+                                    <xf:label>- Select -</xf:label>
+                                    <xf:value></xf:value>
+                                 </xf:item>
+                                 <xf:item>
+                                    <xf:label>main</xf:label>
+                                    <xf:value>main</xf:value>
+                                 </xf:item>
+                                 <xf:item>
+                                    <xf:label>normalized</xf:label>
+                                    <xf:value>normalized</xf:value>
+                                 </xf:item>
+                                 <xf:item>
+                                    <xf:label>given</xf:label>
+                                    <xf:value>given</xf:value>
+                                 </xf:item>
+                                 <xf:item>
+                                    <xf:label>birth</xf:label>
+                                    <xf:value>birth</xf:value>
+                                 </xf:item>
+                                 <xf:item>
+                                    <xf:label>baptismal</xf:label>
+                                    <xf:value>baptismal</xf:value>
+                                 </xf:item>
+                                 <xf:item>
+                                    <xf:label>regnal</xf:label>
+                                    <xf:value>regnal</xf:value>
+                                 </xf:item>
+                                 <xf:item>
+                                    <xf:label>monastic</xf:label>
+                                    <xf:value>monastic</xf:value>
+                                 </xf:item>
+                                 <xf:item>
+                                    <xf:label>horse</xf:label>
+                                    <xf:value>horse</xf:value>
+                                 </xf:item>
+                                 <xf:item>
+                                    <xf:label>nick</xf:label>
+                                    <xf:value>nick</xf:value>
+                                 </xf:item>
+                                 <xf:item>
+                                    <xf:label>war</xf:label>
+                                    <xf:value>war</xf:value>
+                                 </xf:item>
+                                 <xf:item>
+                                    <xf:label>hypocoristic</xf:label>
+                                    <xf:value>hypocoristic</xf:value>
+                                 </xf:item>
+                                 <xf:item>
+                                    <xf:label>patronymic</xf:label>
+                                    <xf:value>patronymic</xf:value>
+                                 </xf:item>
+                                 <xf:item>
+                                    <xf:label>alt</xf:label>
+                                    <xf:value>alt</xf:value>
+                                 </xf:item>
+                                 <xf:item>
+                                    <xf:label>tabot</xf:label>
+                                    <xf:value>tabot</xf:value>
+                                 </xf:item>
+                              </xf:select1>
+                              <xf:trigger appearance="minimal" class="btn remove" ref="@type">
+                                 <xf:label></xf:label>
+                                 <xf:delete ev:event="DOMActivate" ref="."></xf:delete>
+                              </xf:trigger></span><repeat xmlns="http://www.w3.org/2002/xforms" ref="tei:p" id="historyprovenancepersNamepd1678e1" class="xformsGroup">
+                              <div xmlns="http://www.w3.org/1999/xhtml" class="xformElement">
+                                 <div class="inlineBlock">
+                                    <xf:trigger xmlns="http://www.w3.org/2002/xforms" appearance="minimal" class="btn remove inline">
+                                       <xf:label></xf:label>
+                                       <xf:delete ev:event="DOMActivate" ref="."></xf:delete>
+                                    </xf:trigger><span class="elementLable repeat">paragraphe</span><span class="alert alert-warning hint">marque les paragraphes dans un texte en
+                                       prose.</span></div>
+                                 <xf:textarea xmlns="http://www.w3.org/2002/xforms" ref=".">
+                                    <xf:label>paragraphe</xf:label>
+                                 </xf:textarea>
+                              </div>
+                           </repeat>
+                        </div>
+                     </repeat>
+                     <repeat xmlns="http://www.w3.org/2002/xforms" ref="tei:signatures" id="historyprovenancesignaturesd1639e5" class="xformsGroup">
+                        <div xmlns="http://www.w3.org/1999/xhtml" class="xformElement">
+                           <div class="inlineBlock">
+                              <xf:trigger xmlns="http://www.w3.org/2002/xforms" appearance="minimal" class="btn remove inline">
+                                 <xf:label></xf:label>
+                                 <xf:delete ev:event="DOMActivate" ref="."></xf:delete>
+                              </xf:trigger><span class="elementLable repeat">signatures</span><div class="dropdown"><button class="btn btn-default dropdown-toggle" type="button" id="availElementshistoryprovenancesignaturesd1639e5" data-toggle="dropdown">
+                                    Available Elements <span class="caret"></span></button><ul class="dropdown-menu" role="menu" aria-labelledby="availElementshistoryprovenancesignaturesd1639e5">
+                                    <li role="presentation">
+                                       <xf:trigger class="btn add" appearance="minimal" ref=".">
+                                          <xf:label>paragraphe</xf:label>
+                                          <xf:insert ev:event="DOMActivate" context="." at="." origin="instance('i-elementTemplate')//*[local-name(.) = 'p']" position="after"></xf:insert>
+                                       </xf:trigger>
+                                    </li>
+                                 </ul>
+                              </div><span class="alert alert-warning hint">Contient une étude des signatures trouvées
+                                 sur un feuillet ou sur un cahier dans un manuscrit.</span></div>
+                           <repeat xmlns="http://www.w3.org/2002/xforms" ref="tei:p" id="historyprovenancesignaturespd1695e1" class="xformsGroup">
+                              <div xmlns="http://www.w3.org/1999/xhtml" class="xformElement">
+                                 <div class="inlineBlock">
+                                    <xf:trigger xmlns="http://www.w3.org/2002/xforms" appearance="minimal" class="btn remove inline">
+                                       <xf:label></xf:label>
+                                       <xf:delete ev:event="DOMActivate" ref="."></xf:delete>
+                                    </xf:trigger><span class="elementLable repeat">paragraphe</span><span class="alert alert-warning hint">marque les paragraphes dans un texte en
+                                       prose.</span></div>
+                                 <xf:textarea xmlns="http://www.w3.org/2002/xforms" ref=".">
+                                    <xf:label>paragraphe</xf:label>
+                                 </xf:textarea>
+                              </div>
+                           </repeat>
+                        </div>
+                     </repeat>
+                     <repeat xmlns="http://www.w3.org/2002/xforms" ref="tei:stamp" id="historyprovenancestampd1639e6" class="xformsGroup">
+                        <div xmlns="http://www.w3.org/1999/xhtml" class="xformElement">
+                           <div class="inlineBlock">
+                              <xf:trigger xmlns="http://www.w3.org/2002/xforms" appearance="minimal" class="btn remove inline">
+                                 <xf:label></xf:label>
+                                 <xf:delete ev:event="DOMActivate" ref="."></xf:delete>
+                              </xf:trigger><span class="elementLable repeat">cachet</span><div class="dropdown"><button class="btn btn-default dropdown-toggle" type="button" id="availElementshistoryprovenancestampd1639e6" data-toggle="dropdown">
+                                    Available Elements <span class="caret"></span></button><ul class="dropdown-menu" role="menu" aria-labelledby="availElementshistoryprovenancestampd1639e6">
+                                    <li role="presentation">
+                                       <xf:trigger class="btn add" appearance="minimal" ref=".">
+                                          <xf:label>paragraphe</xf:label>
+                                          <xf:insert ev:event="DOMActivate" context="." at="." origin="instance('i-elementTemplate')//*[local-name(.) = 'p']" position="after"></xf:insert>
+                                       </xf:trigger>
+                                    </li>
+                                 </ul>
+                              </div><span class="alert alert-warning hint">Contient un mot ou une expression décrivant
+                                 un cachet ou une marque du même genre.</span></div>
+                           <repeat xmlns="http://www.w3.org/2002/xforms" ref="tei:p" id="historyprovenancestamppd1712e1" class="xformsGroup">
+                              <div xmlns="http://www.w3.org/1999/xhtml" class="xformElement">
+                                 <div class="inlineBlock">
+                                    <xf:trigger xmlns="http://www.w3.org/2002/xforms" appearance="minimal" class="btn remove inline">
+                                       <xf:label></xf:label>
+                                       <xf:delete ev:event="DOMActivate" ref="."></xf:delete>
+                                    </xf:trigger><span class="elementLable repeat">paragraphe</span><span class="alert alert-warning hint">marque les paragraphes dans un texte en
+                                       prose.</span></div>
+                                 <xf:textarea xmlns="http://www.w3.org/2002/xforms" ref=".">
+                                    <xf:label>paragraphe</xf:label>
+                                 </xf:textarea>
+                              </div>
+                           </repeat>
+                        </div>
+                     </repeat>
+                     <repeat xmlns="http://www.w3.org/2002/xforms" ref="tei:placeName" id="historyprovenanceplaceNamed1639e7" class="xformsGroup">
+                        <div xmlns="http://www.w3.org/1999/xhtml" class="xformElement">
+                           <div class="inlineBlock">
+                              <xf:trigger xmlns="http://www.w3.org/2002/xforms" appearance="minimal" class="btn remove inline">
+                                 <xf:label></xf:label>
+                                 <xf:delete ev:event="DOMActivate" ref="."></xf:delete>
+                              </xf:trigger><span class="elementLable repeat">nom de lieu</span> | 
+                              
+                              <div class="dropdown"><button class="btn btn-default dropdown-toggle" type="button" id="availAttributeshistoryprovenanceplaceNamed1639e7" data-toggle="dropdown">
+                                    Available Attributes <span class="caret"></span></button><ul class="dropdown-menu" role="menu" aria-labelledby="availAttributeshistoryprovenanceplaceNamed1639e7">
+                                    <li role="presentation">
+                                       <xf:trigger class="btn add" appearance="minimal" ref=".[not(@ref)]">
+                                          <xf:label>ref</xf:label>
+                                          <xf:insert ev:event="DOMActivate" context="." at="." origin="instance('i-attributeTemplate')//@*[name(.) = 'ref']"></xf:insert>
+                                       </xf:trigger>
+                                    </li>
+                                    <li role="presentation">
+                                       <xf:trigger class="btn add" appearance="minimal" ref=".[not(@type)]">
+                                          <xf:label>type</xf:label>
+                                          <xf:insert ev:event="DOMActivate" context="." at="." origin="instance('i-attributeTemplate')//@*[name(.) = 'type']"></xf:insert>
+                                       </xf:trigger>
+                                    </li>
+                                 </ul>
+                              </div>
+                              <div class="dropdown"><button class="btn btn-default dropdown-toggle" type="button" id="availElementshistoryprovenanceplaceNamed1639e7" data-toggle="dropdown">
+                                    Available Elements <span class="caret"></span></button><ul class="dropdown-menu" role="menu" aria-labelledby="availElementshistoryprovenanceplaceNamed1639e7">
+                                    <li role="presentation">
+                                       <xf:trigger class="btn add" appearance="minimal" ref=".">
+                                          <xf:label>paragraphe</xf:label>
+                                          <xf:insert ev:event="DOMActivate" context="." at="." origin="instance('i-elementTemplate')//*[local-name(.) = 'p']" position="after"></xf:insert>
+                                       </xf:trigger>
+                                    </li>
+                                 </ul>
+                              </div><span class="alert alert-warning hint">contient un nom de lieu absolu ou
+                                 relatif.</span></div><span class="attribute-group">
+                              <xf:input ref="@ref">
+                                 <xf:label>ref</xf:label>
+                              </xf:input>
+                              <xf:trigger appearance="minimal" class="btn remove" ref="@ref">
+                                 <xf:label></xf:label>
+                                 <xf:delete ev:event="DOMActivate" ref="."></xf:delete>
+                              </xf:trigger></span><span class="attribute-group">
+                              <xf:select1 xmlns="http://www.w3.org/2002/xforms" ref="@type">
+                                 <xf:label>type</xf:label>
+                                 <xf:item>
+                                    <xf:label>- Select -</xf:label>
+                                    <xf:value></xf:value>
+                                 </xf:item>
+                                 <xf:item>
+                                    <xf:label>normalized</xf:label>
+                                    <xf:value>normalized</xf:value>
+                                 </xf:item>
+                                 <xf:item>
+                                    <xf:label>library</xf:label>
+                                    <xf:value>library</xf:value>
+                                 </xf:item>
+                                 <xf:item>
+                                    <xf:label>academicInstitution</xf:label>
+                                    <xf:value>academicInstitution</xf:value>
+                                 </xf:item>
+                                 <xf:item>
+                                    <xf:label>museum</xf:label>
+                                    <xf:value>museum</xf:value>
+                                 </xf:item>
+                              </xf:select1>
+                              <xf:trigger appearance="minimal" class="btn remove" ref="@type">
+                                 <xf:label></xf:label>
+                                 <xf:delete ev:event="DOMActivate" ref="."></xf:delete>
+                              </xf:trigger></span><repeat xmlns="http://www.w3.org/2002/xforms" ref="tei:p" id="historyprovenanceplaceNamepd1729e1" class="xformsGroup">
+                              <div xmlns="http://www.w3.org/1999/xhtml" class="xformElement">
+                                 <div class="inlineBlock">
+                                    <xf:trigger xmlns="http://www.w3.org/2002/xforms" appearance="minimal" class="btn remove inline">
+                                       <xf:label></xf:label>
+                                       <xf:delete ev:event="DOMActivate" ref="."></xf:delete>
+                                    </xf:trigger><span class="elementLable repeat">paragraphe</span><span class="alert alert-warning hint">marque les paragraphes dans un texte en
+                                       prose.</span></div>
+                                 <xf:textarea xmlns="http://www.w3.org/2002/xforms" ref=".">
+                                    <xf:label>paragraphe</xf:label>
+                                 </xf:textarea>
+                              </div>
+                           </repeat>
+                        </div>
+                     </repeat>
+                  </div>
+               </repeat>
+            </div>
+         </repeat>
+         <div class="submission pull-right">
+            <xf:submit class="btn btn-default" submission="s-save" appearance="minimal">
+               <xf:label><span class="glyphicon glyphicon-save-file"></span> Save to Database 
+               </xf:label>
+            </xf:submit>
+            <xf:submit class="btn btn-default" submission="s-download-xml" appearance="minimal">
+               <xf:label><span class="glyphicon glyphicon-save-file"></span> Download XML 
+               </xf:label>
+            </xf:submit>
+            <xf:submit class="btn btn-default" submission="s-view-xml" appearance="minimal">
+               <xf:label><span class="glyphicon glyphicon-save-file"></span> View XML 
+               </xf:label>
+            </xf:submit>
+         </div>
+      </div>
+   </body>
+</html>
