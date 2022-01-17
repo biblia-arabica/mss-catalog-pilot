@@ -525,7 +525,6 @@ End license statement: do not remove -->
                             <attDef ident="nymRef" mode="delete"/>
                             <attDef ident="period" mode="delete"/>
                             <attDef ident="prev" mode="delete"/>
-                            <attDef ident="ref" mode="delete"/>
                             <attDef ident="rend" mode="delete"/>
                             <attDef ident="rendition" mode="delete"/>
                             <attDef ident="resp" mode="delete"/>

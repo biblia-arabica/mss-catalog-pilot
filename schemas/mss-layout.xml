@@ -80,8 +80,8 @@ End license statement: do not remove -->
                 -->
 
                     <moduleRef key="core" include="p"/>
-                    <moduleRef key="linking"/>
-                    <moduleRef key="msdescription" include="dim"/>
+                    <moduleRef key="linking" include="ab"/>
+                    <moduleRef key="msdescription"/>
                     <moduleRef key="tei"/>
                     <elementSpec ident="note" module="core" mode="change date">
                         <classes mode="replace">
@@ -138,45 +138,7 @@ End license statement: do not remove -->
                             <attDef ident="style" mode="delete"/>
                         </attList>
                     </elementSpec>
-                    <elementSpec ident="locus" module="msdescription" mode="change">
-                        <classes mode="replace">
-                            <memberOf key="model.pPart.msdesc"/>
-                            <memberOf key="att.pointing"/>
-                            <memberOf key="att.global"/>
-                            <memberOf key="att.typed" mode="delete"/>
-                        </classes>
-                        <content>
-                            <alternate maxOccurs="unbounded" minOccurs="0">
-                                <textNode/>
-                            </alternate>
-                        <alternate maxOccurs="unbounded" minOccurs="0"><textNode/></alternate></content>
-                        <attList>
-                            <attDef ident="ana" mode="delete"/>
-                            <attDef ident="change" mode="delete"/>
-                            <attDef ident="copyOf" mode="delete"/>
-                            <attDef ident="corresp" mode="delete"/>
-                            <attDef ident="evaluate" mode="delete"/>
-                            <attDef ident="facs" mode="delete"/>
-                            <attDef ident="next" mode="delete"/>
-                            <attDef ident="prev" mode="delete"/>
-                            <attDef ident="rend" mode="delete"/>
-                            <attDef ident="rendition" mode="delete"/>
-                            <attDef ident="resp" mode="delete"/>
-                            <attDef ident="sameAs" mode="delete"/>
-                            <attDef ident="select" mode="delete"/>
-                            <attDef ident="source" mode="delete"/>
-                            <attDef ident="style" mode="delete"/>
-                            <attDef ident="subtype" mode="delete"/>
-                            <attDef ident="synch" mode="delete"/>
-                            <attDef ident="target" mode="delete"/>
-                            <attDef ident="targetLang" mode="delete"/>
-                            <attDef ident="type" mode="delete"/>
-                            <attDef ident="xml:base" mode="delete"/>
-                            <attDef ident="xml:id" mode="delete"/>
-                            <attDef ident="xml:lang" mode="delete"/>
-                            <attDef ident="xml:space" mode="delete"/>
-                        <attDef ident="scheme" mode="delete"/><attDef ident="n" mode="delete"/><attDef ident="exclude" mode="delete"/><attDef ident="cert" mode="delete"/></attList>
-                    </elementSpec>
+                    <elementSpec ident="locus" module="msdescription" mode="delete"/>
                     <elementSpec ident="locusGrp" module="msdescription" mode="delete"/>
                     <elementSpec ident="msFrag" module="msdescription" mode="delete"/>
                     <elementSpec ident="TEI" module="textstructure" mode="delete"/>
@@ -184,7 +146,7 @@ End license statement: do not remove -->
                     <elementSpec ident="catchwords" module="msdescription" mode="delete"/>
                     <elementSpec ident="collation" module="msdescription" mode="delete"/>
                     <elementSpec ident="condition" module="msdescription" mode="delete"/>
-                    
+
                     <elementSpec ident="foliation" module="msdescription" mode="delete"/>
                     <elementSpec ident="material" module="msdescription" mode="delete"/>
                     <elementSpec ident="objectDesc" module="msdescription" mode="delete"/>
@@ -192,41 +154,13 @@ End license statement: do not remove -->
                     <elementSpec ident="origPlace" module="msdescription" mode="delete"/>
                     <elementSpec ident="physDesc" module="msdescription" mode="delete"/>
                     <elementSpec ident="layoutDesc" module="msdescription" mode="delete"/>
-                    
-                    <elementSpec ident="layout" module="msdescription" mode="delete"/>
-                    <elementSpec ident="summary" module="msdescription" mode="change">
-                        <content>
-                            <textNode/>
-                        </content>
-                        <attList>
-                            <attDef ident="ana" mode="delete"/>
-                            <attDef ident="cert" mode="delete"/>
-                            <attDef ident="change" mode="delete"/>
-                            <attDef ident="copyOf" mode="delete"/>
-                            <attDef ident="corresp" mode="delete"/>
-                            <attDef ident="exclude" mode="delete"/>
-                            <attDef ident="facs" mode="delete"/>
-                            <attDef ident="n" mode="delete"/>
-                            <attDef ident="next" mode="delete"/>
-                            <attDef ident="prev" mode="delete"/>
-                            <attDef ident="rend" mode="delete"/>
-                            <attDef ident="rendition" mode="delete"/>
-                            <attDef ident="resp" mode="delete"/>
-                            <attDef ident="sameAs" mode="delete"/>
-                            <attDef ident="select" mode="delete"/>
-                            <attDef ident="source" mode="delete"/>
-                            <attDef ident="style" mode="delete"/>
-                            <attDef ident="synch" mode="delete"/>
-                            <attDef ident="xml:base" mode="delete"/>
-                            <attDef ident="xml:id" mode="delete"/>
-                            <attDef ident="xml:lang" mode="delete"/>
-                            <attDef ident="xml:space" mode="delete"/>
-                        </attList>
-                    </elementSpec>
-                    <elementSpec ident="height" module="msdescription" mode="delete"/>
-                    <elementSpec ident="width" module="msdescription" mode="delete"/>
 
-                    <elementSpec ident="ab" module="linking" mode="delete"/>
+                    <elementSpec ident="layout" module="msdescription" mode="delete"/>
+                    <elementSpec ident="summary" module="msdescription" mode="delete"/>
+                    
+                    
+
+                    
                     <elementSpec ident="p" module="core" mode="change">
                         <content>
                             <textNode/>
@@ -263,7 +197,17 @@ End license statement: do not remove -->
                     <elementSpec ident="origin" mode="delete"/>
                     <elementSpec ident="provenance" mode="delete"/>
                     <elementSpec ident="q" mode="delete"/>
-                <elementSpec ident="dimensions" mode="change"><classes mode="change"><memberOf key="att.global" mode="delete"/><memberOf key="att.typed" mode="delete"/></classes><content><alternate maxOccurs="unbounded" minOccurs="0"><elementRef key="dim"/><elementRef key="width"/><elementRef key="height"/></alternate></content><attList><attRef name="unit" class="att.citing"/></attList></elementSpec><elementSpec ident="dim" mode="change"><classes mode="change"><memberOf key="att.global" mode="delete"/><memberOf key="att.typed" mode="delete"/></classes><attList><attRef name="type" class="att.entryLike"/></attList></elementSpec></schemaSpec>
+                    <elementSpec ident="dimensions" mode="delete"/>
+                    <elementSpec ident="dim" mode="change">
+                        <classes mode="change">
+                            <memberOf key="att.global" mode="delete"/>
+                            <memberOf key="att.typed" mode="delete"/>
+                        <memberOf key="att.dimensions" mode="delete"/><memberOf key="att.global" mode="delete"/><memberOf key="att.typed" mode="delete"/></classes>
+                        <content><textNode/></content><attList>
+                            <attRef name="type" class="att.entryLike"/>
+                        <attDef ident="atLeast" mode="delete"/><attDef ident="atMost" mode="delete"/><attDef ident="min" mode="delete"/><attDef ident="max" mode="delete"/><attDef ident="confidence" mode="delete"/><attDef ident="type" usage="opt"><datatype><dataRef key="teidata.enumerated"/></datatype><valList><valItem ident="intercolumn"/></valList></attDef></attList>
+                    </elementSpec>
+                <elementSpec ident="height" mode="change"><classes mode="change"><memberOf key="att.dimensions" mode="delete"/><memberOf key="att.global" mode="delete"/></classes><content><textNode/></content></elementSpec><elementSpec ident="width" mode="change"><classes mode="change"><memberOf key="att.dimensions" mode="delete"/><memberOf key="att.global" mode="delete"/></classes><content><textNode/></content></elementSpec><elementSpec ident="ab" mode="change"><classes mode="change"><memberOf key="att.declaring" mode="delete"/><memberOf key="att.fragmentable" mode="delete"/><memberOf key="att.global" mode="delete"/><memberOf key="att.written" mode="delete"/></classes><content><textNode/></content><attList><attDef ident="subtype" mode="delete"/><attDef ident="type" mode="change"><valList mode="change"><valItem mode="add" ident="ruling"/><valItem mode="add" ident="pricking"/></valList></attDef></attList></elementSpec></schemaSpec>
             </div>
         </body>
     </text>
