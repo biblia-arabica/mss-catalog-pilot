@@ -24,33 +24,33 @@
             <title xml:lang="en" ref=""/>
             <author ref="">
                 <persName>
-                    <forename></forename>
-                    <surname></surname>
-                    <addName></addName>
+                    <forename/>
+                    <surname/>
+                    <addName/>
                 </persName>
             </author>
             <textLang mainLang=""/>
             <rubric>
                 <locus from="" to=""/>
-                <q><lb/></q>
+                <q/>
             </rubric>
             <incipit>
                 <locus from="" to=""/>
-                <q><lb/></q>
+                <q/>
             </incipit>
             <explicit>
                 <locus from="" to=""/>
-                <q><lb/></q>
+                <q/>
             </explicit>
             <finalRubric>
                 <locus from="" to=""/>
-                <q><lb/></q>
+                <q/>
             </finalRubric>
             <colophon>
                 <locus from="" to=""/>
-                <q><lb/></q>
+                <q/>
             </colophon>
-            <note></note>
+            <note/>
         </msItem>
     </msContents>
 </msDesc>

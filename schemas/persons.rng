@@ -5,7 +5,7 @@
          xmlns="http://relaxng.org/ns/structure/1.0"
          datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
          ns="http://www.tei-c.org/ns/1.0"><!--
-Schema generated from ODD source 2022-01-11T18:20:33Z. .
+Schema generated from ODD source 2022-01-17T16:37:53Z. .
 TEI Edition: Version 4.3.0. Last updated on
         31st August 2021, revision b4f72b1ff
 TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.3.0/
@@ -1069,7 +1069,10 @@ attributes @target and @cRef may be supplied on <name/>.</report>
          <ref name="tei_forename"/>
          <ref name="tei_addName"/>
          <ref name="tei_forename"/>
+         <ref name="tei_forename"/>
          <ref name="tei_addName"/>
+         <ref name="tei_forename"/>
+         <text/>
          <optional>
             <attribute name="srophe-tags">
                <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
@@ -1105,8 +1108,6 @@ attributes @target and @cRef may be supplied on <name/>.</report>
       <element name="addName">
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(additional name) contains an additional name component, such as a nickname, epithet, or alias, or any other descriptive phrase used within a personal name. [13.2.1. Personal Names]</a:documentation>
          <text/>
-         <ref name="tei_att.personal.attribute.full"/>
-         <ref name="tei_att.personal.attribute.sort"/>
          <optional>
             <attribute name="type">
                <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
@@ -1132,6 +1133,7 @@ attributes @target and @cRef may be supplied on <name/>.</report>
                </choice>
             </attribute>
          </optional>
+         <ref name="tei_att.canonical.attribute.ref"/>
          <empty/>
       </element>
    </define>
@@ -1320,6 +1322,18 @@ attributes @target and @cRef may be supplied on <name/>.</report>
       <element name="sex">
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(sex) specifies the sex of a person. [13.3.2.1. Personal Characteristics]</a:documentation>
          <text/>
+         <optional>
+            <attribute name="value">
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">supplies a coded value for sex</a:documentation>
+               <list>
+                  <oneOrMore>
+                     <data type="token">
+                        <param name="pattern">[^\p{C}\p{Z}]+</param>
+                     </data>
+                  </oneOrMore>
+               </list>
+            </attribute>
+         </optional>
          <empty/>
       </element>
    </define>
