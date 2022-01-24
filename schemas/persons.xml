@@ -464,6 +464,7 @@ End license statement: do not remove -->
                         <attList>
                             <attDef ident="mutual" mode="delete"/>
                         </attList>
+                        <attDef ident="source" mode="change" usage="opt"/>
                          <attDef ident="name" mode="replace" usage="req">
                             <valList type="closed">
                                 <valItem ident="saws:isAttributedToAuthor">

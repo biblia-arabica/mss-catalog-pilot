@@ -113,7 +113,7 @@
                 <idno type="URI" subtype="ktiv" resp="#nurbiczek">512</idno>
             </person>
             <listRelation>
-                <relation name="bm:husbandOf" active="person-1205" passive="person-1204">
+                <relation name="bm:husbandOf" active="person-1205" passive="person-1204" source="bibl1205-3">
                     <desc>description of this relation </desc>
                 </relation>
             </listRelation>
