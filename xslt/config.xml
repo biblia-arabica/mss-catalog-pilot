@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <config>
     <formTitle>Edit MSS TEI records</formTitle>
-    <formName>mssTEIFrench</formName>
+    <formName>mssTEI</formName>
     <formAuthor>Winona Salesky</formAuthor>
     <formDesc>Create and edit MSS records for MAJLIS: The Transformation of Jewish Literature in Arabic in the Islamicate World</formDesc>
     <!-- Language to output lables, hints etc, if empty defaults to English -->
-    <formLang>fr</formLang>
+    <formLang>en</formLang>
     <blankTemplates>
         <template name="Generic MSS Template" src="/forms/templates/full-mss-template.xml"></template>
         <template name="Alternate Generic Template" src="/forms/templates/template.xml"></template>
@@ -41,7 +41,7 @@
             <globalSchema src="../schemas/mss-compiled.odd"></globalSchema>
             <xmlTemplate src="../schemas/mss-support-template.xml"></xmlTemplate>
         </subform>
-        <subform xpath="/tei:TEI/descendant::tei:objectDesc/tei:layoutDesc" formName="layoutDesc" formLabel="Layout Description">
+        <subform xpath="/tei:TEI/descendant::tei:layoutDesc" formName="layoutDesc" formLabel="Layout Description">
             <localSchema src="../schemas/mss-layout.xml"></localSchema>
             <globalSchema src="../schemas/mss-compiled.odd"></globalSchema>
             <xmlTemplate src="../schemas/mss-layout-template.xml"></xmlTemplate>

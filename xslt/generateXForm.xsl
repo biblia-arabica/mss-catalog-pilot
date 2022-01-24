@@ -240,7 +240,7 @@
             </xsl:otherwise>
         </xsl:choose>
     </xsl:function>
- <!-- 
+    <!-- 
         Find all associated attributes of the specified element 
         @param: elementName - name of element to lookup in the schema
         @param: subform  - name of subform, for locating the correct local schema customizations
@@ -282,21 +282,26 @@
         <xsl:param name="elementName"/>
         <xsl:param name="subform"/>
         <xsl:variable name="elementRules" select="local:elementRules($elementName, $subform)"/>
-        <xsl:variable name="childAtt" select="$elementRules/descendant-or-self::tei:attList/descendant-or-self::tei:attDef"/>
+        <xsl:variable name="childAtt" select="$elementRules/descendant-or-self::tei:attList"/>
+        <xsl:variable name="childAttRef">
+            <xsl:for-each select="$childAtt/descendant-or-self::tei:attRef">
+                <attDef ident="{@name}"/>
+            </xsl:for-each>
+        </xsl:variable>
         <xsl:variable name="memberOfAtt">
-            <xsl:for-each select="$elementRules/descendant-or-self::tei:classes/tei:memberOf[starts-with(@key, 'att.')]">
+            <xsl:for-each-group select="$elementRules/descendant-or-self::tei:classes/tei:memberOf[starts-with(@key, 'att.')]" group-by="@key">
                 <xsl:choose>
                     <xsl:when test=".[@mode='delete'][ancestor-or-self::tei:local]"></xsl:when>
                     <xsl:when test=".[@mode='change'][ancestor-or-self::tei:local]"><xsl:copy-of select="local:classSpecAtt(.[@mode='change'][ancestor-or-self::tei:local][1]/@key,$subform)"/></xsl:when>
                     <xsl:when test=".[@mode='opt'][ancestor-or-self::tei:local]"><xsl:copy-of select="local:classSpecAtt(.[@mode='opt'][ancestor-or-self::tei:local][1]/@key,$subform)"/></xsl:when>
                     <xsl:when test=".[@mode='add'][ancestor-or-self::tei:local]"><xsl:copy-of select="local:classSpecAtt(.[@mode='add'][ancestor-or-self::tei:local][1]/@key,$subform)"/></xsl:when>
                     <xsl:when test=".[@mode='replace'][ancestor-or-self::tei:local]"><xsl:copy-of select="local:classSpecAtt(.[@mode='replace'][ancestor-or-self::tei:local][1]/@key,$subform)"/></xsl:when>
-                    <xsl:otherwise><xsl:copy-of select=".[1]"/></xsl:otherwise>
+                    <xsl:otherwise><xsl:copy-of select="local:classSpecAtt(@key,$subform)"/></xsl:otherwise>
                 </xsl:choose>
-            </xsl:for-each>
+            </xsl:for-each-group>
         </xsl:variable>
         <availableAtts xmlns="http://www.tei-c.org/ns/1.0" elementName="{$elementName}">
-            <xsl:for-each-group select="$childAtt/descendant-or-self::tei:attDef | $memberOfAtt/descendant-or-self::tei:attDef" group-by="@ident">
+            <xsl:for-each-group select="$childAtt/descendant-or-self::tei:attDef | $childAtt | $memberOfAtt/descendant-or-self::tei:attDef" group-by="@ident">
                 <xsl:sort select="current-grouping-key()"/>
                     <xsl:choose>
                         <xsl:when test=".[@mode='delete'][ancestor-or-self::tei:local]"></xsl:when>
@@ -306,7 +311,7 @@
                         <xsl:when test=".[@mode='replace'][ancestor-or-self::tei:local]"><xsl:copy-of select=".[@mode='replace'][ancestor-or-self::tei:local][1]"/></xsl:when>
                         <xsl:otherwise><xsl:copy-of select="."/></xsl:otherwise>
                     </xsl:choose>
-            </xsl:for-each-group>            
+            </xsl:for-each-group>    
         </availableAtts>
     </xsl:function>
 
@@ -333,18 +338,18 @@
         <!-- Output controlled values for each custom schema -->
         <xsl:for-each select="$configDoc//subform">
             <xsl:variable name="formName" select="@formName"/>
-            <xsl:result-document href="templates/{$formName}-controlledValues.xml" format="tei">
+            <xsl:result-document href="{$mainFormName}/templates/{$formName}-controlledValues.xml" format="tei">
                 <xsl:call-template name="controlledValues">
                     <xsl:with-param name="subform" select="$formName"/>
                 </xsl:call-template>
             </xsl:result-document>
         </xsl:for-each>
         <!-- Output an XForm with all possible elements, used to add elements -->
-        <xsl:result-document href="templates/elementTemplate.xml" format="tei">
+        <xsl:result-document href="{$mainFormName}/templates/elementTemplate.xml" format="tei">
             <xsl:call-template name="elementTemplate"/>
         </xsl:result-document>
         <!-- Output an XForm with all possible attributes, used to add attributes -->
-        <xsl:result-document href="templates/attributesTemplate.xml" format="tei">
+        <xsl:result-document href="{$mainFormName}/templates/attributesTemplate.xml" format="tei">
             <xsl:call-template name="attributesTemplate"/>
         </xsl:result-document>
     </xsl:template>
@@ -374,7 +379,7 @@
                         <data></data>
                     </xf:instance>
                     <xf:instance id="i-upload">
-                        <attachment xsi:type="xsd:anyURI"></attachment>
+                        <xml-base64 xsi:type="xs:base64Binary"/>
                     </xf:instance>
                     <xf:instance id="i-search">
                         <data><q></q></data>
@@ -437,6 +442,10 @@
                         serialization="none" mode="synchronous" action="services/get-rec.xql?search=true&amp;view=all" >
                         <xf:message level="modeless" ev:event="xforms-submit-error"> Submit error. </xf:message>
                     </xf:submission>
+                    <xf:submission id="s-post-to-update" action="services/upload.xql" ref="instance('i-upload')"  replace="instance" instance="i-rec" method="post">
+                        <xf:message level="modeless" ev:event="xforms-submit-done"> Data Loaded! </xf:message>
+                        <xf:message level="modeless" ev:event="xforms-submit-error"> Submit error. </xf:message>
+                    </xf:submission>
                 </xf:model>
                     
                     <!-- s-load-template
@@ -487,6 +496,7 @@
                                     <h2>Find your data</h2>
                                     <!-- Save for later -->
                                     <!-- Load an existing template -->
+                                    <h3>Create a new record</h3>
                                     <div class="fileLoading">
                                         <xf:select1 xmlns="http://www.w3.org/2002/xforms" ref="instance('i-selected')">
                                             <xf:label>Select a TEI template</xf:label>
@@ -497,6 +507,16 @@
                                         </xf:select1>
                                         <xf:submit class="btn btn-default" submission="s-load-template" appearance="minimal">
                                             <xf:label> Load selected record </xf:label>
+                                        </xf:submit>
+                                    </div>
+                                    <h3>Upload an XML file</h3>
+                                    <div class="fileLoading">
+                                        <xf:upload ref="instance('i-upload')" appearance="minimal">
+                                            <xf:label>Select XML File:</xf:label>
+                                        </xf:upload>
+                                        <!-- WS:Note add upload graphic, make inline with above? -->
+                                        <xf:submit submission="s-post-to-update" class="btn btn-default" appearance="minimal">
+                                            <xf:label>Upload</xf:label>
                                         </xf:submit>
                                     </div>
                                     <div class="fileLoading">
@@ -570,11 +590,14 @@
                 <script type="text/javascript" src="resources/bootstrap/js/bootstrap.min.js"/>
                 <xf:model id="m-mss">
                     <!-- Create instances -->
-                    <xf:instance id="i-rec" src="forms/templates/{$subform/xmlTemplate/@src}"/>
-                    <xf:instance id="i-template" src="forms/templates/template.xml"/>
-                    <xf:instance id="i-ctr-vals" src="forms/templates/{string($subform/@formName)}-controlledValues.xml"/>
-                    <xf:instance id="i-elementTemplate" src="forms/templates/elementTemplate.xml"/>
-                    <xf:instance id="i-attributeTemplate" src="forms/templates/attributesTemplate.xml"/>
+<!--                    <xf:instance id="i-rec" src="forms/{$mainFormName}/templates/{$subform/xmlTemplate/@src}"/>-->
+                    <xf:instance id="i-rec">
+                        <data></data>
+                    </xf:instance>
+<!--                    <xf:instance id="i-template" src="forms/{$mainFormName}/templates/template.xml"/>-->
+                    <xf:instance id="i-ctr-vals" src="forms/{$mainFormName}/templates/{string($subform/@formName)}-controlledValues.xml"/>
+                    <xf:instance id="i-elementTemplate" src="forms/{$mainFormName}/templates/elementTemplate.xml"/>
+                    <xf:instance id="i-attributeTemplate" src="forms/{$mainFormName}/templates/attributesTemplate.xml"/>
                     <!-- i-insert-elements -->
                     <xf:instance id="i-insert-elements">
                         <TEI xmlns="http://www.tei-c.org/ns/1.0">
@@ -622,9 +645,7 @@
                             <xf:message ref="instance('i-submission')//*:message"/>
                         </xf:action>
                         <xf:action ev:event="xforms-submit-error">
-                            <xf:message ev:event="xforms-submit-error" level="modal">Unable to
-                                submit your additions at this time, you may download your changes
-                                and email them to us.</xf:message>
+                            <xf:message ev:event="xforms-submit-error" level="modal">Unable to submit your additions at this time, you may download your changes and email them to us.</xf:message>
                         </xf:action>
                     </xf:submission>
                 </xf:model>
@@ -659,11 +680,9 @@
     </xsl:template>
     <xsl:template name="submission">
         <div class="submission pull-right">
-            <!--
             <xf:submit class="btn btn-default" submission="s-github" appearance="minimal">
                 <xf:label><span class="glyphicon glyphicon-save-file"/> Submit to GitHub </xf:label>
             </xf:submit>
-            -->
             <xf:submit class="btn btn-default" submission="s-save" appearance="minimal">
                 <xf:label><span class="glyphicon glyphicon-save-file"/> Save to Database </xf:label>
             </xf:submit>
@@ -704,10 +723,17 @@
     -->
     <xsl:template name="elementTemplate">
         <TEI xmlns="http://www.tei-c.org/ns/1.0">
-            <!-- WS:NOTE this does not include local schemas, so if new elements are added they will not be picked up, 
-                I do not foresee this as an issue, but will re-evaluate as needed -->
-            <xsl:variable name="globalSchemaDoc" select="document($configDoc//subform[1]/globalSchema/@src)"/>
-            <xsl:for-each-group select="$globalSchemaDoc//descendant-or-self::tei:elementSpec" group-by="@ident">
+            <xsl:variable name="globalSchemaDoc">
+                <xsl:for-each select="$configDoc//subform">
+                    <xsl:copy-of select="document(globalSchema/@src)"/>
+                </xsl:for-each>
+            </xsl:variable>
+            <xsl:variable name="localSchemaDoc">
+                <xsl:for-each select="$configDoc//subform">
+                    <xsl:copy-of select="document(localSchema/@src)"/>
+                </xsl:for-each>
+            </xsl:variable> 
+            <xsl:for-each-group select="$globalSchemaDoc//descendant-or-self::tei:elementSpec | $localSchemaDoc//descendant-or-self::tei:elementSpec" group-by="@ident">
                 <xsl:sort select="current-grouping-key()"/>
                 <xsl:element name="{current-grouping-key()}" namespace="http://www.tei-c.org/ns/1.0"/>
             </xsl:for-each-group>
@@ -715,12 +741,16 @@
     </xsl:template>
 
     <xsl:template name="attributesTemplate">
-        <xsl:variable name="globalSchemaDoc" select="document($configDoc//globalSchema[1]/@src)"/>
+        <xsl:variable name="globalSchemaDoc">
+            <xsl:for-each select="$configDoc//subform">
+                <xsl:copy-of select="document(globalSchema/@src)"/>
+            </xsl:for-each>
+        </xsl:variable>
         <xsl:variable name="localSchemaDoc">
             <xsl:for-each select="$configDoc//subform">
-                <xsl:copy-of select="document(globalSchema[1]/@src)"/>
+                <xsl:copy-of select="document(localSchema/@src)"/>
             </xsl:for-each>
-        </xsl:variable> 
+        </xsl:variable>
         <TEI xmlns="http://www.tei-c.org/ns/1.0">
             <element>
                 <!-- Go through global and local schema, output one of every attribute -->
@@ -1026,6 +1056,82 @@
                         </xsl:choose>
                     </xsl:otherwise>
                 </xsl:choose>
+                <!-- Add siblings, will have to test for allowed sibling here -->
+                <!--
+                <xsl:if test="$childElements/descendant-or-self::*:element[not(@classRef = 'true')] and $elementName != 'p'">
+                    <div class="dropdown">
+                        <button class="btn btn-default dropdown-toggle" type="button" id="{concat('availSiblingElements',$id)}" data-toggle="dropdown">
+                            Available Sibling Elements <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="{concat('availSiblingElements',$id)}">
+                            <xsl:for-each-group select="$childElements/descendant-or-self::*:element[not(@classRef = 'true')]" group-by="@ident">
+                                <xsl:sort select="current-grouping-key()"/>
+                                <li role="presentation">
+                                    <xsl:variable name="refXpath">
+                                        <xsl:variable name="elementMax">
+                                            <xsl:choose>
+                                                <xsl:when test="tei:content/tei:sequence[@maxOccur]">
+                                                    <xsl:value-of select="string(tei:content/tei:sequence[@maxOccur])"/>
+                                                </xsl:when>
+                                                <xsl:otherwise/>    
+                                            </xsl:choose>
+                                        </xsl:variable>
+                                        <xsl:variable name="elementMin">
+                                            <xsl:choose>
+                                                <xsl:when test="$elementRules/tei:content/tei:sequence[@minOccur]">
+                                                    <xsl:value-of select="string($elementRules/tei:content/tei:sequence/@minOccur)"/>
+                                                </xsl:when>
+                                                <xsl:otherwise/>
+                                            </xsl:choose>
+                                        </xsl:variable>
+                                        <xsl:choose>
+                                            <xsl:when test="$elementRules/descendant::tei:content/tei:alternate"></xsl:when>
+                                            <xsl:when test="$elementMax">
+                                                <xsl:choose>
+                                                    <xsl:when test="$elementMax castable as xs:integer">
+                                                        <xsl:choose>
+                                                            <xsl:when test="xs:integer($elementMax) &gt; 1">
+                                                                <xsl:value-of select="concat('.[count(../tei:',current-grouping-key(),') &gt; ',$elementMax,')]')"/>
+                                                            </xsl:when>
+                                                            <xsl:otherwise><xsl:value-of select="'.'"/></xsl:otherwise>
+                                                        </xsl:choose>
+                                                    </xsl:when>
+                                                    <xsl:otherwise>
+                                                        <xsl:value-of select="'.'"/>
+                                                    </xsl:otherwise>
+                                                </xsl:choose>
+                                            </xsl:when>
+                                            <xsl:otherwise>
+                                                <xsl:value-of select="'.'"/>
+                                            </xsl:otherwise>
+                                        </xsl:choose>
+                                    </xsl:variable>
+                                    <xf:trigger class="btn add" appearance="minimal" ref=".">
+                                        <xf:label>
+                                            <xsl:variable name="childRules" select="local:elementRules(current-grouping-key(),$subform)"/>
+                                            <xsl:choose>
+                                                <xsl:when test="$childRules/descendant-or-self::tei:gloss[@xml:lang = $formLang]">
+                                                    <xsl:value-of select="$childRules/descendant-or-self::tei:gloss[@xml:lang = $formLang][1]"/>
+                                                </xsl:when>
+                                                <xsl:when test="$childRules/descendant-or-self::tei:gloss[@xml:lang = 'en']">
+                                                    <xsl:value-of select="$childRules/descendant-or-self::tei:gloss[@xml:lang = 'en'][1]"/>
+                                                </xsl:when>
+                                                <xsl:otherwise>
+                                                    <xsl:value-of select="current-grouping-key()"/>
+                                                </xsl:otherwise>
+                                            </xsl:choose> 
+                                        </xf:label>
+                                        <xf:insert ev:event="DOMActivate" 
+                                            context="." at="1" 
+                                            origin="instance('i-elementTemplate')//*[local-name(.) = '{current-grouping-key()}']" 
+                                            position="after"></xf:insert>    
+                                    </xf:trigger>
+                                </li>
+                            </xsl:for-each-group>
+                        </ul>
+                    </div>
+                </xsl:if>
+                -->
                 <!--  Include child elements inline, runs into nesting errors when generating -->
                 <xsl:if test="$childElements/descendant-or-self::*:element[not(@classRef = 'true')] and $elementName != 'p'">
                     <xsl:for-each-group select="$childElements/descendant-or-self::*:element[not(@classRef = 'true')]" group-by="@ident">

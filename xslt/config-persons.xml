@@ -24,11 +24,17 @@
             <globalSchema src="../schemas/mss-compiled.odd"></globalSchema>
             <xmlTemplate src="../schemas/persons-template.xml"></xmlTemplate>
         </subform>
-        <subform xpath="/tei:TEI/descendant::tei:listPerson" formName="listPersons" formLabel="Persons">
+        <subform xpath="/tei:TEI/descendant::tei:listPerson/tei:person" formName="listPersons" formLabel="Persons">
             <formDesc>Person description.</formDesc>
             <localSchema src="../schemas/persons.xml"></localSchema>
             <globalSchema src="../schemas/mss-compiled.odd"></globalSchema>
             <xmlTemplate src="../schemas/persons-template.xml"></xmlTemplate>
-        </subform>    
+        </subform>
+        <subform xpath="/tei:TEI/descendant::tei:listPerson/tei:listRelation" formName="listRelation" formLabel="Relation">
+            <formDesc>Person description.</formDesc>
+            <localSchema src="../schemas/persons.xml"></localSchema>
+            <globalSchema src="../schemas/mss-compiled.odd"></globalSchema>
+            <xmlTemplate src="../schemas/persons-template.xml"></xmlTemplate>
+        </subform>
     </subforms>
 </config>

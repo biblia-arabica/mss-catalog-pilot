@@ -183,7 +183,7 @@ End license statement: do not remove -->
                         </classes>
                         <content>
                             <elementRef key="person"/>
-<!--                            <elementRef key="listRelation"/>-->
+                            <elementRef key="listRelation"/>
                         </content>
                     </elementSpec>
                     <elementSpec ident="person" mode="change">
@@ -472,8 +472,7 @@ End license statement: do not remove -->
                         </classes>
                         <attList>
                             <attDef ident="mutual" mode="delete"/>
-                        </attList>
-                         <attDef ident="name" mode="replace" usage="req">
+                            <attDef ident="name" mode="replace" usage="req">
                             <valList type="closed">
                                 <valItem ident="saws:isAttributedToAuthor">
                                     <desc>@active: Work, @passive: Person.
@@ -861,6 +860,7 @@ End license statement: do not remove -->
                                 </valItem>
                             </valList>
                         </attDef>
+                        </attList>
                     </elementSpec>
                     <elementSpec ident="residence" mode="change">
                         <classes mode="change">

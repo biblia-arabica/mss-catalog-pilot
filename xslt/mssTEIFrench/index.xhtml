@@ -11,7 +11,7 @@
             <data></data>
          </xf:instance>
          <xf:instance id="i-upload">
-            <attachment xsi:type="xsd:anyURI"></attachment>
+            <xml-base64 xsi:type="xs:base64Binary"></xml-base64>
          </xf:instance>
          <xf:instance id="i-search">
             <data><q></q></data>
@@ -28,7 +28,8 @@
          <xf:instance id="i-selectTemplate">
             <data>
                <template name="Generic MSS Template" src="/forms/templates/full-mss-template.xml"></template>
-               <template name="Alternate Generic Template" src="/forms/templates/template.xml"></template>
+               <template name="Generic Persons Template" src="/forms/templates/persons-template.xml"></template>
+               <template name="Generic Template" src="/forms/templates/template.xml"></template>
             </data>
          </xf:instance>
          <xf:instance id="i-subforms">
@@ -57,6 +58,10 @@
             <xf:message level="modeless" ev:event="xforms-submit-error"> Submit error. </xf:message>
          </xf:submission>
          <xf:submission id="s-browse-saved" method="post" ref="instance('i-search')" replace="instance" instance="i-search-results" serialization="none" mode="synchronous" action="services/get-rec.xql?search=true&amp;view=all">
+            <xf:message level="modeless" ev:event="xforms-submit-error"> Submit error. </xf:message>
+         </xf:submission>
+         <xf:submission id="s-post-to-update" action="services/upload.xql" ref="instance('i-upload')" replace="instance" instance="i-rec" method="post">
+            <xf:message level="modeless" ev:event="xforms-submit-done"> Data Loaded! </xf:message>
             <xf:message level="modeless" ev:event="xforms-submit-error"> Submit error. </xf:message>
          </xf:submission>
       </xf:model>
@@ -159,6 +164,7 @@
                <xf:switch id="edit" class="tab-panel">
                   <xf:case id="view-main-entry" selected="true()">
                      <h2>Find your data</h2>
+                     <h3>Create a new record</h3>
                      <div class="fileLoading">
                         <xf:select1 xmlns="http://www.w3.org/2002/xforms" ref="instance('i-selected')">
                            <xf:label>Select a TEI template</xf:label>
@@ -169,6 +175,15 @@
                         </xf:select1>
                         <xf:submit class="btn btn-default" submission="s-load-template" appearance="minimal">
                            <xf:label> Load selected record </xf:label>
+                        </xf:submit>
+                     </div>
+                     <h3>Upload an XML file</h3>
+                     <div class="fileLoading">
+                        <xf:upload ref="instance('i-upload')" appearance="minimal">
+                           <xf:label>Select XML File:</xf:label>
+                        </xf:upload>
+                        <xf:submit submission="s-post-to-update" class="btn btn-default" appearance="minimal">
+                           <xf:label>Upload</xf:label>
                         </xf:submit>
                      </div>
                      <div class="fileLoading">
