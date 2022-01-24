@@ -5,7 +5,7 @@
          xmlns="http://relaxng.org/ns/structure/1.0"
          datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
          ns="http://www.tei-c.org/ns/1.0"><!--
-Schema generated from ODD source 2022-01-17T15:49:21Z. .
+Schema generated from ODD source 2022-01-05T09:40:47Z. .
 TEI Edition: Version 4.3.0. Last updated on
         31st August 2021, revision b4f72b1ff
 TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.3.0/
@@ -4408,7 +4408,6 @@ Sample values include: 1] leaves; 2] ruled; 3] pricked; 4] written; 5] miniature
          <ref name="tei_att.global.attribute.n"/>
          <ref name="tei_att.global.responsibility.attribute.cert"/>
          <ref name="tei_att.canonical.attribute.key"/>
-         <ref name="tei_att.canonical.attribute.ref"/>
          <ref name="tei_att.editLike.attribute.evidence"/>
          <empty/>
       </element>

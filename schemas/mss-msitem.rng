@@ -5,7 +5,7 @@
          xmlns="http://relaxng.org/ns/structure/1.0"
          datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
          ns="http://www.tei-c.org/ns/1.0"><!--
-Schema generated from ODD source 2022-01-17T15:48:02Z. .
+Schema generated from ODD source 2022-01-05T11:24:16Z. .
 TEI Edition: Version 4.3.0. Last updated on
         31st August 2021, revision b4f72b1ff
 TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.3.0/
@@ -24,18 +24,6 @@ TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.3.0/
             <ref name="tei_model.global"/>
         
             <ref name="tei_model.lLike"/>
-         </choice>
-      </zeroOrMore>
-   </define>
-   <define name="tei_macro.specialPara">
-      <zeroOrMore>
-         <choice>
-            <text/>
-            <ref name="tei_model.gLike"/>
-            <ref name="tei_model.phrase"/>
-            <ref name="tei_model.inter"/>
-            <ref name="tei_model.divPart"/>
-            <ref name="tei_model.global"/>
          </choice>
       </zeroOrMore>
    </define>
@@ -234,19 +222,6 @@ TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.3.0/
          </attribute>
       </optional>
    </define>
-   <define name="tei_att.notated.attributes">
-      <ref name="tei_att.notated.attribute.notation"/>
-   </define>
-   <define name="tei_att.notated.attribute.notation">
-      <optional>
-         <attribute name="notation">
-            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">names the notation used for the content of the element.</a:documentation>
-            <data type="token">
-               <param name="pattern">[^\p{C}\p{Z}]+</param>
-            </data>
-         </attribute>
-      </optional>
-   </define>
    <define name="tei_att.typed.attributes">
       <ref name="tei_att.typed.attribute.type"/>
       <ref name="tei_att.typed.attribute.subtype"/>
@@ -370,22 +345,32 @@ TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.3.0/
       <notAllowed/>
    </define>
    <define name="tei_model.hiLike">
-      <notAllowed/>
+      <choice>
+         <ref name="tei_q"/>
+      </choice>
    </define>
    <define name="tei_model.hiLike_alternation">
-      <notAllowed/>
+      <choice>
+         <ref name="tei_q"/>
+      </choice>
    </define>
    <define name="tei_model.hiLike_sequence">
-      <empty/>
+      <ref name="tei_q"/>
    </define>
    <define name="tei_model.hiLike_sequenceOptional">
-      <empty/>
+      <optional>
+         <ref name="tei_q"/>
+      </optional>
    </define>
    <define name="tei_model.hiLike_sequenceOptionalRepeatable">
-      <empty/>
+      <zeroOrMore>
+         <ref name="tei_q"/>
+      </zeroOrMore>
    </define>
    <define name="tei_model.hiLike_sequenceRepeatable">
-      <notAllowed/>
+      <oneOrMore>
+         <ref name="tei_q"/>
+      </oneOrMore>
    </define>
    <define name="tei_model.emphLike">
       <choice>
@@ -583,12 +568,6 @@ TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.3.0/
    <define name="tei_model.global.edit">
       <notAllowed/>
    </define>
-   <define name="tei_model.divPart">
-      <choice>
-         <ref name="tei_model.lLike"/>
-         <ref name="tei_model.pLike"/>
-      </choice>
-   </define>
    <define name="tei_model.placeNamePart">
       <notAllowed/>
    </define>
@@ -636,32 +615,22 @@ TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.3.0/
       </oneOrMore>
    </define>
    <define name="tei_model.quoteLike">
-      <choice>
-         <ref name="tei_quote"/>
-      </choice>
+      <notAllowed/>
    </define>
    <define name="tei_model.quoteLike_alternation">
-      <choice>
-         <ref name="tei_quote"/>
-      </choice>
+      <notAllowed/>
    </define>
    <define name="tei_model.quoteLike_sequence">
-      <ref name="tei_quote"/>
+      <empty/>
    </define>
    <define name="tei_model.quoteLike_sequenceOptional">
-      <optional>
-         <ref name="tei_quote"/>
-      </optional>
+      <empty/>
    </define>
    <define name="tei_model.quoteLike_sequenceOptionalRepeatable">
-      <zeroOrMore>
-         <ref name="tei_quote"/>
-      </zeroOrMore>
+      <empty/>
    </define>
    <define name="tei_model.quoteLike_sequenceRepeatable">
-      <oneOrMore>
-         <ref name="tei_quote"/>
-      </oneOrMore>
+      <notAllowed/>
    </define>
    <define name="tei_model.attributable">
       <choice>
@@ -818,15 +787,10 @@ TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.3.0/
          </pattern>
       </element>
    </define>
-   <define name="tei_quote">
-      <element name="quote">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(quotation) contains a phrase or passage attributed by the narrator or author to some agency external to the text. [3.3.3. Quotation 4.3.1. Grouped Texts]</a:documentation>
-         <ref name="tei_macro.specialPara"/>
-         <ref name="tei_att.global.attributes"/>
-         <ref name="tei_att.typed.attributes"/>
-         <ref name="tei_att.msExcerpt.attributes"/>
-         <ref name="tei_att.notated.attributes"/>
-         <empty/>
+   <define name="tei_q">
+      <element name="q">
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(quoted) contains material which is distinguished from the surrounding text using quotation marks or a similar method, for any one of a variety of reasons including, but not limited to: direct speech or thought, technical terms or jargon, authorial distance, quotations from elsewhere, and passages that are mentioned but not used. [3.3.3. Quotation]</a:documentation>
+         <text/>
       </element>
    </define>
    <define name="tei_ref">
@@ -907,25 +871,6 @@ TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.3.0/
          <empty/>
       </element>
    </define>
-   <define name="tei_att.msExcerpt.attributes">
-      <ref name="tei_att.msExcerpt.attribute.defective"/>
-   </define>
-   <define name="tei_att.msExcerpt.attribute.defective">
-      <optional>
-         <attribute name="defective">
-            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">indicates whether the passage being quoted is defective, i.e. incomplete through loss or damage.</a:documentation>
-            <choice>
-               <data type="boolean"/>
-               <choice>
-                  <value>unknown</value>
-                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
-                  <value>inapplicable</value>
-                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
-               </choice>
-            </choice>
-         </attribute>
-      </optional>
-   </define>
    <define name="tei_att.msClass.attribute.class">
       <optional>
          <attribute name="class">
@@ -938,22 +883,34 @@ TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.3.0/
          </attribute>
       </optional>
    </define>
+   <define name="tei_colophon">
+      <element name="colophon">
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(colophon) contains the colophon of an item: that is, a statement providing information regarding the date, place, agency, or reason for production of the manuscript or other object. [10.6.1. The msItem and msItemStruct Elements]</a:documentation>
+         <ref name="tei_q"/>
+      </element>
+   </define>
    <define name="tei_explicit">
       <element name="explicit">
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(explicit) contains the explicit of a item, that is, the closing words of the text proper, exclusive of any rubric or colophon which might follow it. [10.6.1. The msItem and msItemStruct Elements]</a:documentation>
-         <rng:empty xmlns:rng="http://relaxng.org/ns/structure/1.0"/>
+         <ref name="tei_q"/>
+      </element>
+   </define>
+   <define name="tei_finalRubric">
+      <element name="finalRubric">
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(final rubric) contains the string of words that denotes the end of a text division, often with an assertion as to its author and title, usually set off from the text itself by red ink, by a different size or type of script, or by some other such visual device. [10.6.1. The msItem and msItemStruct Elements]</a:documentation>
+         <ref name="tei_q"/>
       </element>
    </define>
    <define name="tei_incipit">
       <element name="incipit">
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">contains the incipit of a manuscript or similar object item, that is the opening words of the text proper, exclusive of any rubric which might precede it, of sufficient length to identify the work uniquely; such incipits were, in former times, frequently used a means of reference to a work, in place of a title. [10.6.1. The msItem and msItemStruct Elements]</a:documentation>
-         <rng:empty xmlns:rng="http://relaxng.org/ns/structure/1.0"/>
+         <ref name="tei_q"/>
       </element>
    </define>
    <define name="tei_rubric">
       <element name="rubric">
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(rubric) contains the text of any rubric or heading attached to a particular manuscript item, that is, a string of words through which a manuscript or other object signals the beginning of a text division, often with an assertion as to its author and title, which is in some way set off from the text itself, typically in red ink, or by use of different size or type of script, or some other such visual device. [10.6.1. The msItem and msItemStruct Elements]</a:documentation>
-         <rng:empty xmlns:rng="http://relaxng.org/ns/structure/1.0"/>
+         <ref name="tei_q"/>
       </element>
    </define>
    <define name="tei_msPart">

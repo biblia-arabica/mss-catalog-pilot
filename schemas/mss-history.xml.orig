@@ -27,9 +27,7 @@ End license statement: do not remove -->
     
 
 -->
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:tei="http://www.tei-c.org/ns/1.0"
-    xmlns:rng="http://relaxng.org/ns/structure/1.0" xmlns:sch="http://purl.oclc.org/dsdl/schematron"
-    xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:rng="http://relaxng.org/ns/structure/1.0" xmlns:sch="http://purl.oclc.org/dsdl/schematron" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
@@ -71,14 +69,11 @@ End license statement: do not remove -->
                     descriptions of the manuscript layout using XForms.</p>
                 <p>Built on the <ref target="https://betamasaheft.eu/Guidelines">Beta maṣāḥǝft
                         Guidelines</ref> contain examples and details of that customization.</p>
-                <p>Added Rules from the <ref
-                        target="https://github.com/msDesc/consolidated-tei-schema/blob/master/msdesc.odd"
-                        >consolidated schema</ref> of FIRHIST</p>
+                <p>Added Rules from the <ref target="https://github.com/msDesc/consolidated-tei-schema/blob/master/msdesc.odd">consolidated schema</ref> of FIRHIST</p>
                 <p>Constrained this schema for generating forms.</p>
             </div>
             <div>
-                <schemaSpec ident="mss-history" docLang="en" prefix="tei_" start="TEI" xml:lang="en"
-                    targetLang="en">
+                <schemaSpec ident="mss-history" docLang="en" prefix="tei_" start="TEI" xml:lang="en" targetLang="en">
                     <!--source="mss-compiled.odd"-->
                     <!--       MODULES USED BY THE SCHEMA
                 the @source ties the current schema to the pre-compiled Arabic Manuscripts Schema, which is tied to version 4.2.0 of TEI
@@ -161,17 +156,12 @@ End license statement: do not remove -->
                             <memberOf key="att.pointing"/>
                             <memberOf key="att.global"/>
                             <memberOf key="att.typed" mode="delete"/>
-                            <memberOf key="att.global" mode="delete"/>
-                            <memberOf key="att.typed" mode="delete"/>
-                        </classes>
+                        <memberOf key="att.global" mode="delete"/><memberOf key="att.typed" mode="delete"/></classes>
                         <content>
                             <alternate maxOccurs="unbounded" minOccurs="0">
                                 <textNode/>
                             </alternate>
-                            <alternate maxOccurs="unbounded" minOccurs="0">
-                                <textNode/>
-                            </alternate>
-                        </content>
+                        <alternate maxOccurs="unbounded" minOccurs="0"><textNode/></alternate></content>
                         <attList>
                             <attDef ident="ana" mode="delete"/>
                             <attDef ident="change" mode="delete"/>
@@ -344,8 +334,8 @@ End license statement: do not remove -->
                     </elementSpec>
                     <elementSpec ident="origPlace" module="msdescription" mode="delete"/>
 =======
-
-
+                    
+                    
 >>>>>>> main
                     <elementSpec ident="physDesc" module="msdescription" mode="delete"/>
                     <elementSpec ident="layoutDesc" module="msdescription" mode="delete"/>
@@ -429,7 +419,7 @@ End license statement: do not remove -->
                             <elementRef key="p"/>
                             <elementRef key="persName"/>
                             <elementRef key="locus"/>
-                        <elementRef key="placeName"/><elementRef key="date"/><elementRef key="stamp"/><elementRef key="signatures"/><elementRef key="p"/><elementRef key="persName"/><elementRef key="locus"/></content>
+                        </content>
                     </elementSpec>
                     <elementSpec ident="origin" mode="change">
                         <classes mode="change">
@@ -469,82 +459,27 @@ End license statement: do not remove -->
                         <content>
                             <textNode/>
                         </content>
-                    </elementSpec>
-                    <elementSpec ident="placeName" mode="change">
-                        <classes mode="change">
-                            <memberOf key="att.datable" mode="delete"/>
-                            <memberOf key="att.editLike" mode="delete"/>
-                            <memberOf key="att.global" mode="delete"/>
-                            <memberOf key="att.personal" mode="delete"/>
-                            <memberOf key="att.typed" mode="delete"/>
-                        </classes>
-                        <content>
-                            <textNode/>
-                        </content>
                         <attList>
-                            <attDef ident="key" mode="delete"/>
-                            <attDef ident="ref" mode="delete"/>
-                            <attDef ident="role" mode="delete"/>
-                            <attDef ident="nymRef" mode="delete"/>
+                            <attDef ident="type" mode="change">
+                                <valList type="closed" mode="change">
+                                    <valItem mode="add" ident="colophon">
+                                        <desc versionDate="2021-12-18" xml:lang="en">Colophon</desc>
+                                    </valItem>
+                                    <valItem mode="delete" ident="spoken"/>
+                                    <valItem mode="delete" ident="thought"/>
+                                    <valItem mode="delete" ident="written"/>
+                                    <valItem mode="delete" ident="soCalled"/>
+                                    <valItem mode="delete" ident="foreign"/>
+                                    <valItem mode="delete" ident="distinct"/>
+                                    <valItem mode="delete" ident="term"/>
+                                    <valItem mode="delete" ident="emph"/>
+                                    <valItem mode="delete" ident="mentioned"/>
+                                </valList>
+                            </attDef>
+                            <attDef ident="who" mode="delete"/>
                         </attList>
                     </elementSpec>
-                    <elementSpec ident="origDate" mode="change">
-                        <classes mode="change">
-                            <memberOf key="att.datable" mode="delete"/>
-                            <memberOf key="att.editLike" mode="delete"/>
-                            <memberOf key="att.global" mode="delete"/>
-                            <memberOf key="att.typed" mode="delete"/>
-                        </classes>
-                        <content>
-                            <alternate maxOccurs="unbounded" minOccurs="0">
-                                <textNode/>
-                            </alternate>
-                        </content>
-                        <attList>
-                            <attRef name="when" class="att.datable.w3c"/>
-                            <attRef name="notAfter" class="att.datable.w3c"/>
-                            <attRef name="notBefore" class="att.datable.w3c"/>
-                        </attList>
-                    </elementSpec>
-                    <elementSpec ident="origPlace" mode="change">
-                        <classes mode="change">
-                            <memberOf key="att.datable" mode="delete"/>
-                            <memberOf key="att.editLike" mode="delete"/>
-                            <memberOf key="att.global" mode="delete"/>
-                            <memberOf key="att.naming" mode="delete"/>
-                            <memberOf key="att.typed" mode="delete"/>
-                        </classes>
-                        <content>
-                            <textNode/>
-                        <textNode/></content>
-                        <attList>
-                            <attDef ident="key" mode="delete"/>
-                        <attRef name="ref" class="att.canonical"/></attList>
-                    </elementSpec>
-                    <elementSpec ident="date" mode="change">
-                        <classes mode="change">
-                            <memberOf key="att.canonical" mode="delete"/>
-                            <memberOf key="att.datable" mode="delete"/>
-                            <memberOf key="att.editLike" mode="delete"/>
-                            <memberOf key="att.global" mode="delete"/>
-                            <memberOf key="att.typed" mode="delete"/>
-                        </classes>
-                        <content>
-                            <alternate maxOccurs="unbounded" minOccurs="0">
-                                <textNode/>
-                            </alternate>
-                        </content>
-                        <attList>
-                            <attRef name="notBefore" class="att.datable.w3c"/>
-                            <attRef name="notAfter" class="att.datable.w3c"/>
-                            <attRef name="when" class="att.datable.w3c"/>
-                        </attList>
-                    </elementSpec>
-<<<<<<< HEAD
-                </schemaSpec>
-=======
-                <elementSpec ident="persName" mode="change"><classes mode="change"><memberOf key="att.canonical"/><memberOf key="att.datable" mode="delete"/><memberOf key="att.editLike" mode="delete"/><memberOf key="att.global" mode="delete"/><memberOf key="att.personal" mode="delete"/><memberOf key="att.typed" mode="delete"/></classes><content><textNode/></content><attList><attDef ident="role" mode="delete"/><attDef ident="nymRef" mode="delete"/><attDef ident="key" mode="delete"/></attList></elementSpec><elementSpec ident="signatures" mode="change"><classes mode="change"><memberOf key="att.global" mode="delete"/></classes><content><textNode/></content></elementSpec><elementSpec ident="stamp" mode="change"><classes mode="change"><memberOf key="att.datable" mode="delete"/><memberOf key="att.global" mode="delete"/><memberOf key="att.typed" mode="delete"/></classes><content><textNode/></content></elementSpec></schemaSpec>
->>>>>>> main
+                <elementSpec ident="placeName" mode="change"><classes mode="change"><memberOf key="att.datable" mode="delete"/><memberOf key="att.editLike" mode="delete"/><memberOf key="att.global" mode="delete"/><memberOf key="att.personal" mode="delete"/><memberOf key="att.typed" mode="delete"/></classes><content><textNode/></content><attList><attDef ident="key" mode="delete"/><attDef ident="ref" mode="delete"/><attDef ident="role" mode="delete"/><attDef ident="nymRef" mode="delete"/></attList></elementSpec><elementSpec ident="origDate" mode="change"><classes mode="change"><memberOf key="att.datable" mode="delete"/><memberOf key="att.editLike" mode="delete"/><memberOf key="att.global" mode="delete"/><memberOf key="att.typed" mode="delete"/></classes><content><alternate maxOccurs="unbounded" minOccurs="0"><textNode/></alternate></content><attList><attRef name="when" class="att.datable.w3c"/><attRef name="notAfter" class="att.datable.w3c"/><attRef name="notBefore" class="att.datable.w3c"/></attList></elementSpec><elementSpec ident="origPlace" mode="change"><classes mode="change"><memberOf key="att.datable" mode="delete"/><memberOf key="att.editLike" mode="delete"/><memberOf key="att.global" mode="delete"/><memberOf key="att.naming" mode="delete"/><memberOf key="att.typed" mode="delete"/></classes><content><textNode/></content><attList><attDef ident="key" mode="delete"/><attDef ident="ref" mode="delete"/></attList></elementSpec><elementSpec ident="date" mode="change"><classes mode="change"><memberOf key="att.canonical" mode="delete"/><memberOf key="att.datable" mode="delete"/><memberOf key="att.editLike" mode="delete"/><memberOf key="att.global" mode="delete"/><memberOf key="att.typed" mode="delete"/></classes><content><alternate maxOccurs="unbounded" minOccurs="0"><textNode/></alternate></content><attList><attRef name="notBefore" class="att.datable.w3c"/><attRef name="notAfter" class="att.datable.w3c"/><attRef name="when" class="att.datable.w3c"/></attList></elementSpec></schemaSpec>
             </div>
         </body>
     </text>
