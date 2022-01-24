@@ -7,17 +7,17 @@
                         <additions>
                             <p> </p>
                             <list>
+                                    <item>
+                                        <p> on fol. </p><locus from="" to=""></locus>
+                                        <desc type="comment"><p>a note:</p><q>Here be dragons</q></desc>
+                                    </item>
                                 <item>
-                                    <p> on fol. </p><locus target=""/>
-                                    <desc type="comment">a note:<q>Here be <lb/> dragons</q></desc>
-                                </item>
-                                <item>
-                                    <p> on fol. </p><locus target=""/>
-                                    <desc type="comment">a note:<q>Here be <lb/> dragons</q></desc>
+                                    <p> on fol. </p><locus from="" to=""></locus>
+                                    <desc type="comment"><p>a note:</p><q>Here be dragons</q></desc>
                                 </item>
                             </list>
                         </additions>
-                    </physDesc>
+</physDesc>
                 </msDesc>
             </sourceDesc>
         </fileDesc>

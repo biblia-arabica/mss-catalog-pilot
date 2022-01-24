@@ -141,11 +141,10 @@ End license statement: do not remove -->
                             <elementRef key="surname"/>
                             <elementRef key="addName"/>
                             <elementRef key="forename"/>
-                            <elementRef key="addName"/>
-                        </content>
+                        <elementRef key="forename"/><elementRef key="surname"/><elementRef key="addName"/><elementRef key="forename"/><textNode/></content>
                         <attList>
                             <attDef ident="key" mode="delete"/>
-                            <attDef ident="ref" mode="delete"/>
+                            <attDef ident="ref" mode="opt"/>
                             <attDef ident="role" mode="delete"/>
                             <attDef ident="nymRef" mode="delete"/>
                             <attRef name="xml:id" class="att.global"/>
@@ -217,13 +216,12 @@ End license statement: do not remove -->
                         <classes mode="change">
                             <memberOf key="att.global" mode="delete"/>
                             <memberOf key="att.typed" mode="delete"/>
-                        </classes>
+                        <memberOf key="att.personal" mode="delete"/><memberOf key="att.typed" mode="delete"/></classes>
                         <content>
                             <textNode/>
                         </content>
                         <attList>
                             <attDef ident="key" mode="delete"/>
-                            <attDef ident="ref" mode="delete"/>
                             <attDef ident="role" mode="delete"/>
                             <attDef ident="nymRef" mode="delete"/>
                             <attDef ident="type" usage="opt">
@@ -242,7 +240,7 @@ End license statement: do not remove -->
                                     <valItem ident="acronym"/>
                                 </valList>
                             </attDef>
-                        </attList>
+                        <attRef name="xml:id" class="att.global"/><attRef name="ref" class="att.canonical"/></attList>
                     </elementSpec>
                     <elementSpec ident="forename" mode="change">
                         <classes mode="change">
@@ -472,7 +470,8 @@ End license statement: do not remove -->
                         </classes>
                         <attList>
                             <attDef ident="mutual" mode="delete"/>
-                            <attDef ident="name" mode="replace" usage="req">
+                        </attList>
+                         <attDef ident="name" mode="replace" usage="req">
                             <valList type="closed">
                                 <valItem ident="saws:isAttributedToAuthor">
                                     <desc>@active: Work, @passive: Person.
@@ -890,7 +889,6 @@ End license statement: do not remove -->
                             <textNode/>
                         </content>
                         <attList>
-                            <attDef ident="value" mode="delete"/>
                             <attRef name="source" class="att.global.source"/>
                         </attList>
                     </elementSpec>
