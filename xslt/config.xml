@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <config>
-    <formTitle>Edit MSS TEI records</formTitle>
-    <formName>mssTEI</formName>
+    <formTitle>Edit Person TEI records</formTitle>
+    <formName>personTEI</formName>
     <formAuthor>Winona Salesky</formAuthor>
-    <formDesc>Create and edit MSS records for MAJLIS: The Transformation of Jewish Literature in Arabic in the Islamicate World</formDesc>
+    <formDesc>Create and edit person records for MAJLIS: The Transformation of Jewish Literature in Arabic in the Islamicate World</formDesc>
     <!-- Language to output lables, hints etc, if empty defaults to English -->
     <formLang>en</formLang>
     <blankTemplates>
-        <template name="Generic MSS Template" src="/forms/templates/full-mss-template.xml"></template>
-        <template name="Alternate Generic Template" src="/forms/templates/template.xml"></template>
+        <template name="Generic Persons Template" src="/forms/templates/persons-template.xml"></template>
     </blankTemplates>
     <!--
         For better performance the TEI records are into sections. Each section will output a form. This will allow better load and response time for forms, 
@@ -25,51 +24,17 @@
             <globalSchema src="../schemas/mss-compiled.odd"></globalSchema>
             <xmlTemplate src="../schemas/persons-template.xml"></xmlTemplate>
         </subform>
-        <!--
-        <subform xpath="/tei:TEI/descendant::tei:msDesc/tei:msIdentifier" formName="msIdentifier" formLabel="MSS Identifier">
+        <subform xpath="/tei:TEI/descendant::tei:listPerson/tei:person" formName="listPersons" formLabel="Persons">
+            <formDesc>Person description.</formDesc>
+            <localSchema src="../schemas/persons.xml"></localSchema>
             <globalSchema src="../schemas/mss-compiled.odd"></globalSchema>
-            <xmlTemplate src="../schemas/full-mss-template.xml"></xmlTemplate>
+            <xmlTemplate src="../schemas/persons-template.xml"></xmlTemplate>
         </subform>
-        -->
-        <subform xpath="/tei:TEI/descendant::tei:msContents" formName="msContents" formLabel="MSS Contents">
-            <localSchema src="../schemas/mss-msitem.xml"></localSchema>
+        <subform xpath="/tei:TEI/descendant::tei:listPerson/tei:listRelation" formName="listRelation" formLabel="Relation">
+            <formDesc>Person description.</formDesc>
+            <localSchema src="../schemas/persons.xml"></localSchema>
             <globalSchema src="../schemas/mss-compiled.odd"></globalSchema>
-            <xmlTemplate src="../schemas/mss-msitem-template-msPart.xml"></xmlTemplate>
-        </subform>
-        <subform xpath="/tei:TEI/descendant::tei:objectDesc/tei:supportDesc" formName="mssSupport" formLabel="MSS Support">
-            <localSchema src="../schemas/mss-support.xml"></localSchema>
-            <globalSchema src="../schemas/mss-compiled.odd"></globalSchema>
-            <xmlTemplate src="../schemas/mss-support-template.xml"></xmlTemplate>
-        </subform>
-        <subform xpath="/tei:TEI/descendant::tei:layoutDesc" formName="layoutDesc" formLabel="Layout Description">
-            <localSchema src="../schemas/mss-layout.xml"></localSchema>
-            <globalSchema src="../schemas/mss-compiled.odd"></globalSchema>
-            <xmlTemplate src="../schemas/mss-layout-template.xml"></xmlTemplate>
-        </subform>
-        <subform xpath="/tei:TEI/tei:handDesc" formName="handDesc" formLabel="Hand Description">
-            <localSchema src="../schemas/mss-hand.xml"></localSchema>
-            <globalSchema src="../schemas/mss-compiled.odd"></globalSchema>
-            <xmlTemplate src="../schemas/mss-hand-template.xml"></xmlTemplate>
-        </subform>
-        <subform xpath="/tei:TEI/descendant::tei:additions" formName="additions" formLabel="Additions">
-            <localSchema src="../schemas/mss-additions.xml"></localSchema>
-            <globalSchema src="../schemas/mss-compiled.odd"></globalSchema>
-            <xmlTemplate src="../schemas/mss-additions-template.xml"></xmlTemplate>
-        </subform>
-        
-        <!-- This one loops still
-        <subform xpath="/tei:TEI/tei:teiHeader/tei:fileDesc/tei:sourceDesc/tei:msDesc/tei:physDesc/tei:bindingDesc" formName="bindingDesc">
-            <localSchema src="../schemas/mss-binding.xml"></localSchema>
-            <globalSchema src="../schemas/mss-compiled.odd"></globalSchema>
-            <xmlTemplate src="../schemas/mss-binding-template.xml"></xmlTemplate>
-        </subform>
-        -->
-        
-        
-        <subform xpath="/tei:TEI/tei:history" formName="history" formLabel="History">
-            <localSchema src="../schemas/mss-history.xml"></localSchema>
-            <globalSchema src="../schemas/mss-compiled.odd"></globalSchema>
-            <xmlTemplate src="../schemas/mss-history-template.xml"></xmlTemplate>
+            <xmlTemplate src="../schemas/persons-template.xml"></xmlTemplate>
         </subform>
     </subforms>
 </config>

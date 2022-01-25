@@ -1,0 +1,355 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:xf="http://www.w3.org/2002/xforms" xmlns:sc="http://www.ascc.net/xml/schematron" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:local="http://syriaca.org/ns">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <title>Edit Person TEI records</title>
+      <meta name="author" content="Winona Salesky" />
+      <meta name="description" content="Create and edit person records for MAJLIS: The Transformation of Jewish Literature in Arabic in the Islamicate World Record title information Person description. Person description." />
+      <link rel="stylesheet" type="text/css" href="resources/bootstrap/css/bootstrap.min.css" />
+      <link rel="stylesheet" type="text/css" href="resources/css/xforms.css" />
+      <link href="resources/jquery-ui/jquery-ui.min.css" rel="stylesheet" /><script type="text/javascript" src="resources/js/jquery.min.js"></script><script type="text/javascript" src="resources/bootstrap/js/bootstrap.min.js"></script><xf:model id="m-mss">
+         <xf:instance id="i-rec">
+            <data></data>
+         </xf:instance>
+         <xf:instance id="i-ctr-vals" src="forms/personTEIja/templates/listRelation-controlledValues.xml"></xf:instance>
+         <xf:instance id="i-elementTemplate" src="forms/personTEIja/templates/elementTemplate.xml"></xf:instance>
+         <xf:instance id="i-attributeTemplate" src="forms/personTEIja/templates/attributesTemplate.xml"></xf:instance>
+         <xf:instance id="i-insert-elements">
+            <TEI xmlns="http://www.tei-c.org/ns/1.0">
+               <element></element>
+            </TEI>
+         </xf:instance>
+         <xf:instance id="i-insert-attributes">
+            <TEI xmlns="http://www.tei-c.org/ns/1.0">
+               <attribute></attribute>
+            </TEI>
+         </xf:instance>
+         <xf:instance id="i-submission">
+            <response status="success">
+               <message>Submission result</message>
+            </response>
+         </xf:instance>
+         <xf:submission id="s-download-xml" ref="instance('i-rec')" show="new" method="post" replace="all" action="form.xq?form=forms/download.xml?type=download"></xf:submission>
+         <xf:submission id="s-view-xml" ref="instance('i-rec')" show="new" method="post" replace="all" action="services/submit.xql?type=view"></xf:submission>
+         <xf:submission id="s-save" ref="instance('i-rec')" replace="instance" instance="i-submission" action="services/submit.xql?type=save" method="post">
+            <xf:action ev:event="xforms-submit-done">
+               <xf:message ref="instance('i-submission')//*:message"></xf:message>
+            </xf:action>
+            <xf:action ev:event="xforms-submit-error">
+               <xf:message ref="instance('i-submission')//*:message"></xf:message>
+            </xf:action>
+         </xf:submission>
+         <xf:submission id="s-github" ref="instance('i-rec')" replace="instance" instance="i-submission" action="services/submit.xql?type=github" method="post">
+            <xf:action ev:event="xforms-submit-done">
+               <xf:message ref="instance('i-submission')//*:message"></xf:message>
+            </xf:action>
+            <xf:action ev:event="xforms-submit-error">
+               <xf:message ev:event="xforms-submit-error" level="modal">Unable to submit your additions at this time, you may download your changes and email
+                  them to us.
+               </xf:message>
+            </xf:action>
+         </xf:submission>
+      </xf:model>
+   </head>
+   <body>
+      <div class="section xforms">
+         <div class="submission pull-right">
+            <xf:submit class="btn btn-default" submission="s-github" appearance="minimal">
+               <xf:label><span class="glyphicon glyphicon-save-file"></span> Submit to GitHub 
+               </xf:label>
+            </xf:submit>
+            <xf:submit class="btn btn-default" submission="s-save" appearance="minimal">
+               <xf:label><span class="glyphicon glyphicon-save-file"></span> Save to Database 
+               </xf:label>
+            </xf:submit>
+            <xf:submit class="btn btn-default" submission="s-download-xml" appearance="minimal">
+               <xf:label><span class="glyphicon glyphicon-save-file"></span> Download XML 
+               </xf:label>
+            </xf:submit>
+            <xf:submit class="btn btn-default" submission="s-view-xml" appearance="minimal">
+               <xf:label><span class="glyphicon glyphicon-save-file"></span> View XML 
+               </xf:label>
+            </xf:submit>
+         </div>
+         <h1>Relation</h1>
+         <p class="alert alert-warning hint">Person description.</p>
+         <repeat xmlns="http://www.w3.org/2002/xforms" ref="instance('i-rec')//tei:listRelation" id="listRelationd792e1" class="xformsGroup">
+            <div xmlns="http://www.w3.org/1999/xhtml" class="xformElement">
+               <div class="inlineBlock">
+                  <xf:trigger xmlns="http://www.w3.org/2002/xforms" appearance="minimal" class="btn remove inline">
+                     <xf:label></xf:label>
+                     <xf:delete ev:event="DOMActivate" ref="."></xf:delete>
+                  </xf:trigger><span class="elementLable repeat">listRelation</span><div class="dropdown"><button class="btn btn-default dropdown-toggle" type="button" id="availElementslistRelationd792e1" data-toggle="dropdown">
+                        Available Elements <span class="caret"></span></button><ul class="dropdown-menu" role="menu" aria-labelledby="availElementslistRelationd792e1">
+                        <li role="presentation">
+                           <xf:trigger class="btn add" appearance="minimal" ref=".">
+                              <xf:label>relation</xf:label>
+                              <xf:insert ev:event="DOMActivate" context="." at="." origin="instance('i-elementTemplate')//*[local-name(.) = 'relation']" position="after"></xf:insert>
+                           </xf:trigger>
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+               <repeat xmlns="http://www.w3.org/2002/xforms" ref="tei:relation" id="listRelationrelationd800e1" class="xformsGroup">
+                  <div xmlns="http://www.w3.org/1999/xhtml" class="xformElement">
+                     <div class="inlineBlock">
+                        <xf:trigger xmlns="http://www.w3.org/2002/xforms" appearance="minimal" class="btn remove inline">
+                           <xf:label></xf:label>
+                           <xf:delete ev:event="DOMActivate" ref="."></xf:delete>
+                        </xf:trigger><span class="elementLable repeat">relation</span> | 
+                        
+                        <div class="dropdown"><button class="btn btn-default dropdown-toggle" type="button" id="availAttributeslistRelationrelationd800e1" data-toggle="dropdown">
+                              Available Attributes <span class="caret"></span></button><ul class="dropdown-menu" role="menu" aria-labelledby="availAttributeslistRelationrelationd800e1">
+                              <li role="presentation">
+                                 <xf:trigger class="btn add" appearance="minimal" ref=".[not(@name)]">
+                                    <xf:label>name</xf:label>
+                                    <xf:insert ev:event="DOMActivate" context="." at="." origin="instance('i-attributeTemplate')//@*[name(.) = 'name']"></xf:insert>
+                                 </xf:trigger>
+                              </li>
+                           </ul>
+                        </div><span class="alert alert-warning hint"></span></div><span class="attribute-group">
+                        <xf:select1 xmlns="http://www.w3.org/2002/xforms" ref="@name">
+                           <xf:label>name</xf:label>
+                           <xf:item>
+                              <xf:label>- Select -</xf:label>
+                              <xf:value></xf:value>
+                           </xf:item>
+                           <xf:item>
+                              <xf:label>saws:isAttributedToAuthor</xf:label>
+                              <xf:value>saws:isAttributedToAuthor</xf:value>
+                           </xf:item>
+                           <xf:item>
+                              <xf:label>dcterms:creator</xf:label>
+                              <xf:value>dcterms:creator</xf:value>
+                           </xf:item>
+                           <xf:item>
+                              <xf:label>syriaca:commemorated</xf:label>
+                              <xf:value>syriaca:commemorated</xf:value>
+                           </xf:item>
+                           <xf:item>
+                              <xf:label>betmas:wifeOf</xf:label>
+                              <xf:value>betmas:wifeOf</xf:value>
+                           </xf:item>
+                           <xf:item>
+                              <xf:label>betmas:husbandOf</xf:label>
+                              <xf:value>betmas:husbandOf</xf:value>
+                           </xf:item>
+                           <xf:item>
+                              <xf:label>betmas:motherInLawOf</xf:label>
+                              <xf:value>betmas:motherInLawOf</xf:value>
+                           </xf:item>
+                           <xf:item>
+                              <xf:label>betmas:fatherInLawOf</xf:label>
+                              <xf:value>betmas:fatherInLawOf</xf:value>
+                           </xf:item>
+                           <xf:item>
+                              <xf:label>betmas:sonInLawOf</xf:label>
+                              <xf:value>betmas:sonInLawOf</xf:value>
+                           </xf:item>
+                           <xf:item>
+                              <xf:label>betmas:daugtherInLawOf</xf:label>
+                              <xf:value>betmas:daugtherInLawOf</xf:value>
+                           </xf:item>
+                           <xf:item>
+                              <xf:label>betmas:isSuccessorOf</xf:label>
+                              <xf:value>betmas:isSuccessorOf</xf:value>
+                           </xf:item>
+                           <xf:item>
+                              <xf:label>betmas:isPredecessorOf</xf:label>
+                              <xf:value>betmas:isPredecessorOf</xf:value>
+                           </xf:item>
+                           <xf:item>
+                              <xf:label>rel:enemyOf</xf:label>
+                              <xf:value>rel:enemyOf</xf:value>
+                           </xf:item>
+                           <xf:item>
+                              <xf:label>snap:DaughterOf</xf:label>
+                              <xf:value>snap:DaughterOf</xf:value>
+                           </xf:item>
+                           <xf:item>
+                              <xf:label>snap:BrotherOf</xf:label>
+                              <xf:value>snap:BrotherOf</xf:value>
+                           </xf:item>
+                           <xf:item>
+                              <xf:label>snap:AllianceWith</xf:label>
+                              <xf:value>snap:AllianceWith</xf:value>
+                           </xf:item>
+                           <xf:item>
+                              <xf:label>snap:FriendshipFor</xf:label>
+                              <xf:value>snap:FriendshipFor</xf:value>
+                           </xf:item>
+                           <xf:item>
+                              <xf:label>snap:Group</xf:label>
+                              <xf:value>snap:Group</xf:value>
+                           </xf:item>
+                           <xf:item>
+                              <xf:label>snap:IntimateRelationshipWith</xf:label>
+                              <xf:value>snap:IntimateRelationshipWith</xf:value>
+                           </xf:item>
+                           <xf:item>
+                              <xf:label>snap:KinOf</xf:label>
+                              <xf:value>snap:KinOf</xf:value>
+                           </xf:item>
+                           <xf:item>
+                              <xf:label>snap:AncestorOf</xf:label>
+                              <xf:value>snap:AncestorOf</xf:value>
+                           </xf:item>
+                           <xf:item>
+                              <xf:label>snap:CousinOf</xf:label>
+                              <xf:value>snap:CousinOf</xf:value>
+                           </xf:item>
+                           <xf:item>
+                              <xf:label>snap:ClaimedFamilyRelationship</xf:label>
+                              <xf:value>snap:ClaimedFamilyRelationship</xf:value>
+                           </xf:item>
+                           <xf:item>
+                              <xf:label>snap:FamilyOf</xf:label>
+                              <xf:value>snap:FamilyOf</xf:value>
+                           </xf:item>
+                           <xf:item>
+                              <xf:label>snap:FatherOf</xf:label>
+                              <xf:value>snap:FatherOf</xf:value>
+                           </xf:item>
+                           <xf:item>
+                              <xf:label>snap:GrandchildOf</xf:label>
+                              <xf:value>snap:GrandchildOf</xf:value>
+                           </xf:item>
+                           <xf:item>
+                              <xf:label>snap:GranddaughterOf</xf:label>
+                              <xf:value>snap:GranddaughterOf</xf:value>
+                           </xf:item>
+                           <xf:item>
+                              <xf:label>snap:GrandfatherOf</xf:label>
+                              <xf:value>snap:GrandfatherOf</xf:value>
+                           </xf:item>
+                           <xf:item>
+                              <xf:label>snap:GrandmotherOf</xf:label>
+                              <xf:value>snap:GrandmotherOf</xf:value>
+                           </xf:item>
+                           <xf:item>
+                              <xf:label>snap:GrandsonOf</xf:label>
+                              <xf:value>snap:GrandsonOf</xf:value>
+                           </xf:item>
+                           <xf:item>
+                              <xf:label>snap:GreatGrandfatherOf</xf:label>
+                              <xf:value>snap:GreatGrandfatherOf</xf:value>
+                           </xf:item>
+                           <xf:item>
+                              <xf:label>snap:HouseholdOf</xf:label>
+                              <xf:value>snap:HouseholdOf</xf:value>
+                           </xf:item>
+                           <xf:item>
+                              <xf:label>snap:InLawFamilyRelationship</xf:label>
+                              <xf:value>snap:InLawFamilyRelationship</xf:value>
+                           </xf:item>
+                           <xf:item>
+                              <xf:label>snap:MotherOf</xf:label>
+                              <xf:value>snap:MotherOf</xf:value>
+                           </xf:item>
+                           <xf:item>
+                              <xf:label>snap:NephewOf</xf:label>
+                              <xf:value>snap:NephewOf</xf:value>
+                           </xf:item>
+                           <xf:item>
+                              <xf:label>snap:NieceOf</xf:label>
+                              <xf:value>snap:NieceOf</xf:value>
+                           </xf:item>
+                           <xf:item>
+                              <xf:label>snap:ProfessionalRelationship</xf:label>
+                              <xf:value>snap:ProfessionalRelationship</xf:value>
+                           </xf:item>
+                           <xf:item>
+                              <xf:label>snap:SisterOf</xf:label>
+                              <xf:value>snap:SisterOf</xf:value>
+                           </xf:item>
+                           <xf:item>
+                              <xf:label>snap:SonOf</xf:label>
+                              <xf:value>snap:SonOf</xf:value>
+                           </xf:item>
+                           <xf:item>
+                              <xf:label>snap:StepFamilyRelationship</xf:label>
+                              <xf:value>snap:StepFamilyRelationship</xf:value>
+                           </xf:item>
+                           <xf:item>
+                              <xf:label>snap:SiblingOf</xf:label>
+                              <xf:value>snap:SiblingOf</xf:value>
+                           </xf:item>
+                           <xf:item>
+                              <xf:label>snap:StepFamilyRelationship</xf:label>
+                              <xf:value>snap:StepFamilyRelationship</xf:value>
+                           </xf:item>
+                           <xf:item>
+                              <xf:label>snap:UncleOf</xf:label>
+                              <xf:value>snap:UncleOf</xf:value>
+                           </xf:item>
+                           <xf:item>
+                              <xf:label>saws:hasOwned</xf:label>
+                              <xf:value>saws:hasOwned</xf:value>
+                           </xf:item>
+                           <xf:item>
+                              <xf:label>saws:isCopierOf</xf:label>
+                              <xf:value>saws:isCopierOf</xf:value>
+                           </xf:item>
+                           <xf:item>
+                              <xf:label>saws:hasWritten</xf:label>
+                              <xf:value>saws:hasWritten</xf:value>
+                           </xf:item>
+                           <xf:item>
+                              <xf:label>ecrm:P129i_is_subject_of</xf:label>
+                              <xf:value>ecrm:P129i_is_subject_of</xf:value>
+                           </xf:item>
+                           <xf:item>
+                              <xf:label>saws:isAttributedAuthorOf</xf:label>
+                              <xf:value>saws:isAttributedAuthorOf</xf:value>
+                           </xf:item>
+                           <xf:item>
+                              <xf:label>syriaca:share-a-name</xf:label>
+                              <xf:value>syriaca:share-a-name</xf:value>
+                           </xf:item>
+                           <xf:item>
+                              <xf:label>syriaca:has-relation-to-place</xf:label>
+                              <xf:value>syriaca:has-relation-to-place</xf:value>
+                           </xf:item>
+                           <xf:item>
+                              <xf:label>syriaca:has-literary-connection-to-place</xf:label>
+                              <xf:value>syriaca:has-literary-connection-to-place</xf:value>
+                           </xf:item>
+                           <xf:item>
+                              <xf:label>syriaca:born-at</xf:label>
+                              <xf:value>syriaca:born-at</xf:value>
+                           </xf:item>
+                           <xf:item>
+                              <xf:label>syriaca:died-at</xf:label>
+                              <xf:value>syriaca:died-at</xf:value>
+                           </xf:item>
+                        </xf:select1>
+                        <xf:trigger appearance="minimal" class="btn remove" ref="@name">
+                           <xf:label></xf:label>
+                           <xf:delete ev:event="DOMActivate" ref="."></xf:delete>
+                        </xf:trigger></span><xf:input xmlns="http://www.w3.org/2002/xforms" ref=".">
+                        <xf:label>relation</xf:label>
+                     </xf:input>
+                  </div>
+               </repeat>
+            </div>
+         </repeat>
+         <div class="submission pull-right">
+            <xf:submit class="btn btn-default" submission="s-github" appearance="minimal">
+               <xf:label><span class="glyphicon glyphicon-save-file"></span> Submit to GitHub 
+               </xf:label>
+            </xf:submit>
+            <xf:submit class="btn btn-default" submission="s-save" appearance="minimal">
+               <xf:label><span class="glyphicon glyphicon-save-file"></span> Save to Database 
+               </xf:label>
+            </xf:submit>
+            <xf:submit class="btn btn-default" submission="s-download-xml" appearance="minimal">
+               <xf:label><span class="glyphicon glyphicon-save-file"></span> Download XML 
+               </xf:label>
+            </xf:submit>
+            <xf:submit class="btn btn-default" submission="s-view-xml" appearance="minimal">
+               <xf:label><span class="glyphicon glyphicon-save-file"></span> View XML 
+               </xf:label>
+            </xf:submit>
+         </div>
+      </div>
+   </body>
+</html>

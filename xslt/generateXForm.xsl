@@ -98,7 +98,7 @@
             </xsl:variable>
             <xsl:for-each-group select="$rules/descendant-or-self::tei:content/descendant-or-self::*[@key]" group-by="@key">
                     <xsl:choose>
-                        <xsl:when test="current-grouping-key() = ('model.gLike','macro.xtext','macro.phraseSeq','macro.specialPara')">
+                        <xsl:when test="current-grouping-key() = ('model.gLike','macro.xtext','macro.phraseSeq','macro.specialPara','model.pLike')">
                             <element xmlns="http://www.tei-c.org/ns/1.0" ident="p"/>
                         </xsl:when>
                         <xsl:when test="contains(current-grouping-key(),'.')">
@@ -115,7 +115,7 @@
                             <element xmlns="http://www.tei-c.org/ns/1.0" ident="{current-grouping-key()}"/>
                         </xsl:otherwise>
                     </xsl:choose>
-            </xsl:for-each-group>            
+            </xsl:for-each-group>    
         </xsl:variable>
         <child>
             <xsl:copy-of select="$elementRefs"/>
@@ -285,7 +285,7 @@
         <xsl:variable name="childAtt" select="$elementRules/descendant-or-self::tei:attList"/>
         <xsl:variable name="childAttRef">
             <xsl:for-each select="$childAtt/descendant-or-self::tei:attRef">
-                <attDef ident="{@name}"/>
+                <attDef xmlns="http://www.tei-c.org/ns/1.0" ident="{@name}"/>
             </xsl:for-each>
         </xsl:variable>
         <xsl:variable name="memberOfAtt">
@@ -301,7 +301,7 @@
             </xsl:for-each-group>
         </xsl:variable>
         <availableAtts xmlns="http://www.tei-c.org/ns/1.0" elementName="{$elementName}">
-            <xsl:for-each-group select="$childAtt/descendant-or-self::tei:attDef | $childAtt | $memberOfAtt/descendant-or-self::tei:attDef" group-by="@ident">
+            <xsl:for-each-group select="$childAtt/descendant-or-self::tei:attDef | $childAttRef/descendant-or-self::tei:attDef | $memberOfAtt/descendant-or-self::tei:attDef" group-by="@ident">
                 <xsl:sort select="current-grouping-key()"/>
                     <xsl:choose>
                         <xsl:when test=".[@mode='delete'][ancestor-or-self::tei:local]"></xsl:when>
@@ -1034,28 +1034,44 @@
                     </xsl:for-each-group>
                 </xsl:if>
                 <!-- Element entry -->
-                <xsl:choose>
-                    <xsl:when test="$elementName = 'p'">
-                        <xf:textarea ref="." xmlns="http://www.w3.org/2002/xforms">
-                            <xf:label><xsl:value-of select="$elementLabel"/></xf:label> 
-                        </xf:textarea>
-                    </xsl:when>
-                    <xsl:when test="$childElements/descendant-or-self::*:element"/>
-                    <xsl:otherwise>
-                        <xsl:choose>
-                            <xsl:when test="$elementName = ('p','desc','note','summary')">
-                                <xf:textarea ref="." xmlns="http://www.w3.org/2002/xforms">
-                                    <xf:label><xsl:value-of select="$elementLabel"/></xf:label> 
-                                </xf:textarea>
-                            </xsl:when>
-                            <xsl:otherwise>
-                                <xf:input ref="." xmlns="http://www.w3.org/2002/xforms">
-                                    <xf:label><xsl:value-of select="$elementName"/></xf:label>
-                                </xf:input>
-                            </xsl:otherwise>
-                        </xsl:choose>
-                    </xsl:otherwise>
-                </xsl:choose>
+                <div class="elementBlock">
+                    <xsl:choose>
+                        <xsl:when test="$elementName = 'p'">
+                            <xf:textarea ref="." xmlns="http://www.w3.org/2002/xforms" >
+                                <xf:label><xsl:value-of select="$elementLabel"/></xf:label> 
+                            </xf:textarea>
+                        </xsl:when>
+                        <xsl:when test="$elementRules//descendant-or-self::tei:content/tei:textNode">
+                            <xsl:choose>
+                                <xsl:when test="$elementName = ('p','desc','note','summary')">
+                                    <xf:textarea ref=".[not(child::*)]" xmlns="http://www.w3.org/2002/xforms">
+                                        <xf:label><xsl:value-of select="$elementLabel"/></xf:label> 
+                                    </xf:textarea>
+                                </xsl:when>
+                                <xsl:otherwise>
+                                    <xf:input ref=".[not(child::*)]" xmlns="http://www.w3.org/2002/xforms">
+                                        <xf:label><xsl:value-of select="$elementLabel"/></xf:label>
+                                    </xf:input>
+                                </xsl:otherwise>
+                            </xsl:choose>
+                        </xsl:when>
+                        <xsl:when test="$childElements/descendant-or-self::*:element"/>
+                        <xsl:otherwise>
+                            <xsl:choose>
+                                <xsl:when test="$elementName = ('p','desc','note','summary')">
+                                    <xf:textarea ref="." xmlns="http://www.w3.org/2002/xforms">
+                                        <xf:label><xsl:value-of select="$elementLabel"/></xf:label> 
+                                    </xf:textarea>
+                                </xsl:when>
+                                <xsl:otherwise>
+                                    <xf:input ref="." xmlns="http://www.w3.org/2002/xforms">
+                                        <xf:label><xsl:value-of select="$elementLabel"/></xf:label>
+                                    </xf:input>
+                                </xsl:otherwise>
+                            </xsl:choose>
+                        </xsl:otherwise>
+                    </xsl:choose>
+                </div>
                 <!-- Add siblings, will have to test for allowed sibling here -->
                 <!--
                 <xsl:if test="$childElements/descendant-or-self::*:element[not(@classRef = 'true')] and $elementName != 'p'">

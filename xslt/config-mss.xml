@@ -41,7 +41,7 @@
             <globalSchema src="../schemas/mss-compiled.odd"></globalSchema>
             <xmlTemplate src="../schemas/mss-support-template.xml"></xmlTemplate>
         </subform>
-        <subform xpath="/tei:TEI/descendant::tei:objectDesc/tei:layoutDesc" formName="layoutDesc" formLabel="Layout Description">
+        <subform xpath="/tei:TEI/descendant::tei:layoutDesc" formName="layoutDesc" formLabel="Layout Description">
             <localSchema src="../schemas/mss-layout.xml"></localSchema>
             <globalSchema src="../schemas/mss-compiled.odd"></globalSchema>
             <xmlTemplate src="../schemas/mss-layout-template.xml"></xmlTemplate>

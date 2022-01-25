@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0"
+     xmlns:tei="http://www.tei-c.org/ns/1.0"
+     xmlns:sc="http://www.ascc.net/xml/schematron"
+     xmlns:xf="http://www.w3.org/2002/xforms"
+     xmlns:ev="http://www.w3.org/2001/xml-events"
+     xmlns:xs="http://www.w3.org/2001/XMLSchema"
+     xmlns:xi="http://www.w3.org/2001/XInclude"
+     xmlns:local="http://syriaca.org/ns"
+     xml:id="controlledValues"
+     xml:lang="en">
+   <date>
+      <calendar>
+         <valList xmlns:rng="http://relaxng.org/ns/structure/1.0"
+                  xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                  type="closed">
+                                    <valItem ident="hebrew">
+                                        <desc>Hebrew calendar</desc>
+                                    </valItem>
+                                    <valItem ident="alexander">
+                                        <desc>Era of Alexander of Macedon, year 1 = 319 BC</desc>
+                                    </valItem>
+                                    <valItem ident="islamic">
+                                        <desc>Islamic Era</desc>
+                                    </valItem>
+                                    <valItem ident="julian">
+                                        <desc>Julian calendar</desc>
+                                    </valItem>
+                                </valList>
+      </calendar>
+   </date>
+   <q>
+      <type>
+         <valList xmlns:rng="http://relaxng.org/ns/structure/1.0"
+                  xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                  type="closed"
+                  mode="change">
+                                    <valItem mode="add" ident="colophon">
+                                        <desc versionDate="2021-12-18" xml:lang="en">Colophon</desc>
+                                    </valItem>
+                                    <valItem mode="delete" ident="spoken"/>
+                                    <valItem mode="delete" ident="thought"/>
+                                    <valItem mode="delete" ident="written"/>
+                                    <valItem mode="delete" ident="soCalled"/>
+                                    <valItem mode="delete" ident="foreign"/>
+                                    <valItem mode="delete" ident="distinct"/>
+                                    <valItem mode="delete" ident="term"/>
+                                    <valItem mode="delete" ident="emph"/>
+                                    <valItem mode="delete" ident="mentioned"/>
+                                </valList>
+      </type>
+   </q>
+</TEI>
