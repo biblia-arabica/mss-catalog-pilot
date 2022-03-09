@@ -64,18 +64,19 @@
                     <msIdentifier>
                         <country/>
                         <settlement/>
+                        <institution/>
                         <repository/>
                         <idno/>
-                        <altIdentifier>
-                            <idno type="IMHM"/>
-                        </altIdentifier>
-                        <altIdentifier>
-                            <idno type="SfarData"/>
-                        </altIdentifier>
-                        <altIdentifier>
-                            <idno type="Ktiv"/>
-                        </altIdentifier>
                         <msName/>
+                        <altIdentifier type="IMHM">
+                            <idno/>
+                        </altIdentifier>
+                        <altIdentifier type="SfarData">
+                            <idno/>
+                        </altIdentifier>
+                        <altIdentifier type="Ktiv">
+                            <idno/>
+                        </altIdentifier>
                     </msIdentifier>
                     <msContents>
                         <summary/>
@@ -92,25 +93,25 @@
                                 </persName>
                             </author>
                             <textLang mainLang="" otherLangs=""/>
-                            <rubric>
+                            <rubric xml:lang="">
                                 <locus from="" to=""/>
-                                <q><lb/></q>
+                                <q></q>
                             </rubric>
-                            <incipit>
+                            <incipit xml:lang="">
                                 <locus from="" to=""/>
-                                <q><lb/></q>
+                                <q></q>
                             </incipit>
-                            <explicit>
+                            <explicit xml:lang="">
                                 <locus from="" to=""/>
-                                <q><lb/></q>
-                            </explicit>
-                            <finalRubric>
+                                <q></q>
+                            </explicit >
+                            <finalRubric xml:lang="">
                                 <locus from="" to=""/>
-                                <q><lb/></q>
+                                <q></q>
                             </finalRubric>
-                            <colophon>
+                            <colophon xml:lang="">
                                 <locus from="" to=""/>
-                                <q><lb/></q>
+                                <q></q>
                             </colophon>
                             <note><p/></note>
                         </msItem>
@@ -132,13 +133,13 @@
                                         <depth unit="mm"/>
                                     </dimensions>
                                 </extent>
-                                <foliation rendition=""> </foliation>
+                                <foliation rendition=""></foliation>
                                 <collation>
                                     <p/>
                                     <formula ref=""/>
                                     <catchwords> </catchwords>
                                 </collation>
-                                <condition key="intact"> </condition>
+                                <condition key="intact"></condition>
                             </supportDesc>
                             <layoutDesc>
                                 <summary/>
@@ -203,11 +204,11 @@
                             <list>
                                 <item>
                                     <p/><locus target=""/>
-                                    <desc type="comment"><q><lb/></q></desc>
+                                    <desc type="comment"><q></q></desc>
                                 </item>
                                 <item>
                                     <p/><locus target=""/>
-                                    <desc type="comment"><q><lb/></q></desc>
+                                    <desc type="comment"><q></q></desc>
                                 </item>
                             </list>
                         </additions>
@@ -218,7 +219,7 @@
                             <origDate notBefore="" notAfter="" when=""/>
                             <origPlace ref=""/>
                             <locus target=""/>
-                            <persName role=""/>
+                            <persName ref="" role=""/>
                             <q/>
                             <p/>
                         </origin>
@@ -226,7 +227,7 @@
                             <date notBefore="" notAfter="" when=""/>
                             <placeName ref=""/>
                             <locus target=""/>
-                            <persName ref=""/>
+                            <persName ref="" role=""/>
                             <signatures/>
                             <stamp/>
                             <p/>
@@ -235,7 +236,7 @@
                             <date notBefore="" notAfter="" when=""/>
                             <placeName ref=""/>
                             <locus target=""/>
-                            <persName ref=""/>
+                            <persName ref="" role=""/>
                             <signatures/>
                             <stamp/>
                             <p/>
