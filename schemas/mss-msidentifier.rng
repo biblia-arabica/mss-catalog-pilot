@@ -1,0 +1,932 @@
+<?xml version="1.0" encoding="utf-8"?>
+<grammar xmlns:xlink="http://www.w3.org/1999/xlink"
+         xmlns:tei="http://www.tei-c.org/ns/1.0"
+         xmlns:teix="http://www.tei-c.org/ns/Examples"
+         xmlns="http://relaxng.org/ns/structure/1.0"
+         datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+         ns="http://www.tei-c.org/ns/1.0"><!--
+Schema generated from ODD source 2022-03-09T13:34:34Z. .
+TEI Edition: Version 4.3.0. Last updated on
+        31st August 2021, revision b4f72b1ff
+TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.3.0/
+  
+--><!--[http://creativecommons.org/licenses/by-sa/4.0/] This file is licensed under the Creative Commons Attribution-ShareAlike 4.0. -->
+   <sch:ns xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+           prefix="tei"
+           uri="http://www.tei-c.org/ns/1.0"/>
+   <define name="tei_macro.phraseSeq">
+      <zeroOrMore>
+         <choice>
+            <text/>
+            <ref name="tei_model.gLike"/>
+            <ref name="tei_model.attributable"/>
+            <ref name="tei_model.phrase"/>
+            <ref name="tei_model.global"/>
+         </choice>
+      </zeroOrMore>
+   </define>
+   <define name="tei_att.canonical.attribute.key">
+      <optional>
+         <attribute name="key">
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">provides an externally-defined means of identifying the entity (or entities) being named, using a coded value of some kind.</a:documentation>
+            <data type="string"/>
+         </attribute>
+      </optional>
+   </define>
+   <define name="tei_att.canonical.attribute.ref">
+      <optional>
+         <attribute name="ref">
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(reference) provides an explicit means of locating a full definition or identity for the entity being named by means of one or more URIs.</a:documentation>
+            <list>
+               <oneOrMore>
+                  <data type="anyURI"/>
+               </oneOrMore>
+            </list>
+         </attribute>
+      </optional>
+   </define>
+   <define name="tei_att.datable.w3c.attributes">
+      <ref name="tei_att.datable.w3c.attribute.when"/>
+      <ref name="tei_att.datable.w3c.attribute.notBefore"/>
+      <ref name="tei_att.datable.w3c.attribute.notAfter"/>
+      <ref name="tei_att.datable.w3c.attribute.from"/>
+      <ref name="tei_att.datable.w3c.attribute.to"/>
+   </define>
+   <define name="tei_att.datable.w3c.attribute.when">
+      <optional>
+         <attribute name="when">
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">supplies the value of the date or time in a standard form, e.g. yyyy-mm-dd.</a:documentation>
+            <choice>
+               <data type="date"/>
+               <data type="gYear"/>
+               <data type="gMonth"/>
+               <data type="gDay"/>
+               <data type="gYearMonth"/>
+               <data type="gMonthDay"/>
+               <data type="time"/>
+               <data type="dateTime"/>
+            </choice>
+         </attribute>
+      </optional>
+   </define>
+   <define name="tei_att.datable.w3c.attribute.notBefore">
+      <optional>
+         <attribute name="notBefore">
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">specifies the earliest possible date for the event in standard form, e.g. yyyy-mm-dd.</a:documentation>
+            <choice>
+               <data type="date"/>
+               <data type="gYear"/>
+               <data type="gMonth"/>
+               <data type="gDay"/>
+               <data type="gYearMonth"/>
+               <data type="gMonthDay"/>
+               <data type="time"/>
+               <data type="dateTime"/>
+            </choice>
+         </attribute>
+      </optional>
+   </define>
+   <define name="tei_att.datable.w3c.attribute.notAfter">
+      <optional>
+         <attribute name="notAfter">
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">specifies the latest possible date for the event in standard form, e.g. yyyy-mm-dd.</a:documentation>
+            <choice>
+               <data type="date"/>
+               <data type="gYear"/>
+               <data type="gMonth"/>
+               <data type="gDay"/>
+               <data type="gYearMonth"/>
+               <data type="gMonthDay"/>
+               <data type="time"/>
+               <data type="dateTime"/>
+            </choice>
+         </attribute>
+      </optional>
+   </define>
+   <define name="tei_att.datable.w3c.attribute.from">
+      <optional>
+         <attribute name="from">
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">indicates the starting point of the period in standard form, e.g. yyyy-mm-dd.</a:documentation>
+            <choice>
+               <data type="date"/>
+               <data type="gYear"/>
+               <data type="gMonth"/>
+               <data type="gDay"/>
+               <data type="gYearMonth"/>
+               <data type="gMonthDay"/>
+               <data type="time"/>
+               <data type="dateTime"/>
+            </choice>
+         </attribute>
+      </optional>
+   </define>
+   <define name="tei_att.datable.w3c.attribute.to">
+      <optional>
+         <attribute name="to">
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">indicates the ending point of the period in standard form, e.g. yyyy-mm-dd.</a:documentation>
+            <choice>
+               <data type="date"/>
+               <data type="gYear"/>
+               <data type="gMonth"/>
+               <data type="gDay"/>
+               <data type="gYearMonth"/>
+               <data type="gMonthDay"/>
+               <data type="time"/>
+               <data type="dateTime"/>
+            </choice>
+         </attribute>
+      </optional>
+   </define>
+   <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
+            id="mss-msidentifier-att.datable.w3c-att-datable-w3c-when-constraint-rule-1">
+      <sch:rule xmlns:xi="http://www.w3.org/2001/XInclude"
+                xmlns="http://www.tei-c.org/ns/1.0"
+                xmlns:rng="http://relaxng.org/ns/structure/1.0"
+                xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                context="tei:*[@when]">
+        <sch:report role="nonfatal" test="@notBefore|@notAfter|@from|@to">The @when attribute cannot be used with any other att.datable.w3c attributes.</sch:report>
+      </sch:rule>
+   </pattern>
+   <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
+            id="mss-msidentifier-att.datable.w3c-att-datable-w3c-from-constraint-rule-2">
+      <sch:rule xmlns:xi="http://www.w3.org/2001/XInclude"
+                xmlns="http://www.tei-c.org/ns/1.0"
+                xmlns:rng="http://relaxng.org/ns/structure/1.0"
+                xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                context="tei:*[@from]">
+        <sch:report role="nonfatal" test="@notBefore">The @from and @notBefore attributes cannot be used together.</sch:report>
+      </sch:rule>
+   </pattern>
+   <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
+            id="mss-msidentifier-att.datable.w3c-att-datable-w3c-to-constraint-rule-3">
+      <sch:rule xmlns:xi="http://www.w3.org/2001/XInclude"
+                xmlns="http://www.tei-c.org/ns/1.0"
+                xmlns:rng="http://relaxng.org/ns/structure/1.0"
+                xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                context="tei:*[@to]">
+        <sch:report role="nonfatal" test="@notAfter">The @to and @notAfter attributes cannot be used together.</sch:report>
+      </sch:rule>
+   </pattern>
+   <define name="tei_att.datable.attributes">
+      <ref name="tei_att.datable.w3c.attributes"/>
+      <ref name="tei_att.datable.iso.attributes"/>
+      <ref name="tei_att.datable.custom.attributes"/>
+      <ref name="tei_att.datable.attribute.calendar"/>
+      <ref name="tei_att.datable.attribute.period"/>
+   </define>
+   <define name="tei_att.datable.attribute.calendar">
+      <optional>
+         <attribute name="calendar">
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">indicates one or more systems or calendars to which the date represented by the content of this element belongs.</a:documentation>
+            <list>
+               <oneOrMore>
+                  <data type="anyURI"/>
+               </oneOrMore>
+            </list>
+         </attribute>
+      </optional>
+   </define>
+   <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
+            id="mss-msidentifier-att.datable-calendar-calendar-constraint-rule-4">
+      <sch:rule xmlns:xi="http://www.w3.org/2001/XInclude"
+                xmlns="http://www.tei-c.org/ns/1.0"
+                xmlns:rng="http://relaxng.org/ns/structure/1.0"
+                xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                context="tei:*[@calendar]">
+            <sch:assert test="string-length(.) gt 0"> @calendar indicates one or more systems or calendars to
+              which the date represented by the content of this element belongs, but this
+              <sch:name/> element has no textual content.</sch:assert>
+          </sch:rule>
+   </pattern>
+   <define name="tei_att.datable.attribute.period">
+      <optional>
+         <attribute name="period">
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">supplies pointers to one or more definitions of named periods of time (typically <code xmlns="http://www.w3.org/1999/xhtml">&lt;category&gt;</code>s or <code xmlns="http://www.w3.org/1999/xhtml">&lt;calendar&gt;</code>s) within which the datable item is understood to have occurred.</a:documentation>
+            <list>
+               <oneOrMore>
+                  <data type="anyURI"/>
+               </oneOrMore>
+            </list>
+         </attribute>
+      </optional>
+   </define>
+   <define name="tei_att.naming.attribute.role">
+      <optional>
+         <attribute name="role">
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">may be used to specify further information about the entity referenced by this name in the form of a set of whitespace-separated values, for example the occupation of a person, or the status of a place.</a:documentation>
+            <list>
+               <oneOrMore>
+                  <data type="token">
+                     <param name="pattern">[^\p{C}\p{Z}]+</param>
+                  </data>
+               </oneOrMore>
+            </list>
+         </attribute>
+      </optional>
+   </define>
+   <define name="tei_att.naming.attribute.nymRef">
+      <optional>
+         <attribute name="nymRef">
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(reference to the canonical name) provides a means of locating the canonical form (nym) of the names associated with the object named by the element bearing it.</a:documentation>
+            <list>
+               <oneOrMore>
+                  <data type="anyURI"/>
+               </oneOrMore>
+            </list>
+         </attribute>
+      </optional>
+   </define>
+   <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
+            id="mss-msidentifier-att.typed-subtypeTyped-constraint-rule-5">
+      <sch:rule xmlns:xi="http://www.w3.org/2001/XInclude"
+                xmlns="http://www.tei-c.org/ns/1.0"
+                xmlns:rng="http://relaxng.org/ns/structure/1.0"
+                xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                context="tei:*[@subtype]">
+        <sch:assert test="@type">The <sch:name/> element should not be categorized in detail with @subtype unless also categorized in general with @type</sch:assert>
+      </sch:rule>
+   </pattern>
+   <define name="tei_att.sortable.attributes">
+      <ref name="tei_att.sortable.attribute.sortKey"/>
+   </define>
+   <define name="tei_att.sortable.attribute.sortKey">
+      <optional>
+         <attribute name="sortKey">
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">supplies the sort key for this element in an index, list or group which contains it.</a:documentation>
+            <data type="token">
+               <param name="pattern">[^\p{C}\p{Z}]+</param>
+            </data>
+         </attribute>
+      </optional>
+   </define>
+   <define name="tei_model.nameLike.agent">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.nameLike.agent_alternation">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.nameLike.agent_sequence">
+      <empty/>
+   </define>
+   <define name="tei_model.nameLike.agent_sequenceOptional">
+      <empty/>
+   </define>
+   <define name="tei_model.nameLike.agent_sequenceOptionalRepeatable">
+      <empty/>
+   </define>
+   <define name="tei_model.nameLike.agent_sequenceRepeatable">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.segLike">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.hiLike">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.hiLike_alternation">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.hiLike_sequence">
+      <empty/>
+   </define>
+   <define name="tei_model.hiLike_sequenceOptional">
+      <empty/>
+   </define>
+   <define name="tei_model.hiLike_sequenceOptionalRepeatable">
+      <empty/>
+   </define>
+   <define name="tei_model.hiLike_sequenceRepeatable">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.emphLike">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.emphLike_alternation">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.emphLike_sequence">
+      <empty/>
+   </define>
+   <define name="tei_model.emphLike_sequenceOptional">
+      <empty/>
+   </define>
+   <define name="tei_model.emphLike_sequenceOptionalRepeatable">
+      <empty/>
+   </define>
+   <define name="tei_model.emphLike_sequenceRepeatable">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.highlighted">
+      <choice>
+         <ref name="tei_model.hiLike"/>
+         <ref name="tei_model.emphLike"/>
+      </choice>
+   </define>
+   <define name="tei_model.dateLike">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.dateLike_alternation">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.dateLike_sequence">
+      <empty/>
+   </define>
+   <define name="tei_model.dateLike_sequenceOptional">
+      <empty/>
+   </define>
+   <define name="tei_model.dateLike_sequenceOptionalRepeatable">
+      <empty/>
+   </define>
+   <define name="tei_model.dateLike_sequenceRepeatable">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.measureLike">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.measureLike_alternation">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.measureLike_sequence">
+      <empty/>
+   </define>
+   <define name="tei_model.measureLike_sequenceOptional">
+      <empty/>
+   </define>
+   <define name="tei_model.measureLike_sequenceOptionalRepeatable">
+      <empty/>
+   </define>
+   <define name="tei_model.measureLike_sequenceRepeatable">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.graphicLike">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.offsetLike">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.offsetLike_alternation">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.offsetLike_sequence">
+      <empty/>
+   </define>
+   <define name="tei_model.offsetLike_sequenceOptional">
+      <empty/>
+   </define>
+   <define name="tei_model.offsetLike_sequenceOptionalRepeatable">
+      <empty/>
+   </define>
+   <define name="tei_model.offsetLike_sequenceRepeatable">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.pPart.msdesc">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.pPart.editorial">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.pPart.editorial_alternation">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.pPart.editorial_sequence">
+      <empty/>
+   </define>
+   <define name="tei_model.pPart.editorial_sequenceOptional">
+      <empty/>
+   </define>
+   <define name="tei_model.pPart.editorial_sequenceOptionalRepeatable">
+      <empty/>
+   </define>
+   <define name="tei_model.pPart.editorial_sequenceRepeatable">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.pPart.transcriptional">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.pPart.transcriptional_alternation">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.pPart.transcriptional_sequence">
+      <empty/>
+   </define>
+   <define name="tei_model.pPart.transcriptional_sequenceOptional">
+      <empty/>
+   </define>
+   <define name="tei_model.pPart.transcriptional_sequenceOptionalRepeatable">
+      <empty/>
+   </define>
+   <define name="tei_model.pPart.transcriptional_sequenceRepeatable">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.pPart.edit">
+      <choice>
+         <ref name="tei_model.pPart.editorial"/>
+         <ref name="tei_model.pPart.transcriptional"/>
+      </choice>
+   </define>
+   <define name="tei_model.ptrLike">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.lPart">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.global.meta">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.milestoneLike">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.gLike">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.phrase.xml">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.specDescLike">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.noteLike">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.global.edit">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.placeNamePart">
+      <choice>
+         <ref name="tei_country"/>
+         <ref name="tei_settlement"/>
+      </choice>
+   </define>
+   <define name="tei_model.placeNamePart_alternation">
+      <choice>
+         <ref name="tei_country"/>
+         <ref name="tei_settlement"/>
+      </choice>
+   </define>
+   <define name="tei_model.placeNamePart_sequence">
+      <ref name="tei_country"/>
+      <ref name="tei_settlement"/>
+   </define>
+   <define name="tei_model.placeNamePart_sequenceOptional">
+      <optional>
+         <ref name="tei_country"/>
+      </optional>
+      <optional>
+         <ref name="tei_settlement"/>
+      </optional>
+   </define>
+   <define name="tei_model.placeNamePart_sequenceOptionalRepeatable">
+      <zeroOrMore>
+         <ref name="tei_country"/>
+      </zeroOrMore>
+      <zeroOrMore>
+         <ref name="tei_settlement"/>
+      </zeroOrMore>
+   </define>
+   <define name="tei_model.placeNamePart_sequenceRepeatable">
+      <oneOrMore>
+         <ref name="tei_country"/>
+      </oneOrMore>
+      <oneOrMore>
+         <ref name="tei_settlement"/>
+      </oneOrMore>
+   </define>
+   <define name="tei_model.placeStateLike">
+      <choice>
+         <ref name="tei_model.placeNamePart"/>
+      </choice>
+   </define>
+   <define name="tei_model.placeStateLike_alternation">
+      <choice>
+         <ref name="tei_model.placeNamePart_alternation"/>
+      </choice>
+   </define>
+   <define name="tei_model.placeStateLike_sequence">
+      <ref name="tei_model.placeNamePart_sequence"/>
+   </define>
+   <define name="tei_model.placeStateLike_sequenceOptional">
+      <optional>
+         <ref name="tei_model.placeNamePart_sequenceOptional"/>
+      </optional>
+   </define>
+   <define name="tei_model.placeStateLike_sequenceOptionalRepeatable">
+      <zeroOrMore>
+         <ref name="tei_model.placeNamePart_sequenceOptionalRepeatable"/>
+      </zeroOrMore>
+   </define>
+   <define name="tei_model.placeStateLike_sequenceRepeatable">
+      <oneOrMore>
+         <ref name="tei_model.placeNamePart_sequenceRepeatable"/>
+      </oneOrMore>
+   </define>
+   <define name="tei_model.quoteLike">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.quoteLike_alternation">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.quoteLike_sequence">
+      <empty/>
+   </define>
+   <define name="tei_model.quoteLike_sequenceOptional">
+      <empty/>
+   </define>
+   <define name="tei_model.quoteLike_sequenceOptionalRepeatable">
+      <empty/>
+   </define>
+   <define name="tei_model.quoteLike_sequenceRepeatable">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.attributable">
+      <choice>
+         <ref name="tei_model.quoteLike"/>
+      </choice>
+   </define>
+   <define name="tei_model.addressLike">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.addressLike_alternation">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.addressLike_sequence">
+      <empty/>
+   </define>
+   <define name="tei_model.addressLike_sequenceOptional">
+      <empty/>
+   </define>
+   <define name="tei_model.addressLike_sequenceOptionalRepeatable">
+      <empty/>
+   </define>
+   <define name="tei_model.addressLike_sequenceRepeatable">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.nameLike">
+      <choice>
+         <ref name="tei_model.nameLike.agent"/>
+         <ref name="tei_model.offsetLike"/>
+         <ref name="tei_model.placeStateLike"/>
+         <ref name="tei_model.persNamePart"/>
+         <ref name="tei_idno"/>
+      </choice>
+   </define>
+   <define name="tei_model.nameLike_alternation">
+      <choice>
+         <ref name="tei_model.nameLike.agent_alternation"/>
+         <ref name="tei_model.offsetLike_alternation"/>
+         <ref name="tei_model.placeStateLike_alternation"/>
+         <ref name="tei_model.persNamePart_alternation"/>
+         <ref name="tei_idno"/>
+      </choice>
+   </define>
+   <define name="tei_model.nameLike_sequence">
+      <ref name="tei_model.nameLike.agent_sequence"/>
+      <ref name="tei_model.offsetLike_sequence"/>
+      <ref name="tei_model.placeStateLike_sequence"/>
+      <ref name="tei_model.persNamePart_sequence"/>
+      <ref name="tei_idno"/>
+   </define>
+   <define name="tei_model.nameLike_sequenceOptional">
+      <optional>
+         <ref name="tei_model.nameLike.agent_sequenceOptional"/>
+      </optional>
+      <optional>
+         <ref name="tei_model.offsetLike_sequenceOptional"/>
+      </optional>
+      <optional>
+         <ref name="tei_model.placeStateLike_sequenceOptional"/>
+      </optional>
+      <optional>
+         <ref name="tei_model.persNamePart_sequenceOptional"/>
+      </optional>
+      <optional>
+         <ref name="tei_idno"/>
+      </optional>
+   </define>
+   <define name="tei_model.nameLike_sequenceOptionalRepeatable">
+      <zeroOrMore>
+         <ref name="tei_model.nameLike.agent_sequenceOptionalRepeatable"/>
+      </zeroOrMore>
+      <zeroOrMore>
+         <ref name="tei_model.offsetLike_sequenceOptionalRepeatable"/>
+      </zeroOrMore>
+      <zeroOrMore>
+         <ref name="tei_model.placeStateLike_sequenceOptionalRepeatable"/>
+      </zeroOrMore>
+      <zeroOrMore>
+         <ref name="tei_model.persNamePart_sequenceOptionalRepeatable"/>
+      </zeroOrMore>
+      <zeroOrMore>
+         <ref name="tei_idno"/>
+      </zeroOrMore>
+   </define>
+   <define name="tei_model.nameLike_sequenceRepeatable">
+      <oneOrMore>
+         <ref name="tei_model.nameLike.agent_sequenceRepeatable"/>
+      </oneOrMore>
+      <oneOrMore>
+         <ref name="tei_model.offsetLike_sequenceRepeatable"/>
+      </oneOrMore>
+      <oneOrMore>
+         <ref name="tei_model.placeStateLike_sequenceRepeatable"/>
+      </oneOrMore>
+      <oneOrMore>
+         <ref name="tei_model.persNamePart_sequenceRepeatable"/>
+      </oneOrMore>
+      <oneOrMore>
+         <ref name="tei_idno"/>
+      </oneOrMore>
+   </define>
+   <define name="tei_model.global">
+      <choice>
+         <ref name="tei_model.global.meta"/>
+         <ref name="tei_model.milestoneLike"/>
+         <ref name="tei_model.noteLike"/>
+         <ref name="tei_model.global.edit"/>
+      </choice>
+   </define>
+   <define name="tei_model.pPart.data">
+      <choice>
+         <ref name="tei_model.dateLike"/>
+         <ref name="tei_model.measureLike"/>
+         <ref name="tei_model.addressLike"/>
+         <ref name="tei_model.nameLike"/>
+      </choice>
+   </define>
+   <define name="tei_model.phrase">
+      <choice>
+         <ref name="tei_model.segLike"/>
+         <ref name="tei_model.highlighted"/>
+         <ref name="tei_model.graphicLike"/>
+         <ref name="tei_model.pPart.msdesc"/>
+         <ref name="tei_model.pPart.edit"/>
+         <ref name="tei_model.ptrLike"/>
+         <ref name="tei_model.lPart"/>
+         <ref name="tei_model.phrase.xml"/>
+         <ref name="tei_model.specDescLike"/>
+         <ref name="tei_model.pPart.data"/>
+      </choice>
+   </define>
+   <define name="tei_model.limitedPhrase">
+      <choice>
+         <ref name="tei_model.hiLike"/>
+         <ref name="tei_model.emphLike"/>
+         <ref name="tei_model.pPart.msdesc"/>
+         <ref name="tei_model.pPart.editorial"/>
+         <ref name="tei_model.ptrLike"/>
+         <ref name="tei_model.phrase.xml"/>
+         <ref name="tei_model.pPart.data"/>
+      </choice>
+   </define>
+   <define name="tei_att.datable.custom.attributes">
+      <ref name="tei_att.datable.custom.attribute.when-custom"/>
+      <ref name="tei_att.datable.custom.attribute.notBefore-custom"/>
+      <ref name="tei_att.datable.custom.attribute.notAfter-custom"/>
+      <ref name="tei_att.datable.custom.attribute.from-custom"/>
+      <ref name="tei_att.datable.custom.attribute.to-custom"/>
+      <ref name="tei_att.datable.custom.attribute.datingPoint"/>
+      <ref name="tei_att.datable.custom.attribute.datingMethod"/>
+   </define>
+   <define name="tei_att.datable.custom.attribute.when-custom">
+      <optional>
+         <attribute name="when-custom">
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">supplies the value of a date or time in some custom standard form.</a:documentation>
+            <list>
+               <oneOrMore>
+                  <data type="token">
+                     <param name="pattern">[^\p{C}\p{Z}]+</param>
+                  </data>
+               </oneOrMore>
+            </list>
+         </attribute>
+      </optional>
+   </define>
+   <define name="tei_att.datable.custom.attribute.notBefore-custom">
+      <optional>
+         <attribute name="notBefore-custom">
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">specifies the earliest possible date for the event in some custom standard form.</a:documentation>
+            <list>
+               <oneOrMore>
+                  <data type="token">
+                     <param name="pattern">[^\p{C}\p{Z}]+</param>
+                  </data>
+               </oneOrMore>
+            </list>
+         </attribute>
+      </optional>
+   </define>
+   <define name="tei_att.datable.custom.attribute.notAfter-custom">
+      <optional>
+         <attribute name="notAfter-custom">
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">specifies the latest possible date for the event in some custom standard form.</a:documentation>
+            <list>
+               <oneOrMore>
+                  <data type="token">
+                     <param name="pattern">[^\p{C}\p{Z}]+</param>
+                  </data>
+               </oneOrMore>
+            </list>
+         </attribute>
+      </optional>
+   </define>
+   <define name="tei_att.datable.custom.attribute.from-custom">
+      <optional>
+         <attribute name="from-custom">
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">indicates the starting point of the period in some custom standard form.</a:documentation>
+            <list>
+               <oneOrMore>
+                  <data type="token">
+                     <param name="pattern">[^\p{C}\p{Z}]+</param>
+                  </data>
+               </oneOrMore>
+            </list>
+         </attribute>
+      </optional>
+   </define>
+   <define name="tei_att.datable.custom.attribute.to-custom">
+      <optional>
+         <attribute name="to-custom">
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">indicates the ending point of the period in some custom standard form.</a:documentation>
+            <list>
+               <oneOrMore>
+                  <data type="token">
+                     <param name="pattern">[^\p{C}\p{Z}]+</param>
+                  </data>
+               </oneOrMore>
+            </list>
+         </attribute>
+      </optional>
+   </define>
+   <define name="tei_att.datable.custom.attribute.datingPoint">
+      <optional>
+         <attribute name="datingPoint">
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">supplies a pointer to some location defining a named point in time with reference to which the datable item is understood to have occurred</a:documentation>
+            <data type="anyURI"/>
+         </attribute>
+      </optional>
+   </define>
+   <define name="tei_att.datable.custom.attribute.datingMethod">
+      <optional>
+         <attribute name="datingMethod">
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">supplies a pointer to a <code xmlns="http://www.w3.org/1999/xhtml">&lt;calendar&gt;</code> element or other means of interpreting the values of the custom dating attributes.</a:documentation>
+            <data type="anyURI"/>
+         </attribute>
+      </optional>
+   </define>
+   <define name="tei_model.persNamePart">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.persNamePart_alternation">
+      <notAllowed/>
+   </define>
+   <define name="tei_model.persNamePart_sequence">
+      <empty/>
+   </define>
+   <define name="tei_model.persNamePart_sequenceOptional">
+      <empty/>
+   </define>
+   <define name="tei_model.persNamePart_sequenceOptionalRepeatable">
+      <empty/>
+   </define>
+   <define name="tei_model.persNamePart_sequenceRepeatable">
+      <notAllowed/>
+   </define>
+   <define name="tei_att.datable.iso.attributes">
+      <ref name="tei_att.datable.iso.attribute.when-iso"/>
+      <ref name="tei_att.datable.iso.attribute.notBefore-iso"/>
+      <ref name="tei_att.datable.iso.attribute.notAfter-iso"/>
+      <ref name="tei_att.datable.iso.attribute.from-iso"/>
+      <ref name="tei_att.datable.iso.attribute.to-iso"/>
+   </define>
+   <define name="tei_att.datable.iso.attribute.when-iso">
+      <optional>
+         <attribute name="when-iso">
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">supplies the value of a date or time in a standard form.</a:documentation>
+            <choice>
+               <data type="date"/>
+               <data type="gYear"/>
+               <data type="gMonth"/>
+               <data type="gDay"/>
+               <data type="gYearMonth"/>
+               <data type="gMonthDay"/>
+               <data type="time"/>
+               <data type="dateTime"/>
+               <data type="token">
+                  <param name="pattern">[0-9.,DHMPRSTWYZ/:+\-]+</param>
+               </data>
+            </choice>
+         </attribute>
+      </optional>
+   </define>
+   <define name="tei_att.datable.iso.attribute.notBefore-iso">
+      <optional>
+         <attribute name="notBefore-iso">
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">specifies the earliest possible date for the event in standard form, e.g. yyyy-mm-dd.</a:documentation>
+            <choice>
+               <data type="date"/>
+               <data type="gYear"/>
+               <data type="gMonth"/>
+               <data type="gDay"/>
+               <data type="gYearMonth"/>
+               <data type="gMonthDay"/>
+               <data type="time"/>
+               <data type="dateTime"/>
+               <data type="token">
+                  <param name="pattern">[0-9.,DHMPRSTWYZ/:+\-]+</param>
+               </data>
+            </choice>
+         </attribute>
+      </optional>
+   </define>
+   <define name="tei_att.datable.iso.attribute.notAfter-iso">
+      <optional>
+         <attribute name="notAfter-iso">
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">specifies the latest possible date for the event in standard form, e.g. yyyy-mm-dd.</a:documentation>
+            <choice>
+               <data type="date"/>
+               <data type="gYear"/>
+               <data type="gMonth"/>
+               <data type="gDay"/>
+               <data type="gYearMonth"/>
+               <data type="gMonthDay"/>
+               <data type="time"/>
+               <data type="dateTime"/>
+               <data type="token">
+                  <param name="pattern">[0-9.,DHMPRSTWYZ/:+\-]+</param>
+               </data>
+            </choice>
+         </attribute>
+      </optional>
+   </define>
+   <define name="tei_att.datable.iso.attribute.from-iso">
+      <optional>
+         <attribute name="from-iso">
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">indicates the starting point of the period in standard form.</a:documentation>
+            <choice>
+               <data type="date"/>
+               <data type="gYear"/>
+               <data type="gMonth"/>
+               <data type="gDay"/>
+               <data type="gYearMonth"/>
+               <data type="gMonthDay"/>
+               <data type="time"/>
+               <data type="dateTime"/>
+               <data type="token">
+                  <param name="pattern">[0-9.,DHMPRSTWYZ/:+\-]+</param>
+               </data>
+            </choice>
+         </attribute>
+      </optional>
+   </define>
+   <define name="tei_att.datable.iso.attribute.to-iso">
+      <optional>
+         <attribute name="to-iso">
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">indicates the ending point of the period in standard form.</a:documentation>
+            <choice>
+               <data type="date"/>
+               <data type="gYear"/>
+               <data type="gMonth"/>
+               <data type="gDay"/>
+               <data type="gYearMonth"/>
+               <data type="gMonthDay"/>
+               <data type="time"/>
+               <data type="dateTime"/>
+               <data type="token">
+                  <param name="pattern">[0-9.,DHMPRSTWYZ/:+\-]+</param>
+               </data>
+            </choice>
+         </attribute>
+      </optional>
+   </define>
+   <define name="tei_country">
+      <element name="country">
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(country) contains the name of a geo-political unit, such as a nation, country, colony, or commonwealth, larger than or administratively superior to a region and smaller than a bloc. [13.2.3. Place Names]</a:documentation>
+         <ref name="tei_macro.phraseSeq"/>
+         <ref name="tei_att.naming.attribute.role"/>
+         <ref name="tei_att.naming.attribute.nymRef"/>
+         <ref name="tei_att.datable.attributes"/>
+         <empty/>
+      </element>
+   </define>
+   <define name="tei_settlement">
+      <element name="settlement">
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(settlement) contains the name of a settlement such as a city, town, or village identified as a single geo-political or administrative unit. [13.2.3. Place Names]</a:documentation>
+         <ref name="tei_macro.phraseSeq"/>
+         <ref name="tei_att.naming.attribute.role"/>
+         <ref name="tei_att.naming.attribute.nymRef"/>
+         <ref name="tei_att.datable.attributes"/>
+         <empty/>
+      </element>
+   </define>
+   <define name="tei_idno">
+      <element name="idno">
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(identifier) supplies any form of identifier used to identify some object, such as a bibliographic item, a person, a title, an organization, etc. in a standardized way. [13.3.1. Basic Principles 2.2.4. Publication, Distribution, Licensing, etc. 2.2.5. The Series Statement 3.12.2.4. Imprint, Size of a Document, and Reprint Information]</a:documentation>
+         <text/>
+         <ref name="tei_att.sortable.attributes"/>
+         <ref name="tei_att.datable.attributes"/>
+         <empty/>
+      </element>
+   </define>
+   <start>
+      <choice/>
+   </start>
+</grammar>
