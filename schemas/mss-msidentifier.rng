@@ -5,7 +5,7 @@
          xmlns="http://relaxng.org/ns/structure/1.0"
          datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
          ns="http://www.tei-c.org/ns/1.0"><!--
-Schema generated from ODD source 2022-03-09T13:34:34Z. .
+Schema generated from ODD source 2022-03-17T20:17:25Z. .
 TEI Edition: Version 4.3.0. Last updated on
         31st August 2021, revision b4f72b1ff
 TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.3.0/
@@ -14,17 +14,6 @@ TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.3.0/
    <sch:ns xmlns:sch="http://purl.oclc.org/dsdl/schematron"
            prefix="tei"
            uri="http://www.tei-c.org/ns/1.0"/>
-   <define name="tei_macro.phraseSeq">
-      <zeroOrMore>
-         <choice>
-            <text/>
-            <ref name="tei_model.gLike"/>
-            <ref name="tei_model.attributable"/>
-            <ref name="tei_model.phrase"/>
-            <ref name="tei_model.global"/>
-         </choice>
-      </zeroOrMore>
-   </define>
    <define name="tei_att.canonical.attribute.key">
       <optional>
          <attribute name="key">
@@ -210,42 +199,6 @@ TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.3.0/
          </attribute>
       </optional>
    </define>
-   <define name="tei_att.naming.attribute.role">
-      <optional>
-         <attribute name="role">
-            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">may be used to specify further information about the entity referenced by this name in the form of a set of whitespace-separated values, for example the occupation of a person, or the status of a place.</a:documentation>
-            <list>
-               <oneOrMore>
-                  <data type="token">
-                     <param name="pattern">[^\p{C}\p{Z}]+</param>
-                  </data>
-               </oneOrMore>
-            </list>
-         </attribute>
-      </optional>
-   </define>
-   <define name="tei_att.naming.attribute.nymRef">
-      <optional>
-         <attribute name="nymRef">
-            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(reference to the canonical name) provides a means of locating the canonical form (nym) of the names associated with the object named by the element bearing it.</a:documentation>
-            <list>
-               <oneOrMore>
-                  <data type="anyURI"/>
-               </oneOrMore>
-            </list>
-         </attribute>
-      </optional>
-   </define>
-   <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-            id="mss-msidentifier-att.typed-subtypeTyped-constraint-rule-5">
-      <sch:rule xmlns:xi="http://www.w3.org/2001/XInclude"
-                xmlns="http://www.tei-c.org/ns/1.0"
-                xmlns:rng="http://relaxng.org/ns/structure/1.0"
-                xmlns:sch="http://purl.oclc.org/dsdl/schematron"
-                context="tei:*[@subtype]">
-        <sch:assert test="@type">The <sch:name/> element should not be categorized in detail with @subtype unless also categorized in general with @type</sch:assert>
-      </sch:rule>
-   </pattern>
    <define name="tei_att.sortable.attributes">
       <ref name="tei_att.sortable.attribute.sortKey"/>
    </define>
@@ -275,9 +228,6 @@ TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.3.0/
       <empty/>
    </define>
    <define name="tei_model.nameLike.agent_sequenceRepeatable">
-      <notAllowed/>
-   </define>
-   <define name="tei_model.segLike">
       <notAllowed/>
    </define>
    <define name="tei_model.hiLike">
@@ -316,12 +266,6 @@ TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.3.0/
    <define name="tei_model.emphLike_sequenceRepeatable">
       <notAllowed/>
    </define>
-   <define name="tei_model.highlighted">
-      <choice>
-         <ref name="tei_model.hiLike"/>
-         <ref name="tei_model.emphLike"/>
-      </choice>
-   </define>
    <define name="tei_model.dateLike">
       <notAllowed/>
    </define>
@@ -356,9 +300,6 @@ TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.3.0/
       <empty/>
    </define>
    <define name="tei_model.measureLike_sequenceRepeatable">
-      <notAllowed/>
-   </define>
-   <define name="tei_model.graphicLike">
       <notAllowed/>
    </define>
    <define name="tei_model.offsetLike">
@@ -418,16 +359,7 @@ TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.3.0/
    <define name="tei_model.pPart.transcriptional_sequenceRepeatable">
       <notAllowed/>
    </define>
-   <define name="tei_model.pPart.edit">
-      <choice>
-         <ref name="tei_model.pPart.editorial"/>
-         <ref name="tei_model.pPart.transcriptional"/>
-      </choice>
-   </define>
    <define name="tei_model.ptrLike">
-      <notAllowed/>
-   </define>
-   <define name="tei_model.lPart">
       <notAllowed/>
    </define>
    <define name="tei_model.global.meta">
@@ -436,13 +368,7 @@ TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.3.0/
    <define name="tei_model.milestoneLike">
       <notAllowed/>
    </define>
-   <define name="tei_model.gLike">
-      <notAllowed/>
-   </define>
    <define name="tei_model.phrase.xml">
-      <notAllowed/>
-   </define>
-   <define name="tei_model.specDescLike">
       <notAllowed/>
    </define>
    <define name="tei_model.noteLike">
@@ -536,11 +462,6 @@ TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.3.0/
    </define>
    <define name="tei_model.quoteLike_sequenceRepeatable">
       <notAllowed/>
-   </define>
-   <define name="tei_model.attributable">
-      <choice>
-         <ref name="tei_model.quoteLike"/>
-      </choice>
    </define>
    <define name="tei_model.addressLike">
       <notAllowed/>
@@ -650,20 +571,6 @@ TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.3.0/
          <ref name="tei_model.measureLike"/>
          <ref name="tei_model.addressLike"/>
          <ref name="tei_model.nameLike"/>
-      </choice>
-   </define>
-   <define name="tei_model.phrase">
-      <choice>
-         <ref name="tei_model.segLike"/>
-         <ref name="tei_model.highlighted"/>
-         <ref name="tei_model.graphicLike"/>
-         <ref name="tei_model.pPart.msdesc"/>
-         <ref name="tei_model.pPart.edit"/>
-         <ref name="tei_model.ptrLike"/>
-         <ref name="tei_model.lPart"/>
-         <ref name="tei_model.phrase.xml"/>
-         <ref name="tei_model.specDescLike"/>
-         <ref name="tei_model.pPart.data"/>
       </choice>
    </define>
    <define name="tei_model.limitedPhrase">
@@ -900,21 +807,13 @@ TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.3.0/
    <define name="tei_country">
       <element name="country">
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(country) contains the name of a geo-political unit, such as a nation, country, colony, or commonwealth, larger than or administratively superior to a region and smaller than a bloc. [13.2.3. Place Names]</a:documentation>
-         <ref name="tei_macro.phraseSeq"/>
-         <ref name="tei_att.naming.attribute.role"/>
-         <ref name="tei_att.naming.attribute.nymRef"/>
-         <ref name="tei_att.datable.attributes"/>
-         <empty/>
+         <text/>
       </element>
    </define>
    <define name="tei_settlement">
       <element name="settlement">
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(settlement) contains the name of a settlement such as a city, town, or village identified as a single geo-political or administrative unit. [13.2.3. Place Names]</a:documentation>
-         <ref name="tei_macro.phraseSeq"/>
-         <ref name="tei_att.naming.attribute.role"/>
-         <ref name="tei_att.naming.attribute.nymRef"/>
-         <ref name="tei_att.datable.attributes"/>
-         <empty/>
+         <text/>
       </element>
    </define>
    <define name="tei_idno">
