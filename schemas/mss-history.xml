@@ -313,11 +313,11 @@ End license statement: do not remove -->
                     <elementSpec ident="q" mode="change">
                         <classes mode="change">
                             <memberOf key="att.global" mode="delete"/>
-                        </classes>
+                        <memberOf key="att.ascribed.directed" mode="delete"/><memberOf key="att.global" mode="delete"/></classes>
                         <content>
                             <textNode/>
                         </content>
-                    </elementSpec>
+                    <attList><attDef ident="who" mode="delete"/><attRef name="xml:lang" class="att.global"/></attList></elementSpec>
                     <elementSpec ident="placeName" mode="change">
                         <classes mode="change">
                             <memberOf key="att.datable" mode="delete"/>
