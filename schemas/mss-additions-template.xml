@@ -1,25 +1,13 @@
-<TEI xmlns="http://www.tei-c.org/ns/1.0">
-    <teiHeader>
-        <fileDesc>
-            <sourceDesc>
-                <msDesc>
-                    <physDesc>
-                        <additions>
+ <additions>
                             <p> </p>
                             <list>
                                     <item>
                                         <p> on fol. </p><locus from="" to=""></locus>
-                                        <desc type="comment"><p>a note:</p><q>Here be dragons</q></desc>
+                                        <desc type="comment"><p>a note:</p><q xml:lang="">Here be dragons</q></desc>
                                     </item>
                                 <item>
                                     <p> on fol. </p><locus from="" to=""></locus>
-                                    <desc type="comment"><p>a note:</p><q>Here be dragons</q></desc>
+                                    <desc type="comment"><p>a note:</p><q xml:lang="">Here be dragons</q></desc>
                                 </item>
                             </list>
                         </additions>
-</physDesc>
-                </msDesc>
-            </sourceDesc>
-        </fileDesc>
-    </teiHeader>
-</TEI>

@@ -7,12 +7,15 @@
             <width/>
             <dim type="intercolumn"/>
         </dimensions>
+        <p/>
         <note>
             <p/>
             <locus from="" to=""/>
             <p></p>
         </note>
+        <p/>
         <ab type="ruling"/>
+        <p/>
         <ab type="pricking"/>
     </layout>
 </layoutDesc>
