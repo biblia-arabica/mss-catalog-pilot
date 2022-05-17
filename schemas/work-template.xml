@@ -1,146 +1,58 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?>
-<TEI xml:lang="en" xmlns="http://www.tei-c.org/ns/1.0">
-    <teiHeader>
-        <fileDesc>
-            <titleStmt>
-                <title level="a" xml:lang="en">$$</title>
-                <title level="m" xml:lang="en">MAJLIS: The Transformation of Jewish Literature in Arabic in the Islamicate World</title>
-                <sponsor ref="https://www.uni-muenchen.de">
-                    <orgName>Ludwig Maximilian University of Munich</orgName> (<orgName xml:lang="de">Ludwig-Maximilians-Universität München</orgName>) </sponsor>
-                <sponsor ref="http://www.naher-osten.uni-muenchen.de">
-                    <orgName>Institute of Near and Middle Eastern Studies</orgName> (<orgName xml:lang="de">Institut für den Nahen und Mittleren
-                        Osten</orgName>) </sponsor>
-                <funder ref="https://erc.europa.eu/">
-                    <orgName>ERC: European Research Council</orgName> (<orgName xml:lang="de">Europäischer Forschungsrat</orgName>) </funder>
-                <principal ref="#rvollandt">Ronny Vollandt</principal>
-                <editor xml:id="rvollandt" role="general"
-                    ref="                          https://www.naher-osten.uni-muenchen.de/personen/professoren/ronny_vollandt/index.html                         http://orcid.org/0000-0002-1702-2981                         https://viaf.org/viaf/309581349"
-                    >Ronny Vollandt</editor>
-                <editor xml:id="gschwarb" role="contributor"
-                    ref="                         https://www.naher-osten.uni-muenchen.de/personen/wiss_ma/gregor_schwarb/index.html                         http://orcid.org/0000-0002-9090-1878                         https://viaf.org/viaf/90488472"
-                    >Gregor Schwarb</editor>
-                <editor xml:id="ngibson" role="contributor"
-                    ref="                         https://www.naher-osten.uni-muenchen.de/personen/wiss_ma/gibson/index.html                         http://orcid.org/0000-0003-0786-8075                         https://viaf.org/viaf/59147905242279092527"
-                    >Nathan P. Gibson</editor>
-                <editor xml:id="mmoliere" role="contributor"
-                    ref="                         https://www.naher-osten.uni-muenchen.de/personen/wiss_ma/maximilian_de_moliere/index.html                         https://orcid.org/0000-0002-2168-8655                         http://viaf.org/viaf/65156495392717561393"
-                    >Maximilian de Molière</editor>
-                <editor role="creator" ref="#ngibson">Nathan P. Gibson</editor>
-                <editor role="creator" ref="#mmoliere">Maximilian de Molière</editor>
-                <respStmt>
-                    <resp>Srophé app design and development by</resp>
-                    <name type="person" ref="http://syriaca.org/documentation/editors.xml#wsalesky">Winona Salesky</name>
-                </respStmt>
-            </titleStmt>
-            <editionStmt>
-                <edition n="0.6.0-dev"/>
-            </editionStmt>
-            <publicationStmt>
-                <authority>
-                    <ref target="https://majlis.net">MAJLIS.net</ref>
-                </authority>
-                <idno type="URI">https://majlis.net/work/$$$/tei</idno>
-                <availability>
-                    <licence target="http://creativecommons.org/licenses/by/3.0/">
-                        <p>Distributed under a Creative Commons Attribution 4.0 International (CC BY 4.0) License.</p>
-                    </licence>
-                </availability>
-                <date>2021-10-23+02:00</date>
-            </publicationStmt>
-            <sourceDesc>
-                <p>Born digital.</p>
-            </sourceDesc>
-        </fileDesc>
-        <encodingDesc>
-            <editorialDecl>
-                <p>This record created following the Syriaca.org guidelines. Documentation available at: <ref target="http://syriaca.org/documentation"
-                    >http://syriaca.org/documentation</ref>.</p>
-                <interpretation>
-                    <p>Approximate dates described in terms of centuries or partial centuries have been interpreted as documented in <ref
-                        target="http://syriaca.org/documentation/dates.html">Syriaca.org Dates</ref>.</p>
-                </interpretation>
-            </editorialDecl>
-            <classDecl>
-                <taxonomy>
-                    <category xml:id="syriaca-headword">
-                        <catDesc>The name used by Syriaca.org for document titles, citation, and disambiguation. These names have been created according to
-                            the Syriac.org guidelines for headwords: <ref>http://syriaca.org/documentation/headwords.html</ref>.</catDesc>
-                    </category>
-                </taxonomy>
-            </classDecl>
-        </encodingDesc>
-        <profileDesc>
-            <langUsage>
-                <language ident="en">English</language>
-                <language ident="he">Hebrew</language>
-                <language ident="ar">Arabic</language>
-                <language ident="de">German</language>
-            </langUsage>
-        </profileDesc>
-        <revisionDesc status="draft"/>
-    </teiHeader>
-    <text>
-        <body>
-            <bibl xml:id="work-1101" ana="#hagiographic">
-                <title xml:id="name1101-1" xml:lang="syr" source="#bib1101-1" srophe:tags="#syriaca-headword">ܥܒܘܫܛܐ</title>
-                <title xml:id="name1101-2" xml:lang="fr-x-bhs" source="#bib1101-1">ʿAbūšṭā</title>
-                <title xml:id="name1101-3" xml:lang="fr" source="#bib1101-1">Aboushtâ d’Adiabène (texte)</title>
-                <title xml:id="name1101-4" xml:lang="en" source="#bib1101-1" srophe:tags="#syriaca-headword">ʿAbousha of Adiabene (text)</title>
-                <author xml:lang="fr" source="#bib1101-1" ref="http://syriaca.org/person/901">
-                    <persName xml:lang="en-x-gedsh">
-                        <forename sort="1">Mshiḥazka</forename>
-                    </persName>
-                    (
-                    <persName xml:lang="fr">
-                        <forename>Mshiha-Zekha</forename>
-                    </persName>
-                    )
-                </author>
-                <note xml:lang="fr" type="incipit" source="#bib1101-1">
-                    <quote>
-                        Et se leva après lui Mar ‘Aboushtâ; ce Père spirituel était originaire d’un village des montagnes appelé Talpnâ.
-                    </quote>
-                </note>
-                <note xml:lang="fr" type="explicit" source="#bib1101-1">
-                    <quote>
-                        Et tous ne cessèrent pas de remercier Dieu pour toutes les grâces, tous les miracles et les prodiges qu’il avait donnés à son serviteur ‘Aboushtâ.
-                    </quote>
-                </note>
-                <note xml:lang="en" type="editions">
-                    <bibl source="#bib1101-1" xml:id="bib1101-2">
-                        <author>Mingana, A.</author>
-                        <title>Sources syriaques</title>
-                        <ptr target="http://syriaca.org/bibl/1883"/>
-                        <citedRange>Mossoul, s.d., p.65-69</citedRange>
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="MSS" source="#bib1101-1">
-                    <bibl xml:id="bib1101-3">
-                        ms Berlin, Westdeutsche Bibliothek, Or. fol. 3126 (Assfalg 24)
-                    </bibl>
-                </note>
-                <note xml:lang="en" type="modernTranslation" source="#bib1101-1">
-                    <bibl xml:id="bib1101-4">
-                        <editor>A. Mingana</editor>
-                        <ptr target="http://syriaca.org/bibl/1883"/>
-                        <citedRange unit="pp">145-150</citedRange>
-                        <lang>fr</lang>
-                    </bibl>
-                </note>
-                <idno type="URI">http://syriaca.org/work/1101</idno>
-                <idno type="BHS">931</idno>
-                <bibl xml:id="bib1101-1">
-                    <title level="m" xml:lang="la">
-                        Bibliotheca Hagiographica Syriaca
-                    </title>
-                    <ptr target="http://syriaca.org/bibl/649"/>
-                    <citedRange unit="entry">931</citedRange>
+<text>
+    <body>
+        <bibl xml:id="work-$$$" ana="#">
+            <title xml:id="" xml:lang="" source="" srophe:tags="#syriaca-headword"></title>
+            <title xml:id="" xml:lang="" source="" srophe:tags="#syriaca-headword"></title>
+            <title xml:id="" xml:lang="" source=""></title>
+            <author xml:lang="" source="" ref="https://jalit.org/person/$$$">
+                <persName></persName>
+            </author>
+            <note xml:lang="" type="" source="">
+                <quote>
+                </quote>
+            </note>
+            <note xml:lang="en" type="editions">
+                <bibl xml:id="">
+                    <author>
+                        <forename/>
+                        <surname/>
+                    </author>
+                    <title xml:lang="" level=""/>
+                    <editor>
+                        <forename/>
+                        <surname/>
+                    </editor>
+                    <date/>
+                    <pubPlace/>
+                    <publisher/>
+                    <series/>
+                    <biblScope from="" to="" unit=""/>
+                    <citedRange unit="p"/>
+                    <ptr target=""/>
                 </bibl>
-                <listRelation>
-                    <relation name="syriaca:commemorated" active="http://syriaca.org/work/1101" passive="http://syriaca.org/person/1545" source="#bib1101-1"/>
-                </listRelation>
+            </note>
+            <idno type="URI">https://jalit.org/work/$$$</idno>
+            <bibl xml:id="">
+                <author>
+                    <forename/>
+                    <surname/>
+                </author>
+                <title xml:lang="" level=""/>
+                <editor>
+                    <forename/>
+                    <surname/>
+                </editor>
+                <date/>
+                <pubPlace/>
+                <publisher/>
+                <series/>
+                <biblScope from="" to="" unit=""/>
+                <citedRange unit="p"/>
+                <ptr target=""/>
             </bibl>
-        </body>
-    </text>
-</TEI>
+            <listRelation>
+                <relation name="syriaca:commemorated" active="https://jalit.org/work/$$$" passive="https://jalit.org/person/$$$" source=""/>
+            </listRelation>
+        </bibl>
+    </body>
+</text>
