@@ -5,7 +5,7 @@
    <teiHeader>
       <fileDesc>
          <titleStmt>
-            <title level="a" xml:lang="en"></title>
+            <title level="a" xml:lang="en"/>
             <title level="m" xml:lang="en">MAJLIS: The Transformation of Jewish Literature in Arabic in the Islamicate World</title>
             <sponsor ref="https://www.uni-muenchen.de">
                <orgName>Ludwig Maximilian University of Munich</orgName> (<orgName xml:lang="de">Ludwig-Maximilians-Universität München</orgName>) </sponsor>
@@ -39,15 +39,21 @@
          </editionStmt>
          <publicationStmt>
             <authority>
-               <ref target="https://majlis.net">MAJLIS.net</ref>
+               <ref target="https://jalit.org">jalit.org – Jewish-Arabic Literature</ref>
             </authority>
-            <idno type="URI">https://majlis.net/place/$$$/tei</idno>
+            <idno type="URI">https://jalit.org/place/$$$/tei</idno>
             <availability>
-               <licence target="http://creativecommons.org/licenses/by/3.0/">
+               <licence target="http://creativecommons.org/licenses/by/4.0/">
                   <p>Distributed under a Creative Commons Attribution 4.0 International (CC BY 4.0) License.</p>
+                  <p>You are free to: Share — copy and redistribute the material in any medium or format. Adapt — remix, transform, and build upon the
+                     material for any purpose, even commercially. </p>
+                  <p>Under the following terms: Attribution — You must give appropriate credit, provide a link to the license, and indicate if changes
+                     were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use. No
+                     additional restrictions — You may not apply legal terms or technological measures that legally restrict others from doing
+                     anything the license permits. </p>
                </licence>
             </availability>
-            <date></date>
+            <date/>
          </publicationStmt>
          <sourceDesc>
             <p>Born digital.</p>
@@ -84,26 +90,38 @@
       <body>
          <listPlace>
             <place type="settlement">
-               <placeName xml:id="" xml:lang="en" srophe:tags="#syriaca-headword" source=""></placeName>
-               <placeName xml:id="" xml:lang="ar" source=""></placeName>
-               <placeName xml:id="" xml:lang="he" source=""></placeName>
-               <desc type="abstract" xml:lang="en"><quote source=""></quote></desc>
+               <placeName xml:id="" xml:lang="en" srophe:tags="#syriaca-headword" source=""/>
+               <placeName xml:id="" xml:lang="ar" source=""/>
+               <placeName xml:id="" xml:lang="he" source=""/>
+               <desc type="abstract" xml:lang="en"><quote source=""/></desc>
                <location>
-                  <geo source=""></geo>
-                  <settlement ref=""></settlement>
-                  <region ref=""></region>
+                  <geo source=""/>
+                  <settlement ref=""/>
+                  <region ref=""/>
                </location>
                <state resp="" type="existence" from="" to=""/>
-               <idno type="URI">https://majlis.net/place/$$$/tei</idno>
+               <idno type="URI">https://jalit.org/place/$$$/tei</idno>
                <idno type="URI">https://geo-kima.org/Places/Details?id=</idno>
                <idno type="URI">https://www.geonames.org/</idno>
                <idno type="URI">https://d-nb.info/gnd/</idno>
                <idno type="URI">http://viaf.org/viaf/</idno>
                <idno type="URI">https://www.wikidata.org/wiki/</idno>
                <bibl xml:id="">
-                  <author></author>
-                  <title xml:lang="en"></title>
-                  <citedRange unit="p"></citedRange>
+                  <author>
+                     <forename/>
+                     <surname/>
+                  </author>
+                  <title xml:lang="" level=""/>
+                  <editor>
+                     <forename/>
+                     <surname/>
+                  </editor>
+                  <date/>
+                  <pubPlace/>
+                  <publisher/>
+                  <series/>
+                  <biblScope from="" to="" unit=""/>
+                  <citedRange unit="p"/>
                   <ptr target=""/>
                </bibl>
             </place>

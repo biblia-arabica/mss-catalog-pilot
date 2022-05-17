@@ -27,8 +27,7 @@ End license statement: do not remove -->
     
 
 -->
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:rng="http://relaxng.org/ns/structure/1.0"
-    xmlns:sch="http://purl.oclc.org/dsdl/schematron" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:rng="http://relaxng.org/ns/structure/1.0" xmlns:sch="http://purl.oclc.org/dsdl/schematron" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
@@ -55,7 +54,7 @@ End license statement: do not remove -->
         </fileDesc>
         <revisionDesc>
             <change who="NG" when="2021-04-21">Created schema on basis of Arabic Manuscripts Schema created by Pietro Liuzzo</change>
-            <change who="MM" when="2022-05-04">Created schema on basis of work by Nathan Gibson</change>
+            <change who="MM" when="2022-05-16">Created schema on basis of work by Nathan Gibson</change>
         </revisionDesc>
     </teiHeader>
     <text>
@@ -73,14 +72,13 @@ End license statement: do not remove -->
                 <p>Constrained this schema for generating forms.</p>
             </div>
             <div>
-                <schemaSpec ident="places" docLang="en" prefix="tei_" start="TEI" xml:lang="en" targetLang="en">
+                <schemaSpec ident="works" docLang="en" prefix="tei_" start="TEI" xml:lang="en" targetLang="en">
                     <!--source="mss-compiled.odd"-->
                     <!--       MODULES USED BY THE SCHEMA
                 the @source ties the current schema to the pre-compiled Arabic Manuscripts Schema, which is tied to version 4.2.0 of TEI
                 -->
 
-                    <moduleRef key="core"
-                        except="list abbr add addrLine address analytic biblStruct binaryObject cb choice cit corr del distinct divGen ellipsis email emph expan foreign gap gb gloss graphic head headItem headLabel hi imprint index item l label lb lg listBibl measure measureGrp media meeting mentioned milestone monogr name noteGrp num orig pb postBox postCode rb reg relatedItem resp respStmt rs rt ruby said sic soCalled sp speaker stage street teiCorpus term time unclear unit note p q ref textLang"/>
+                    <moduleRef key="core" except="list abbr add addrLine address analytic biblStruct binaryObject cb choice cit corr del distinct divGen ellipsis email emph expan foreign gap gb gloss graphic head headItem headLabel hi imprint index item l label lb lg listBibl measure measureGrp media meeting mentioned milestone monogr name noteGrp num orig pb postBox postCode rb reg relatedItem resp respStmt rs rt ruby said sic soCalled sp speaker stage street teiCorpus term time unclear unit p q ref textLang desc"/>
 
                     <moduleRef key="tei"/>
 
@@ -114,15 +112,15 @@ End license statement: do not remove -->
                     <elementSpec ident="support" mode="delete"/>
                     <elementSpec ident="extent" mode="delete"/>
                     <elementSpec ident="formula" mode="delete"/>
-                    <moduleRef key="namesdates" include="forename placeName listPlace location geo settlement region state place surname"/>
+                    <moduleRef key="namesdates" include="forename region surname persName"/>
 
                     <elementSpec ident="textLang" mode="delete"/>
 
                     <elementSpec ident="msContents" mode="delete"/>
                     <elementSpec ident="msItem" mode="delete"/>
-                    <elementSpec ident="note" mode="delete"/>
+                    
                     <elementSpec ident="summary" mode="delete"/>
-                    <elementSpec ident="persName" mode="delete"/>
+                    
                     <elementSpec ident="rubric" mode="delete"/>
                     <elementSpec ident="incipit" mode="delete"/>
                     <elementSpec ident="explicit" mode="delete"/>
@@ -173,11 +171,11 @@ End license statement: do not remove -->
                                 <elementRef key="citedRange"/>
                                 <elementRef key="ptr"/>
                             </alternate>
-                        </content>
+                        <alternate maxOccurs="unbounded" minOccurs="0"><elementRef key="listRelation"/><elementRef key="citedRange"/><elementRef key="ptr"/><elementRef key="author"/><elementRef key="title"/><elementRef key="publisher"/><elementRef key="editor"/><elementRef key="date"/><elementRef key="bibl"/><elementRef key="idno"/><elementRef key="pubPlace"/><elementRef key="note"/><elementRef key="series"/><elementRef key="biblScope"/><elementRef key="citedRange"/><elementRef key="ptr"/></alternate></content>
                         <attList>
                             <attRef name="xml:id" class="att.global"/>
                             <attRef name="xml:id" class="att.global"/>
-                        </attList>
+                        <attRef name="xml:id" class="att.global"/></attList>
                     </elementSpec>
                     <elementSpec ident="birth" mode="delete"/>
                     <elementSpec ident="date" mode="change">
@@ -204,20 +202,7 @@ End license statement: do not remove -->
                         </attList>
                     </elementSpec>
                     <elementSpec ident="death" mode="delete"/>
-                    <elementSpec ident="desc" mode="change">
-                        <classes mode="change">
-                            <memberOf key="att.global" mode="delete"/>
-                            <memberOf key="att.typed" mode="delete"/>
-                        </classes>
-                        <content>
-                            <textNode/>
-                            <elementRef key="quote"/>
-                        </content>
-                        <attList>
-                            <attRef name="type" class="att.entryLike"/>
-                            <attRef name="xml:lang" class="att.global"/>
-                        </attList>
-                    </elementSpec>
+                    <elementSpec ident="desc" mode="delete"/>
                     <elementSpec ident="faith" mode="delete"/>
                     <elementSpec ident="floruit" mode="delete"/>
                     <elementSpec ident="idno" mode="change">
@@ -232,26 +217,7 @@ End license statement: do not remove -->
                     </elementSpec>
                     <elementSpec ident="listRelation" mode="delete"/>
                     <elementSpec ident="occupation" mode="delete"/>
-                    <elementSpec ident="placeName" mode="change">
-                        <classes mode="change">
-                            <memberOf key="att.datable" mode="delete"/>
-                            <memberOf key="att.editLike" mode="delete"/>
-                            <memberOf key="att.global" mode="delete"/>
-                            <memberOf key="att.personal" mode="delete"/>
-                            <memberOf key="att.typed" mode="delete"/>
-                        </classes>
-                        <content>
-                            <textNode/>
-                        </content>
-                        <attList>
-                            <attDef ident="role" mode="delete"/>
-                            <attDef ident="nymRef" mode="delete"/>
-                            <attRef name="ref" class="att.canonical"/>
-                            <attRef name="xml:id" class="att.global"/>
-                            <attRef name="xml:lang" class="att.global"/>
-                            <attRef name="source" class="att.global.source"/>
-                        </attList>
-                    </elementSpec>
+                    <elementSpec ident="placeName" mode="delete"/>
                     <elementSpec ident="relation" mode="delete"/>
                     <elementSpec ident="residence" mode="delete"/>
                     <elementSpec ident="sex" mode="delete"/>
@@ -283,18 +249,7 @@ End license statement: do not remove -->
                         </attList>
                     </elementSpec>
                     <moduleRef key="textstructure" include="text body"/>
-                    <elementSpec ident="listPlace" mode="change">
-                        <classes mode="change">
-                            <memberOf key="att.declarable" mode="delete"/>
-                            <memberOf key="att.sortable" mode="delete"/>
-                            <memberOf key="att.typed" mode="delete"/>
-                        </classes>
-                        <content>
-                            <alternate maxOccurs="unbounded" minOccurs="0">
-                                <elementRef key="place"/>
-                            </alternate>
-                        </content>
-                    </elementSpec>
+                    <elementSpec ident="listPlace" mode="delete"/>
                     <elementSpec ident="text" mode="change">
                         <classes mode="change">
                             <memberOf key="att.declaring" mode="delete"/>
@@ -312,43 +267,9 @@ End license statement: do not remove -->
                             <elementRef key="listPlace"/>
                         </alternate>
                     </elementSpec>
-                    <elementSpec ident="location" mode="change">
-                        <classes mode="change">
-                            <memberOf key="att.datable" mode="delete"/>
-                            <memberOf key="att.editLike" mode="delete"/>
-                            <memberOf key="att.typed" mode="delete"/>
-                        </classes>
-                        <content>
-                            <alternate maxOccurs="unbounded" minOccurs="0">
-                                <elementRef key="geo"/>
-                                <elementRef key="settlement"/>
-                                <elementRef key="region"/>
-                            </alternate>
-                        </content>
-                    </elementSpec>
-                    <elementSpec ident="geo" mode="change">
-                        <classes mode="change">
-                            <memberOf key="att.declaring" mode="delete"/>
-                        </classes>
-                        <attList>
-                            <attRef name="source" class="att.global.source"/>
-                        </attList>
-                        <content>
-                            <textNode/>
-                        </content>
-                    </elementSpec>
-                    <elementSpec ident="settlement" mode="change">
-                        <classes mode="change">
-                            <memberOf key="att.datable" mode="delete"/>
-                            <memberOf key="att.naming" mode="delete"/>
-                        </classes>
-                        <content>
-                            <textNode/>
-                        </content>
-                        <attList>
-                            <attDef ident="type" mode="delete"/>
-                        </attList>
-                    </elementSpec>
+                    <elementSpec ident="location" mode="delete"/>
+                    <elementSpec ident="geo" mode="delete"/>
+                    <elementSpec ident="settlement" mode="delete"/>
                     <elementSpec ident="region" mode="change">
                         <classes mode="change">
                             <memberOf key="att.datable" mode="delete"/>
@@ -361,25 +282,7 @@ End license statement: do not remove -->
                             <attDef ident="key" mode="delete"/>
                         </attList>
                     </elementSpec>
-                    <elementSpec ident="state" mode="change">
-                        <classes mode="change">
-                            <memberOf key="att.datable" mode="delete"/>
-                            <memberOf key="att.editLike" mode="delete"/>
-                            <memberOf key="att.naming" mode="delete"/>
-                            <memberOf key="att.typed" mode="delete"/>
-                        </classes>
-                        <attList>
-                            <attDef ident="key" mode="delete"/>
-                            <attDef ident="ref" mode="delete"/>
-                            <attRef name="resp" class="att.global.responsibility"/>
-                            <attRef name="type" class="att.entryLike"/>
-                            <attRef name="from" class="att.citing"/>
-                            <attRef name="to" class="att.citing"/>
-                        </attList>
-                        <content>
-                            <textNode/>
-                        </content>
-                    </elementSpec>
+                    <elementSpec ident="state" mode="delete"/>
                     <elementSpec ident="author" mode="change">
                         <classes mode="change">
                             <memberOf key="att.datable" mode="delete"/>
@@ -388,7 +291,7 @@ End license statement: do not remove -->
                         <content>
                             <elementRef key="forename"/>
                             <elementRef key="surname"/>
-                        </content>
+                        <elementRef key="forename"/><elementRef key="surname"/><elementRef key="persName"/></content>
                         <attList>
                             <attDef ident="key" mode="delete"/>
                             <attDef ident="ref" mode="delete"/>
@@ -406,7 +309,7 @@ End license statement: do not remove -->
                         <attList>
                             <attDef ident="level" mode="delete"/>
                             <attRef name="xml:lang" class="att.global"/>
-                        </attList>
+                        <attDef ident="n" mode="delete"/><attDef ident="xml:base" mode="delete"/><attDef ident="xml:space" mode="delete"/><attDef ident="ana" mode="delete"/><attDef ident="change" mode="delete"/><attDef ident="facs" mode="delete"/><attDef ident="corresp" mode="delete"/><attDef ident="synch" mode="delete"/><attDef ident="sameAs" mode="delete"/><attDef ident="copyOf" mode="delete"/><attDef ident="next" mode="delete"/><attDef ident="prev" mode="delete"/><attDef ident="exclude" mode="delete"/><attDef ident="select" mode="delete"/><attDef ident="rend" mode="delete"/><attDef ident="style" mode="delete"/><attDef ident="rendition" mode="delete"/><attDef ident="cert" mode="delete"/><attDef ident="resp" mode="delete"/><attDef ident="srophe:tags"><datatype><dataRef name="string"/></datatype></attDef></attList>
                     </elementSpec>
                     <elementSpec ident="publisher" mode="change">
                         <classes mode="change">
@@ -416,99 +319,7 @@ End license statement: do not remove -->
                             <textNode/>
                         </content>
                     </elementSpec>
-                    <elementSpec ident="place" mode="change">
-                        <classes mode="change">
-                            <memberOf key="att.editLike" mode="delete"/>
-                            <memberOf key="att.sortable" mode="delete"/>
-                        </classes>
-                        <attList>
-                            <attDef ident="subtype" mode="delete"/>
-                            <attDef ident="type" mode="replace" usage="req">
-                                <valList type="closed" mode="replace">
-                                    <valItem ident="building">
-                                        <desc>A construction for which there is no narrower category, such as a church or mosque. Examples of this type include palaces and named city gates.</desc>
-                                    </valItem>
-                                    <valItem ident="cemetery">
-                                    </valItem>
-                                    <valItem ident="church">
-                                    </valItem>
-                                    <valItem ident="composite">
-                                        <desc>A named place concept which merges multiple distinct place types, such as a city and a diocese. More specific types are preferred.</desc>
-                                    </valItem>
-                                    <valItem ident="designated-space">
-                                        <desc>An area with artificial boundaries which is not necessarily built up, such as a cemetery, town square, or polo ground.</desc>
-                                    </valItem>
-                                    <valItem ident="diocese">
-                                        <desc>An ecclesiastical province governed by a bishop, archbishop, or metropolitan.</desc>
-                                    </valItem>
-                                    <valItem ident="fortification">
-                                        <desc>A military outpost such as a fort or a castle.</desc>
-                                    </valItem>
-                                    <valItem ident="island">
-                                        <desc>A land-mass smaller than a continent surrounded on all sides by water.</desc>
-                                    </valItem>
-                                    <valItem ident="madrasa">
-                                        <desc>A building or space designated for instruction in the Islamic sciences.</desc>
-                                    </valItem>
-                                    <valItem ident="monastery">
-                                        <desc>A whole monastic complex, including living quarters for the monks or nuns, the church(es), and potentially a refectory, library, school, or other part.</desc>
-                                    </valItem>
-                                    <valItem ident="mosque">
-                                        <desc>A building or designated space used for Muslim congregational prayers. It can be part of a larger building complex.</desc>
-                                    </valItem>
-                                    <valItem ident="mountain">
-                                        <desc>An elevated physical feature, from Mt. Ararat down to a prominent hill.</desc>
-                                    </valItem>
-                                    <valItem ident="natural-feature">
-                                        <desc>A natural feature for which there is no narrower category, such as a mountain or open water. Examples of this type include forests and hot springs.</desc>
-                                    </valItem>
-                                    <valItem ident="open-water">
-                                        <desc>A broad category for seas, lakes, oceans, and ponds.</desc>
-                                    </valItem>
-                                    <valItem ident="parish">
-                                        <desc>An ecclesiastical region below a diocese, presided over by a priest.</desc>
-                                    </valItem>
-                                    <valItem ident="province">
-                                        <desc>A political unit subject to a "state" but larger than a city. States often have multiple levels of administrative units (e.g. the late Ottoman vilayets, sanjaks, kazas, and nahiyes), all of which can be indicated as a "province."</desc>
-                                    </valItem>
-                                    <valItem ident="quarter">
-                                        <desc>A subdivision of an urban center.</desc>
-                                    </valItem>
-                                    <valItem ident="region">
-                                        <desc>A term indicating a geographic extent larger than a city, without a corresponding politico-administrative apparatus. The size could range from a small valley to an entire continent.</desc>
-                                    </valItem>
-                                    <valItem ident="river">
-                                        <desc>A stream of water of whatever size, from the smallest creek to the Amazon. Wadis are also included, even if they are not filled with water year-round.</desc>
-                                    </valItem>
-                                    <valItem ident="settlement">
-                                        <desc>Any collection of civilian residences, from the smallest village to the largest metropolis.</desc>
-                                    </valItem>
-                                    <valItem ident="state">
-                                        <desc>A sovereign government such as an empire, kingdom, caliphate, or independent emirate.</desc>
-                                    </valItem>
-                                    <valItem ident="synagogue">
-                                        <desc>A building designated for use in Jewish worship.</desc>
-                                    </valItem>
-                                    <valItem ident="temple">
-                                        <desc>A building designated for use in pagan worship.</desc>
-                                    </valItem>
-                                    <valItem ident="unknown">
-                                        <desc>A place whose name is known, but what sort of place it represents is unknown.</desc>
-                                    </valItem>
-                                    <valItem ident="valley">
-                                    </valItem>
-                                </valList>
-                            </attDef>
-                        </attList>
-                        <alternate maxOccurs="unbounded" minOccurs="0">
-                            <elementRef key="placeName"/>
-                            <elementRef key="desc"/>
-                            <elementRef key="location"/>
-                            <elementRef key="state"/>
-                            <elementRef key="idno"/>
-                            <elementRef key="bibl"/>
-                        </alternate>
-                    </elementSpec>
+                    <elementSpec ident="place" mode="delete"/>
                     <elementSpec ident="quote" mode="change">
                         <classes mode="change">
                             <memberOf key="att.typed" mode="delete"/>
@@ -571,7 +382,7 @@ End license statement: do not remove -->
                             <textNode/>
                         </content>
                     </elementSpec>
-                </schemaSpec>
+                <elementSpec ident="persName" mode="change"><classes mode="change"><memberOf key="att.global" mode="delete"/><memberOf key="att.typed" mode="delete"/></classes><content><textNode/></content><attList><attDef ident="key" mode="delete"/><attDef ident="ref" mode="delete"/><attDef ident="role" mode="delete"/><attDef ident="nymRef" mode="delete"/></attList></elementSpec><elementSpec ident="note" mode="change"><classes mode="change"><memberOf key="att.pointing" mode="delete"/></classes><content><elementRef key="quote"/><elementRef key="bibl"/></content><attList><attDef ident="xml:id" mode="delete"/><attDef ident="n" mode="delete"/><attDef ident="xml:base" mode="delete"/><attDef ident="xml:space" mode="delete"/><attDef ident="ana" mode="delete"/><attDef ident="change" mode="delete"/><attDef ident="facs" mode="delete"/><attDef ident="corresp" mode="delete"/><attDef ident="synch" mode="delete"/><attDef ident="sameAs" mode="delete"/><attDef ident="copyOf" mode="delete"/><attDef ident="next" mode="delete"/><attDef ident="prev" mode="delete"/><attDef ident="exclude" mode="delete"/><attDef ident="select" mode="delete"/><attDef ident="rend" mode="delete"/><attDef ident="style" mode="delete"/><attDef ident="rendition" mode="delete"/><attDef ident="cert" mode="delete"/><attDef ident="resp" mode="delete"/><attDef ident="subtype" mode="delete"/><attDef ident="hand" mode="delete"/></attList></elementSpec></schemaSpec>
             </div>
         </body>
     </text>
