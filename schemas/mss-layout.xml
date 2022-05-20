@@ -27,7 +27,8 @@ End license statement: do not remove -->
     
 
 -->
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:rng="http://relaxng.org/ns/structure/1.0" xmlns:sch="http://purl.oclc.org/dsdl/schematron" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:rng="http://relaxng.org/ns/structure/1.0"
+    xmlns:sch="http://purl.oclc.org/dsdl/schematron" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
@@ -38,12 +39,11 @@ End license statement: do not remove -->
             </titleStmt>
             <publicationStmt>
                 <authority>Institut für den Nahen und Mittleren Osten</authority>
-                <publisher>ERC-funded project: MAJLIS. The Transformation of Jewish Literature in
-                    Arabic in the Islamicate World</publisher>
+                <publisher>ERC-funded project: MAJLIS. The Transformation of Jewish Literature in Arabic in the Islamicate World</publisher>
                 <pubPlace>München</pubPlace>
                 <availability>
-                    <licence target="http://creativecommons.org/licenses/by-sa/4.0/"> This file is
-                        licensed under the Creative Commons Attribution-ShareAlike 4.0. </licence>
+                    <licence target="http://creativecommons.org/licenses/by-sa/4.0/"> This file is licensed under the Creative Commons
+                        Attribution-ShareAlike 4.0. </licence>
                 </availability>
             </publicationStmt>
             <notesStmt>
@@ -54,8 +54,7 @@ End license statement: do not remove -->
             </sourceDesc>
         </fileDesc>
         <revisionDesc>
-            <change who="NG" when="2021-04-21">Created schema on basis of Arabic Manuscripts Schema
-                created by Pietro Liuzzo</change>
+            <change who="NG" when="2021-04-21">Created schema on basis of Arabic Manuscripts Schema created by Pietro Liuzzo</change>
         </revisionDesc>
     </teiHeader>
     <text>
@@ -65,11 +64,11 @@ End license statement: do not remove -->
         <body>
             <div>
                 <head>Information on this customization</head>
-                <p>Schema for MAJLIS Project. This part of the schema is used for entering
-                    descriptions of the manuscript layout using XForms.</p>
-                <p>Built on the <ref target="https://betamasaheft.eu/Guidelines">Beta maṣāḥǝft
-                        Guidelines</ref> contain examples and details of that customization.</p>
-                <p>Added Rules from the <ref target="https://github.com/msDesc/consolidated-tei-schema/blob/master/msdesc.odd">consolidated schema</ref> of FIRHIST</p>
+                <p>Schema for MAJLIS Project. This part of the schema is used for entering descriptions of the manuscript layout using XForms.</p>
+                <p>Built on the <ref target="https://betamasaheft.eu/Guidelines">Beta maṣāḥǝft Guidelines</ref> contain examples and details of that
+                    customization.</p>
+                <p>Added Rules from the <ref target="https://github.com/msDesc/consolidated-tei-schema/blob/master/msdesc.odd">consolidated
+                        schema</ref> of FIRHIST</p>
                 <p>Constrained this schema for generating forms.</p>
             </div>
             <div>
@@ -157,10 +156,10 @@ End license statement: do not remove -->
 
                     <elementSpec ident="layout" module="msdescription" mode="delete"/>
                     <elementSpec ident="summary" module="msdescription" mode="delete"/>
-                    
-                    
 
-                    
+
+
+
                     <elementSpec ident="p" module="core" mode="change">
                         <content>
                             <textNode/>
@@ -202,12 +201,69 @@ End license statement: do not remove -->
                         <classes mode="change">
                             <memberOf key="att.global" mode="delete"/>
                             <memberOf key="att.typed" mode="delete"/>
-                        <memberOf key="att.dimensions" mode="delete"/><memberOf key="att.global" mode="delete"/><memberOf key="att.typed" mode="delete"/></classes>
-                        <content><textNode/></content><attList>
+                            <memberOf key="att.dimensions" mode="delete"/>
+                            <memberOf key="att.global" mode="delete"/>
+                            <memberOf key="att.typed" mode="delete"/>
+                        </classes>
+                        <content>
+                            <textNode/>
+                        </content>
+                        <attList>
                             <attRef name="type" class="att.entryLike"/>
-                        <attDef ident="atLeast" mode="delete"/><attDef ident="atMost" mode="delete"/><attDef ident="min" mode="delete"/><attDef ident="max" mode="delete"/><attDef ident="confidence" mode="delete"/><attDef ident="type" usage="opt"><datatype><dataRef key="teidata.enumerated"/></datatype><valList><valItem ident="intercolumn"/></valList></attDef></attList>
+                            <attDef ident="atLeast" mode="delete"/>
+                            <attDef ident="atMost" mode="delete"/>
+                            <attDef ident="min" mode="delete"/>
+                            <attDef ident="max" mode="delete"/>
+                            <attDef ident="confidence" mode="delete"/>
+                            <attDef ident="type" usage="opt">
+                                <datatype>
+                                    <dataRef key="teidata.enumerated"/>
+                                </datatype>
+                                <valList>
+                                    <valItem ident="intercolumn"/>
+                                </valList>
+                            </attDef>
+                        </attList>
                     </elementSpec>
-                <elementSpec ident="height" mode="change"><classes mode="change"><memberOf key="att.dimensions" mode="delete"/><memberOf key="att.global" mode="delete"/></classes><content><textNode/></content></elementSpec><elementSpec ident="width" mode="change"><classes mode="change"><memberOf key="att.dimensions" mode="delete"/><memberOf key="att.global" mode="delete"/></classes><content><textNode/></content></elementSpec><elementSpec ident="ab" mode="change"><classes mode="change"><memberOf key="att.declaring" mode="delete"/><memberOf key="att.fragmentable" mode="delete"/><memberOf key="att.global" mode="delete"/><memberOf key="att.written" mode="delete"/></classes><content><textNode/></content><attList><attDef ident="subtype" mode="delete"/><attDef ident="type" mode="change"><valList mode="change"><valItem mode="add" ident="ruling"/><valItem mode="add" ident="pricking"/></valList></attDef></attList></elementSpec></schemaSpec>
+                    <elementSpec ident="height" mode="change">
+                        <classes mode="change">
+                            <memberOf key="att.dimensions" mode="delete"/>
+                            <memberOf key="att.global" mode="delete"/>
+                        </classes>
+                        <content>
+                            <textNode/>
+                        </content>
+                    </elementSpec>
+                    <elementSpec ident="width" mode="change">
+                        <classes mode="change">
+                            <memberOf key="att.dimensions" mode="delete"/>
+                            <memberOf key="att.global" mode="delete"/>
+                        </classes>
+                        <content>
+                            <textNode/>
+                        </content>
+                    </elementSpec>
+                    <elementSpec ident="ab" mode="change">
+                        <classes mode="change">
+                            <memberOf key="att.declaring" mode="delete"/>
+                            <memberOf key="att.fragmentable" mode="delete"/>
+                            <memberOf key="att.global" mode="delete"/>
+                            <memberOf key="att.written" mode="delete"/>
+                        </classes>
+                        <content>
+                            <textNode/>
+                        </content>
+                        <attList>
+                            <attDef ident="subtype" mode="delete"/>
+                            <attDef ident="type" mode="change">
+                                <valList mode="change">
+                                    <valItem mode="add" ident="ruling"/>
+                                    <valItem mode="add" ident="pricking"/>
+                                </valList>
+                            </attDef>
+                        </attList>
+                    </elementSpec>
+                </schemaSpec>
             </div>
         </body>
     </text>

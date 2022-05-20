@@ -566,6 +566,12 @@ End license statement: do not remove -->
                             <attDef ident="calendar" mode="delete"/>
                             <attDef ident="cert" mode="delete"/>
                             <attDef ident="change" mode="delete"/>
+                            <attDef ident="contemporary" mode="change">
+                                <valList type="closed" mode="change">
+                                    <valItem mode="add" ident="true"/>
+                                    <valItem mode="add" ident="false"/>
+                                </valList>
+                            </attDef>
                             <attDef ident="copyOf" mode="delete"/>
                             <attDef ident="corresp" mode="delete"/>
                             <attDef ident="datingMethod" mode="delete"/>
