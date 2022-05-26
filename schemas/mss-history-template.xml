@@ -8,7 +8,7 @@
         <p/>
         <locus target=""/>
         <p/>
-        <persName role=""/>
+        <persName ref="" role=""/>
         <p/>
         <q xml:lang=""/>
         <p/>
@@ -22,8 +22,6 @@
         <locus target=""/>
         <p/>
         <persName ref=""/>
-        <p/>
-        <signatures/>
         <p/>
         <stamp/>
         <p/>
@@ -39,8 +37,6 @@
         <locus target=""/>
         <p/>
         <persName ref=""/>
-        <p/>
-        <signatures/>
         <p/>
         <stamp/>
         <p/>
