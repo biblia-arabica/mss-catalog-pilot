@@ -27,8 +27,7 @@ End license statement: do not remove -->
     
 
 -->
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:rng="http://relaxng.org/ns/structure/1.0"
-    xmlns:sch="http://purl.oclc.org/dsdl/schematron" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:rng="http://relaxng.org/ns/structure/1.0" xmlns:sch="http://purl.oclc.org/dsdl/schematron" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
@@ -80,9 +79,9 @@ End license statement: do not remove -->
 
                     <moduleRef key="core" include="p"/>
                     <moduleRef key="linking" include="ab"/>
-                    <moduleRef key="msdescription"/>
+                    <moduleRef key="msdescription" except="accMat additional additions adminInfo altIdentifier binding bindingDesc collection colophon custEvent custodialHist decoDesc decoNote depth explicit filiation finalRubric handDesc heraldry history incipit institution msContents msIdentifier msItem msItemStruct msName msPart musicNotation objectType recordHist repository rubric scriptDesc seal sealDesc secFol signatures source stamp support supportDesc"/>
                     <moduleRef key="tei"/>
-                    <elementSpec ident="note" module="core" mode="change date">
+                    <elementSpec ident="note" module="core" mode="change date"><desc versionDate="2022-05-27" xml:lang="en">This is the place to remark on points that don't fit the mold of the other elements or more extensive observations.</desc>
                         <classes mode="replace">
                             <memberOf key="model.annotationLike"/>
                             <memberOf key="model.annotationPart.body"/>
@@ -137,7 +136,7 @@ End license statement: do not remove -->
                             <attDef ident="style" mode="delete"/>
                         </attList>
                     </elementSpec>
-                    <elementSpec ident="locus" module="msdescription" mode="delete"/>
+                    
                     <elementSpec ident="locusGrp" module="msdescription" mode="delete"/>
                     <elementSpec ident="msFrag" module="msdescription" mode="delete"/>
                     <elementSpec ident="TEI" module="textstructure" mode="delete"/>
@@ -152,15 +151,15 @@ End license statement: do not remove -->
                     <elementSpec ident="origDate" module="msdescription" mode="delete"/>
                     <elementSpec ident="origPlace" module="msdescription" mode="delete"/>
                     <elementSpec ident="physDesc" module="msdescription" mode="delete"/>
-                    <elementSpec ident="layoutDesc" module="msdescription" mode="delete"/>
+                    
 
-                    <elementSpec ident="layout" module="msdescription" mode="delete"/>
+                    
                     <elementSpec ident="summary" module="msdescription" mode="delete"/>
 
 
 
 
-                    <elementSpec ident="p" module="core" mode="change">
+                    <elementSpec ident="p" module="core" mode="change"><desc versionDate="2022-05-27" xml:lang="en">Enter prose text to connect the fields dedicated to specific elements and form a coherent descriptive text.</desc>
                         <content>
                             <textNode/>
                         </content>
@@ -196,8 +195,8 @@ End license statement: do not remove -->
                     <elementSpec ident="origin" mode="delete"/>
                     <elementSpec ident="provenance" mode="delete"/>
                     <elementSpec ident="q" mode="delete"/>
-                    <elementSpec ident="dimensions" mode="delete"/>
-                    <elementSpec ident="dim" mode="change">
+                    
+                    <elementSpec ident="dim" mode="change"><desc versionDate="2022-05-27" xml:lang="en">Specify the amount of space between two columns of text in millimeters.</desc>
                         <classes mode="change">
                             <memberOf key="att.global" mode="delete"/>
                             <memberOf key="att.typed" mode="delete"/>
@@ -225,7 +224,7 @@ End license statement: do not remove -->
                             </attDef>
                         </attList>
                     </elementSpec>
-                    <elementSpec ident="height" mode="change">
+                    <elementSpec ident="height" mode="change"><desc versionDate="2022-05-27" xml:lang="en" xml:id="height.desc">The height of the text space, measured in millimeters.</desc>
                         <classes mode="change">
                             <memberOf key="att.dimensions" mode="delete"/>
                             <memberOf key="att.global" mode="delete"/>
@@ -234,7 +233,7 @@ End license statement: do not remove -->
                             <textNode/>
                         </content>
                     </elementSpec>
-                    <elementSpec ident="width" mode="change">
+                    <elementSpec ident="width" mode="change"><desc versionDate="2022-05-27" xml:id="width.desc" xml:lang="en">The width of the text space, measured in millimeters.</desc>
                         <classes mode="change">
                             <memberOf key="att.dimensions" mode="delete"/>
                             <memberOf key="att.global" mode="delete"/>
@@ -243,7 +242,7 @@ End license statement: do not remove -->
                             <textNode/>
                         </content>
                     </elementSpec>
-                    <elementSpec ident="ab" mode="change">
+                    <elementSpec ident="ab" mode="change"><desc versionDate="2022-05-27" xml:lang="en">Describe pricking and ruling of the page layout and choose appropriate values for the "type" attribute.</desc>
                         <classes mode="change">
                             <memberOf key="att.declaring" mode="delete"/>
                             <memberOf key="att.fragmentable" mode="delete"/>
@@ -263,7 +262,7 @@ End license statement: do not remove -->
                             </attDef>
                         </attList>
                     </elementSpec>
-                </schemaSpec>
+                <elementSpec ident="dimensions" mode="change"><desc versionDate="2022-05-27" xml:lang="en" xml:id="dimensions.desc">The measurements of the text space.</desc></elementSpec><elementSpec ident="layout" mode="change"><desc versionDate="2022-05-27" xml:lang="en" xml:id="layout.desc">Provide the typology of the layout and describe it. Specify the number of columns and lines in the correct attributes.</desc></elementSpec><elementSpec ident="layoutDesc" mode="change"><desc versionDate="2022-05-27" xml:lang="en">This element contains layout descriptions.</desc></elementSpec><elementSpec ident="locus" mode="change"><desc versionDate="2022-05-27" xml:lang="en" xml:id="locus.desc">The location of a text or another feature within the manuscript. The "target" attribute is used for single folio. The "from" and "to" attributes are used together to describe a range of folios.</desc></elementSpec></schemaSpec>
             </div>
         </body>
     </text>
