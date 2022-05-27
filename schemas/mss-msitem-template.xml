@@ -1,20 +1,4 @@
 <msDesc>
-    <msIdentifier>
-        <country/>
-        <settlement/>
-        <repository/>
-        <idno/>
-        <altIdentifier>
-            <idno type="IMHM"/>
-        </altIdentifier>
-        <altIdentifier>
-            <idno type="SfarData"/>
-        </altIdentifier>
-        <altIdentifier>
-            <idno type="Ktiv"/>
-        </altIdentifier>
-        <msName/>
-    </msIdentifier>
     <msContents>
         <summary/>
         <msItem xml:id="" class="">
@@ -24,33 +8,30 @@
             <title xml:lang="en" ref=""/>
             <author ref="">
                 <persName>
-                    <forename/>
-                    <surname/>
-                    <addName/>
                 </persName>
             </author>
-            <textLang mainLang=""/>
-            <rubric>
+            <textLang mainLang="" otherLangs=""/>
+            <rubric xml:lang="">
                 <locus from="" to=""/>
-                <q/>
+                <q xml:lang=""/>
             </rubric>
-            <incipit>
+            <incipit xml:lang="">
                 <locus from="" to=""/>
-                <q/>
+                <q xml:lang=""/>
             </incipit>
-            <explicit>
+            <explicit xml:lang="">
                 <locus from="" to=""/>
-                <q/>
+                <q xml:lang=""/>
             </explicit>
-            <finalRubric>
+            <finalRubric xml:lang="">
                 <locus from="" to=""/>
-                <q/>
+                <q xml:lang=""/>
             </finalRubric>
-            <colophon>
+            <colophon xml:lang="">
                 <locus from="" to=""/>
-                <q/>
+                <q xml:lang=""/>
             </colophon>
-            <note/>
+            <note><p/></note>
         </msItem>
     </msContents>
 </msDesc>

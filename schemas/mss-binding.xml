@@ -27,9 +27,7 @@ End license statement: do not remove -->
     
 
 -->
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:tei="http://www.tei-c.org/ns/1.0"
-    xmlns:rng="http://relaxng.org/ns/structure/1.0" xmlns:sch="http://purl.oclc.org/dsdl/schematron"
-    xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:rng="http://relaxng.org/ns/structure/1.0" xmlns:sch="http://purl.oclc.org/dsdl/schematron" xml:lang="en">
     <teiHeader>
         <fileDesc>
             <titleStmt>
@@ -71,79 +69,28 @@ End license statement: do not remove -->
                     descriptions of the manuscript binding using XForms.</p>
                 <p>Built on the <ref target="https://betamasaheft.eu/Guidelines">Beta maṣāḥǝft
                         Guidelines</ref> contain examples and details of that customization.</p>
-                <p>Added Rules from the <ref
-                        target="https://github.com/msDesc/consolidated-tei-schema/blob/master/msdesc.odd"
-                        >consolidated schema</ref> of FIRHIST</p>
+                <p>Added Rules from the <ref target="https://github.com/msDesc/consolidated-tei-schema/blob/master/msdesc.odd">consolidated schema</ref> of FIRHIST</p>
                 <p>Constrained this schema for generating forms.</p>
             </div>
             <div>
-                <schemaSpec ident="mss-binding" docLang="en" prefix="tei_" start="TEI" xml:lang="en"
-                    targetLang="en">
+                <schemaSpec ident="mss-binding" docLang="en" prefix="tei_" start="TEI" xml:lang="en" targetLang="en">
                     <!--source="mss-compiled.odd"-->
                     <!--       MODULES USED BY THE SCHEMA
                 the @source ties the current schema to the pre-compiled Arabic Manuscripts Schema, which is tied to version 4.2.0 of TEI
                 -->
-                    <moduleRef key="textstructure" include="TEI"/>
-                    <moduleRef key="core"/>
-                    <moduleRef key="msdescription" include="binding bindingDesc condition"/>
+                    
+                    <moduleRef key="core" except="abbr add addrLine address analytic author bibl biblScope biblStruct binaryObject cb choice cit citedRange corr date del desc distinct divGen editor ellipsis email emph expan foreign gap gb gloss graphic head headItem headLabel hi imprint index item l label lb lg list listBibl measure measureGrp media meeting mentioned milestone monogr name noteGrp num orig pb postBox postCode ptr pubPlace publisher q quote rb ref reg relatedItem resp respStmt rs rt ruby said series sic soCalled sp speaker stage street teiCorpus term textLang time title unclear unit"/>
+                    <moduleRef key="msdescription" except="physDesc"/>
                     <moduleRef key="tei"/>
                     <elementSpec ident="note" module="core" mode="delete"/>
                     <elementSpec ident="locus" module="msdescription" mode="delete"/>
                     <elementSpec ident="locusGrp" module="msdescription" mode="delete"/>
                     <elementSpec ident="msFrag" module="msdescription" mode="delete"/>
-                    <elementSpec ident="TEI" module="textstructure" mode="change">
-                        <classes mode="replace">
-                            <memberOf key="model.describedResource"/>
-                            <memberOf key="att.global"/>
-                            <memberOf key="att.typed" mode="delete"/>
-                        </classes>
-                    </elementSpec>
-                    <elementSpec ident="msDesc" module="msdescription" mode="change">
-                        <classes mode="replace">
-                            <memberOf key="model.biblLike"/>
-                            <memberOf key="att.declaring"/>
-                            <memberOf key="att.docStatus"/>
-                            <memberOf key="att.sortable"/>
-                            <memberOf key="att.typed"/>
-                            <memberOf key="att.global" mode="delete"/>
-                        </classes>
-                        <content>
-                            <sequence maxOccurs="1" minOccurs="1">
-                                <elementRef key="physDesc"/>
-                            </sequence>
-                        </content>
-                        <attList>
-                            <attDef ident="rendition" mode="delete"/>
-                            <attDef ident="style" mode="delete"/>
-                            <attDef ident="xml:base" mode="delete"/>
-                            <attDef ident="decls" mode="delete"/>
-                            <attDef ident="sortKey" mode="delete"/>
-                            <attDef ident="cert" mode="delete"/>
-                            <attDef ident="rend" mode="delete"/>
-                            <attDef ident="ana" mode="delete"/>
-                            <attDef ident="change" mode="delete"/>
-                            <attDef ident="copyOf" mode="delete"/>
-                            <attDef ident="corresp" mode="delete"/>
-                            <attDef ident="exclude" mode="delete"/>
-                            <attDef ident="facs" mode="delete"/>
-                            <attDef ident="next" mode="delete"/>
-                            <attDef ident="prev" mode="delete"/>
-                            <attDef ident="resp" mode="delete"/>
-                            <attDef ident="sameAs" mode="delete"/>
-                            <attDef ident="select" mode="delete"/>
-                            <attDef ident="source" mode="delete"/>
-                            <attDef ident="status" mode="delete"/>
-                            <attDef ident="subtype" mode="delete"/>
-                            <attDef ident="synch" mode="delete"/>
-                            <attDef ident="type" mode="delete"/>
-                            <attDef ident="xml:id" mode="delete"/>
-                            <attDef ident="xml:lang" mode="delete"/>
-                            <attDef ident="xml:space" mode="delete"/>
-                        </attList>
-                    </elementSpec>
+                    <elementSpec ident="TEI" module="textstructure" mode="delete"/>
+                    <elementSpec ident="msDesc" module="msdescription" mode="delete"/>
                     <elementSpec ident="catchwords" module="msdescription" mode="delete"/>
                     <elementSpec ident="collation" module="msdescription" mode="delete"/>
-                    <elementSpec ident="condition" module="msdescription" mode="change">
+                    <elementSpec ident="condition" module="msdescription" mode="change"><desc versionDate="2022-05-27" xml:id="condition.desc" xml:lang="en">Preservation, conservation and restoration history; present state of fragment; damages. Choose from the list a generic description that fits best your overall impression.</desc>
                         <content>
                             <elementRef key="p"/>
                         </content>
@@ -170,102 +117,14 @@ End license statement: do not remove -->
                             <attDef ident="xml:id" mode="delete"/>
                             <attDef ident="xml:lang" mode="delete"/>
                             <attDef ident="xml:space" mode="delete"/>
-                        </attList>
+                        <attDef ident="key" usage="opt"><datatype><dataRef key="teidata.text"/></datatype><valList type="closed"><valItem ident="deficient"/><valItem ident="good"/><valItem ident="intact"/><valItem ident="other"/></valList></attDef></attList>
                     </elementSpec>
                     <elementSpec ident="dim" module="msdescription" mode="delete"/>
                     <elementSpec ident="foliation" module="msdescription" mode="delete"/>
-                    <elementSpec ident="material" module="msdescription" mode="change">
-                        <content>
-                            <textNode/>
-                        </content>
-                        <attList>
-                            <attDef ident="ana" mode="delete"/>
-                            <attDef ident="change" mode="delete"/>
-                            <attDef ident="copyOf" mode="delete"/>
-                            <attDef ident="corresp" mode="delete"/>
-                            <attDef ident="exclude" mode="delete"/>
-                            <attDef ident="facs" mode="delete"/>
-                            <attDef ident="function" mode="delete"/>
-                            <attDef ident="key" mode="replace" usage="req">
-                                <valList type="closed">
-                                    <valItem ident="wood"/>
-                                    <valItem ident="papyrus"/>
-                                    <valItem ident="cardboard"/>
-                                    <valItem ident="leather"/>
-                                    <valItem ident="metal"/>
-                                    <valItem ident="paper"/>
-                                    <valItem ident="textile"/>
-                                    <valItem ident="other"/>
-                                    <valItem ident="parchment"/>
-                                    <valItem ident="silk"/>
-                                    <valItem ident="stone"/>
-                                    <valItem ident="bronze"/>
-                                    <valItem ident="alabaster"/>
-                                    <valItem ident="cotton"/>
-                                </valList>
-                            </attDef>
-                            <attDef ident="next" mode="delete"/>
-                            <attDef ident="prev" mode="delete"/>
-                            <attDef ident="ref" mode="delete"/>
-                            <attDef ident="rend" mode="delete"/>
-                            <attDef ident="rendition" mode="delete"/>
-                            <attDef ident="resp" mode="delete"/>
-                            <attDef ident="sameAs" mode="delete"/>
-                            <attDef ident="select" mode="delete"/>
-                            <attDef ident="source" mode="delete"/>
-                            <attDef ident="style" mode="delete"/>
-                            <attDef ident="subtype" mode="delete"/>
-                            <attDef ident="synch" mode="delete"/>
-                            <attDef ident="target" mode="delete"/>
-                            <attDef ident="xml:base" mode="delete"/>
-                            <attDef ident="xml:id" mode="delete"/>
-                            <attDef ident="xml:lang" mode="delete"/>
-                            <attDef ident="xml:space" mode="delete"/>
-                            <attDef ident="cert" mode="delete"/>
-                            <attDef ident="n" mode="delete"/>
-                        </attList>
-                    </elementSpec>
-                    <elementSpec ident="objectDesc" module="msdescription" mode="change">
-                        <attList>
-                            <attDef ident="ana" mode="delete"/>
-                            <attDef ident="cert" mode="delete"/>
-                            <attDef ident="change" mode="delete"/>
-                            <attDef ident="copyOf" mode="delete"/>
-                            <attDef ident="corresp" mode="delete"/>
-                            <attDef ident="exclude" mode="delete"/>
-                            <attDef ident="facs" mode="delete"/>
-                            <attDef ident="form" mode="change">
-                                <valList type="closed" mode="change">
-                                    <valItem mode="add" ident="single">
-                                        <desc xml:lang="en">used for Single manuscript</desc>
-                                    </valItem>
-                                    <valItem mode="add" ident="composite">
-                                        <desc xml:lang="en">used for Composite manuscript</desc>
-                                    </valItem>
-                                    <valItem mode="add" ident="multiple">
-                                        <desc xml:lang="en">used for Multiple Text Manuscript</desc>
-                                    </valItem>
-                                </valList>
-                            </attDef>
-                            <attDef ident="n" mode="delete"/>
-                            <attDef ident="next" mode="delete"/>
-                            <attDef ident="prev" mode="delete"/>
-                            <attDef ident="rend" mode="delete"/>
-                            <attDef ident="rendition" mode="delete"/>
-                            <attDef ident="resp" mode="delete"/>
-                            <attDef ident="sameAs" mode="delete"/>
-                            <attDef ident="select" mode="delete"/>
-                            <attDef ident="source" mode="delete"/>
-                            <attDef ident="style" mode="delete"/>
-                            <attDef ident="synch" mode="delete"/>
-                            <attDef ident="xml:base" mode="delete"/>
-                            <attDef ident="xml:id" mode="delete"/>
-                            <attDef ident="xml:lang" mode="delete"/>
-                            <attDef ident="xml:space" mode="delete"/>
-                        </attList>
-                    </elementSpec>
-                    <elementSpec ident="origDate" module="msdescription" mode="change">
-                        <content>
+                    <elementSpec ident="material" module="msdescription" mode="delete"/>
+                    <elementSpec ident="objectDesc" module="msdescription" mode="delete"/>
+                    <elementSpec ident="origDate" module="msdescription" mode="change"><desc versionDate="2022-05-27" xml:lang="en" xml:id="origdate.desc">Fill in the date in the agreed-upon calendrical system. Use the "when" attribute for precise values. In case the date can only be approximated, use the "notAfter"and "notBefore" attributes together.</desc>
+                        <classes mode="change"><memberOf key="att.dimensions" mode="delete"/><memberOf key="att.editLike" mode="delete"/><memberOf key="att.global" mode="delete"/><memberOf key="att.typed" mode="delete"/></classes><content>
                             <textNode/>
                         </content>
                         <attList>
@@ -317,9 +176,9 @@ End license statement: do not remove -->
                             <attDef ident="xml:id" mode="delete"/>
                             <attDef ident="xml:lang" mode="delete"/>
                             <attDef ident="xml:space" mode="delete"/>
-                        </attList>
+                        <attDef ident="period" mode="delete"/><attDef ident="calendar" mode="delete"/></attList>
                     </elementSpec>
-                    <elementSpec ident="origPlace" module="msdescription" mode="change">
+                    <elementSpec ident="origPlace" module="msdescription" mode="change"><desc versionDate="2022-05-27" xml:lang="en" xml:id="origplace.desc">Look up the place records in the database to specify the location where the manuscript or manuscript part was produced. Try different spellings in different languages! If no suitable record exists, create a new one. (The "ref" attribute will be filled out automatically when you link a place record to this element.)</desc>
                         <content>
                             <textNode/>
                         </content>
@@ -371,37 +230,9 @@ End license statement: do not remove -->
                             <attDef ident="xml:space" mode="delete"/>
                         </attList>
                     </elementSpec>
-                    <elementSpec ident="physDesc" module="msdescription" mode="change">
-                        <content>
-                            <sequence maxOccurs="1" minOccurs="1">
-                                <elementRef key="bindingDesc"/>
-                            </sequence>
-                        </content>
-                        <attList>
-                            <attDef ident="ana" mode="delete"/>
-                            <attDef ident="cert" mode="delete"/>
-                            <attDef ident="change" mode="delete"/>
-                            <attDef ident="copyOf" mode="delete"/>
-                            <attDef ident="corresp" mode="delete"/>
-                            <attDef ident="exclude" mode="delete"/>
-                            <attDef ident="facs" mode="delete"/>
-                            <attDef ident="next" mode="delete"/>
-                            <attDef ident="prev" mode="delete"/>
-                            <attDef ident="rend" mode="delete"/>
-                            <attDef ident="rendition" mode="delete"/>
-                            <attDef ident="sameAs" mode="delete"/>
-                            <attDef ident="select" mode="delete"/>
-                            <attDef ident="source" mode="delete"/>
-                            <attDef ident="style" mode="delete"/>
-                            <attDef ident="synch" mode="delete"/>
-                            <attDef ident="xml:base" mode="delete"/>
-                            <attDef ident="xml:id" mode="delete"/>
-                            <attDef ident="xml:lang" mode="delete"/>
-                            <attDef ident="xml:space" mode="delete"/>
-                        </attList>
-                    </elementSpec>
+                    <elementSpec ident="physDesc" module="msdescription" mode="delete"/>
                     <elementSpec ident="layoutDesc" module="msdescription" mode="delete"/>
-                    <elementSpec ident="dimensions" module="msdescription" mode="change">
+                    <elementSpec ident="dimensions" module="msdescription" mode="change"><desc versionDate="2022-05-27" xml:lang="en" xml:id="dimensions.desc">The measurements of the binding.</desc>
                         <attList>
                             <attDef ident="ana" mode="delete"/>
                             <attDef ident="atLeast" mode="delete"/>
@@ -439,7 +270,7 @@ End license statement: do not remove -->
                     </elementSpec>
                     <elementSpec ident="layout" module="msdescription" mode="delete"/>
                     <elementSpec ident="summary" module="msdescription" mode="delete"/>
-                    <elementSpec ident="height" module="msdescription" mode="change">
+                    <elementSpec ident="height" module="msdescription" mode="change"><desc versionDate="2022-05-27" xml:lang="en" xml:id="height.desc">The height of the binding, measured in millimeters.</desc>
                         <content>
                             <textNode/>
                         </content>
@@ -477,7 +308,7 @@ End license statement: do not remove -->
                             <attDef ident="xml:lang" mode="delete"/>
                         </attList>
                     </elementSpec>
-                    <elementSpec ident="width" module="msdescription" mode="change">
+                    <elementSpec ident="width" module="msdescription" mode="change"><desc versionDate="2022-05-27" xml:lang="en" xml:id="width.desc">The width of the binding, measured in millimeters.</desc>
                         <content>
                             <textNode/>
                         </content>
@@ -518,7 +349,7 @@ End license statement: do not remove -->
                     </elementSpec>
 
                     <elementSpec ident="ab" module="linking" mode="delete"/>
-                    <elementSpec ident="p" module="core" mode="change">
+                    <elementSpec ident="p" module="core" mode="change"><desc versionDate="2022-05-27" xml:lang="en">Enter prose text to connect the fields dedicated to specific elements and form a coherent descriptive text.</desc>
                         <content>
                             <textNode/>
                         </content>
@@ -550,7 +381,7 @@ End license statement: do not remove -->
                             <attDef ident="xml:space" mode="delete"/>
                         </attList>
                     </elementSpec>
-                    <elementSpec ident="binding" module="msdescription" mode="change">
+                    <elementSpec ident="binding" module="msdescription" mode="change"><desc versionDate="2022-05-27" xml:id="binding.desc" xml:lang="en">Description of the material, dimensions, and preservation of the binding. Specify in the attribute if the binding is contemporary to the manuscript's production or not with the values "true" or "false".</desc>
                         <content>
                             <alternate maxOccurs="unbounded" minOccurs="1">
                                 <elementRef key="dimensions"/>
@@ -610,7 +441,7 @@ End license statement: do not remove -->
                             <attDef ident="when" mode="delete"/>
                         </attList>
                     </elementSpec>
-                    <elementSpec ident="bindingDesc" module="msdescription" mode="change">
+                    <elementSpec ident="bindingDesc" module="msdescription" mode="change"><desc versionDate="2022-05-27" xml:id="bindingdesc.desc" xml:lang="en">Container element for description of the binding.</desc>
                         <attList>
                             <attDef ident="ana" mode="delete"/>
                             <attDef ident="cert" mode="delete"/>
@@ -636,7 +467,7 @@ End license statement: do not remove -->
                             <attDef ident="xml:space" mode="delete"/>
                         </attList>
                     </elementSpec>
-                    <elementSpec ident="decoNote" module="msdescription" mode="change">
+                    <elementSpec ident="decoNote" module="msdescription" mode="change"><desc versionDate="2022-05-27" xml:lang="en" xml:id="deconote.desc">Describe the manuscript’s decoration. Choose the "type" from the list.</desc>
                         <content>
                             <elementRef key="p"/>
                             <elementRef key="material"/>
@@ -822,7 +653,7 @@ End license statement: do not remove -->
                             <attDef ident="xml:space" mode="delete"/>
                         </attList>
                     </elementSpec>
-                    <elementSpec ident="depth" module="msdescription" mode="change">
+                    <elementSpec ident="depth" module="msdescription" mode="change"><desc versionDate="2022-05-27" xml:lang="en" xml:id="depth.desc">The depth of the binding, measured in millimeters.</desc>
                         <content>
                             <textNode/>
                         </content>
