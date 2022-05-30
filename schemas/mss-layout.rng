@@ -5,7 +5,7 @@
          xmlns="http://relaxng.org/ns/structure/1.0"
          datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
          ns="http://www.tei-c.org/ns/1.0"><!--
-Schema generated from ODD source 2022-05-27T12:55:16Z. .
+Schema generated from ODD source 2022-05-30T16:35:29Z. .
 TEI Edition: Version 4.4.0. Last updated on
         19th April 2022, revision ff9cc28b0
 TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.4.0/
@@ -624,12 +624,6 @@ Sample values include: 1] all; 2] most; 3] range</a:documentation>
    <define name="tei_model.dateLike_sequenceRepeatable">
       <notAllowed/>
    </define>
-   <define name="tei_model.dimLike">
-      <choice>
-         <ref name="tei_height"/>
-         <ref name="tei_width"/>
-      </choice>
-   </define>
    <define name="tei_model.measureLike">
       <choice>
          <ref name="tei_dim"/>
@@ -998,6 +992,7 @@ Sample values include: 1] all; 2] most; 3] range</a:documentation>
       <element name="p">
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(paragraph) Enter prose text to connect the fields dedicated to specific elements and form a coherent descriptive text. [3.1. Paragraphs 7.2.5. Speech Contents]</a:documentation>
          <text/>
+         <text/>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
                   id="mss-layout-p-abstractModel-structure-p-in-ab-or-p-constraint-report-2">
             <rule context="tei:p">
@@ -1173,7 +1168,8 @@ Sample values include: 1] all; 2] most; 3] range</a:documentation>
          <zeroOrMore>
             <choice>
                <ref name="tei_dim"/>
-               <ref name="tei_model.dimLike"/>
+               <ref name="tei_width"/>
+               <ref name="tei_height"/>
             </choice>
          </zeroOrMore>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
@@ -1289,7 +1285,10 @@ Sample values include: 1] leaves; 2] ruled; 3] pricked; 4] written; 5] miniature
    <define name="tei_layout">
       <element name="layout">
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(layout) Provide the typology of the layout and describe it. Specify the number of columns and lines in the correct attributes. [10.7.2. Writing, Decoration, and Other Notations]</a:documentation>
-         <ref name="tei_macro.specialPara"/>
+         <ref name="tei_note"/>
+         <ref name="tei_dimensions"/>
+         <ref name="tei_ab"/>
+         <ref name="tei_p"/>
          <ref name="tei_att.global.attributes"/>
          <optional>
             <attribute name="columns">
@@ -1350,6 +1349,8 @@ Sample values include: 1] leaves; 2] ruled; 3] pricked; 4] written; 5] miniature
    <define name="tei_note">
       <element name="note">
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">This is the place to remark on points that don't fit the mold of the other elements or more extensive observations.</a:documentation>
+         <ref name="tei_p"/>
+         <ref name="tei_locus"/>
          <ref name="tei_p"/>
          <ref name="tei_locus"/>
          <ref name="tei_att.global.attribute.xmlid"/>
