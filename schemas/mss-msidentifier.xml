@@ -105,8 +105,6 @@ End license statement: do not remove -->
                     <elementSpec ident="item" module="core" mode="delete"/>
                     <elementSpec ident="list" module="core" mode="delete"/>
                     <elementSpec ident="measure" module="core" mode="delete"/>
-
-
                     <elementSpec ident="dimensions" mode="delete"/>
                     <elementSpec ident="supportDesc" mode="delete"/>
                     <elementSpec ident="support" mode="delete"/>
