@@ -79,7 +79,7 @@ End license statement: do not remove -->
 
                     <moduleRef key="core" include="p"/>
                     <moduleRef key="linking" include="ab"/>
-                    <moduleRef key="msdescription" except="accMat additional additions adminInfo altIdentifier binding bindingDesc collection colophon custEvent custodialHist decoDesc decoNote depth explicit filiation finalRubric handDesc heraldry history incipit institution msContents msIdentifier msItem msItemStruct msName msPart musicNotation objectType recordHist repository rubric scriptDesc seal sealDesc secFol signatures source stamp support supportDesc"/>
+                    <moduleRef key="msdescription" except="accMat additional additions adminInfo altIdentifier binding bindingDesc collection colophon custEvent custodialHist decoDesc decoNote depth explicit filiation finalRubric handDesc heraldry history incipit institution msContents msIdentifier msItem msItemStruct msName msPart musicNotation objectType recordHist repository rubric scriptDesc seal sealDesc secFol signatures source stamp support supportDesc acquisition catchwords collation condition foliation locusGrp material msDesc msFrag objectDesc origDate origPlace origin physDesc provenance summary"/>
                     <moduleRef key="tei"/>
                     <elementSpec ident="note" module="core" mode="change date"><desc versionDate="2022-05-27" xml:lang="en">This is the place to remark on points that don't fit the mold of the other elements or more extensive observations.</desc>
                         <classes mode="replace">
@@ -99,7 +99,7 @@ End license statement: do not remove -->
                         <content>
                             <elementRef key="p"/>
                             <elementRef key="locus"/>
-                        </content>
+                        <elementRef key="p"/><elementRef key="locus"/></content>
                         <attList>
                             <attDef ident="n" mode="delete"/>
                             <attDef ident="xml:base" mode="delete"/>
@@ -162,7 +162,7 @@ End license statement: do not remove -->
                     <elementSpec ident="p" module="core" mode="change"><desc versionDate="2022-05-27" xml:lang="en">Enter prose text to connect the fields dedicated to specific elements and form a coherent descriptive text.</desc>
                         <content>
                             <textNode/>
-                        </content>
+                        <textNode/></content>
                         <attList>
                             <attDef ident="ana" mode="delete"/>
                             <attDef ident="cert" mode="delete"/>
@@ -262,7 +262,7 @@ End license statement: do not remove -->
                             </attDef>
                         </attList>
                     </elementSpec>
-                <elementSpec ident="dimensions" mode="change"><desc versionDate="2022-05-27" xml:lang="en" xml:id="dimensions.desc">The measurements of the text space.</desc></elementSpec><elementSpec ident="layout" mode="change"><desc versionDate="2022-05-27" xml:lang="en" xml:id="layout.desc">Provide the typology of the layout and describe it. Specify the number of columns and lines in the correct attributes.</desc></elementSpec><elementSpec ident="layoutDesc" mode="change"><desc versionDate="2022-05-27" xml:lang="en">This element contains layout descriptions.</desc></elementSpec><elementSpec ident="locus" mode="change"><desc versionDate="2022-05-27" xml:lang="en" xml:id="locus.desc">The location of a text or another feature within the manuscript. The "target" attribute is used for single folio. The "from" and "to" attributes are used together to describe a range of folios.</desc></elementSpec></schemaSpec>
+                <elementSpec ident="dimensions" mode="change"><desc versionDate="2022-05-27" xml:lang="en" xml:id="dimensions.desc">The measurements of the text space.</desc><content><alternate maxOccurs="unbounded" minOccurs="0"><elementRef key="dim"/><elementRef key="width"/><elementRef key="height"/></alternate></content></elementSpec><elementSpec ident="layout" mode="change"><desc versionDate="2022-05-27" xml:lang="en" xml:id="layout.desc">Provide the typology of the layout and describe it. Specify the number of columns and lines in the correct attributes.</desc><content><elementRef key="note"/><elementRef key="dimensions"/><elementRef key="ab"/><elementRef key="p"/></content></elementSpec><elementSpec ident="layoutDesc" mode="change"><desc versionDate="2022-05-27" xml:lang="en">This element contains layout descriptions.</desc></elementSpec><elementSpec ident="locus" mode="change"><desc versionDate="2022-05-27" xml:lang="en" xml:id="locus.desc">The location of a text or another feature within the manuscript. The "target" attribute is used for single folio. The "from" and "to" attributes are used together to describe a range of folios.</desc></elementSpec></schemaSpec>
             </div>
         </body>
     </text>
