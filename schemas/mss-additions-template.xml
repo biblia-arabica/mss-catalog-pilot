@@ -1,13 +1,13 @@
- <additions>
-                            <p> </p>
-                            <list>
-                                    <item>
-                                        <p> on fol. </p><locus from="" to=""></locus>
-                                        <desc type="comment"><p>a note:</p><q xml:lang="">Here be dragons</q></desc>
-                                    </item>
-                                <item>
-                                    <p> on fol. </p><locus from="" to=""></locus>
-                                    <desc type="comment"><p>a note:</p><q xml:lang="">Here be dragons</q></desc>
-                                </item>
-                            </list>
-                        </additions>
+<additions>
+    <p/>
+    <list>
+        <item>
+            <p/><locus target=""/>
+            <desc type="comment"></desc>
+        </item>
+        <item>
+            <p/><locus target=""/>
+            <desc type="comment"></desc>
+        </item>
+    </list>
+</additions>

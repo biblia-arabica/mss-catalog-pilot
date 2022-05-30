@@ -5,10 +5,10 @@
          xmlns="http://relaxng.org/ns/structure/1.0"
          datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
          ns="http://www.tei-c.org/ns/1.0"><!--
-Schema generated from ODD source 2022-01-05T10:19:08Z. .
-TEI Edition: Version 4.3.0. Last updated on
-        31st August 2021, revision b4f72b1ff
-TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.3.0/
+Schema generated from ODD source 2022-05-27T13:16:47Z. .
+TEI Edition: Version 4.4.0. Last updated on
+        19th April 2022, revision ff9cc28b0
+TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.4.0/
   
 --><!--[http://creativecommons.org/licenses/by-sa/4.0/] This file is licensed under the Creative Commons Attribution-ShareAlike 4.0. -->
    <sch:ns xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -40,7 +40,9 @@ TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.3.0/
             <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(responsible party) indicates the agency responsible for the intervention or interpretation, for example an editor or transcriber.</a:documentation>
             <list>
                <oneOrMore>
-                  <data type="anyURI"/>
+                  <data type="anyURI">
+                     <param name="pattern">\S+</param>
+                  </data>
                </oneOrMore>
             </list>
          </attribute>
@@ -74,7 +76,9 @@ TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.3.0/
             <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">points to a description of the rendering or presentation used for this element in the source text.</a:documentation>
             <list>
                <oneOrMore>
-                  <data type="anyURI"/>
+                  <data type="anyURI">
+                     <param name="pattern">\S+</param>
+                  </data>
                </oneOrMore>
             </list>
          </attribute>
@@ -86,12 +90,29 @@ TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.3.0/
             <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">specifies the source from which some aspect of this element is drawn.</a:documentation>
             <list>
                <oneOrMore>
-                  <data type="anyURI"/>
+                  <data type="anyURI">
+                     <param name="pattern">\S+</param>
+                  </data>
                </oneOrMore>
             </list>
          </attribute>
       </optional>
    </define>
+   <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
+            id="mss-hand-att.global.source-source-only_1_ODD_source-constraint-rule-1">
+      <sch:rule xmlns:xi="http://www.w3.org/2001/XInclude"
+                xmlns="http://www.tei-c.org/ns/1.0"
+                xmlns:rng="http://relaxng.org/ns/structure/1.0"
+                xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                context="tei:*/@source">
+            <sch:let name="srcs" value="tokenize( normalize-space(.),' ')"/>
+            <sch:report test="( parent::tei:classRef                               | parent::tei:dataRef                               | parent::tei:elementRef                               | parent::tei:macroRef                               | parent::tei:moduleRef                               | parent::tei:schemaSpec )                               and                               $srcs[2]">
+              When used on a schema description element (like
+              <sch:value-of select="name(..)"/>), the @source attribute
+              should have only 1 value. (This one has <sch:value-of select="count($srcs)"/>.)
+            </sch:report>
+          </sch:rule>
+   </pattern>
    <define name="tei_att.global.attribute.xmlid">
       <optional>
          <attribute name="xml:id">
@@ -114,7 +135,9 @@ TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.3.0/
             <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">points to a full description of the scribe concerned, typically supplied by a <code xmlns="http://www.w3.org/1999/xhtml">&lt;person&gt;</code> element elsewhere in the description.</a:documentation>
             <list>
                <oneOrMore>
-                  <data type="anyURI"/>
+                  <data type="anyURI">
+                     <param name="pattern">\S+</param>
+                  </data>
                </oneOrMore>
             </list>
          </attribute>
@@ -126,7 +149,9 @@ TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.3.0/
             <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">points to a full description of the script or writing style used by this hand, typically supplied by a <code xmlns="http://www.w3.org/1999/xhtml">&lt;scriptNote&gt;</code> element elsewhere in the description.</a:documentation>
             <list>
                <oneOrMore>
-                  <data type="anyURI"/>
+                  <data type="anyURI">
+                     <param name="pattern">\S+</param>
+                  </data>
                </oneOrMore>
             </list>
          </attribute>
@@ -148,7 +173,7 @@ TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.3.0/
       </optional>
    </define>
    <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-            id="mss-hand-att.pointing-targetLang-targetLang-constraint-rule-1">
+            id="mss-hand-att.pointing-targetLang-targetLang-constraint-rule-2">
       <sch:rule xmlns:xi="http://www.w3.org/2001/XInclude"
                 xmlns="http://www.tei-c.org/ns/1.0"
                 xmlns:rng="http://relaxng.org/ns/structure/1.0"
@@ -469,33 +494,35 @@ TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.3.0/
    </define>
    <define name="tei_p">
       <element name="p">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(paragraph) marks paragraphs in prose. [3.1. Paragraphs 7.2.5. Speech Contents]</a:documentation>
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(paragraph) Enter prose text to connect the fields dedicated to specific elements and form a coherent descriptive text. [3.1. Paragraphs 7.2.5. Speech Contents]</a:documentation>
          <text/>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="mss-hand-p-abstractModel-structure-p-constraint-report-1">
+                  id="mss-hand-p-abstractModel-structure-p-in-ab-or-p-constraint-report-2">
             <rule context="tei:p">
-               <report xmlns:rng="http://relaxng.org/ns/structure/1.0"
-                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
-                       test="not(ancestor::tei:floatingText) and (ancestor::tei:p or ancestor::tei:ab)          and not(parent::tei:exemplum                |parent::tei:item                |parent::tei:note                |parent::tei:q                |parent::tei:quote                |parent::tei:remarks                |parent::tei:said                |parent::tei:sp                |parent::tei:stage                |parent::tei:cell                |parent::tei:figure                )">
+               <sch:report xmlns="http://www.tei-c.org/ns/1.0"
+                           xmlns:rng="http://relaxng.org/ns/structure/1.0"
+                           xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                           test="    (ancestor::tei:ab or ancestor::tei:p)                          and not( ancestor::tei:floatingText                                 |parent::tei:exemplum                                 |parent::tei:item                                 |parent::tei:note                                 |parent::tei:q                                 |parent::tei:quote                                 |parent::tei:remarks                                 |parent::tei:said                                 |parent::tei:sp                                 |parent::tei:stage                                 |parent::tei:cell                                 |parent::tei:figure                                )">
         Abstract model violation: Paragraphs may not occur inside other paragraphs or ab elements.
-      </report>
+      </sch:report>
             </rule>
          </pattern>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="mss-hand-p-abstractModel-structure-l-constraint-report-2">
+                  id="mss-hand-p-abstractModel-structure-p-in-l-or-lg-constraint-report-3">
             <rule context="tei:p">
-               <report xmlns:rng="http://relaxng.org/ns/structure/1.0"
-                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
-                       test="(ancestor::tei:l or ancestor::tei:lg) and not(parent::tei:figure or parent::tei:note or ancestor::tei:floatingText)">
+               <sch:report xmlns="http://www.tei-c.org/ns/1.0"
+                           xmlns:rng="http://relaxng.org/ns/structure/1.0"
+                           xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                           test="    (ancestor::tei:l or ancestor::tei:lg)                          and not( ancestor::tei:floatingText                                 |parent::tei:figure                                 |parent::tei:note                                )">
         Abstract model violation: Lines may not contain higher-level structural elements such as div, p, or ab, unless p is a child of figure or note, or is a descendant of floatingText.
-      </report>
+      </sch:report>
             </rule>
          </pattern>
       </element>
    </define>
    <define name="tei_locus">
       <element name="locus">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(locus) defines a location within a manuscript, manuscript part, or other object typically as a (possibly discontinuous) sequence of folio references. [10.3.5. References to Locations within a Manuscript]</a:documentation>
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(locus) The location of a text or another feature within the manuscript. The "target" attribute is used for single folio. The "from" and "to" attributes are used together to describe a range of folios. [10.3.5. References to Locations within a Manuscript]</a:documentation>
          <text/>
          <optional>
             <attribute name="from">
@@ -518,7 +545,7 @@ TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.3.0/
    </define>
    <define name="tei_origDate">
       <element name="origDate">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(origin date) contains any form of date, used to identify the date of origin for a manuscript, manuscript part, or other object. [10.3.1. Origination]</a:documentation>
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(origin date) Fill in the date in the agreed-upon calendrical system. Use the "when" attribute for precise values. In case the date can only be approximated, use the "notAfter"and "notBefore" attributes together. [10.3.1. Origination]</a:documentation>
          <text/>
          <text/>
          <empty/>
@@ -526,7 +553,7 @@ TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.3.0/
    </define>
    <define name="tei_summary">
       <element name="summary">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">contains an overview of the available information concerning some aspect of an item or object (for example, its intellectual content, history, layout, typography etc.) as a complement or alternative to the more detailed information carried by more specific elements. [10.6. Intellectual Content]</a:documentation>
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">Outline your observations of the main features of the script. [10.6. Intellectual Content]</a:documentation>
          <text/>
       </element>
    </define>
@@ -550,7 +577,7 @@ TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.3.0/
    </define>
    <define name="tei_persName">
       <element name="persName">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(personal name) contains a proper noun or proper-noun phrase referring to a person, possibly including one or more of the person's forenames, surnames, honorifics, added names, etc. [13.2.1. Personal Names]</a:documentation>
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(personal name) Look up the person records in the database to identify the person. Try different spellings in different languages! If no suitable record exists, create a new one. Use the "role" attribute to specify the person's function to the manuscript (e.g., "owner") from the list. (The "ref" attribute will be filled out automatically when you link a record to this element.) [13.2.1. Personal Names]</a:documentation>
          <text/>
          <text/>
          <optional>
@@ -571,7 +598,7 @@ TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.3.0/
    </define>
    <define name="tei_placeName">
       <element name="placeName">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(place name) contains an absolute or relative place name. [13.2.3. Place Names]</a:documentation>
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(place name) Look up the place records in the database to specify a settlement or town. Try different spellings in different languages! If no suitable record exists, create a new one. (The "ref" attribute will be filled out automatically when you link a place record to this element.) [13.2.3. Place Names]</a:documentation>
          <text/>
          <text/>
       </element>
@@ -582,7 +609,9 @@ TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.3.0/
             <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(facsimile) points to one or more images, portions of an image, or surfaces which correspond to the current element.</a:documentation>
             <list>
                <oneOrMore>
-                  <data type="anyURI"/>
+                  <data type="anyURI">
+                     <param name="pattern">\S+</param>
+                  </data>
                </oneOrMore>
             </list>
          </attribute>
@@ -594,7 +623,9 @@ TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.3.0/
             <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">points to one or more <code xmlns="http://www.w3.org/1999/xhtml">&lt;change&gt;</code> elements documenting a state or revision campaign to which the element bearing this attribute and its children have been assigned by the encoder.</a:documentation>
             <list>
                <oneOrMore>
-                  <data type="anyURI"/>
+                  <data type="anyURI">
+                     <param name="pattern">\S+</param>
+                  </data>
                </oneOrMore>
             </list>
          </attribute>
@@ -602,7 +633,7 @@ TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.3.0/
    </define>
    <define name="tei_metamark">
       <element name="metamark">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">contains or describes any kind of graphic or written signal within a document the function of which is to determine how it should be read rather than forming part of the actual content of the document. [11.3.4.2. Metamarks]</a:documentation>
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">Describes the use of complementary characters like vocalization or recitation in prose and choose the appropriate "function" from the attribute list. [11.3.4.2. Metamarks]</a:documentation>
          <text/>
          <optional>
             <attribute name="function">
@@ -620,7 +651,7 @@ TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.3.0/
    </define>
    <define name="tei_handNote">
       <element name="handNote">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(note on hand) describes a particular style or hand distinguished within a manuscript. [10.7.2. Writing, Decoration, and Other Notations]</a:documentation>
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(note on hand) Describe the script used by the hand. Use the attribute values to describe the "script" (Oriental, Sefardic …), "mode" (square, non-square …), "quality" (careless, trained …), "medium" (brown, black …) and "scope". If there is more than one hand used in the manuscript or manuscript part, create multiple handNote elements and indicate where the hand changes occur by using the locus elements. Give your assessment how much a hand contributed using the scope attribute. In case you want to reference this hand, choose a unique identifier. [10.7.2. Writing, Decoration, and Other Notations]</a:documentation>
          <ref name="tei_p"/>
          <ref name="tei_persName"/>
          <ref name="tei_placeName"/>

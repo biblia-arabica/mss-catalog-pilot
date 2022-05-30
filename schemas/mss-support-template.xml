@@ -1,46 +1,25 @@
-<TEI xmlns="http://www.tei-c.org/ns/1.0">
-    <teiHeader>
-        <fileDesc>
-            <sourceDesc>
-                <msDesc>
-                    <physDesc>
-                        <objectDesc form="single">
-                            <supportDesc>
-                                <support>
-                                    <p/>
-                                    <material key="paper"/>
-                                    <p/>
-                                    <watermark/>
-                                    <p/>
-                                    <locus target=""/>
-                                    <p/>
-                                    <origPlace ref=""/>
-                                    <p/>
-                                    <origDate when="" from="" to=""/>
-                                </support>
-                                <extent>
-                                    <p/>
-                                    <measure unit="leaf"/>
-                                    <p/>
-                                    <dimensions type="leaves" unit="mm">
-                                        <height/>
-                                        <width/>
-                                        <depth/>
-                                    </dimensions>
-                                </extent>
-                                <foliation rendition=""></foliation>
-                                <collation>
-                                    <p/>
-                                    <formula ref=""/>
-                                    <p/>
-                                    <catchwords></catchwords>
-                                </collation>
-                                <condition key="intact"></condition>
-                            </supportDesc>
-                        </objectDesc>
-                    </physDesc>
-                </msDesc>
-            </sourceDesc>
-        </fileDesc>
-    </teiHeader>
-</TEI>
+<objectDesc form="single">
+    <supportDesc>
+        <support>
+            <p/><material key="paper"/><p/><watermark/>
+            <p/>
+            <locus target=""/><p/><origPlace ref=""/>
+            <origDate when="" from="" to=""/>
+        </support>
+        <extent>
+            <measure unit="leaf"/>
+            <dimensions type="leaves">
+                <height unit="mm"/>
+                <width unit="mm"/>
+                <depth unit="mm"/>
+            </dimensions>
+        </extent>
+        <foliation rendition=""/>
+        <collation>
+            <p/>
+            <formula ref=""/>
+            <catchwords> </catchwords>
+        </collation>
+        <condition key="intact"/>
+    </supportDesc>
+</objectDesc>

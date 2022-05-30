@@ -1,29 +1,19 @@
-<TEI xmlns="http://www.tei-c.org/ns/1.0">
-    <teiHeader>
-        <fileDesc>
-            <sourceDesc>
-                <msDesc>
-                    <physDesc>
-                        <bindingDesc>
-                            <binding contemporary=""><p></p>
-                                <dimensions type="binding">
-                                    <height unit="mm"/>
-                                    <width unit="mm"/>
-                                    <depth unit="mm"/><p>.</p>
-                                </dimensions><p> </p><origPlace ref=""/><p> </p>
-                                <origDate when="" from="" to="" period=""></origDate><p> </p>
-                                <decoNote type=""><p></p>
-                                    <material/><p>.</p>
-                                </decoNote>
-                                <decoNote type=""><p></p>
-                                    <material/><p>.</p>
-                                </decoNote> 
-                                <condition><p></p></condition>
-                            </binding>
-                        </bindingDesc>
-                    </physDesc>
-                </msDesc>
-            </sourceDesc>
-        </fileDesc>
-    </teiHeader>
-</TEI>
+<bindingDesc>
+    <binding contemporary="">
+        <p/>
+        <dimensions type="binding">
+            <height unit="mm"/>
+            <width unit="mm"/>
+            <depth unit="mm"/>
+            <p/>
+        </dimensions>
+        <p/>
+        <origPlace ref=""/>
+        <p/>
+        <origDate when="" from="" to="" period=""/>
+        <p/>
+        <decoNote type="">
+        </decoNote>
+        <condition key=""><p/></condition>
+    </binding>
+</bindingDesc>

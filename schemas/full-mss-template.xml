@@ -6,7 +6,7 @@
     <teiHeader>
         <fileDesc>
             <titleStmt>
-                <title level="a" xml:lang="en">$Shelf mark$</title>
+                <title level="a" xml:lang="en"></title>
                 <title level="m" xml:lang="en">MAJLIS: The Transformation of Jewish Literature in Arabic in the Islamicate World</title>
                 <sponsor ref="https://www.uni-muenchen.de">
                     <orgName>Ludwig Maximilian University of Munich</orgName> (<orgName xml:lang="de">Ludwig-Maximilians-Universität
@@ -18,19 +18,19 @@
                     <orgName>ERC: European Research Council</orgName> (<orgName xml:lang="de">Europäischer Forschungsrat</orgName>) </funder>
                 <principal ref="#rvollandt">Ronny Vollandt</principal>
                 <editor xml:id="rvollandt" role="general"
-                    ref="                          https://www.naher-osten.uni-muenchen.de/personen/professoren/ronny_vollandt/index.html                         http://orcid.org/0000-0002-1702-2981                         https://viaf.org/viaf/309581349"
+                    ref="https://www.naher-osten.uni-muenchen.de/personen/professoren/ronny_vollandt/index.html                         http://orcid.org/0000-0002-1702-2981                         https://viaf.org/viaf/309581349"
                         ><persName>Ronny Vollandt</persName>
                     <date from="2021">2021-present</date></editor>
                 <editor xml:id="gschwarb" role="contributor"
-                    ref="                         https://www.naher-osten.uni-muenchen.de/personen/wiss_ma/gregor_schwarb/index.html                         http://orcid.org/0000-0002-9090-1878                         https://viaf.org/viaf/90488472"
+                    ref="https://www.naher-osten.uni-muenchen.de/personen/wiss_ma/gregor_schwarb/index.html                         http://orcid.org/0000-0002-9090-1878                         https://viaf.org/viaf/90488472"
                         ><persName>Gregor Schwarb</persName>
                     <date from="2021">2021-present</date></editor>
                 <editor xml:id="ngibson" role="contributor"
-                    ref="                         https://www.naher-osten.uni-muenchen.de/personen/wiss_ma/gibson/index.html                         http://orcid.org/0000-0003-0786-8075                         https://viaf.org/viaf/59147905242279092527"
+                    ref="https://www.naher-osten.uni-muenchen.de/personen/wiss_ma/gibson/index.html                         http://orcid.org/0000-0003-0786-8075                         https://viaf.org/viaf/59147905242279092527"
                         ><persName>Nathan P. Gibson</persName>
                     <date from="2021">2021-present</date></editor>
                 <editor xml:id="mmoliere" role="contributor"
-                    ref="                         https://www.naher-osten.uni-muenchen.de/personen/wiss_ma/maximilian_de_moliere/index.html                         https://orcid.org/0000-0002-2168-8655                         http://viaf.org/viaf/65156495392717561393"
+                    ref="https://www.naher-osten.uni-muenchen.de/personen/wiss_ma/maximilian_de_moliere/index.html                         https://orcid.org/0000-0002-2168-8655                         http://viaf.org/viaf/65156495392717561393"
                         ><persName>Maximilian de Molière</persName>
                     <date from="2021">2021-present</date></editor>
                 <editor role="creator" ref="#mmoliere">Maximilian de Molière</editor>
@@ -41,9 +41,9 @@
             </titleStmt>
             <publicationStmt>
                 <authority>
-                    <ref target="https://majlis.net">MAJLIS.net</ref>
+                    <ref target="https://jalit.org">jalit.org – Jewish-Arabic Literature</ref>
                 </authority>
-                <idno type="URI">https://majlis.net/manuscript/$$$/tei</idno>
+                <idno type="URI">https://jalit.org/manuscript/$$$/tei</idno>
                 <availability>
                     <licence target="http://creativecommons.org/licenses/by/3.0/">
                         <p>Distributed under a Creative Commons Attribution 4.0 International (CC BY 4.0) License.</p>
@@ -89,31 +89,28 @@
                             <title xml:lang="en" ref=""/>
                             <author ref="">
                                 <persName>
-                                    <forename/>
-                                    <surname/>
-                                    <addName/>
                                 </persName>
                             </author>
                             <textLang mainLang="" otherLangs=""/>
                             <rubric xml:lang="">
                                 <locus from="" to=""/>
-                                <q/>
+                                <q xml:lang=""/>
                             </rubric>
                             <incipit xml:lang="">
                                 <locus from="" to=""/>
-                                <q/>
+                                <q xml:lang=""/>
                             </incipit>
                             <explicit xml:lang="">
                                 <locus from="" to=""/>
-                                <q/>
+                                <q xml:lang=""/>
                             </explicit>
                             <finalRubric xml:lang="">
                                 <locus from="" to=""/>
-                                <q/>
+                                <q xml:lang=""/>
                             </finalRubric>
                             <colophon xml:lang="">
                                 <locus from="" to=""/>
-                                <q/>
+                                <q xml:lang=""/>
                             </colophon>
                             <note><p/></note>
                         </msItem>
@@ -192,13 +189,9 @@
                                 <p/>
                                 <origDate when="" from="" to="" period=""/>
                                 <p/>
-                                <decoNote type=""><p/>
-                                    <material/><p/>
+                                <decoNote type="">
                                 </decoNote>
-                                <decoNote type=""><p/>
-                                    <material/><p/>
-                                </decoNote>
-                                <condition><p/></condition>
+                                <condition key=""><p/></condition>
                             </binding>
                         </bindingDesc>
                         <additions>
@@ -206,11 +199,11 @@
                             <list>
                                 <item>
                                     <p/><locus target=""/>
-                                    <desc type="comment"><q/></desc>
+                                    <desc type="comment"></desc>
                                 </item>
                                 <item>
                                     <p/><locus target=""/>
-                                    <desc type="comment"><q/></desc>
+                                    <desc type="comment"></desc>
                                 </item>
                             </list>
                         </additions>
@@ -222,7 +215,7 @@
                             <origPlace ref=""/>
                             <locus target=""/>
                             <persName ref="" role=""/>
-                            <q/>
+                            <q xml:lang=""/>
                             <p/>
                         </origin>
                         <provenance>

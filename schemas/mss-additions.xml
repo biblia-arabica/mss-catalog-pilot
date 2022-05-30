@@ -83,7 +83,7 @@ End license statement: do not remove -->
                     <moduleRef key="msdescription" except="material origDate origPlace layoutDesc dimensions layout summary height width binding bindingDesc decoNote depth catchwords collation condition dim foliation msFrag accMat acquisition additional adminInfo altIdentifier collection colophon custEvent custodialHist decoDesc explicit filiation finalRubric handDesc heraldry history incipit institution locusGrp msContents msDesc msIdentifier msItem msItemStruct msName msPart musicNotation objectDesc objectType origin physDesc provenance recordHist repository rubric scriptDesc seal sealDesc secFol signatures source stamp support supportDesc surrogates typeDesc typeNote watermark"/>
                     <moduleRef key="tei"/>
                     <elementSpec ident="note" module="core" mode="delete"/>
-                    <elementSpec ident="locus" module="msdescription" mode="change">
+                    <elementSpec ident="locus" module="msdescription" mode="change"><desc versionDate="2022-05-27" xml:id="locus.desc" xml:lang="en">The location of a text or another feature within the manuscript. The "target" attribute is used for single folio. The "from" and "to" attributes are used together to describe a range of folios.</desc>
                         <classes mode="replace">
                             <memberOf key="model.pPart.msdesc"/>
                             <memberOf key="att.pointing"/>
@@ -183,7 +183,7 @@ End license statement: do not remove -->
                             <attDef ident="xml:space" mode="delete"/>
                         </attList>
                     </elementSpec>
-                    <elementSpec ident="list" module="core" mode="change">
+                    <elementSpec ident="list" module="core" mode="change"><desc versionDate="2022-05-27" xml:lang="en">A sequence of bullet points ("item") organized as a list.</desc>
                         <content>
                             <elementRef key="item"/>
                         <elementRef key="item"/></content>
@@ -215,7 +215,7 @@ End license statement: do not remove -->
                             <attDef ident="xml:space" mode="delete"/>
                         </attList>
                     </elementSpec>
-                    <elementSpec ident="desc" module="core" mode="change">
+                    <elementSpec ident="desc" module="core" mode="change"><desc versionDate="2022-05-27" xml:lang="en">Describes or defines the kind of addition. Choose a value from the list of the "type" attribute.</desc>
                         <content>
                             <elementRef key="q"/>
                             <textNode/>
@@ -240,119 +240,7 @@ End license statement: do not remove -->
                             <attDef ident="style" mode="delete"/>
                             <attDef ident="subtype" mode="delete"/>
                             <attDef ident="synch" mode="delete"/>
-                            <attDef ident="type" mode="change">
-                                <valList type="closed" mode="change">
-                                    <valItem mode="add" ident="ownershipNote">
-                                        <desc xml:lang="en">Indicating that the book belongs to 1)
-                                            an institution; 2) an individual.</desc>
-                                    </valItem>
-                                    <valItem mode="add" ident="purchaseNote">
-                                        <desc xml:lang="en">note stating that the book has been
-                                            purchased for money by an individual or an
-                                            institution</desc>
-                                    </valItem>
-                                    <valItem mode="add" ident="acquisitionNote">
-                                        <desc xml:lang="en">Points only to the fact of the
-                                            acquisition of the book or transaction with the
-                                            book.</desc>
-                                    </valItem>
-                                    <valItem mode="add" ident="receiptNote">
-                                        <desc xml:lang="en">note written down as a receipt of a
-                                            transaction of goods.</desc>
-                                    </valItem>
-                                    <valItem mode="add" ident="genealogy">
-                                        <desc xml:lang="en">genealogy of local lineages or ruling
-                                            families or individual rulers; it can be a genealogy of
-                                            the owner/donor of the book, independent or included
-                                            into another note.</desc>
-                                    </valItem>
-                                    <valItem mode="add" ident="scribalSignature">
-                                        <desc xml:lang="en">The name of the scribe written
-                                            down.</desc>
-                                    </valItem>
-                                    <valItem mode="add" ident="supplication">
-                                        <desc xml:lang="en">A short prayer for (the souls) of
-                                            individuals.</desc>
-                                    </valItem>
-                                    <valItem mode="add" ident="subscription">
-                                        <desc xml:lang="en">note added at the end of the main text
-                                            concerning its completion.</desc>
-                                    </valItem>
-                                    <valItem mode="add" ident="doxology">
-                                        <desc xml:lang="en">hymn or praise to God or other
-                                            entities.</desc>
-                                    </valItem>
-                                    <valItem mode="add" ident="invocation">
-                                        <desc xml:lang="en">invocation against those who stole or
-                                            erased the book or against other individuals.</desc>
-                                    </valItem>
-                                    <valItem mode="add" ident="inventory">
-                                        <desc xml:lang="en">Lists of books or other objects.</desc>
-                                    </valItem>
-                                    <valItem mode="add" ident="scribalNoteCommencing">
-                                        <desc xml:lang="en">scribe’s note on commencing the
-                                            work.</desc>
-                                    </valItem>
-                                    <valItem mode="add" ident="scribalNoteOrdering">
-                                        <desc xml:lang="en">scribe’s note on ordering of the
-                                            copying.</desc>
-                                    </valItem>
-                                    <valItem mode="add" ident="scribalNoteCommissioning">
-                                        <desc xml:lang="en">scribe’s note on commissioning of the
-                                            writing.</desc>
-                                    </valItem>
-                                    <valItem mode="add" ident="scribalNoteCompleting">
-                                        <desc xml:lang="en">scribe’s note on completing the
-                                            writing.</desc>
-                                    </valItem>
-                                    <valItem mode="add" ident="scribalNoteBequeathing">
-                                        <desc xml:lang="en">scribe’s note on bequeathing.</desc>
-                                    </valItem>
-                                    <valItem mode="add" ident="recordTransaction">
-                                        <desc xml:lang="en">text documenting an act of selling or
-                                            buying something, in many cases a house and land,
-                                            sometimes a book.</desc>
-                                    </valItem>
-                                    <valItem mode="add" ident="recordGuarantors">
-                                        <desc xml:lang="en">documentary record concerning the
-                                            guarantors of a transaction or a loan.</desc>
-                                    </valItem>
-                                    <valItem mode="add" ident="record">
-                                        <desc xml:lang="en">generic note of a documentary, official
-                                            character.</desc>
-                                    </valItem>
-                                    <valItem mode="add" ident="scribalSupplication">
-                                        <desc xml:lang="en">scribe’s entreat to God.</desc>
-                                    </valItem>
-                                    <valItem mode="add" ident="unclear">
-                                        <desc xml:lang="en">Content is too vague to assign another
-                                            category or resists any interpretation.</desc>
-                                    </valItem>
-                                    <valItem mode="add" ident="poem">
-                                        <desc xml:lang="en">Poem.</desc>
-                                    </valItem>
-                                    <valItem mode="add" ident="stampExlibris">
-                                        <desc xml:lang="en">stamp affixed by the owning institution,
-                                            e.g., a library. </desc>
-                                    </valItem>
-                                    <valItem mode="add" ident="letter">
-                                        <desc xml:lang="en">Written message looking like a sample of
-                                            the epistolary genre copied into a manuscript.</desc>
-                                    </valItem>
-                                    <valItem mode="add" ident="comment">
-                                        <desc xml:lang="en">note added at a later stage in order to
-                                            comment word or passages of the main text.</desc>
-                                    </valItem>
-                                    <valItem mode="add" ident="correction">
-                                        <desc xml:lang="en">Addition of omitted passages, words or
-                                            letters and the like.</desc>
-                                    </valItem>
-                                    <valItem mode="add" ident="gloss">
-                                        <desc xml:lang="en">Refers to a note aimed to solve a purely
-                                            language difficulty.</desc>
-                                    </valItem>
-                                </valList>
-                            </attDef>
+                            
                             <attDef ident="versionDate" mode="delete"/>
                             <attDef ident="xml:base" mode="delete"/>
                             <attDef ident="xml:id" mode="delete"/>
@@ -365,13 +253,13 @@ End license statement: do not remove -->
                     <elementSpec ident="persName" module="namesdates" mode="delete"/>
                     <elementSpec ident="title" module="core" mode="delete"/>
                     
-                    <elementSpec ident="additions" mode="change">
+                    <elementSpec ident="additions" mode="change"><desc versionDate="2022-05-27" xml:id="additions.desc" xml:lang="en">Any relevant additions found within a manuscript such as marginalia or other annotations. You can give a summary in the p element and describe specific additions inside list elements.</desc>
                         <content>
                             <elementRef key="p"/>
                             <elementRef key="list"/>
                         <elementRef key="p"/><elementRef key="list"/></content>
                     </elementSpec>
-                <elementSpec ident="q" mode="change"><classes mode="change"><memberOf key="att.ascribed.directed" mode="delete"/></classes><content><textNode/></content><attList><attDef ident="type" mode="delete"/><attDef ident="who" mode="delete"/><attDef ident="ana" mode="delete"/><attDef ident="change" mode="delete"/><attDef ident="facs" mode="delete"/><attDef ident="corresp" mode="delete"/><attDef ident="synch" mode="delete"/><attDef ident="sameAs" mode="delete"/><attDef ident="copyOf" mode="delete"/><attDef ident="next" mode="delete"/><attDef ident="prev" mode="delete"/><attDef ident="exclude" mode="delete"/><attDef ident="select" mode="delete"/><attDef ident="rend" mode="delete"/><attDef ident="style" mode="delete"/><attDef ident="rendition" mode="delete"/><attDef ident="cert" mode="delete"/><attDef ident="resp" mode="delete"/><attDef ident="source" mode="delete"/><attDef ident="xml:id" mode="delete"/><attDef ident="n" mode="delete"/><attDef ident="xml:base" mode="delete"/><attDef ident="xml:space" mode="delete"/></attList></elementSpec><elementSpec ident="p" mode="change"><classes mode="change"><memberOf key="att.declaring" mode="delete"/><memberOf key="att.fragmentable" mode="delete"/><memberOf key="att.global" mode="delete"/><memberOf key="att.written" mode="delete"/></classes><content><textNode/></content></elementSpec></schemaSpec>
+                <elementSpec ident="q" mode="change"><desc versionDate="2022-05-27" xml:lang="en">Quotation from the manuscript.</desc><classes mode="change"><memberOf key="att.ascribed.directed" mode="delete"/></classes><content><textNode/></content><attList><attDef ident="type" mode="delete"/><attDef ident="who" mode="delete"/><attDef ident="ana" mode="delete"/><attDef ident="change" mode="delete"/><attDef ident="facs" mode="delete"/><attDef ident="corresp" mode="delete"/><attDef ident="synch" mode="delete"/><attDef ident="sameAs" mode="delete"/><attDef ident="copyOf" mode="delete"/><attDef ident="next" mode="delete"/><attDef ident="prev" mode="delete"/><attDef ident="exclude" mode="delete"/><attDef ident="select" mode="delete"/><attDef ident="rend" mode="delete"/><attDef ident="style" mode="delete"/><attDef ident="rendition" mode="delete"/><attDef ident="cert" mode="delete"/><attDef ident="resp" mode="delete"/><attDef ident="source" mode="delete"/><attDef ident="xml:id" mode="delete"/><attDef ident="n" mode="delete"/><attDef ident="xml:base" mode="delete"/><attDef ident="xml:space" mode="delete"/></attList></elementSpec><elementSpec ident="p" mode="change"><desc versionDate="2022-05-27" xml:lang="en">Enter prose text to connect the fields dedicated to specific elements and form a coherent descriptive text.</desc><classes mode="change"><memberOf key="att.declaring" mode="delete"/><memberOf key="att.fragmentable" mode="delete"/><memberOf key="att.global" mode="delete"/><memberOf key="att.written" mode="delete"/></classes><content><textNode/></content></elementSpec></schemaSpec>
             </div>
         </body>
     </text>

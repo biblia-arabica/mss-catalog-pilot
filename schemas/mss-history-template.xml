@@ -1,50 +1,29 @@
 <history>
     <summary/>
     <origin>
-        <p/>
         <origDate notBefore="" notAfter="" when=""/>
-        <p/>
         <origPlace ref=""/>
-        <p/>
         <locus target=""/>
-        <p/>
-        <persName role=""/>
-        <p/>
+        <persName ref="" role=""/>
         <q xml:lang=""/>
         <p/>
     </origin>
     <provenance>
-        <p/>
         <date notBefore="" notAfter="" when=""/>
-        <p/>
         <placeName ref=""/>
-        <p/>
         <locus target=""/>
-        <p/>
-        <persName ref=""/>
-        <p/>
+        <persName ref="" role=""/>
         <signatures/>
-        <p/>
         <stamp/>
-        <p/>
-        <q xml:lang=""/>
         <p/>
     </provenance>
     <acquisition>
-        <p/>
         <date notBefore="" notAfter="" when=""/>
-        <p/>
         <placeName ref=""/>
-        <p/>
         <locus target=""/>
-        <p/>
-        <persName ref=""/>
-        <p/>
+        <persName ref="" role=""/>
         <signatures/>
-        <p/>
         <stamp/>
-        <p/>
-        <q xml:lang=""/>
         <p/>
     </acquisition>
 </history>
