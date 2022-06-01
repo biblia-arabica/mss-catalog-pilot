@@ -1,7 +1,7 @@
 <objectDesc form="single">
     <supportDesc>
         <support>
-            <p/><material key="paper"/><p/><watermark/>
+            <p/><material key=""/><p/><watermark/>
             <p/>
             <locus target=""/><p/><origPlace ref=""/>
             <origDate when="" from="" to=""/>
@@ -20,6 +20,6 @@
             <formula ref=""/>
             <catchwords> </catchwords>
         </collation>
-        <condition key="intact"/>
+        <condition key=""/>
     </supportDesc>
 </objectDesc>

@@ -13,7 +13,7 @@
         <placeName ref=""/>
         <locus target=""/>
         <persName ref="" role=""/>
-        <signatures/>
+        <q xml:lang=""/>
         <stamp/>
         <p/>
     </provenance>
@@ -22,7 +22,7 @@
         <placeName ref=""/>
         <locus target=""/>
         <persName ref="" role=""/>
-        <signatures/>
+        <q xml:lang=""/>
         <stamp/>
         <p/>
     </acquisition>

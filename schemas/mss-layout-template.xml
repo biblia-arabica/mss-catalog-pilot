@@ -2,10 +2,10 @@
     <summary/>
     <layout columns="" writtenLines="">
         <p/>
-        <dimensions unit="mm">
-            <height/>
-            <width/>
-            <dim type="intercolumn"/>
+        <dimensions type="written">
+            <height unit="mm"/>
+            <width unit="mm"/>
+            <dim unit="mm" type="intercolumn"/>
         </dimensions>
         <note>
             <p/>
