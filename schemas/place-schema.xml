@@ -215,7 +215,13 @@ End license statement: do not remove -->
                         </content>
                         <attList>
                             <attRef name="type" class="att.entryLike"/>
-                            <attRef name="xml:lang" class="att.global"/>
+                            <attDef ident="xml:lang" mode="change">
+                                <valList type="closed" mode="change">
+                                    <valItem mode="add" ident="ar"/>
+                                    <valItem mode="add" ident="en"/>
+                                    <valItem mode="add" ident="he"/>
+                                </valList>
+                            </attDef>
                         </attList>
                     </elementSpec>
                     <elementSpec ident="faith" mode="delete"/>
@@ -248,7 +254,13 @@ End license statement: do not remove -->
                             <attDef ident="nymRef" mode="delete"/>
                             <attRef name="ref" class="att.canonical"/>
                             <attRef name="xml:id" class="att.global"/>
-                            <attRef name="xml:lang" class="att.global"/>
+                            <attDef ident="xml:lang" mode="change">
+                                <valList type="closed" mode="change">
+                                    <valItem mode="add" ident="ar"/>
+                                    <valItem mode="add" ident="en"/>
+                                    <valItem mode="add" ident="he"/>
+                                </valList>
+                            </attDef>
                             <attRef name="source" class="att.global.source"/>
                         </attList>
                     </elementSpec>
@@ -405,7 +417,13 @@ End license statement: do not remove -->
                         </content>
                         <attList>
                             <attDef ident="level" mode="delete"/>
-                            <attRef name="xml:lang" class="att.global"/>
+                            <attDef ident="xml:lang" mode="change">
+                                <valList type="closed" mode="change">
+                                    <valItem mode="add" ident="ar"/>
+                                    <valItem mode="add" ident="en"/>
+                                    <valItem mode="add" ident="he"/>
+                                </valList>
+                            </attDef>
                         </attList>
                     </elementSpec>
                     <elementSpec ident="publisher" mode="change">

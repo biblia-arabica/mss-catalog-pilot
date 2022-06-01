@@ -10,9 +10,11 @@
         <p/>
         <origPlace ref=""/>
         <p/>
-        <origDate when="" from="" to="" period=""/>
+        <origDate when="" from="" to=""/>
         <p/>
         <decoNote type="">
+            <p/>
+            <material key=""/>
         </decoNote>
         <condition key=""><p/></condition>
     </binding>
