@@ -1,20 +1,4 @@
 <msDesc>
-    <!--<msIdentifier>
-        <country/>
-        <settlement/>
-        <repository/>
-        <idno/>
-        <altIdentifier>
-            <idno type="IMHM"/>
-        </altIdentifier>
-        <altIdentifier>
-            <idno type="SfarData"/>
-        </altIdentifier>
-        <altIdentifier>
-            <idno type="Ktiv"/>
-        </altIdentifier>
-        <msName/>
-    </msIdentifier>-->
     <msPart>
         <msIdentifier>
             <idno/>

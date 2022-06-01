@@ -51,7 +51,7 @@
                 <ptr target=""/>
             </bibl>
             <listRelation>
-                <relation name="syriaca:commemorated" active="https://jalit.org/work/$$$" passive="https://jalit.org/person/$$$" source=""/>
+                <relation name="" active="https://jalit.org/work/$$$" passive="https://jalit.org/person/$$$" source=""/>
             </listRelation>
         </bibl>
     </body>

@@ -5,7 +5,7 @@
          xmlns="http://relaxng.org/ns/structure/1.0"
          datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
          ns="http://www.tei-c.org/ns/1.0"><!--
-Schema generated from ODD source 2022-05-27T13:34:35Z. .
+Schema generated from ODD source 2022-06-01T13:39:57Z. .
 TEI Edition: Version 4.4.0. Last updated on
         19th April 2022, revision ff9cc28b0
 TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.4.0/
@@ -258,7 +258,7 @@ Suggested values include: 1] cm (centimetres); 2] mm (millimetres); 3] in (inche
                 xmlns:rng="http://relaxng.org/ns/structure/1.0"
                 xmlns:sch="http://purl.oclc.org/dsdl/schematron"
                 context="tei:*[@when]">
-        <sch:report role="nonfatal" test="@notBefore|@notAfter|@from|@to">The @when attribute cannot be used with any other att.datable.w3c attributes.</sch:report>
+         <sch:report test="@notBefore|@notAfter|@from|@to" role="nonfatal">The @when attribute cannot be used with any other att.datable.w3c attributes.</sch:report>
       </sch:rule>
    </pattern>
    <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
@@ -268,7 +268,7 @@ Suggested values include: 1] cm (centimetres); 2] mm (millimetres); 3] in (inche
                 xmlns:rng="http://relaxng.org/ns/structure/1.0"
                 xmlns:sch="http://purl.oclc.org/dsdl/schematron"
                 context="tei:*[@from]">
-        <sch:report role="nonfatal" test="@notBefore">The @from and @notBefore attributes cannot be used together.</sch:report>
+         <sch:report test="@notBefore" role="nonfatal">The @from and @notBefore attributes cannot be used together.</sch:report>
       </sch:rule>
    </pattern>
    <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
@@ -278,7 +278,7 @@ Suggested values include: 1] cm (centimetres); 2] mm (millimetres); 3] in (inche
                 xmlns:rng="http://relaxng.org/ns/structure/1.0"
                 xmlns:sch="http://purl.oclc.org/dsdl/schematron"
                 context="tei:*[@to]">
-        <sch:report role="nonfatal" test="@notAfter">The @to and @notAfter attributes cannot be used together.</sch:report>
+         <sch:report test="@notAfter" role="nonfatal">The @to and @notAfter attributes cannot be used together.</sch:report>
       </sch:rule>
    </pattern>
    <define name="tei_att.datable.attributes">
@@ -307,10 +307,10 @@ Suggested values include: 1] cm (centimetres); 2] mm (millimetres); 3] in (inche
                 xmlns:rng="http://relaxng.org/ns/structure/1.0"
                 xmlns:sch="http://purl.oclc.org/dsdl/schematron"
                 context="tei:*[@calendar]">
-            <sch:assert test="string-length(.) gt 0"> @calendar indicates one or more systems or calendars to
+         <sch:assert test="string-length(.) gt 0"> @calendar indicates one or more systems or calendars to
               which the date represented by the content of this element belongs, but this
               <sch:name/> element has no textual content.</sch:assert>
-          </sch:rule>
+      </sch:rule>
    </pattern>
    <define name="tei_att.datable.attribute.period">
       <optional>
@@ -474,13 +474,13 @@ Suggested values include: 1] internal; 2] external; 3] conjecture</a:documentati
                 xmlns:rng="http://relaxng.org/ns/structure/1.0"
                 xmlns:sch="http://purl.oclc.org/dsdl/schematron"
                 context="tei:*/@source">
-            <sch:let name="srcs" value="tokenize( normalize-space(.),' ')"/>
-            <sch:report test="( parent::tei:classRef                               | parent::tei:dataRef                               | parent::tei:elementRef                               | parent::tei:macroRef                               | parent::tei:moduleRef                               | parent::tei:schemaSpec )                               and                               $srcs[2]">
+         <sch:let name="srcs" value="tokenize( normalize-space(.),' ')"/>
+         <sch:report test="( parent::tei:classRef                               | parent::tei:dataRef                               | parent::tei:elementRef                               | parent::tei:macroRef                               | parent::tei:moduleRef                               | parent::tei:schemaSpec )                               and                               $srcs[2]">
               When used on a schema description element (like
               <sch:value-of select="name(..)"/>), the @source attribute
               should have only 1 value. (This one has <sch:value-of select="count($srcs)"/>.)
             </sch:report>
-          </sch:rule>
+      </sch:rule>
    </pattern>
    <define name="tei_att.global.attributes">
       <ref name="tei_att.global.rendition.attributes"/>
@@ -695,7 +695,7 @@ Suggested values include: 1] internal; 2] external; 3] conjecture</a:documentati
                 xmlns:rng="http://relaxng.org/ns/structure/1.0"
                 xmlns:sch="http://purl.oclc.org/dsdl/schematron"
                 context="tei:*[@subtype]">
-        <sch:assert test="@type">The <sch:name/> element should not be categorized in detail with @subtype unless also categorized in general with @type</sch:assert>
+         <sch:assert test="@type">The <sch:name/> element should not be categorized in detail with @subtype unless also categorized in general with @type</sch:assert>
       </sch:rule>
    </pattern>
    <define name="tei_model.nameLike.agent">
@@ -866,6 +866,7 @@ Suggested values include: 1] internal; 2] external; 3] conjecture</a:documentati
       <choice>
          <ref name="tei_dimensions"/>
          <ref name="tei_heraldry"/>
+         <ref name="tei_material"/>
          <ref name="tei_objectType"/>
          <ref name="tei_origDate"/>
          <ref name="tei_origPlace"/>
@@ -1327,6 +1328,68 @@ Sample values include: 1] leaves; 2] ruled; 3] pricked; 4] written; 5] miniature
          <empty/>
       </element>
    </define>
+   <define name="tei_material">
+      <element name="material">
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(material) Describe the writing material. Choose from the list what kind of material is used in the manuscript/this codicological unit. [10.3.2. Material and Object Type]</a:documentation>
+         <ref name="tei_macro.phraseSeq"/>
+         <ref name="tei_att.canonical.attribute.ref"/>
+         <optional>
+            <attribute name="key">
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">provides an externally-defined means of identifying the entity (or entities) being named, using a coded value of some kind.</a:documentation>
+               <choice>
+                  <value>paper</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <value>parchment</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <value>papyrus</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <value>cardboard</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <value>leather</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <value>metal</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <value>textile</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <value>other</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <value>silk</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <value>stone</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <value>bronze</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <value>alabaster</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <value>cotton</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+               </choice>
+            </attribute>
+         </optional>
+         <optional>
+            <attribute name="function">
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">describes the function or use of the material in relation to the object as a whole.
+Sample values include: 1] binding; 2] endband; 3] slipcase; 4] support; 5] tie</a:documentation>
+               <data type="token">
+                  <param name="pattern">[^\p{C}\p{Z}]+</param>
+               </data>
+            </attribute>
+         </optional>
+         <optional>
+            <attribute name="target">
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">identifies one or more elements to which the metamark applies.</a:documentation>
+               <list>
+                  <oneOrMore>
+                     <data type="anyURI">
+                        <param name="pattern">\S+</param>
+                     </data>
+                  </oneOrMore>
+               </list>
+            </attribute>
+         </optional>
+         <empty/>
+      </element>
+   </define>
    <define name="tei_objectType">
       <element name="objectType">
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(object type) contains a word or phrase describing the type of object being referred to. [10.3.2. Material and Object Type]</a:documentation>
@@ -1350,8 +1413,6 @@ Sample values include: 1] leaves; 2] ruled; 3] pricked; 4] written; 5] miniature
       <element name="origPlace">
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(origin place) Look up the place records in the database to specify the location where the manuscript or manuscript part was produced. Try different spellings in different languages! If no suitable record exists, create a new one. (The "ref" attribute will be filled out automatically when you link a place record to this element.) [10.3.1. Origination]</a:documentation>
          <text/>
-         <ref name="tei_att.global.attribute.n"/>
-         <ref name="tei_att.global.responsibility.attribute.cert"/>
          <ref name="tei_att.editLike.attribute.evidence"/>
          <empty/>
       </element>
@@ -1413,35 +1474,22 @@ Sample values include: 1] leaves; 2] ruled; 3] pricked; 4] written; 5] miniature
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(manuscript identifier) contains the information required to identify the manuscript or similar object being described. [10.4. The Manuscript Identifier]</a:documentation>
          <group>
             <group>
-        
-        
                <optional>
                   <ref name="tei_institution"/>
                </optional>
-        
-        
                <optional>
                   <ref name="tei_repository"/>
                </optional>
-        
-        
                <zeroOrMore>
                   <ref name="tei_collection"/>
                </zeroOrMore>
-        
-        
-          
-        
             </group>
-      
             <zeroOrMore>
                <choice>
                   <ref name="tei_msName"/>
-          
                   <ref name="tei_altIdentifier"/>
                </choice>
             </zeroOrMore>
-      
          </group>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
                   id="mss-binding-msIdentifier-msId_minimal-constraint-report-10">
@@ -1487,26 +1535,15 @@ Sample values include: 1] leaves; 2] ruled; 3] pricked; 4] written; 5] miniature
       <element name="altIdentifier">
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(alternative identifier) contains an alternative or former structured identifier used for a manuscript or other object, such as a former catalogue number. [10.4. The Manuscript Identifier]</a:documentation>
          <group>
-     
-     
             <optional>
                <ref name="tei_institution"/>
             </optional>
-     
-     
             <optional>
                <ref name="tei_repository"/>
             </optional>
-     
-     
             <optional>
                <ref name="tei_collection"/>
             </optional>
-     
-     
-     
-       
-     
          </group>
          <ref name="tei_att.global.attributes"/>
          <ref name="tei_att.typed.attributes"/>
@@ -1521,8 +1558,6 @@ Sample values include: 1] leaves; 2] ruled; 3] pricked; 4] written; 5] miniature
             <choice>
                <text/>
                <ref name="tei_model.gLike"/>
-      
-      
             </choice>
          </zeroOrMore>
          <ref name="tei_att.global.attributes"/>
@@ -1582,29 +1617,16 @@ Sample values include: 1] leaves; 2] ruled; 3] pricked; 4] written; 5] miniature
       <element name="msContents">
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(manuscript contents) describes the intellectual content of a manuscript, manuscript part, or other object either as a series of paragraphs or as a series of structured manuscript items. [10.6. Intellectual Content]</a:documentation>
          <choice>
-      
             <oneOrMore>
                <ref name="tei_model.pLike"/>
             </oneOrMore>
-      
             <group>
-        
-          
-        
-        
-          
-        
-        
-          
-        
-        
                <zeroOrMore>
                   <choice>
                      <ref name="tei_msItem"/>
                      <ref name="tei_msItemStruct"/>
                   </choice>
                </zeroOrMore>
-        
             </group>
          </choice>
          <ref name="tei_att.global.attributes"/>
@@ -1617,18 +1639,13 @@ Sample values include: 1] leaves; 2] ruled; 3] pricked; 4] written; 5] miniature
       <element name="msItem">
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(manuscript item) describes an individual work or item within the intellectual content of a manuscript, manuscript part, or other object. [10.6.1. The msItem and msItemStruct Elements]</a:documentation>
          <group>
-      
             <zeroOrMore>
                <empty/>
             </zeroOrMore>
-      
             <choice>
-        
                <oneOrMore>
                   <ref name="tei_model.pLike"/>
                </oneOrMore>
-        
-        
                <oneOrMore>
                   <choice>
                      <ref name="tei_model.titlepagePart"/>
@@ -1636,7 +1653,6 @@ Sample values include: 1] leaves; 2] ruled; 3] pricked; 4] written; 5] miniature
                      <ref name="tei_model.global"/>
                   </choice>
                </oneOrMore>
-        
             </choice>
          </group>
          <ref name="tei_att.global.attributes"/>
@@ -1649,81 +1665,44 @@ Sample values include: 1] leaves; 2] ruled; 3] pricked; 4] written; 5] miniature
       <element name="msItemStruct">
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(structured manuscript item) contains a structured description for an individual work or item within the intellectual content of a manuscript, manuscript part, or other object. [10.6.1. The msItem and msItemStruct Elements]</a:documentation>
          <group>
-      
             <optional>
                <empty/>
             </optional>
-      
             <choice>
-        
                <oneOrMore>
                   <ref name="tei_model.pLike"/>
                </oneOrMore>
-        
                <group>
-          
-            
-          
-          
-            
-          
-          
-            
-          
-          
                   <optional>
                      <ref name="tei_rubric"/>
                   </optional>
-          
-          
                   <optional>
                      <ref name="tei_incipit"/>
                   </optional>
-          
-          
                   <zeroOrMore>
                      <ref name="tei_msItemStruct"/>
                   </zeroOrMore>
-          
-          
                   <optional>
                      <ref name="tei_explicit"/>
                   </optional>
-          
-          
                   <optional>
                      <ref name="tei_finalRubric"/>
                   </optional>
-          
-          
                   <zeroOrMore>
                      <ref name="tei_colophon"/>
                   </zeroOrMore>
-          
-          
                   <zeroOrMore>
                      <ref name="tei_decoNote"/>
                   </zeroOrMore>
-          
-          
-            
-          
-          
                   <zeroOrMore>
                      <empty/>
                   </zeroOrMore>
-          
                   <optional>
                      <ref name="tei_filiation"/>
                   </optional>
-            
                   <zeroOrMore>
                      <ref name="tei_model.noteLike"/>
                   </zeroOrMore>
-          
-          
-            
-          
                </group>
             </choice>
          </group>
@@ -1786,6 +1765,7 @@ Sample values include: 1] leaves; 2] ruled; 3] pricked; 4] written; 5] miniature
       <element name="decoNote">
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(note on decoration) Describe the manuscript’s decoration. Choose the "type" from the list. [10.7.3. Bindings, Seals, and Additional Material]</a:documentation>
          <ref name="tei_p"/>
+         <ref name="tei_material"/>
          <optional>
             <attribute name="type">
                <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
@@ -1893,8 +1873,6 @@ Sample values include: 1] leaves; 2] ruled; 3] pricked; 4] written; 5] miniature
                <ref name="tei_origDate"/>
             </choice>
          </oneOrMore>
-         <ref name="tei_att.datable.w3c.attribute.notBefore"/>
-         <ref name="tei_att.datable.w3c.attribute.notAfter"/>
          <optional>
             <attribute name="contemporary">
                <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(contemporary) specifies whether or not the binding is contemporary with the majority of its contents</a:documentation>
@@ -1942,30 +1920,19 @@ Sample values include: 1] leaves; 2] ruled; 3] pricked; 4] written; 5] miniature
       <element name="history">
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(history) groups elements describing the full history of a manuscript, manuscript part, or other object. [10.8. History]</a:documentation>
          <choice>
-      
             <oneOrMore>
                <ref name="tei_model.pLike"/>
             </oneOrMore>
-      
             <group>
-        
-          
-        
-        
                <optional>
                   <ref name="tei_origin"/>
                </optional>
-        
-        
                <zeroOrMore>
                   <ref name="tei_provenance"/>
                </zeroOrMore>
-        
-        
                <optional>
                   <ref name="tei_acquisition"/>
                </optional>
-        
             </group>
          </choice>
          <ref name="tei_att.global.attributes"/>
@@ -2005,19 +1972,12 @@ Sample values include: 1] leaves; 2] ruled; 3] pricked; 4] written; 5] miniature
       <element name="additional">
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(additional) groups additional information, combining bibliographic information about a manuscript or other object, or surrogate copies of it, with curatorial or administrative information. [10.9. Additional Information]</a:documentation>
          <group>
-      
             <optional>
                <ref name="tei_adminInfo"/>
             </optional>
-      
-      
             <optional>
                <ref name="tei_surrogates"/>
             </optional>
-      
-      
-        
-      
          </group>
          <ref name="tei_att.global.attributes"/>
          <empty/>
@@ -2027,25 +1987,15 @@ Sample values include: 1] leaves; 2] ruled; 3] pricked; 4] written; 5] miniature
       <element name="adminInfo">
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(administrative information) contains information about the present custody and availability of the manuscript or other object, and also about the record description itself. [10.9.1. Administrative Information]</a:documentation>
          <group>
-      
             <optional>
                <ref name="tei_recordHist"/>
             </optional>
-      
-      
-        
-      
-      
             <optional>
                <ref name="tei_custodialHist"/>
             </optional>
-      
-      
             <optional>
                <ref name="tei_model.noteLike"/>
             </optional>
-        
-      
          </group>
          <ref name="tei_att.global.attributes"/>
          <empty/>
@@ -2055,16 +2005,11 @@ Sample values include: 1] leaves; 2] ruled; 3] pricked; 4] written; 5] miniature
       <element name="recordHist">
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(recorded history) provides information about the source and revision status of the parent manuscript or object description itself. [10.9.1. Administrative Information]</a:documentation>
          <choice>
-      
             <oneOrMore>
                <ref name="tei_model.pLike"/>
             </oneOrMore>
-      
             <group>
                <ref name="tei_source"/>
-        
-          
-        
             </group>
          </choice>
          <ref name="tei_att.global.attributes"/>
@@ -2083,16 +2028,12 @@ Sample values include: 1] leaves; 2] ruled; 3] pricked; 4] written; 5] miniature
       <element name="custodialHist">
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(custodial history) contains a description of a manuscript or other object's custodial history, either as running prose or as a series of dated custodial events. [10.9.1.2. Availability and Custodial History]</a:documentation>
          <choice>
-      
             <oneOrMore>
                <ref name="tei_model.pLike"/>
             </oneOrMore>
-      
-      
             <oneOrMore>
                <ref name="tei_custEvent"/>
             </oneOrMore>
-      
          </choice>
          <ref name="tei_att.global.attributes"/>
          <empty/>
@@ -2132,7 +2073,6 @@ Sample values include: 1] leaves; 2] ruled; 3] pricked; 4] written; 5] miniature
                   <optional>
                      <ref name="tei_msContents"/>
                   </optional>
-          
                   <optional>
                      <ref name="tei_history"/>
                   </optional>

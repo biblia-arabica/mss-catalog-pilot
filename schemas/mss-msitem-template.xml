@@ -1,7 +1,7 @@
 <msDesc>
     <msContents>
         <summary/>
-        <msItem xml:id="" class="">
+        <msItem xml:id="ms-$$$" class="">
             <locus from="" to=""/>
             <title xml:lang="he" ref=""/>
             <title xml:lang="ar" ref=""/>
@@ -13,23 +13,23 @@
             <textLang mainLang="" otherLangs=""/>
             <rubric xml:lang="">
                 <locus from="" to=""/>
-                <q xml:lang=""/>
+                <q/>
             </rubric>
             <incipit xml:lang="">
                 <locus from="" to=""/>
-                <q xml:lang=""/>
+                <q/>
             </incipit>
             <explicit xml:lang="">
                 <locus from="" to=""/>
-                <q xml:lang=""/>
+                <q/>
             </explicit>
             <finalRubric xml:lang="">
                 <locus from="" to=""/>
-                <q xml:lang=""/>
+                <q/>
             </finalRubric>
             <colophon xml:lang="">
                 <locus from="" to=""/>
-                <q xml:lang=""/>
+                <q/>
             </colophon>
             <note><p/></note>
         </msItem>
