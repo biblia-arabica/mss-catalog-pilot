@@ -262,8 +262,8 @@ End license statement: do not remove -->
                     </elementSpec>
                     <elementSpec ident="msContents" mode="change">
                         <content>
-                            <summary/>
-                            <msItem/>
+                            <elementRef key="summary"/>
+                            <elementRef key="msItem"/>
                         </content>
                     </elementSpec>
                     <elementSpec ident="msItem" mode="change">
