@@ -82,7 +82,7 @@
                     </msIdentifier>
                     <msContents>
                         <summary/>
-                        <msItem xml:id="ms-$$$" class="">
+                        <msItem xml:id="$$$" class="">
                             <locus from="" to=""/>
                             <title xml:lang="he" ref=""/>
                             <title xml:lang="ar" ref=""/>
@@ -136,7 +136,7 @@
                                 <collation>
                                     <p/>
                                     <formula ref=""/>
-                                    <catchwords> </catchwords>
+                                    <catchwords></catchwords>
                                 </collation>
                                 <condition key=""/>
                             </supportDesc>
