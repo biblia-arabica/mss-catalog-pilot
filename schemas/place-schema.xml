@@ -181,6 +181,8 @@ End license statement: do not remove -->
                     </elementSpec>
                     <elementSpec ident="birth" mode="delete"/>
                     <elementSpec ident="date" mode="change">
+                        <desc xml:lang="en">Fill in the date in the agreed-upon calendrical system. Use the "when" attribute for precise values. In
+                            case the date can only be approximated, use the "notAfter "and "notBefore" attributes together.</desc>
                         <classes mode="change">
                             <memberOf key="att.canonical" mode="delete"/>
                             <memberOf key="att.datable" mode="delete"/>
@@ -339,6 +341,7 @@ End license statement: do not remove -->
                         </content>
                     </elementSpec>
                     <elementSpec ident="geo" mode="change">
+                        <desc xml:lang="en">Provide the geographical position of the place in the following format: "latitude longitude" (without dividing comma).</desc>
                         <classes mode="change">
                             <memberOf key="att.declaring" mode="delete"/>
                         </classes>
@@ -528,6 +531,7 @@ End license statement: do not remove -->
                         </alternate>
                     </elementSpec>
                     <elementSpec ident="quote" mode="change">
+                        <desc xml:lang="en">A text section mentioning the place.</desc>
                         <classes mode="change">
                             <memberOf key="att.typed" mode="delete"/>
                         </classes>
