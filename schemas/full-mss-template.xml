@@ -59,6 +59,9 @@
             <change who="#mmoliere" when="">CREATED: Converted Zotero Data to TEI-File</change>
         </revisionDesc>
     </teiHeader>
+    <facsimile>
+        <graphic type="" url=""></graphic>
+    </facsimile>
     <text>
         <body>
             <listBibl>

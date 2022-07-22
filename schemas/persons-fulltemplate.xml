@@ -62,7 +62,7 @@
     <text>
         <body>
             <listPerson>
-                <person xml:id="person-$$$" role="author">
+                <person xml:id="person-$$$" role="">
                     <persName xml:id="name$$$-1" xml:lang="he-Latn" srophe-tags="#majlis-headword"
                         source="bibl$$$-$" resp=""></persName>
                     <persName xml:id="name$$$-2" xml:lang="ar-Latn" srophe-tags="#majlis-headword"
@@ -118,11 +118,11 @@
                         <addName ref="#sh-he" type="shuhra"></addName>
                     </persName>
                     <birth source="#bibl$$$-$">
-                        <date when="" notBefore="" notAfter=""/>
+                        <date when="" notBefore="" notAfter="" cert=""/>
                         <placeName ref=""/>
                     </birth>
                     <death source="#bibl$$$-$">
-                        <date when="" notBefore="" notAfter=""/>
+                        <date when="" notBefore="" notAfter="" cert=""/>
                         <placeName ref=""/>
                     </death>
                     <floruit from="" to="" notBefore="" notAfter="" source="#bibl$$$-$"/>

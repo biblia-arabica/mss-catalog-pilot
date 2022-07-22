@@ -234,6 +234,9 @@ End license statement: do not remove -->
                                     <valItem mode="add" ident="ar"/>
                                     <valItem mode="add" ident="en"/>
                                     <valItem mode="add" ident="he"/>
+                                    <valItem mode="add" ident="he-Latn"/>
+                                    <valItem mode="add" ident="ar-Latn"/>
+                                    <valItem mode="add" ident="ar-Hebr"/>
                                 </valList>
                             </attDef>
                         </attList>
@@ -250,13 +253,16 @@ End license statement: do not remove -->
                         </content>
                         <attList>
                             <attDef ident="level" mode="delete"/>
-                                <attDef ident="xml:lang" mode="change">
-                                    <valList type="closed" mode="change">
-                                        <valItem mode="add" ident="ar"/>
-                                        <valItem mode="add" ident="en"/>
-                                        <valItem mode="add" ident="he"/>
-                                    </valList>
-                                </attDef>
+                            <attDef ident="xml:lang" mode="change">
+                                <valList type="closed" mode="change">
+                                    <valItem mode="add" ident="ar"/>
+                                    <valItem mode="add" ident="en"/>
+                                    <valItem mode="add" ident="he"/>
+                                    <valItem mode="add" ident="he-Latn"/>
+                                    <valItem mode="add" ident="ar-Latn"/>
+                                    <valItem mode="add" ident="ar-Hebr"/>
+                                </valList>
+                            </attDef>
                             <attRef name="ref" class="att.canonical"/>
                         </attList>
                     </elementSpec>
@@ -370,11 +376,16 @@ End license statement: do not remove -->
                         </content>
                         <attList>
                             <attDef ident="xml:lang" mode="change">
-                                <valList type="closed" mode="change">
-                                    <valItem mode="add" ident="ar"/>
-                                    <valItem mode="add" ident="en"/>
-                                    <valItem mode="add" ident="he"/>
-                                </valList>
+                                <attDef ident="xml:lang" mode="change">
+                                    <valList type="closed" mode="change">
+                                        <valItem mode="add" ident="ar"/>
+                                        <valItem mode="add" ident="en"/>
+                                        <valItem mode="add" ident="he"/>
+                                        <valItem mode="add" ident="he-Latn"/>
+                                        <valItem mode="add" ident="ar-Latn"/>
+                                        <valItem mode="add" ident="ar-Hebr"/>
+                                    </valList>
+                                </attDef>
                             </attDef>
                         </attList>
                     </elementSpec>
@@ -397,6 +408,9 @@ End license statement: do not remove -->
                                     <valItem mode="add" ident="ar"/>
                                     <valItem mode="add" ident="en"/>
                                     <valItem mode="add" ident="he"/>
+                                    <valItem mode="add" ident="he-Latn"/>
+                                    <valItem mode="add" ident="ar-Latn"/>
+                                    <valItem mode="add" ident="ar-Hebr"/>
                                 </valList>
                             </attDef>
                         </attList>
@@ -419,6 +433,9 @@ End license statement: do not remove -->
                                     <valItem mode="add" ident="ar"/>
                                     <valItem mode="add" ident="en"/>
                                     <valItem mode="add" ident="he"/>
+                                    <valItem mode="add" ident="he-Latn"/>
+                                    <valItem mode="add" ident="ar-Latn"/>
+                                    <valItem mode="add" ident="ar-Hebr"/>
                                 </valList>
                             </attDef>
                         </attList>
@@ -442,6 +459,9 @@ End license statement: do not remove -->
                                     <valItem mode="add" ident="ar"/>
                                     <valItem mode="add" ident="en"/>
                                     <valItem mode="add" ident="he"/>
+                                    <valItem mode="add" ident="he-Latn"/>
+                                    <valItem mode="add" ident="ar-Latn"/>
+                                    <valItem mode="add" ident="ar-Hebr"/>
                                 </valList>
                             </attDef>
                         </attList>
@@ -463,6 +483,9 @@ End license statement: do not remove -->
                                     <valItem mode="add" ident="ar"/>
                                     <valItem mode="add" ident="en"/>
                                     <valItem mode="add" ident="he"/>
+                                    <valItem mode="add" ident="he-Latn"/>
+                                    <valItem mode="add" ident="ar-Latn"/>
+                                    <valItem mode="add" ident="ar-Hebr"/>
                                 </valList>
                             </attDef>
                         </attList>
