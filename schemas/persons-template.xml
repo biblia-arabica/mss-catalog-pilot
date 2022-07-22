@@ -1,6 +1,6 @@
 <body>
     <listPerson>
-        <person xml:id="person-$$$" role="author">
+        <person xml:id="person-$$$" role="">
             <persName xml:id="name$$$-1" xml:lang="he-Latn" srophe-tags="#majlis-headword"
                 source="bibl$$$-$" resp=""></persName>
             <persName xml:id="name$$$-2" xml:lang="ar-Latn" srophe-tags="#majlis-headword"
@@ -55,20 +55,20 @@
                 <addName ref="#ac-he" type="acronym"></addName>
                 <addName ref="#sh-he" type="shuhra"></addName>
             </persName>
-            <birth source="#bibl$$$-$">
-                <date when="" notBefore="" notAfter=""/>
-                <placeName ref=""/>
+            <birth>
+                <date when="" notBefore="" notAfter="" cert="" source="#bibl$$$-$"/>
+                <placeName ref="" cert="" source="#bibl$$$-$"/>
             </birth>
-            <death source="#bibl$$$-$">
-                <date when="" notBefore="" notAfter=""/>
-                <placeName ref=""/>
+            <death>
+                <date when="" notBefore="" notAfter="" cert="" source="#bibl$$$-$"/>
+                <placeName ref="" cert="" source="#bibl$$$-$"/>
             </death>
-            <floruit from="" to="" notBefore="" notAfter="" source="#bibl$$$-$"/>
-            <sex value="m" source="#bibl$$$-$"></sex>
-            <faith source="#bibl$$$-$"></faith>
-            <occupation type="scholar" source="#bibl$$$-$"></occupation>
-            <residence source="#bibl$$$-$">
-                <placeName ref=""> </placeName>
+            <floruit from="" to="" notBefore="" notAfter="" cert="" source="#bibl$$$-$"/>
+            <sex cert="" value="m" source="#bibl$$$-$"></sex>
+            <faith cert="" source="#bibl$$$-$"></faith>
+            <occupation type=""  cert="" source="#bibl$$$-$"></occupation>
+            <residence>
+                <placeName ref="" cert="" source="#bibl$$$-$"> </placeName>
             </residence>
             <bibl xml:id="bibl$$$-$">
                 <citedRange unit="page"></citedRange>

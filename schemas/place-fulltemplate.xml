@@ -70,9 +70,7 @@
          </editorialDecl>
          <classDecl>
             <taxonomy>
-               <category xml:id="syriaca-headword">
-                  <catDesc>The name used by Syriaca.org for document titles, citation, and disambiguation. These names have been created according to
-                     the Syriac.org guidelines for headwords: <ref>http://syriaca.org/documentation/headwords.html</ref>.</catDesc>
+               <category xml:id="majlis-headword">
                </category>
             </taxonomy>
          </classDecl>
@@ -90,7 +88,7 @@
       <body>
          <listPlace>
             <place type="settlement">
-               <placeName xml:id="" xml:lang="en" srophe:tags="#syriaca-headword" source=""/>
+               <placeName xml:id="" xml:lang="en" srophe:tags="#majlis-headword" source=""/>
                <placeName xml:id="" xml:lang="ar" source=""/>
                <placeName xml:id="" xml:lang="he" source=""/>
                <desc type="abstract" xml:lang="en"><quote source=""/></desc>

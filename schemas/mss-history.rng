@@ -5,7 +5,7 @@
          xmlns="http://relaxng.org/ns/structure/1.0"
          datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
          ns="http://www.tei-c.org/ns/1.0"><!--
-Schema generated from ODD source 2022-06-01T13:16:14Z. .
+Schema generated from ODD source 2022-06-28T14:54:22Z. .
 TEI Edition: Version 4.4.0. Last updated on
         19th April 2022, revision ff9cc28b0
 TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.4.0/
@@ -779,11 +779,6 @@ Suggested values include: 1] spoken (spoken); 2] thought (thought); 3] written (
                <text/>
             </choice>
          </zeroOrMore>
-         <zeroOrMore>
-            <choice>
-               <text/>
-            </choice>
-         </zeroOrMore>
          <ref name="tei_att.global.attribute.n"/>
          <ref name="tei_att.global.responsibility.attribute.cert"/>
          <optional>
@@ -862,6 +857,7 @@ Suggested values include: 1] spoken (spoken); 2] thought (thought); 3] written (
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(provenance) Give an account of how the manuscript passed into the hands of later owners using vestiges they left inside the manuscript or some external records. Use the appropriate elements to describe relevant persons, dates, etc. [10.8. History]</a:documentation>
          <ref name="tei_date"/>
          <ref name="tei_p"/>
+         <ref name="tei_q"/>
          <ref name="tei_locus"/>
          <ref name="tei_persName"/>
          <ref name="tei_stamp"/>
@@ -877,24 +873,7 @@ Suggested values include: 1] spoken (spoken); 2] thought (thought); 3] written (
          <ref name="tei_p"/>
          <ref name="tei_persName"/>
          <ref name="tei_locus"/>
-         <ref name="tei_placeName"/>
-         <ref name="tei_date"/>
-         <ref name="tei_stamp"/>
-         <ref name="tei_p"/>
-         <ref name="tei_persName"/>
-         <ref name="tei_locus"/>
-         <ref name="tei_placeName"/>
-         <ref name="tei_date"/>
-         <ref name="tei_stamp"/>
-         <ref name="tei_p"/>
-         <ref name="tei_persName"/>
-         <ref name="tei_locus"/>
-         <ref name="tei_placeName"/>
-         <ref name="tei_date"/>
-         <ref name="tei_stamp"/>
-         <ref name="tei_p"/>
-         <ref name="tei_persName"/>
-         <ref name="tei_locus"/>
+         <ref name="tei_q"/>
       </element>
    </define>
    <define name="tei_model.persNamePart">
