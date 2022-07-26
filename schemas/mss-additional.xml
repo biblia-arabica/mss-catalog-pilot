@@ -79,7 +79,7 @@ End license statement: do not remove -->
                 -->
 
                     <moduleRef key="core"
-                        except="list abbr add addrLine address analytic biblScope biblStruct binaryObject cb choice cit corr del distinct divGen editor ellipsis email emph expan foreign gap gb gloss graphic head headItem headLabel hi imprint index item l label lb lg listBibl measure measureGrp media meeting mentioned milestone monogr name noteGrp num orig pb postBox postCode pubPlace publisher quote rb reg relatedItem resp respStmt rs rt ruby said series sic soCalled sp speaker stage street teiCorpus term time unclear unit author note p q ref textLang title"/>
+                        except="list abbr add addrLine address analytic biblScope biblStruct binaryObject cb choice cit corr del distinct divGen editor ellipsis email emph expan foreign gap gb gloss graphic head headItem headLabel hi imprint index item l label lb lg measure measureGrp media meeting mentioned milestone monogr name noteGrp num orig pb postBox postCode pubPlace publisher quote rb reg relatedItem resp respStmt rs rt ruby said series sic soCalled sp speaker stage street teiCorpus term time unclear unit author note p q ref textLang title"/>
 
                     <moduleRef key="tei"/>
 
@@ -174,6 +174,25 @@ End license statement: do not remove -->
                             <attDef ident="role" mode="delete"/>
                             <attDef ident="nymRef" mode="delete"/>
                         </attList>
+                    </elementSpec>
+                    <elementSpec ident="listBibl" mode="change">
+                        <desc xml:lang="en">A list of bibliographic items.</desc>
+                        <classes mode="change">
+                            <memberOf key="att.declarable" mode="delete"/>
+                            <memberOf key="att.global" mode="delete"/>
+                            <memberOf key="att.global.rendition" mode="delete"/>
+                            <memberOf key="att.global.linking" mode="delete"/>
+                            <memberOf key="att.global.analytic" mode="delete"/>
+                            <memberOf key="att.global.facs" mode="delete"/>
+                            <memberOf key="att.global.change" mode="delete"/>
+                            <memberOf key="att.global.responsibility" mode="delete"/>
+                            <memberOf key="att.global.source" mode="delete"/>
+                            <memberOf key="att.sortable" mode="delete"/>
+                            <memberOf key="att.typed" mode="delete"/>
+                        </classes>
+                        <content>
+                            <elementRef key="bibl"/>
+                        </content>
                     </elementSpec>
                     <elementSpec ident="bibl" mode="change">
                         <desc xml:lang="en">A bibliographic item, like a monograph, journal article, or manuscript.</desc>
