@@ -243,6 +243,28 @@
                         </acquisition>
                     </history>
                 </msDesc>
+                <additional>
+                    <listBibl>
+                        <bibl xml:id="">
+                            <author>
+                                <forename/>
+                                <surname/>
+                            </author>
+                            <title xml:lang="" level=""/>
+                            <editor>
+                                <forename/>
+                                <surname/>
+                            </editor>
+                            <date/>
+                            <pubPlace/>
+                            <publisher/>
+                            <series/>
+                            <biblScope from="" to="" unit=""/>
+                            <citedRange unit="p"/>
+                            <ptr target=""/>
+                        </bibl>
+                    </listBibl>
+                </additional>
             </listBibl>
         </body>
     </text>
