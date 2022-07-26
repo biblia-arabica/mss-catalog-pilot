@@ -70,12 +70,22 @@
             <residence>
                 <placeName ref="" cert="" source="#bibl$$$-$"> </placeName>
             </residence>
-            <bibl xml:id="bibl$$$-$">
-                <citedRange unit="page"></citedRange>
-                <ptr target=""/>
-            </bibl>
-            <bibl xml:id="bibl$$$-$">
-                <citedRange unit="page"></citedRange>
+            <bibl xml:id="">
+                <author>
+                    <forename/>
+                    <surname/>
+                </author>
+                <title xml:lang="" level=""/>
+                <editor>
+                    <forename/>
+                    <surname/>
+                </editor>
+                <date/>
+                <pubPlace/>
+                <publisher/>
+                <series/>
+                <biblScope from="" to="" unit=""/>
+                <citedRange unit="p"/>
                 <ptr target=""/>
             </bibl>
             <idno type="URI">https://jalit.org/person/$$$</idno>
