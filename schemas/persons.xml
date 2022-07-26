@@ -115,9 +115,36 @@ End license statement: do not remove -->
                     <elementSpec ident="formula" mode="delete"/>
                     <moduleRef key="namesdates"
                         include="persName listPerson person addName forename birth placeName death floruit sex faith occupation residence listRelation relation"/>
-                    <elementSpec ident="author" mode="delete"/>
+                    <elementSpec ident="author" mode="change">
+                        <classes mode="change">
+                            <memberOf key="att.datable" mode="delete"/>
+                            <memberOf key="att.naming" mode="delete"/>
+                        </classes>
+                        <content>
+                            <elementRef key="forename"/>
+                            <elementRef key="surname"/>
+                        </content>
+                        <attList>
+                            <attDef ident="key" mode="delete"/>
+                            <attDef ident="ref" mode="delete"/>
+                        </attList>
+                    </elementSpec>
                     <elementSpec ident="textLang" mode="delete"/>
-                    <elementSpec ident="title" mode="delete"/>
+                    <elementSpec ident="title" mode="change">
+                        <classes mode="change">
+                            <memberOf key="att.canonical" mode="delete"/>
+                            <memberOf key="att.datable" mode="delete"/>
+                            <memberOf key="att.typed" mode="delete"/>
+                        </classes>
+                        <content>
+                            <textNode/>
+                        </content>
+                        <attList>
+                            <attDef ident="level" mode="opt"/>
+                            <attDef ident="xml:lang" mode="delete">
+                            </attDef>
+                        </attList>
+                    </elementSpec>
                     <elementSpec ident="msContents" mode="delete"/>
                     <elementSpec ident="msItem" mode="delete"/>
                     <elementSpec ident="note" mode="delete"/>
@@ -144,7 +171,16 @@ End license statement: do not remove -->
                             <attDef ident="role" mode="delete"/>
                             <attDef ident="nymRef" mode="delete"/>
                             <attRef name="xml:id" class="att.global"/>
-                            <attRef name="xml:lang" class="att.global"/>
+                            <attDef ident="xml:lang" mode="change">
+                                <valList type="closed" mode="change">
+                                    <valItem mode="add" ident="ar"/>
+                                    <valItem mode="add" ident="en"/>
+                                    <valItem mode="add" ident="he"/>
+                                    <valItem mode="add" ident="he-Latn"/>
+                                    <valItem mode="add" ident="ar-Latn"/>
+                                    <valItem mode="add" ident="ar-Hebr"/>
+                                </valList>
+                            </attDef>
                             <attDef ident="srophe-tags">
                                 <datatype>
                                     <dataRef name="string"/>
@@ -270,12 +306,38 @@ End license statement: do not remove -->
                             <memberOf key="att.typed" mode="delete"/>
                         </classes>
                         <content>
+                            <elementRef key="author"/>
+                            <elementRef key="title"/>
+                            <elementRef key="editor"/>
+                            <elementRef key="date"/>
+                            <elementRef key="pubPlace"/>
+                            <elementRef key="publisher"/>
+                            <elementRef key="series"/>
+                            <elementRef key="biblScope"/>
                             <elementRef key="citedRange"/>
                             <elementRef key="ptr"/>
                         </content>
                         <attList>
                             <attRef name="xml:id" class="att.global"/>
                         </attList>
+                    </elementSpec>
+                    <elementSpec ident="series" mode="change">
+                        <content>
+                            <textNode/>
+                        </content>
+                    </elementSpec>
+                    <elementSpec ident="publisher" mode="change">
+                        <classes mode="change">
+                            <memberOf key="att.canonical" mode="delete"/>
+                        </classes>
+                        <content>
+                            <textNode/>
+                        </content>
+                    </elementSpec>
+                    <elementSpec ident="biblScope" mode="change">
+                        <content>
+                            <textNode/>
+                        </content>
                     </elementSpec>
                     <elementSpec ident="birth" mode="change">
                         <desc xml:lang="en">Provide the date and place of birth in the respective child elements.</desc>
@@ -334,6 +396,13 @@ End license statement: do not remove -->
                             <attRef name="notBefore" class="att.datable.w3c"/>
                             <attRef name="notAfter" class="att.datable.w3c"/>
                             <attRef name="source" class="att.global.source"/>
+                            <attRef name="cert" class="att.global.responsibility">
+                                <valList type="closed" mode="change">
+                                    <valItem mode="add" ident="high"/>
+                                    <valItem mode="add" ident="medium"/>
+                                    <valItem mode="add" ident="low"/>
+                                </valList>
+                            </attRef>
                         </attList>
                     </elementSpec>
                     <elementSpec ident="death" mode="change">
@@ -379,6 +448,13 @@ End license statement: do not remove -->
                         </content>
                         <attList>
                             <attRef name="source" class="att.global.source"/>
+                            <attRef name="cert" class="att.global.responsibility">
+                                <valList type="closed" mode="change">
+                                    <valItem mode="add" ident="high"/>
+                                    <valItem mode="add" ident="medium"/>
+                                    <valItem mode="add" ident="low"/>
+                                </valList>
+                            </attRef>
                         </attList>
                     </elementSpec>
                     <elementSpec ident="floruit" mode="change">
@@ -399,6 +475,13 @@ End license statement: do not remove -->
                             <attRef name="to" class="att.citing"/>
                             <attRef name="notBefore" class="att.datable.w3c"/>
                             <attRef name="notAfter" class="att.datable.w3c"/>
+                            <attRef name="cert" class="att.global.responsibility">
+                                <valList type="closed" mode="change">
+                                    <valItem mode="add" ident="high"/>
+                                    <valItem mode="add" ident="medium"/>
+                                    <valItem mode="add" ident="low"/>
+                                </valList>
+                            </attRef>
                         </attList>
                     </elementSpec>
                     <elementSpec ident="idno" mode="change">
@@ -455,6 +538,54 @@ End license statement: do not remove -->
                             <attDef ident="ref" mode="delete"/>
                             <attRef name="source" class="att.global.source"/>
                             <attRef name="type" class="att.entryLike"/>
+                            <attRef name="cert" class="att.global.responsibility">
+                                <valList type="closed" mode="change">
+                                    <valItem mode="add" ident="high"/>
+                                    <valItem mode="add" ident="medium"/>
+                                    <valItem mode="add" ident="low"/>
+                                </valList>
+                            </attRef>
+                        </attList>
+                    </elementSpec>
+                    <elementSpec ident="editor" mode="change">
+                        <classes mode="change">
+                            <memberOf key="att.datable" mode="delete"/>
+                            <memberOf key="att.naming" mode="delete"/>
+                        </classes>
+                        <content>
+                            <elementRef key="forename"/>
+                            <elementRef key="surname"/>
+                        </content>
+                        <attList>
+                            <attDef ident="key" mode="delete"/>
+                            <attDef ident="ref" mode="delete"/>
+                        </attList>
+                    </elementSpec>
+                    <elementSpec ident="surname" mode="change">
+                        <classes mode="change">
+                            <memberOf key="att.personal" mode="delete"/>
+                            <memberOf key="att.typed" mode="delete"/>
+                        </classes>
+                        <content>
+                            <textNode/>
+                        </content>
+                        <attList>
+                            <attDef ident="key" mode="delete"/>
+                            <attDef ident="ref" mode="delete"/>
+                            <attDef ident="role" mode="delete"/>
+                            <attDef ident="nymRef" mode="delete"/>
+                        </attList>
+                    </elementSpec>
+                    <elementSpec ident="pubPlace" mode="change">
+                        <classes mode="change">
+                            <memberOf key="att.naming" mode="delete"/>
+                        </classes>
+                        <content>
+                            <textNode/>
+                        </content>
+                        <attList>
+                            <attDef ident="key" mode="delete"/>
+                            <attDef ident="ref" mode="delete"/>
                         </attList>
                     </elementSpec>
                     <elementSpec ident="placeName" mode="change">
@@ -475,10 +606,19 @@ End license statement: do not remove -->
                             <attDef ident="role" mode="delete"/>
                             <attDef ident="nymRef" mode="delete"/>
                             <attRef name="ref" class="att.canonical"/>
+                            <attRef name="source" class="att.global.source"/>
+                            <attRef name="cert" class="att.global.responsibility">
+                                <valList type="closed" mode="change">
+                                    <valItem mode="add" ident="high"/>
+                                    <valItem mode="add" ident="medium"/>
+                                    <valItem mode="add" ident="low"/>
+                                </valList>
+                            </attRef>
                         </attList>
                     </elementSpec>
                     <elementSpec ident="relation" mode="change">
-                        <desc xml:lang="en">Specify the relationship between the person and another person or object. Choose the kind of relation from the list provided in the "name" attributea and add the URIs of the respective records.</desc>
+                        <desc xml:lang="en">Specify the relationship between the person and another person or object. Choose the kind of relation from
+                            the list provided in the "name" attributea and add the URIs of the respective records.</desc>
                         <classes mode="change">
                             <memberOf key="att.canonical" mode="delete"/>
                             <memberOf key="att.datable" mode="delete"/>
@@ -861,6 +1001,13 @@ End license statement: do not remove -->
                         <attList>
                             <attRef name="source" class="att.global.source"/>
                             <attRef name="value" class="teidata.sex"/>
+                            <attRef name="cert" class="att.global.responsibility">
+                                <valList type="closed" mode="change">
+                                    <valItem mode="add" ident="high"/>
+                                    <valItem mode="add" ident="medium"/>
+                                    <valItem mode="add" ident="low"/>
+                                </valList>
+                            </attRef>
                         </attList>
                     </elementSpec>
                     <elementSpec ident="citedRange" mode="change">

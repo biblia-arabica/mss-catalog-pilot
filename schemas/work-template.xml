@@ -1,8 +1,8 @@
 <text>
     <body>
         <bibl xml:id="work-$$$" ana="#">
-            <title xml:id="" xml:lang="" source="" srophe:tags="#syriaca-headword"></title>
-            <title xml:id="" xml:lang="" source="" srophe:tags="#syriaca-headword"></title>
+            <title xml:id="" xml:lang="" source="" srophe:tags="#majlis-headword"></title>
+            <title xml:id="" xml:lang="" source="" srophe:tags="#majlis-headword"></title>
             <title xml:id="" xml:lang="" source=""></title>
             <author xml:lang="" source="" ref="https://jalit.org/person/$$$">
                 <persName></persName>

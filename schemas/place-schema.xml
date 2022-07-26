@@ -222,6 +222,9 @@ End license statement: do not remove -->
                                     <valItem mode="add" ident="ar"/>
                                     <valItem mode="add" ident="en"/>
                                     <valItem mode="add" ident="he"/>
+                                    <valItem mode="add" ident="he-Latn"/>
+                                    <valItem mode="add" ident="ar-Latn"/>
+                                    <valItem mode="add" ident="ar-Hebr"/>
                                 </valList>
                             </attDef>
                         </attList>
@@ -261,6 +264,9 @@ End license statement: do not remove -->
                                     <valItem mode="add" ident="ar"/>
                                     <valItem mode="add" ident="en"/>
                                     <valItem mode="add" ident="he"/>
+                                    <valItem mode="add" ident="he-Latn"/>
+                                    <valItem mode="add" ident="ar-Latn"/>
+                                    <valItem mode="add" ident="ar-Hebr"/>
                                 </valList>
                             </attDef>
                             <attRef name="source" class="att.global.source"/>
@@ -362,12 +368,14 @@ End license statement: do not remove -->
                         </content>
                         <attList>
                             <attDef ident="type" mode="delete"/>
+                            <attDef ident="source" mode="change" usage="opt"/>
                         </attList>
                     </elementSpec>
                     <elementSpec ident="region" mode="change">
                         <classes mode="change">
                             <memberOf key="att.datable" mode="delete"/>
                             <memberOf key="att.naming" mode="delete"/>
+                            <attDef ident="source" mode="change" usage="opt"/>
                         </classes>
                         <content>
                             <textNode/>
@@ -425,6 +433,9 @@ End license statement: do not remove -->
                                     <valItem mode="add" ident="ar"/>
                                     <valItem mode="add" ident="en"/>
                                     <valItem mode="add" ident="he"/>
+                                    <valItem mode="add" ident="he-Latn"/>
+                                    <valItem mode="add" ident="ar-Latn"/>
+                                    <valItem mode="add" ident="ar-Hebr"/>
                                 </valList>
                             </attDef>
                         </attList>

@@ -5,7 +5,7 @@
          xmlns="http://relaxng.org/ns/structure/1.0"
          datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
          ns="http://www.tei-c.org/ns/1.0"><!--
-Schema generated from ODD source 2022-06-02T14:47:04Z. .
+Schema generated from ODD source 2022-06-28T14:54:46Z. .
 TEI Edition: Version 4.4.0. Last updated on
         19th April 2022, revision ff9cc28b0
 TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.4.0/
@@ -917,7 +917,7 @@ TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.4.0/
          <optional>
             <attribute name="otherLangs">
                <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(other languages) one or more codes identifying any other languages used in the bibliographic work.
-Sample values include: 1] ar; 2] en; 3] he</a:documentation>
+Sample values include: 1] ar; 2] en; 3] he; 4] he-Latn; 5] ar-Latn; 6] ar-Hebr</a:documentation>
                <list>
                   <zeroOrMore>
                      <choice>

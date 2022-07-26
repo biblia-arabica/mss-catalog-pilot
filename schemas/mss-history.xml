@@ -283,27 +283,7 @@ End license statement: do not remove -->
                             <elementRef key="p"/>
                             <elementRef key="persName"/>
                             <elementRef key="locus"/>
-                            <elementRef key="placeName"/>
-                            <elementRef key="date"/>
-                            <elementRef key="stamp"/>
-                            <elementRef key="signatures"/>
-                            <elementRef key="p"/>
-                            <elementRef key="persName"/>
-                            <elementRef key="locus"/>
-                            <elementRef key="placeName"/>
-                            <elementRef key="date"/>
-                            <elementRef key="stamp"/>
-                            <elementRef key="signatures"/>
-                            <elementRef key="p"/>
-                            <elementRef key="persName"/>
-                            <elementRef key="locus"/>
-                            <elementRef key="placeName"/>
-                            <elementRef key="date"/>
-                            <elementRef key="stamp"/>
-                            <elementRef key="signatures"/>
-                            <elementRef key="p"/>
-                            <elementRef key="persName"/>
-                            <elementRef key="locus"/>
+                            <elementRef key="q"/>
                         </content>
                     </elementSpec>
                     <elementSpec ident="origin" mode="change">
@@ -335,6 +315,7 @@ End license statement: do not remove -->
                         <content>
                             <elementRef key="date"/>
                             <elementRef key="p"/>
+                            <elementRef key="q"/>
                             <elementRef key="locus"/>
                             <elementRef key="persName"/>
                             <elementRef key="signatures"/>
@@ -361,6 +342,9 @@ End license statement: do not remove -->
                                         <valItem mode="add" ident="ar"/>
                                         <valItem mode="add" ident="en"/>
                                         <valItem mode="add" ident="he"/>
+                                        <valItem mode="add" ident="he-Latn"/>
+                                        <valItem mode="add" ident="ar-Latn"/>
+                                        <valItem mode="add" ident="ar-Hebr"/>
                                     </valList>
                                 </attDef>
                             </attList>
