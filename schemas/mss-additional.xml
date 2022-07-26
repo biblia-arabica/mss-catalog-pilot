@@ -79,7 +79,7 @@ End license statement: do not remove -->
                 -->
 
                     <moduleRef key="core"
-                        except="list abbr add addrLine address analytic biblScope biblStruct binaryObject cb choice cit corr del distinct divGen editor ellipsis email emph expan foreign gap gb gloss graphic head headItem headLabel hi imprint index item l label lb lg listBibl measure measureGrp media meeting mentioned milestone monogr name noteGrp num orig pb postBox postCode pubPlace publisher quote rb reg relatedItem resp respStmt rs rt ruby said series sic soCalled sp speaker stage street teiCorpus term time unclear unit author note p q ref textLang title"/>
+                        except="list abbr add addrLine address analytic biblScope biblStruct binaryObject cb choice cit corr del distinct divGen editor ellipsis email emph expan foreign gap gb gloss graphic head headItem headLabel hi imprint index item l label lb lg measure measureGrp media meeting mentioned milestone monogr name noteGrp num orig pb postBox postCode pubPlace publisher quote rb reg relatedItem resp respStmt rs rt ruby said series sic soCalled sp speaker stage street teiCorpus term time unclear unit author note p q ref textLang title"/>
 
                     <moduleRef key="tei"/>
 
