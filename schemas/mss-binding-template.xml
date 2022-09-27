@@ -1,5 +1,5 @@
 <bindingDesc>
-    <binding contemporary="">
+    <binding xml:id="" contemporary="">
         <p/>
         <dimensions type="binding">
             <height unit="mm"/>

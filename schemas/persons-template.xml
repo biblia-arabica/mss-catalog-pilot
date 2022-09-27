@@ -98,10 +98,5 @@
             <idno type="URI" subtype="imhm" resp=""></idno>
             <idno type="URI" subtype="ktiv" resp=""></idno>
         </person>
-        <listRelation>
-            <relation name="" active="" passive="" source="#bibl$$$-$">
-                <desc></desc>
-            </relation>
-        </listRelation>
     </listPerson>
 </body>

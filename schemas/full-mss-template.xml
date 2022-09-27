@@ -85,7 +85,7 @@
                     </msIdentifier>
                     <msContents>
                         <summary/>
-                        <msItem xml:id="$$$" class="">
+                        <msItem xml:id="" class="">
                             <locus from="" to=""/>
                             <title xml:lang="he" ref=""/>
                             <title xml:lang="ar" ref=""/>
@@ -120,7 +120,7 @@
                     </msContents>
                     <physDesc>
                         <objectDesc form="single">
-                            <supportDesc>
+                            <supportDesc xml:id="">
                                 <support>
                                     <p/><material key=""/><p/><watermark/>
                                     <p/>
@@ -145,7 +145,7 @@
                             </supportDesc>
                             <layoutDesc>
                                 <summary/>
-                                <layout columns="" writtenLines="">
+                                <layout xml:id="" columns="" writtenLines="">
                                     <p/>
                                     <dimensions type="written">
                                         <height unit="mm"/>
@@ -179,7 +179,7 @@
                             </handNote>
                         </handDesc>
                         <bindingDesc>
-                            <binding contemporary="">
+                            <binding xml:id="" contemporary="">
                                 <p/>
                                 <dimensions type="binding">
                                     <height unit="mm"/>
@@ -202,11 +202,11 @@
                         <additions>
                             <p/>
                             <list>
-                                <item>
+                                <item xml:id="">
                                     <p/><locus target=""/>
                                     <desc type="comment"></desc>
                                 </item>
-                                <item>
+                                <item xml:id="">
                                     <p/><locus target=""/>
                                     <desc type="comment"></desc>
                                 </item>
@@ -215,7 +215,7 @@
                     </physDesc>
                     <history>
                         <summary/>
-                        <origin>
+                        <origin xml:id="">
                             <origDate notBefore="" notAfter="" when=""/>
                             <origPlace ref=""/>
                             <locus target=""/>
@@ -223,7 +223,7 @@
                             <q xml:lang=""/>
                             <p/>
                         </origin>
-                        <provenance>
+                        <provenance xml:id="">
                             <date notBefore="" notAfter="" when=""/>
                             <placeName ref=""/>
                             <locus target=""/>
@@ -232,7 +232,7 @@
                             <stamp/>
                             <p/>
                         </provenance>
-                        <acquisition>
+                        <acquisition xml:id="">
                             <date notBefore="" notAfter="" when=""/>
                             <placeName ref=""/>
                             <locus target=""/>
