@@ -1,6 +1,6 @@
 <history>
     <summary/>
-    <origin>
+    <origin xml:id="">
         <origDate notBefore="" notAfter="" when=""/>
         <origPlace ref=""/>
         <locus target=""/>
@@ -8,7 +8,7 @@
         <q xml:lang=""/>
         <p/>
     </origin>
-    <provenance>
+    <provenance xml:id="">
         <date notBefore="" notAfter="" when=""/>
         <placeName ref=""/>
         <locus target=""/>
@@ -17,7 +17,7 @@
         <stamp/>
         <p/>
     </provenance>
-    <acquisition>
+    <acquisition xml:id="">
         <date notBefore="" notAfter="" when=""/>
         <placeName ref=""/>
         <locus target=""/>

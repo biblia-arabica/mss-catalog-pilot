@@ -1,6 +1,6 @@
 <layoutDesc>
     <summary/>
-    <layout columns="" writtenLines="">
+    <layout xml:id="" columns="" writtenLines="">
         <p/>
         <dimensions type="written">
             <height unit="mm"/>

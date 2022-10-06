@@ -353,6 +353,7 @@ End license statement: do not remove -->
                             <elementRef key="forename"/>
                             <elementRef key="surname"/>
                             <elementRef key="addName"/>
+                            <textNode/>
                         </content>
                         <attList>
                             <attDef ident="key" mode="delete"/>

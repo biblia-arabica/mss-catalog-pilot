@@ -114,7 +114,6 @@
                         <ptr target=""/>
                     </bibl>
                 </note>
-                <idno type="URI">https://jalit.org/work/$$$</idno>
                 <bibl xml:id="">
                     <author>
                         <forename/>
@@ -133,9 +132,6 @@
                     <citedRange unit="p"/>
                     <ptr target=""/>
                 </bibl>
-                <listRelation>
-                    <relation name="syriaca:commemorated" active="https://jalit.org/work/$$$" passive="https://jalit.org/person/$$$" source=""/>
-                </listRelation>
             </bibl>
         </body>
     </text>

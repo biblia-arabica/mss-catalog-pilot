@@ -1,11 +1,11 @@
 <additions>
     <p/>
     <list>
-        <item>
+        <item xml:id="">
             <p/><locus target=""/>
             <desc type="comment"></desc>
         </item>
-        <item>
+        <item xml:id="">
             <p/><locus target=""/>
             <desc type="comment"></desc>
         </item>
