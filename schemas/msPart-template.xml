@@ -82,7 +82,7 @@
                     </msIdentifier>
                     <physDesc>
                         <objectDesc form="single">
-                            <supportDesc xml:id="">
+                            <supportDesc>
                                 <support>
                                     <p/><material key=""/><p/><watermark/>
                                     <p/>
@@ -103,11 +103,12 @@
                                     <formula ref=""/>
                                     <catchwords></catchwords>
                                 </collation>
-                                <condition key=""/>
+                                <condition><p/></condition>
                             </supportDesc>
                             <layoutDesc>
                                 <summary/>
                                 <layout xml:id="" columns="" writtenLines="">
+                                    <locus target="" from="" to=""/>
                                     <p/>
                                     <dimensions type="written">
                                         <height unit="mm"/>
@@ -140,27 +141,6 @@
                                 <p/>
                             </handNote>
                         </handDesc>
-                        <bindingDesc>
-                            <binding xml:id="" contemporary="">
-                                <p/>
-                                <dimensions type="binding">
-                                    <height unit="mm"/>
-                                    <width unit="mm"/>
-                                    <depth unit="mm"/>
-                                    <p/>
-                                </dimensions>
-                                <p/>
-                                <origPlace ref=""/>
-                                <p/>
-                                <origDate when="" from="" to=""/>
-                                <p/>
-                                <decoNote type="">
-                                    <p/>
-                                    <material key=""/>
-                                </decoNote>
-                                <condition key=""><p/></condition>
-                            </binding>
-                        </bindingDesc>
                         <additions>
                             <p/>
                             <list>
@@ -174,10 +154,31 @@
                                 </item>
                             </list>
                         </additions>
+                        <bindingDesc>
+                            <binding contemporary="">
+                                <p/>
+                                <decoNote type="">
+                                    <p/>
+                                    <material key=""/>
+                                </decoNote>
+                                <condition><p/>
+                                    <dimensions type="binding">
+                                        <height unit="mm"/>
+                                        <width unit="mm"/>
+                                        <depth unit="mm"/>
+                                    </dimensions></condition>
+                            </binding>
+                        </bindingDesc>
+                        <accMat resp="">
+                            <p></p>
+                            <persName key=""></persName>
+                            <q xml:lang=""></q>
+                        </accMat>
                     </physDesc>
                     <history>
                         <summary/>
-                        <origin xml:id="">
+                        <origin>
+                            <p/>
                             <origDate notBefore="" notAfter="" when=""/>
                             <origPlace ref=""/>
                             <locus target=""/>
@@ -185,7 +186,8 @@
                             <q xml:lang=""/>
                             <p/>
                         </origin>
-                        <provenance xml:id="">
+                        <provenance>
+                            <p/>
                             <date notBefore="" notAfter="" when=""/>
                             <placeName ref=""/>
                             <locus target=""/>
@@ -194,7 +196,8 @@
                             <stamp/>
                             <p/>
                         </provenance>
-                        <acquisition xml:id="">
+                        <acquisition>
+                            <p/>
                             <date notBefore="" notAfter="" when=""/>
                             <placeName ref=""/>
                             <locus target=""/>
@@ -204,6 +207,28 @@
                             <p/>
                         </acquisition>
                     </history>
+                    <additional>
+                        <listBibl>
+                            <bibl xml:id="">
+                                <author>
+                                    <forename/>
+                                    <surname/>
+                                </author>
+                                <title xml:lang="" level=""/>
+                                <editor>
+                                    <forename/>
+                                    <surname/>
+                                </editor>
+                                <date/>
+                                <pubPlace/>
+                                <publisher/>
+                                <series/>
+                                <biblScope from="" to="" unit=""/>
+                                <citedRange unit="p"/>
+                                <ptr target=""/>
+                            </bibl>
+                        </listBibl>
+                    </additional>
                     <msPart>
                         <msIdentifier>
                             <country/>
@@ -280,11 +305,12 @@
                                         <formula ref=""/>
                                         <catchwords></catchwords>
                                     </collation>
-                                    <condition key=""/>
+                                    <condition><p/></condition>
                                 </supportDesc>
                                 <layoutDesc>
                                     <summary/>
-                                    <layout columns="" writtenLines="">
+                                    <layout xml:id="" columns="" writtenLines="">
+                                        <locus target="" from="" to=""/>
                                         <p/>
                                         <dimensions type="written">
                                             <height unit="mm"/>
@@ -320,20 +346,26 @@
                             <additions>
                                 <p/>
                                 <list>
-                                    <item>
+                                    <item xml:id="">
                                         <p/><locus target=""/>
                                         <desc type="comment"></desc>
                                     </item>
-                                    <item>
+                                    <item xml:id="">
                                         <p/><locus target=""/>
                                         <desc type="comment"></desc>
                                     </item>
                                 </list>
                             </additions>
+                            <accMat resp="">
+                                <p></p>
+                                <persName key=""></persName>
+                                <q xml:lang=""></q>
+                            </accMat>
                         </physDesc>
                         <history>
                             <summary/>
                             <origin>
+                                <p/>
                                 <origDate notBefore="" notAfter="" when=""/>
                                 <origPlace ref=""/>
                                 <locus target=""/>
@@ -342,6 +374,7 @@
                                 <p/>
                             </origin>
                             <provenance>
+                                <p/>
                                 <date notBefore="" notAfter="" when=""/>
                                 <placeName ref=""/>
                                 <locus target=""/>
@@ -351,6 +384,7 @@
                                 <p/>
                             </provenance>
                             <acquisition>
+                                <p/>
                                 <date notBefore="" notAfter="" when=""/>
                                 <placeName ref=""/>
                                 <locus target=""/>
@@ -381,7 +415,7 @@
                         </msIdentifier>
                         <msContents>
                             <summary/>
-                            <msItem xml:id="$$$" class="">
+                            <msItem xml:id="" class="">
                                 <locus from="" to=""/>
                                 <title xml:lang="he" ref=""/>
                                 <title xml:lang="ar" ref=""/>
@@ -437,11 +471,12 @@
                                         <formula ref=""/>
                                         <catchwords></catchwords>
                                     </collation>
-                                    <condition key=""/>
+                                    <condition><p/></condition>
                                 </supportDesc>
                                 <layoutDesc>
                                     <summary/>
-                                    <layout columns="" writtenLines="">
+                                    <layout xml:id="" columns="" writtenLines="">
+                                        <locus target="" from="" to=""/>
                                         <p/>
                                         <dimensions type="written">
                                             <height unit="mm"/>
@@ -477,20 +512,26 @@
                             <additions>
                                 <p/>
                                 <list>
-                                    <item>
+                                    <item xml:id="">
                                         <p/><locus target=""/>
                                         <desc type="comment"></desc>
                                     </item>
-                                    <item>
+                                    <item xml:id="">
                                         <p/><locus target=""/>
                                         <desc type="comment"></desc>
                                     </item>
                                 </list>
                             </additions>
+                            <accMat resp="">
+                                <p></p>
+                                <persName key=""></persName>
+                                <q xml:lang=""></q>
+                            </accMat>
                         </physDesc>
                         <history>
                             <summary/>
                             <origin>
+                                <p/>
                                 <origDate notBefore="" notAfter="" when=""/>
                                 <origPlace ref=""/>
                                 <locus target=""/>
@@ -499,6 +540,7 @@
                                 <p/>
                             </origin>
                             <provenance>
+                                <p/>
                                 <date notBefore="" notAfter="" when=""/>
                                 <placeName ref=""/>
                                 <locus target=""/>
@@ -508,6 +550,7 @@
                                 <p/>
                             </provenance>
                             <acquisition>
+                                <p/>
                                 <date notBefore="" notAfter="" when=""/>
                                 <placeName ref=""/>
                                 <locus target=""/>
@@ -538,7 +581,7 @@
                         </msIdentifier>
                         <msContents>
                             <summary/>
-                            <msItem xml:id="$$$" class="">
+                            <msItem xml:id="" class="">
                                 <locus from="" to=""/>
                                 <title xml:lang="he" ref=""/>
                                 <title xml:lang="ar" ref=""/>
@@ -594,11 +637,12 @@
                                         <formula ref=""/>
                                         <catchwords></catchwords>
                                     </collation>
-                                    <condition key=""/>
+                                    <condition><p/></condition>
                                 </supportDesc>
                                 <layoutDesc>
                                     <summary/>
-                                    <layout columns="" writtenLines="">
+                                    <layout xml:id="" columns="" writtenLines="">
+                                        <locus target="" from="" to=""/>
                                         <p/>
                                         <dimensions type="written">
                                             <height unit="mm"/>
@@ -634,20 +678,26 @@
                             <additions>
                                 <p/>
                                 <list>
-                                    <item>
+                                    <item xml:id="">
                                         <p/><locus target=""/>
                                         <desc type="comment"></desc>
                                     </item>
-                                    <item>
+                                    <item xml:id="">
                                         <p/><locus target=""/>
                                         <desc type="comment"></desc>
                                     </item>
                                 </list>
                             </additions>
+                            <accMat resp="">
+                                <p></p>
+                                <persName key=""></persName>
+                                <q xml:lang=""></q>
+                            </accMat>
                         </physDesc>
                         <history>
                             <summary/>
                             <origin>
+                                <p/>
                                 <origDate notBefore="" notAfter="" when=""/>
                                 <origPlace ref=""/>
                                 <locus target=""/>
@@ -656,6 +706,7 @@
                                 <p/>
                             </origin>
                             <provenance>
+                                <p/>
                                 <date notBefore="" notAfter="" when=""/>
                                 <placeName ref=""/>
                                 <locus target=""/>
@@ -665,6 +716,7 @@
                                 <p/>
                             </provenance>
                             <acquisition>
+                                <p/>
                                 <date notBefore="" notAfter="" when=""/>
                                 <placeName ref=""/>
                                 <locus target=""/>
@@ -695,7 +747,7 @@
                         </msIdentifier>
                         <msContents>
                             <summary/>
-                            <msItem xml:id="$$$" class="">
+                            <msItem xml:id="" class="">
                                 <locus from="" to=""/>
                                 <title xml:lang="he" ref=""/>
                                 <title xml:lang="ar" ref=""/>
@@ -751,11 +803,12 @@
                                         <formula ref=""/>
                                         <catchwords></catchwords>
                                     </collation>
-                                    <condition key=""/>
+                                    <condition><p/></condition>
                                 </supportDesc>
                                 <layoutDesc>
                                     <summary/>
-                                    <layout columns="" writtenLines="">
+                                    <layout xml:id="" columns="" writtenLines="">
+                                        <locus target="" from="" to=""/>
                                         <p/>
                                         <dimensions type="written">
                                             <height unit="mm"/>
@@ -791,20 +844,26 @@
                             <additions>
                                 <p/>
                                 <list>
-                                    <item>
+                                    <item xml:id="">
                                         <p/><locus target=""/>
                                         <desc type="comment"></desc>
                                     </item>
-                                    <item>
+                                    <item xml:id="">
                                         <p/><locus target=""/>
                                         <desc type="comment"></desc>
                                     </item>
                                 </list>
                             </additions>
+                            <accMat resp="">
+                                <p></p>
+                                <persName key=""></persName>
+                                <q xml:lang=""></q>
+                            </accMat>
                         </physDesc>
                         <history>
                             <summary/>
                             <origin>
+                                <p/>
                                 <origDate notBefore="" notAfter="" when=""/>
                                 <origPlace ref=""/>
                                 <locus target=""/>
@@ -813,6 +872,7 @@
                                 <p/>
                             </origin>
                             <provenance>
+                                <p/>
                                 <date notBefore="" notAfter="" when=""/>
                                 <placeName ref=""/>
                                 <locus target=""/>
@@ -822,6 +882,7 @@
                                 <p/>
                             </provenance>
                             <acquisition>
+                                <p/>
                                 <date notBefore="" notAfter="" when=""/>
                                 <placeName ref=""/>
                                 <locus target=""/>
@@ -832,28 +893,6 @@
                             </acquisition>
                         </history>
                     </msPart>
-                    <additional>
-                        <listBibl>
-                            <bibl xml:id="">
-                                <author>
-                                    <forename/>
-                                    <surname/>
-                                </author>
-                                <title xml:lang="" level=""/>
-                                <editor>
-                                    <forename/>
-                                    <surname/>
-                                </editor>
-                                <date/>
-                                <pubPlace/>
-                                <publisher/>
-                                <series/>
-                                <biblScope from="" to="" unit=""/>
-                                <citedRange unit="p"/>
-                                <ptr target=""/>
-                            </bibl>
-                        </listBibl>
-                    </additional>
                 </msDesc>
             </listBibl>
         </body>

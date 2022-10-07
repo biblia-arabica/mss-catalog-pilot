@@ -5,7 +5,7 @@
          xmlns="http://relaxng.org/ns/structure/1.0"
          datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
          ns="http://www.tei-c.org/ns/1.0"><!--
-Schema generated from ODD source 2022-06-01T13:49:37Z. .
+Schema generated from ODD source 2022-10-07T10:17:47Z. .
 TEI Edition: Version 4.4.0. Last updated on
         19th April 2022, revision ff9cc28b0
 TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.4.0/
@@ -1039,12 +1039,6 @@ Measures]</a:documentation>
    <define name="tei_dimensions">
       <element name="dimensions">
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(dimensions) This elements contains the measurements of the leaves. [10.3.4. Dimensions]</a:documentation>
-         <zeroOrMore>
-            <choice>
-               <ref name="tei_height"/>
-               <ref name="tei_depth"/>
-            </choice>
-         </zeroOrMore>
          <zeroOrMore>
             <choice>
                <ref name="tei_height"/>
