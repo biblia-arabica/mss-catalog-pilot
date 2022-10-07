@@ -96,6 +96,7 @@ End license statement: do not remove -->
                             impression.</desc>
                         <content>
                             <elementRef key="p"/>
+                            <elementRef key="dimensions"/>
                         </content>
                         <attList>
                             <attDef ident="ana" mode="delete"/>
@@ -169,7 +170,7 @@ End license statement: do not remove -->
                         </classes>
                     </elementSpec>
                     <elementSpec ident="objectDesc" module="msdescription" mode="delete"/>
-                    <elementSpec ident="origDate" module="msdescription" mode="change">
+                    <elementSpec ident="origDate" module="msdescription" mode="delete">
                         <desc versionDate="2022-05-27" xml:lang="en" xml:id="origdate.desc">Fill in the date in the agreed-upon calendrical system.
                             Use the "when" attribute for precise values. In case the date can only be approximated, use the "notAfter"and "notBefore"
                             attributes together.</desc>
@@ -235,7 +236,7 @@ End license statement: do not remove -->
                             <attDef ident="calendar" mode="delete"/>
                         </attList>
                     </elementSpec>
-                    <elementSpec ident="origPlace" module="msdescription" mode="change">
+                    <elementSpec ident="origPlace" module="msdescription" mode="delete">
                         <desc versionDate="2022-05-27" xml:lang="en" xml:id="origplace.desc">Look up the place records in the database to specify the
                             location where the manuscript or manuscript part was produced. Try different spellings in different languages! If no
                             suitable record exists, create a new one. (The "ref" attribute will be filled out automatically when you link a place
@@ -456,12 +457,9 @@ End license statement: do not remove -->
                             values "true" or "false".</desc>
                         <content>
                             <alternate maxOccurs="unbounded" minOccurs="1">
-                                <elementRef key="dimensions"/>
                                 <elementRef key="condition"/>
                                 <elementRef key="decoNote"/>
                                 <elementRef key="p"/>
-                                <elementRef key="origPlace"/>
-                                <elementRef key="origDate"/>
                             </alternate>
                         </content>
                         <attList>

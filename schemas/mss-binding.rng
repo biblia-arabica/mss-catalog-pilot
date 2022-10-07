@@ -5,7 +5,7 @@
          xmlns="http://relaxng.org/ns/structure/1.0"
          datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
          ns="http://www.tei-c.org/ns/1.0"><!--
-Schema generated from ODD source 2022-06-01T13:39:57Z. .
+Schema generated from ODD source 2022-10-07T10:56:12Z. .
 TEI Edition: Version 4.4.0. Last updated on
         19th April 2022, revision ff9cc28b0
 TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.4.0/
@@ -868,8 +868,6 @@ Suggested values include: 1] internal; 2] external; 3] conjecture</a:documentati
          <ref name="tei_heraldry"/>
          <ref name="tei_material"/>
          <ref name="tei_objectType"/>
-         <ref name="tei_origDate"/>
-         <ref name="tei_origPlace"/>
          <ref name="tei_secFol"/>
          <ref name="tei_signatures"/>
          <ref name="tei_stamp"/>
@@ -1399,24 +1397,6 @@ Sample values include: 1] binding; 2] endband; 3] slipcase; 4] support; 5] tie</
          <empty/>
       </element>
    </define>
-   <define name="tei_origDate">
-      <element name="origDate">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(origin date) Fill in the date in the agreed-upon calendrical system. Use the "when" attribute for precise values. In case the date can only be approximated, use the "notAfter"and "notBefore" attributes together. [10.3.1. Origination]</a:documentation>
-         <text/>
-         <ref name="tei_att.datable.w3c.attribute.when"/>
-         <ref name="tei_att.datable.w3c.attribute.from"/>
-         <ref name="tei_att.datable.w3c.attribute.to"/>
-         <empty/>
-      </element>
-   </define>
-   <define name="tei_origPlace">
-      <element name="origPlace">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(origin place) Look up the place records in the database to specify the location where the manuscript or manuscript part was produced. Try different spellings in different languages! If no suitable record exists, create a new one. (The "ref" attribute will be filled out automatically when you link a place record to this element.) [10.3.1. Origination]</a:documentation>
-         <text/>
-         <ref name="tei_att.editLike.attribute.evidence"/>
-         <empty/>
-      </element>
-   </define>
    <define name="tei_secFol">
       <element name="secFol">
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(second folio) marks the word or words taken from a fixed point in a codex (typically the beginning of the second leaf) in order to provide a unique identifier for it.  [10.3.7. Catchwords, Signatures, Secundo Folio]</a:documentation>
@@ -1734,6 +1714,7 @@ Sample values include: 1] binding; 2] endband; 3] slipcase; 4] support; 5] tie</
       <element name="condition">
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(condition) Preservation, conservation and restoration history; present state of fragment; damages. Choose from the list a generic description that fits best your overall impression. [10.7.1.5. Condition]</a:documentation>
          <ref name="tei_p"/>
+         <ref name="tei_dimensions"/>
          <optional>
             <attribute name="key">
                <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
@@ -1865,12 +1846,9 @@ Sample values include: 1] binding; 2] endband; 3] slipcase; 4] support; 5] tie</
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(binding) Description of the material, dimensions, and preservation of the binding. Specify in the attribute if the binding is contemporary to the manuscript's production or not with the values "true" or "false". [10.7.3.1. Binding Descriptions]</a:documentation>
          <oneOrMore>
             <choice>
-               <ref name="tei_dimensions"/>
                <ref name="tei_condition"/>
                <ref name="tei_decoNote"/>
                <ref name="tei_p"/>
-               <ref name="tei_origPlace"/>
-               <ref name="tei_origDate"/>
             </choice>
          </oneOrMore>
          <optional>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<grammar xmlns:xlink="http://www.w3.org/1999/xlink"
+         xmlns:tei="http://www.tei-c.org/ns/1.0"
+         xmlns:teix="http://www.tei-c.org/ns/Examples"
+         xmlns="http://relaxng.org/ns/structure/1.0"
+         datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+         ns="http://www.tei-c.org/ns/1.0"><!--
+Schema generated from ODD source 2022-10-07T13:53:16Z. .
+TEI Edition: Version 4.4.0. Last updated on
+        19th April 2022, revision ff9cc28b0
+TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.4.0/
+  
+--><!--[http://creativecommons.org/licenses/by-sa/4.0/] This file is licensed under the Creative Commons Attribution-ShareAlike 4.0. -->
+   <sch:ns xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+           prefix="tei"
+           uri="http://www.tei-c.org/ns/1.0"/>
+   <define name="tei_p">
+      <element name="p">
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(paragraph) Enter prose text to connect the fields dedicated to specific elements and form a coherent descriptive text. [3.1. Paragraphs 7.2.5. Speech Contents]</a:documentation>
+         <text/>
+         <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
+                  id="mss-accMat-p-abstractModel-structure-p-in-ab-or-p-constraint-report-1">
+            <rule context="tei:p">
+               <sch:report xmlns="http://www.tei-c.org/ns/1.0"
+                           xmlns:rng="http://relaxng.org/ns/structure/1.0"
+                           xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                           test="    (ancestor::tei:ab or ancestor::tei:p)                          and not( ancestor::tei:floatingText                                 |parent::tei:exemplum                                 |parent::tei:item                                 |parent::tei:note                                 |parent::tei:q                                 |parent::tei:quote                                 |parent::tei:remarks                                 |parent::tei:said                                 |parent::tei:sp                                 |parent::tei:stage                                 |parent::tei:cell                                 |parent::tei:figure                                )">
+        Abstract model violation: Paragraphs may not occur inside other paragraphs or ab elements.
+      </sch:report>
+            </rule>
+         </pattern>
+         <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
+                  id="mss-accMat-p-abstractModel-structure-p-in-l-or-lg-constraint-report-2">
+            <rule context="tei:p">
+               <sch:report xmlns="http://www.tei-c.org/ns/1.0"
+                           xmlns:rng="http://relaxng.org/ns/structure/1.0"
+                           xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                           test="    (ancestor::tei:l or ancestor::tei:lg)                          and not( ancestor::tei:floatingText                                 |parent::tei:figure                                 |parent::tei:note                                )">
+        Abstract model violation: Lines may not contain higher-level structural elements such as div, p, or ab, unless p is a child of figure or note, or is a descendant of floatingText.
+      </sch:report>
+            </rule>
+         </pattern>
+      </element>
+   </define>
+   <define name="tei_q">
+      <element name="q">
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(quoted) Quotation from the manuscript. Use the "xml:lang" attribute to specify the language. [3.3.3. Quotation]</a:documentation>
+         <text/>
+         <optional>
+            <attribute name="type">
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(type) may be used to indicate whether the offset passage is spoken or thought, or to characterize it more finely.
+Suggested values include: 1] spoken (spoken); 2] thought (thought); 3] written (written); 4] soCalled (so called); 5] foreign (foreign); 6] distinct (distinct); 7] term; 8] emph (emph); 9] mentioned (mentioned)</a:documentation>
+               <choice>
+                  <value>spoken</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(spoken) representation of speech</a:documentation>
+                  <value>thought</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(thought) representation of thought, e.g. internal monologue</a:documentation>
+                  <value>written</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(written) quotation from a written source</a:documentation>
+                  <value>soCalled</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(so called) authorial distance</a:documentation>
+                  <value>foreign</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(foreign) </a:documentation>
+                  <value>distinct</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(distinct) linguistically distinct</a:documentation>
+                  <value>term</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">technical term</a:documentation>
+                  <value>emph</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(emph) rhetorically emphasized</a:documentation>
+                  <value>mentioned</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(mentioned) refering to itself, not its normal referent</a:documentation>
+               </choice>
+            </attribute>
+         </optional>
+         <empty/>
+      </element>
+   </define>
+   <define name="tei_persName">
+      <element name="persName">
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(personal name) Look up the person records in the database to identify the person. Try different spellings in different languages! If no suitable record exists, create a new one. Use the "role" attribute to specify the person's function to the manuscript (e.g., "owner") from the list. (The "ref" attribute will be filled out automatically when you link a record to this element.) [13.2.1. Personal Names]</a:documentation>
+         <text/>
+      </element>
+   </define>
+   <start>
+      <choice/>
+   </start>
+</grammar>

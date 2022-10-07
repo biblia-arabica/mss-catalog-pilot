@@ -205,8 +205,7 @@ End license statement: do not remove -->
                             history; present state of fragment; damages; record whether the manuscript has become less readable. Choose from the list
                             supplied for the key attribute a generic description that fits best your overall impression.</desc>
                         <content>
-                            <textNode/>
-                            <textNode/>
+                            <elementRef key="p"/>
                         </content>
                         <attList>
                             <attDef ident="ana" mode="delete"/>
@@ -642,7 +641,46 @@ End license statement: do not remove -->
                             <attDef ident="xml:space" mode="delete"/>
                         </attList>
                     </elementSpec>
-                    <elementSpec ident="width" module="msdescription" mode="delete"/>
+                    <elementSpec ident="width" module="msdescription" mode="change">
+                        <desc versionDate="2022-05-27" xml:id="width.desc" xml:lang="en">The width of the leaf, measured in millimeters.</desc>
+                        <content>
+                            <textNode/>
+                        </content>
+                        <attList>
+                            <attDef ident="ana" mode="delete"/>
+                            <attDef ident="atLeast" mode="delete"/>
+                            <attDef ident="atMost" mode="delete"/>
+                            <attDef ident="cert" mode="delete"/>
+                            <attDef ident="change" mode="delete"/>
+                            <attDef ident="confidence" mode="delete"/>
+                            <attDef ident="copyOf" mode="delete"/>
+                            <attDef ident="corresp" mode="delete"/>
+                            <attDef ident="exclude" mode="delete"/>
+                            <attDef ident="extent" mode="delete"/>
+                            <attDef ident="facs" mode="delete"/>
+                            <attDef ident="max" mode="delete"/>
+                            <attDef ident="min" mode="delete"/>
+                            <attDef ident="n" mode="delete"/>
+                            <attDef ident="next" mode="delete"/>
+                            <attDef ident="precision" mode="delete"/>
+                            <attDef ident="prev" mode="delete"/>
+                            <attDef ident="quantity" mode="delete"/>
+                            <attDef ident="rend" mode="delete"/>
+                            <attDef ident="rendition" mode="delete"/>
+                            <attDef ident="resp" mode="delete"/>
+                            <attDef ident="sameAs" mode="delete"/>
+                            <attDef ident="scope" mode="delete"/>
+                            <attDef ident="select" mode="delete"/>
+                            <attDef ident="source" mode="delete"/>
+                            <attDef ident="style" mode="delete"/>
+                            <attDef ident="synch" mode="delete"/>
+                            <attDef ident="unit" mode="delete"/>
+                            <attDef ident="xml:base" mode="delete"/>
+                            <attDef ident="xml:id" mode="delete"/>
+                            <attDef ident="xml:lang" mode="delete"/>
+                            <attDef ident="xml:space" mode="delete"/>
+                        </attList>
+                    </elementSpec>
                     <elementSpec ident="item" module="core" mode="delete"/>
                     <elementSpec ident="list" module="core" mode="delete"/>
                     <elementSpec ident="measure" module="core" mode="change">
@@ -697,11 +735,6 @@ End license statement: do not remove -->
                             <memberOf key="att.typed" mode="delete"/>
                         </classes>
                         <content>
-                            <alternate maxOccurs="unbounded" minOccurs="0">
-                                <elementRef key="height"/>
-                                <elementRef key="width"/>
-                                <elementRef key="depth"/>
-                            </alternate>
                             <alternate maxOccurs="unbounded" minOccurs="0">
                                 <elementRef key="height"/>
                                 <elementRef key="width"/>
