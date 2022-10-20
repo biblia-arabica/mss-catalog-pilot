@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8"?>
+<grammar xmlns:xlink="http://www.w3.org/1999/xlink"
+         xmlns:tei="http://www.tei-c.org/ns/1.0"
+         xmlns:teix="http://www.tei-c.org/ns/Examples"
+         xmlns="http://relaxng.org/ns/structure/1.0"
+         datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+         ns="http://www.tei-c.org/ns/1.0"><!--
+Schema generated from ODD source 2022-10-20T20:50:48Z. .
+TEI Edition: Version 4.4.0. Last updated on
+        19th April 2022, revision ff9cc28b0
+TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.4.0/
+  
+--><!--[http://creativecommons.org/licenses/by-sa/4.0/] This file is licensed under the Creative Commons Attribution-ShareAlike 4.0. -->
+   <sch:ns xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+           prefix="tei"
+           uri="http://www.tei-c.org/ns/1.0"/>
+   <define name="tei_desc">
+      <element name="desc">
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(description) contains a short description of the purpose, function, or use of its parent element, or when the parent is a documentation element, describes or defines the object being documented.  [22.4.1. Description of Components]</a:documentation>
+         <ref name="tei_gloss"/>
+         <ref name="tei_persName"/>
+         <ref name="tei_placeName"/>
+         <ref name="tei_date"/>
+         <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
+                  id="relations-desc-deprecationInfo-only-in-deprecated-constraint-rule-1">
+            <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
+                      xmlns:rng="http://relaxng.org/ns/structure/1.0"
+                      xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                      context="tei:desc[ @type eq 'deprecationInfo']">
+               <sch:assert test="../@validUntil">Information about a
+        deprecation should only be present in a specification element
+        that is being deprecated: that is, only an element that has a
+        @validUntil attribute should have a child &lt;desc
+        type="deprecationInfo"&gt;.</sch:assert>
+            </sch:rule>
+         </pattern>
+      </element>
+   </define>
+   <define name="tei_gloss">
+      <element name="gloss">
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(gloss) identifies a phrase or word used to provide a gloss or definition for some other word or phrase. [3.4.1. Terms and Glosses 22.4.1. Description of Components]</a:documentation>
+         <text/>
+      </element>
+   </define>
+   <define name="tei_date">
+      <element name="date">
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(date) contains a date in any format. [3.6.4. Dates and Times 2.2.4. Publication, Distribution, Licensing, etc. 2.6. The Revision Description 3.12.2.4. Imprint, Size of a Document, and Reprint Information 15.2.3. The Setting Description 13.4. Dates]</a:documentation>
+         <text/>
+         <empty/>
+      </element>
+   </define>
+   <define name="tei_ptr">
+      <element name="ptr">
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(pointer) defines a pointer to another location. [3.7. Simple Links and Cross-References 16.1. Links]</a:documentation>
+         <rng:empty xmlns:rng="http://relaxng.org/ns/structure/1.0"/>
+      </element>
+   </define>
+   <define name="tei_citedRange">
+      <element name="citedRange">
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(cited range) defines the range of cited content, often represented by pages or other units [3.12.2.5. Scopes and Ranges in Bibliographic Citations]</a:documentation>
+         <text/>
+      </element>
+   </define>
+   <define name="tei_bibl">
+      <element name="bibl">
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(bibliographic citation) contains a loosely-structured bibliographic citation of which the sub-components may or may not be explicitly tagged. [3.12.1. Methods of Encoding Bibliographic References and Lists of References 2.2.7. The Source Description 15.3.2. Declarable Elements]</a:documentation>
+         <ref name="tei_citedRange"/>
+         <ref name="tei_ptr"/>
+      </element>
+   </define>
+   <define name="tei_idno">
+      <element name="idno">
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(identifier) supplies any form of identifier used to identify some object, such as a bibliographic item, a person, a title, an organization, etc. in a standardized way. [13.3.1. Basic Principles 2.2.4. Publication, Distribution, Licensing, etc. 2.2.5. The Series Statement 3.12.2.4. Imprint, Size of a Document, and Reprint Information]</a:documentation>
+         <text/>
+      </element>
+   </define>
+   <define name="tei_persName">
+      <element name="persName">
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(personal name) contains a proper noun or proper-noun phrase referring to a person, possibly including one or more of the person's forenames, surnames, honorifics, added names, etc. [13.2.1. Personal Names]</a:documentation>
+         <text/>
+      </element>
+   </define>
+   <define name="tei_placeName">
+      <element name="placeName">
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(place name) contains an absolute or relative place name. [13.2.3. Place Names]</a:documentation>
+         <text/>
+      </element>
+   </define>
+   <define name="tei_listRelation">
+      <element name="listRelation">
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">provides information about relationships identified amongst people, places, and organizations, either informally as prose or as formally expressed relation links. [13.3.2.3. Personal Relationships]</a:documentation>
+         <ref name="tei_relation"/>
+      </element>
+   </define>
+   <define name="tei_relation">
+      <element name="relation">
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(relationship) Specify the relationship between the person and another person or object. Choose the kind of relation from the list provided in the "name" attributea and add the URIs of the respective records. [13.3.2.3. Personal Relationships]</a:documentation>
+         <optional>
+            <ref name="tei_desc"/>
+         </optional>
+         <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
+                  id="relations-relation-reforkeyorname-constraint-assert-2">
+            <rule context="tei:relation">
+               <assert xmlns:xi="http://www.w3.org/2001/XInclude"
+                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
+                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                       test="@ref or @key or @name">One of the attributes  'name', 'ref' or 'key' must be supplied</assert>
+            </rule>
+         </pattern>
+         <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
+                  id="relations-relation-activemutual-constraint-report-4">
+            <rule context="tei:relation">
+               <report xmlns:xi="http://www.w3.org/2001/XInclude"
+                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
+                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                       test="@active and @mutual">Only one of the attributes @active and @mutual may be supplied</report>
+            </rule>
+         </pattern>
+         <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
+                  id="relations-relation-activepassive-constraint-report-5">
+            <rule context="tei:relation">
+               <report xmlns:xi="http://www.w3.org/2001/XInclude"
+                       xmlns:rng="http://relaxng.org/ns/structure/1.0"
+                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                       test="@passive and not(@active)">the attribute 'passive' may be supplied only if the attribute 'active' is supplied</report>
+            </rule>
+         </pattern>
+         <attribute name="type">
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+            <choice>
+               <value>majlis:wifeOf</value>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">@active: Person, @passive: Person.</a:documentation>
+               <value>majlis:husbandOf</value>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">@active: Person, @passive: Person.</a:documentation>
+               <value>majlis:motherInLawOf</value>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">@active: Person, @passive: Person.</a:documentation>
+               <value>majlis:fatherInLawOf</value>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">@active: Person, @passive: Person.</a:documentation>
+               <value>majlis:sonInLawOf</value>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">@active: Person, @passive: Person.</a:documentation>
+               <value>majlis:daughterInLawOf</value>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">@active: Person, @passive: Person.</a:documentation>
+               <value>majlis:fatherOf</value>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">@active: Person, @passive: Person.</a:documentation>
+               <value>majlis:grandchildOf</value>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">@active: Person, @passive: Person.</a:documentation>
+               <value>majlis:granddaughterOf</value>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">@active: Person, @passive: Person.</a:documentation>
+               <value>majlis:grandfatherOf</value>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">@active: Person, @passive: Person.</a:documentation>
+               <value>majlis:grandmotherOf</value>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">@active: Person, @passive: Person.</a:documentation>
+               <value>majlis:grandsonOf</value>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">@active: Person, @passive: Person.</a:documentation>
+               <value>majlis:greatgrandfatherOf</value>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">@active: Person, @passive: Person.</a:documentation>
+               <value>majlis:sisterOf</value>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">@active: Person, @passive: Person.</a:documentation>
+               <value>majlis:sonOf</value>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">@active: Person, @passive: Person.</a:documentation>
+               <value>majlis:motherOf</value>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">@active: Person, @passive: Person.</a:documentation>
+               <value>majlis:nephewOf</value>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">@active: Person, @passive: Person.</a:documentation>
+               <value>majlis:nieceOf</value>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">@active: Person, @passive: Person.</a:documentation>
+               <value>majlis:stepFamilyRelationship</value>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">@mutual: Person.</a:documentation>
+               <value>majlis:siblingOf</value>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">@mutual: Person.</a:documentation>
+               <value>majlis:uncleOf</value>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">@active: Person, @passive: Person.</a:documentation>
+               <value>majlis:daughterOf</value>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">@active: Person, @passive: Person.</a:documentation>
+               <value>majlis:brotherOf</value>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">@active: Person, @passive: Person.</a:documentation>
+               <value>majlis:kinOf</value>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">@mutual: Person.</a:documentation>
+               <value>majlis:ancestorOf</value>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">@active: Person, @passive: Person.</a:documentation>
+               <value>majlis:cousinOf</value>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">@active: Person, @passive: Person.</a:documentation>
+               <value>majlis:claimedFamilyRelationship</value>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">@mutual: Person.</a:documentation>
+               <value>majlis:familyOf</value>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">@mutual: Person.</a:documentation>
+               <value>majlis:disciplinaryAssociate</value>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">@mutual: Person.</a:documentation>
+               <value>majlis:followerOf</value>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">@active: Person, @passive: Person.</a:documentation>
+               <value>majlis:studentOf</value>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">@active: Person, @passive: Person.</a:documentation>
+               <value>majlis:refuterOf</value>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">@active: Person, @passive: Person.</a:documentation>
+               <value>majlis:adresseeOf</value>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">@active: Person, @passive: Person.</a:documentation>
+               <value>majlis:citedNegatively</value>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">@active: Person, @passive: Person.</a:documentation>
+               <value>majlis:citedPositively</value>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">@active: Person, @passive: Person.</a:documentation>
+               <value>majlis:cited</value>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">@active: Person, @passive: Person.</a:documentation>
+               <value>majlis:correspondedWith</value>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">@mutual: Person.</a:documentation>
+               <value>majlis:debatedWith</value>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">@mutual: Person.</a:documentation>
+               <value>majlis:teacherOf</value>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">@active: Person, @passive: Person.</a:documentation>
+               <value>majlis:assistantOf</value>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">@active: Person, @passive: Person.</a:documentation>
+               <value>majlis:acquaintedWith</value>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">@mutual: Person.</a:documentation>
+               <value>majlis:patronOf</value>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">@active: Person, @passive: Person.</a:documentation>
+               <value>majlis:successorOf</value>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">@active: Person, @passive: Person.</a:documentation>
+               <value>majlis:predecessorOf</value>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">@active: Person, @passive: Person.</a:documentation>
+               <value>majlis:enemyOf</value>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">@active: Person, @passive: Person.</a:documentation>
+               <value>majlis:friendOf</value>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">@active: Person, @passive: Person.</a:documentation>
+               <value>majlis:affiliatedWith</value>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">@active: Person, @passive: Place.</a:documentation>
+               <value>majlis:bornAt</value>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">@active: Person, @passive: Place.</a:documentation>
+               <value>majlis:diedAt</value>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">@active: Person, @passive: Place.</a:documentation>
+               <value>majlis:relationWith</value>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">@active: Person, @passive: Place.</a:documentation>
+               <value>majlis:literaryRelationWith</value>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">@active: Person, @passive: Place.</a:documentation>
+               <value>majlis:attended</value>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">@active: Person,@ passive: ?.</a:documentation>
+               <value>majlis:organized</value>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">@active: Person,@ passive: ?.</a:documentation>
+               <value>majlis:dictated</value>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">@active: Person, @passive: Text.</a:documentation>
+               <value>majlis:refuted</value>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">@active: Person, @passive: Text.</a:documentation>
+               <value>majlis:commentatorOf</value>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">@active: Person, @passive: Text.</a:documentation>
+               <value>majlis:translatorOf</value>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">@active: Person, @passive: Text.</a:documentation>
+               <value>majlis:adapterOf</value>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">@active: Person, @passive: Text.</a:documentation>
+               <value>majlis:mulaḫḫiṣOf</value>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">@active: Person, @passive: Text.</a:documentation>
+               <value>majlis:muḫtaṣirOf</value>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">@active: Person, @passive: Text.</a:documentation>
+               <value>majlis:mujmilOf</value>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">@active: Person, @passive: Text.</a:documentation>
+               <value>majlis:mentionedIn</value>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">@active: Person, @passive: Text.</a:documentation>
+            </choice>
+         </attribute>
+         <empty/>
+         <optional>
+            <attribute name="name">
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">supplies a name for the kind of relationship of which this is an instance.</a:documentation>
+            </attribute>
+         </optional>
+         <optional>
+            <attribute name="passive">
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">identifies the passive participants in a non-mutual relationship.</a:documentation>
+               <list>
+                  <rng:empty xmlns:rng="http://relaxng.org/ns/structure/1.0"/>
+               </list>
+            </attribute>
+         </optional>
+         <empty/>
+      </element>
+   </define>
+   <start>
+      <choice/>
+   </start>
+</grammar>
