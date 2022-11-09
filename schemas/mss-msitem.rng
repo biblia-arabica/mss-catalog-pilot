@@ -5,11 +5,11 @@
          xmlns="http://relaxng.org/ns/structure/1.0"
          datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
          ns="http://www.tei-c.org/ns/1.0"><!--
-Schema generated from ODD source 2022-09-14T11:15:34Z. .
+Schema generated from ODD source 2022-11-02T16:33:27Z. .
 TEI Edition: Version 4.4.0. Last updated on
         19th April 2022, revision ff9cc28b0
 TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.4.0/
-  
+ (Quotation <q/>)  
 --><!--[http://creativecommons.org/licenses/by-sa/4.0/] This file is licensed under the Creative Commons Attribution-ShareAlike 4.0. -->
    <sch:ns xmlns:sch="http://purl.oclc.org/dsdl/schematron"
            prefix="tei"
@@ -816,7 +816,7 @@ TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.4.0/
    </define>
    <define name="tei_p">
       <element name="p">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(paragraph) Enter prose text to connect the fields dedicated to specific elements and form a coherent descriptive text. [3.1. Paragraphs 7.2.5. Speech Contents]</a:documentation>
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(Text Block &lt;p/&gt;) Enter prose text to connect the fields dedicated to specific elements and form a coherent descriptive text. [3.1. Paragraphs 7.2.5. Speech Contents]</a:documentation>
          <text/>
          <text/>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
@@ -879,27 +879,27 @@ TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.4.0/
    </define>
    <define name="tei_note">
       <element name="note">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(note) This is the place to remark on points that don't fit the mold of the other elements or more extensive observations. [3.9.1. Notes and Simple Annotation 2.2.6. The Notes Statement 3.12.2.8. Notes and Statement of Language 9.3.5.4. Notes within Entries]</a:documentation>
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(Note &lt;note/&gt;) This is the place to remark on points that don't fit the mold of the other elements or more extensive observations. [3.9.1. Notes and Simple Annotation 2.2.6. The Notes Statement 3.12.2.8. Notes and Statement of Language 9.3.5.4. Notes within Entries]</a:documentation>
          <ref name="tei_p"/>
       </element>
    </define>
    <define name="tei_author">
       <element name="author">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(author) The author, editor, or compiler of a primary work. Look up the person records in the database to specify an author. Try different spellings in different languages! If no suitable record exists, create a new one. (The "ref" attribute will be filled out automatically when you link a person record to this element.) [3.12.2.2. Titles, Authors, and Editors 2.2.1. The Title Statement]</a:documentation>
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(Author &lt;author/&gt;) The author, editor, or compiler of a primary work. Look up the person records in the database to specify an author. Try different spellings in different languages! If no suitable record exists, create a new one. (The "ref" attribute will be filled out automatically when you link a person record to this element.) [3.12.2.2. Titles, Authors, and Editors 2.2.1. The Title Statement]</a:documentation>
          <ref name="tei_persName"/>
          <empty/>
       </element>
    </define>
    <define name="tei_title">
       <element name="title">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(title) contains a title for any kind of work. [3.12.2.2. Titles, Authors, and Editors 2.2.1. The Title Statement 2.2.5. The Series Statement]</a:documentation>
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(Title &lt;title/&gt;) contains a title for any kind of work. [3.12.2.2. Titles, Authors, and Editors 2.2.1. The Title Statement 2.2.5. The Series Statement]</a:documentation>
          <text/>
          <empty/>
       </element>
    </define>
    <define name="tei_textLang">
       <element name="textLang">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(text language) Choose a language code for the primary language used in the text in the attribute mainLang. The most relevant codes are: "ar": Arabic, "he": Hebrew, and "en" English. If the text contains passages in other languages, enter them in the attribute otherLangs. If you quote from the manuscript in a language other than the one marked in mainLang, you must mark the language of the quote using the xml:lang attribute. If the appropriate code is not listed consult https://r12a.github.io/app-subtags/ [3.12.2.4. Imprint, Size of a Document, and Reprint Information 10.6.6. Languages and Writing Systems]</a:documentation>
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(Text Language &lt;textLang/&gt;) Choose a language code for the primary language used in the text in the attribute mainLang. The most relevant codes are: "ar": Arabic, "he": Hebrew, and "en" English. If the text contains passages in other languages, enter them in the attribute otherLangs. If you quote from the manuscript in a language other than the one marked in mainLang, you must mark the language of the quote using the xml:lang attribute. If the appropriate code is not listed consult https://r12a.github.io/app-subtags/ [3.12.2.4. Imprint, Size of a Document, and Reprint Information 10.6.6. Languages and Writing Systems]</a:documentation>
          <text/>
          <optional>
             <attribute name="mainLang">
@@ -955,25 +955,25 @@ Sample values include: 1] ar; 2] en; 3] he; 4] he-Latn; 5] ar-Latn; 6] ar-Hebr</
    </define>
    <define name="tei_explicit">
       <element name="explicit">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(explicit) The closing words of the text proper, exclusive of any rubric or colophon which might follow it. [10.6.1. The msItem and msItemStruct Elements]</a:documentation>
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(Explicit &lt;explicit/&gt;) The closing words of the text proper, exclusive of any rubric or colophon which might follow it. [10.6.1. The msItem and msItemStruct Elements]</a:documentation>
          <rng:empty xmlns:rng="http://relaxng.org/ns/structure/1.0"/>
       </element>
    </define>
    <define name="tei_finalRubric">
       <element name="finalRubric">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(final rubric) The statement through which a manuscript signals the end of a text division, often with an assertion as to its author and title, set off from the text itself with a visual device. [10.6.1. The msItem and msItemStruct Elements]</a:documentation>
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(Final Rubric &lt;finalRubric/&gt;) The statement through which a manuscript signals the end of a text division, often with an assertion as to its author and title, set off from the text itself with a visual device. [10.6.1. The msItem and msItemStruct Elements]</a:documentation>
          <rng:empty xmlns:rng="http://relaxng.org/ns/structure/1.0"/>
       </element>
    </define>
    <define name="tei_incipit">
       <element name="incipit">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">The opening words of the text proper of sufficient length to identify the work with confidence. [10.6.1. The msItem and msItemStruct Elements]</a:documentation>
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(Incipit &lt;incipit/&gt;) The opening words of the text proper of sufficient length to identify the work with confidence. [10.6.1. The msItem and msItemStruct Elements]</a:documentation>
          <rng:empty xmlns:rng="http://relaxng.org/ns/structure/1.0"/>
       </element>
    </define>
    <define name="tei_rubric">
       <element name="rubric">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(rubric) The words through which a manuscript signals the beginning of a text. This formula often mentions the author and title and it is set off from the text itself through color, shape or character size. [10.6.1. The msItem and msItemStruct Elements]</a:documentation>
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(Rubric &lt;rubric/&gt;) The words through which a manuscript signals the beginning of a text. This formula often mentions the author and title and it is set off from the text itself through color, shape or character size. [10.6.1. The msItem and msItemStruct Elements]</a:documentation>
          <rng:empty xmlns:rng="http://relaxng.org/ns/structure/1.0"/>
       </element>
    </define>
@@ -997,7 +997,7 @@ Sample values include: 1] ar; 2] en; 3] he; 4] he-Latn; 5] ar-Latn; 6] ar-Hebr</
    </define>
    <define name="tei_persName">
       <element name="persName">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(personal name) contains a proper noun or proper-noun phrase referring to a person, possibly including one or more of the person's forenames, surnames, honorifics, added names, etc. [13.2.1. Personal Names]</a:documentation>
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(*Author Name &lt;persName/&gt;) contains a proper noun or proper-noun phrase referring to a person, possibly including one or more of the person's forenames, surnames, honorifics, added names, etc. [13.2.1. Personal Names]</a:documentation>
          <text/>
       </element>
    </define>

@@ -5,7 +5,7 @@
          xmlns="http://relaxng.org/ns/structure/1.0"
          datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
          ns="http://www.tei-c.org/ns/1.0"><!--
-Schema generated from ODD source 2022-10-20T20:50:48Z. .
+Schema generated from ODD source 2022-11-02T13:20:36Z. .
 TEI Edition: Version 4.4.0. Last updated on
         19th April 2022, revision ff9cc28b0
 TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.4.0/
@@ -95,9 +95,7 @@ TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.4.0/
    <define name="tei_relation">
       <element name="relation">
          <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(relationship) Specify the relationship between the person and another person or object. Choose the kind of relation from the list provided in the "name" attributea and add the URIs of the respective records. [13.3.2.3. Personal Relationships]</a:documentation>
-         <optional>
-            <ref name="tei_desc"/>
-         </optional>
+         <ref name="tei_desc"/>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
                   id="relations-relation-reforkeyorname-constraint-assert-2">
             <rule context="tei:relation">
